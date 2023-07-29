@@ -23,6 +23,10 @@ Singletons are also documented here, since they can be accessed from anywhere.
 
 For the entries related to GDScript which can be accessed in any script see :ref:`@GDScript<class_@GDScript>`.
 
+.. note::
+
+	There are notable differences when using this API with C#. See :ref:`doc_c_sharp_differences` for more information.
+
 .. rst-class:: classref-introduction-group
 
 Tutorials
@@ -4899,7 +4903,7 @@ The :ref:`NavigationServer2D<class_NavigationServer2D>` singleton.
 
 :ref:`NavigationServer3D<class_NavigationServer3D>` **NavigationServer3D**
 
-The :ref:`NavigationServer2D<class_NavigationServer2D>` singleton.
+The :ref:`NavigationServer3D<class_NavigationServer3D>` singleton.
 
 .. rst-class:: classref-item-separator
 
