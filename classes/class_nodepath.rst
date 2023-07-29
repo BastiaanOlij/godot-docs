@@ -33,6 +33,7 @@ Some examples of NodePaths include the following:
     ^"." # The current node.
     ^".." # The parent node.
     ^"../C" # A sibling node C.
+    ^"../.." # The grandparent node.
     # A leading slash means it is absolute from the SceneTree.
     ^"/root" # Equivalent to get_tree().get_root().
     ^"/root/Main" # If your main scene's root node were named "Main".
@@ -43,6 +44,10 @@ See also :ref:`StringName<class_StringName>`, which is a similar concept for gen
 \ **Note:** In the editor, **NodePath** properties are automatically updated when moving, renaming or deleting a node in the scene tree, but they are never updated at runtime.
 
 \ **Note:** In a boolean context, a **NodePath** will evaluate to ``false`` if it is empty (``NodePath("")``). Otherwise, a **NodePath** will always evaluate to ``true``.
+
+.. note::
+
+	There are notable differences when using this API with C#. See :ref:`doc_c_sharp_differences` for more information.
 
 .. rst-class:: classref-introduction-group
 

@@ -510,7 +510,7 @@ Changes the running scene to the one at the given ``path``, after loading it int
 
 Returns :ref:`@GlobalScope.OK<class_@GlobalScope_constant_OK>` on success, :ref:`@GlobalScope.ERR_CANT_OPEN<class_@GlobalScope_constant_ERR_CANT_OPEN>` if the ``path`` cannot be loaded into a :ref:`PackedScene<class_PackedScene>`, or :ref:`@GlobalScope.ERR_CANT_CREATE<class_@GlobalScope_constant_ERR_CANT_CREATE>` if that scene cannot be instantiated.
 
-\ **Note:** The scene change is deferred, which means that the new scene node is added to the tree at the end of the frame. This ensures that both scenes aren't running at the same time, while still freeing the previous scene in a safe way similar to :ref:`Node.queue_free<class_Node_method_queue_free>`. As such, you won't be able to access the loaded scene immediately after the :ref:`change_scene_to_file<class_SceneTree_method_change_scene_to_file>` call.
+\ **Note:** The new scene node is added to the tree at the end of the frame. This ensures that both scenes aren't running at the same time, while still freeing the previous scene in a safe way similar to :ref:`Node.queue_free<class_Node_method_queue_free>`. As such, you won't be able to access the loaded scene immediately after the :ref:`change_scene_to_file<class_SceneTree_method_change_scene_to_file>` call.
 
 .. rst-class:: classref-item-separator
 
@@ -526,7 +526,7 @@ Changes the running scene to a new instance of the given :ref:`PackedScene<class
 
 Returns :ref:`@GlobalScope.OK<class_@GlobalScope_constant_OK>` on success, :ref:`@GlobalScope.ERR_CANT_CREATE<class_@GlobalScope_constant_ERR_CANT_CREATE>` if the scene cannot be instantiated, or :ref:`@GlobalScope.ERR_INVALID_PARAMETER<class_@GlobalScope_constant_ERR_INVALID_PARAMETER>` if the scene is invalid.
 
-\ **Note:** The scene change is deferred, which means that the new scene node is added to the tree at the end of the frame. You won't be able to access it immediately after the :ref:`change_scene_to_packed<class_SceneTree_method_change_scene_to_packed>` call.
+\ **Note:** The new scene node is added to the tree at the end of the frame. You won't be able to access it immediately after the :ref:`change_scene_to_packed<class_SceneTree_method_change_scene_to_packed>` call.
 
 .. rst-class:: classref-item-separator
 
@@ -620,6 +620,8 @@ Returns the current frame number, i.e. the total frame count since the applicati
 :ref:`MultiplayerAPI<class_MultiplayerAPI>` **get_multiplayer** **(** :ref:`NodePath<class_NodePath>` for_path=NodePath("") **)** |const|
 
 Return the :ref:`MultiplayerAPI<class_MultiplayerAPI>` configured for the given path, or the default one if ``for_path`` is empty.
+
+\ **Note:** Only one :ref:`MultiplayerAPI<class_MultiplayerAPI>` may be configured for any subpath. If one is configured for ``"/root/Foo"`` then calling this for ``"/root/Foo/Bar"`` will return the one configured for ``"/root/Foo"``, regardless if one is configured for that path.
 
 .. rst-class:: classref-item-separator
 
@@ -780,6 +782,8 @@ Sets the given ``property`` to ``value`` on all members of the given group, resp
 void **set_multiplayer** **(** :ref:`MultiplayerAPI<class_MultiplayerAPI>` multiplayer, :ref:`NodePath<class_NodePath>` root_path=NodePath("") **)**
 
 Sets a custom :ref:`MultiplayerAPI<class_MultiplayerAPI>` with the given ``root_path`` (controlling also the relative subpaths), or override the default one if ``root_path`` is empty.
+
+\ **Note:** Only one :ref:`MultiplayerAPI<class_MultiplayerAPI>` may be configured for any subpath. If one is configured for ``"/root/Foo"`` setting one for ``"/root/Foo/Bar"`` will be ignored. See :ref:`get_multiplayer<class_SceneTree_method_get_multiplayer>`.
 
 .. rst-class:: classref-item-separator
 
