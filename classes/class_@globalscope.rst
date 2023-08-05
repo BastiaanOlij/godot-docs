@@ -23,6 +23,10 @@ Singletons are also documented here, since they can be accessed from anywhere.
 
 For the entries related to GDScript which can be accessed in any script see :ref:`@GDScript<class_@GDScript>`.
 
+.. note::
+
+	There are notable differences when using this API with C#. See :ref:`doc_c_sharp_differences` for more information.
+
 .. rst-class:: classref-introduction-group
 
 Tutorials
@@ -4899,7 +4903,7 @@ The :ref:`NavigationServer2D<class_NavigationServer2D>` singleton.
 
 :ref:`NavigationServer3D<class_NavigationServer3D>` **NavigationServer3D**
 
-The :ref:`NavigationServer2D<class_NavigationServer2D>` singleton.
+The :ref:`NavigationServer3D<class_NavigationServer3D>` singleton.
 
 .. rst-class:: classref-item-separator
 
@@ -5594,9 +5598,9 @@ Returns a human-readable name for the given :ref:`Error<enum_@GlobalScope_Error>
 
 :ref:`float<class_float>` **exp** **(** :ref:`float<class_float>` x **)**
 
-The natural exponential function. It raises the mathematical constant **e** to the power of ``x`` and returns it.
+The natural exponential function. It raises the mathematical constant *e* to the power of ``x`` and returns it.
 
-\ **e** has an approximate value of 2.71828, and can be obtained with ``exp(1)``.
+\ *e* has an approximate value of 2.71828, and can be obtained with ``exp(1)``.
 
 For exponents to other bases use the method :ref:`pow<class_@GlobalScope_method_pow>`.
 
