@@ -85,6 +85,8 @@ Methods
    +-------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`String<class_String>`                                             | :ref:`get_joy_guid<class_Input_method_get_joy_guid>` **(** :ref:`int<class_int>` device **)** |const|                                                                                                                                                                                                        |
    +-------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Dictionary<class_Dictionary>`                                     | :ref:`get_joy_info<class_Input_method_get_joy_info>` **(** :ref:`int<class_int>` device **)** |const|                                                                                                                                                                                                        |
+   +-------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`String<class_String>`                                             | :ref:`get_joy_name<class_Input_method_get_joy_name>` **(** :ref:`int<class_int>` device **)**                                                                                                                                                                                                                |
    +-------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`float<class_float>`                                               | :ref:`get_joy_vibration_duration<class_Input_method_get_joy_vibration_duration>` **(** :ref:`int<class_int>` device **)**                                                                                                                                                                                    |
@@ -134,6 +136,8 @@ Methods
    | void                                                                    | :ref:`set_gyroscope<class_Input_method_set_gyroscope>` **(** :ref:`Vector3<class_Vector3>` value **)**                                                                                                                                                                                                       |
    +-------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                                                    | :ref:`set_magnetometer<class_Input_method_set_magnetometer>` **(** :ref:`Vector3<class_Vector3>` value **)**                                                                                                                                                                                                 |
+   +-------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                                 | :ref:`should_ignore_device<class_Input_method_should_ignore_device>` **(** :ref:`int<class_int>` vendor_id, :ref:`int<class_int>` product_id **)** |const|                                                                                                                                                   |
    +-------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                                                    | :ref:`start_joy_vibration<class_Input_method_start_joy_vibration>` **(** :ref:`int<class_int>` device, :ref:`float<class_float>` weak_magnitude, :ref:`float<class_float>` strong_magnitude, :ref:`float<class_float>` duration=0 **)**                                                                      |
    +-------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -606,6 +610,32 @@ Returns a SDL2-compatible device GUID on platforms that use gamepad remapping, e
 
 ----
 
+.. _class_Input_method_get_joy_info:
+
+.. rst-class:: classref-method
+
+:ref:`Dictionary<class_Dictionary>` **get_joy_info** **(** :ref:`int<class_int>` device **)** |const|
+
+Returns a dictionary with extra platform-specific information about the device, e.g. the raw gamepad name from the OS or the Steam Input index.
+
+On Windows the dictionary contains the following fields:
+
+\ ``xinput_index``: The index of the controller in the XInput system.
+
+On Linux:
+
+\ ``raw_name``: The name of the controller as it came from the OS, before getting renamed by the godot controller database.
+
+\ ``vendor_id``: The USB vendor ID of the device.
+
+\ ``product_id``: The USB product ID of the device.
+
+\ ``steam_input_index``: The Steam Input gamepad index, if the device is not a Steam Input device this key won't be present.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_Input_method_get_joy_name:
 
 .. rst-class:: classref-method
@@ -738,7 +768,7 @@ If ``exact_match`` is ``false``, it ignores additional input modifiers for :ref:
 
 :ref:`bool<class_bool>` **is_action_pressed** **(** :ref:`StringName<class_StringName>` action, :ref:`bool<class_bool>` exact_match=false **)** |const|
 
-Returns ``true`` if you are pressing the action event. Note that if an action has multiple buttons assigned and more than one of them is pressed, releasing one button will release the action, even if some other button assigned to this action is still pressed.
+Returns ``true`` if you are pressing the action event.
 
 If ``exact_match`` is ``false``, it ignores additional input modifiers for :ref:`InputEventKey<class_InputEventKey>` and :ref:`InputEventMouseButton<class_InputEventMouseButton>` events, and the direction for :ref:`InputEventJoypadMotion<class_InputEventJoypadMotion>` events.
 
@@ -974,6 +1004,20 @@ void **set_magnetometer** **(** :ref:`Vector3<class_Vector3>` value **)**
 Sets the value of the magnetic field of the magnetometer sensor. Can be used for debugging on devices without a hardware sensor, for example in an editor on a PC.
 
 \ **Note:** This value can be immediately overwritten by the hardware sensor value on Android and iOS.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_Input_method_should_ignore_device:
+
+.. rst-class:: classref-method
+
+:ref:`bool<class_bool>` **should_ignore_device** **(** :ref:`int<class_int>` vendor_id, :ref:`int<class_int>` product_id **)** |const|
+
+Queries whether an input device should be ignored or not. Devices can be ignored by setting the environment variable ``SDL_GAMECONTROLLER_IGNORE_DEVICES``. Read the `SDL documentation <https://wiki.libsdl.org/SDL2>`__ for more information.
+
+\ **Note:** Some 3rd party tools can contribute to the list of ignored devices. For example, *SteamInput* creates virtual devices from physical devices for remapping purposes. To avoid handling the same input device twice, the original device is added to the ignore list.
 
 .. rst-class:: classref-item-separator
 
