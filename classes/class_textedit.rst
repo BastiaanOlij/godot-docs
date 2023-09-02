@@ -44,7 +44,7 @@ Properties
    +-------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                                           | :ref:`caret_draw_when_editable_disabled<class_TextEdit_property_caret_draw_when_editable_disabled>`         | ``false``                                                                           |
    +-------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                                           | :ref:`caret_mid_grapheme<class_TextEdit_property_caret_mid_grapheme>`                                       | ``true``                                                                            |
+   | :ref:`bool<class_bool>`                                           | :ref:`caret_mid_grapheme<class_TextEdit_property_caret_mid_grapheme>`                                       | ``false``                                                                           |
    +-------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                                           | :ref:`caret_move_on_right_click<class_TextEdit_property_caret_move_on_right_click>`                         | ``true``                                                                            |
    +-------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
@@ -524,7 +524,7 @@ Emitted when a gutter is removed.
 
 Emitted immediately when the text changes.
 
-When text is added ``from_line`` will be less then ``to_line``. On a remove ``to_line`` will be less then ``from_line``.
+When text is added ``from_line`` will be less than ``to_line``. On a remove ``to_line`` will be less than ``from_line``.
 
 .. rst-class:: classref-item-separator
 
@@ -1106,7 +1106,7 @@ If ``true``, caret will be visible when :ref:`editable<class_TextEdit_property_e
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **caret_mid_grapheme** = ``true``
+:ref:`bool<class_bool>` **caret_mid_grapheme** = ``false``
 
 .. rst-class:: classref-property-setget
 
