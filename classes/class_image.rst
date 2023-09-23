@@ -107,6 +107,8 @@ Methods
    +-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                         | :ref:`get_height<class_Image_method_get_height>` **(** **)** |const|                                                                                                                                                                                                          |
    +-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`                         | :ref:`get_mipmap_count<class_Image_method_get_mipmap_count>` **(** **)** |const|                                                                                                                                                                                              |
+   +-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                         | :ref:`get_mipmap_offset<class_Image_method_get_mipmap_offset>` **(** :ref:`int<class_int>` mipmap **)** |const|                                                                                                                                                               |
    +-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Color<class_Color>`                     | :ref:`get_pixel<class_Image_method_get_pixel>` **(** :ref:`int<class_int>` x, :ref:`int<class_int>` y **)** |const|                                                                                                                                                           |
@@ -137,7 +139,13 @@ Methods
    +-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Error<enum_@GlobalScope_Error>`         | :ref:`load_jpg_from_buffer<class_Image_method_load_jpg_from_buffer>` **(** :ref:`PackedByteArray<class_PackedByteArray>` buffer **)**                                                                                                                                         |
    +-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Error<enum_@GlobalScope_Error>`         | :ref:`load_ktx_from_buffer<class_Image_method_load_ktx_from_buffer>` **(** :ref:`PackedByteArray<class_PackedByteArray>` buffer **)**                                                                                                                                         |
+   +-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Error<enum_@GlobalScope_Error>`         | :ref:`load_png_from_buffer<class_Image_method_load_png_from_buffer>` **(** :ref:`PackedByteArray<class_PackedByteArray>` buffer **)**                                                                                                                                         |
+   +-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Error<enum_@GlobalScope_Error>`         | :ref:`load_svg_from_buffer<class_Image_method_load_svg_from_buffer>` **(** :ref:`PackedByteArray<class_PackedByteArray>` buffer, :ref:`float<class_float>` scale=1.0 **)**                                                                                                    |
+   +-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Error<enum_@GlobalScope_Error>`         | :ref:`load_svg_from_string<class_Image_method_load_svg_from_string>` **(** :ref:`String<class_String>` svg_str, :ref:`float<class_float>` scale=1.0 **)**                                                                                                                     |
    +-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Error<enum_@GlobalScope_Error>`         | :ref:`load_tga_from_buffer<class_Image_method_load_tga_from_buffer>` **(** :ref:`PackedByteArray<class_PackedByteArray>` buffer **)**                                                                                                                                         |
    +-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -503,7 +511,7 @@ Texture format that uses `BPTC <https://www.khronos.org/opengl/wiki/BPTC_Texture
 
 :ref:`Format<enum_Image_Format>` **FORMAT_ASTC_4x4** = ``35``
 
-`Adaptive Scalable Texutre Compression <https://en.wikipedia.org/wiki/Adaptive_scalable_texture_compression>`__. This implements the 4x4 (high quality) mode.
+`Adaptive Scalable Texture Compression <https://en.wikipedia.org/wiki/Adaptive_scalable_texture_compression>`__. This implements the 4x4 (high quality) mode.
 
 .. _class_Image_constant_FORMAT_ASTC_4x4_HDR:
 
@@ -519,7 +527,7 @@ Same format as :ref:`FORMAT_ASTC_4x4<class_Image_constant_FORMAT_ASTC_4x4>`, but
 
 :ref:`Format<enum_Image_Format>` **FORMAT_ASTC_8x8** = ``37``
 
-`Adaptive Scalable Texutre Compression <https://en.wikipedia.org/wiki/Adaptive_scalable_texture_compression>`__. This implements the 8x8 (low quality) mode.
+`Adaptive Scalable Texture Compression <https://en.wikipedia.org/wiki/Adaptive_scalable_texture_compression>`__. This implements the 8x8 (low quality) mode.
 
 .. _class_Image_constant_FORMAT_ASTC_8x8_HDR:
 
@@ -1154,7 +1162,9 @@ Flips the image vertically.
 
 :ref:`Error<enum_@GlobalScope_Error>` **generate_mipmaps** **(** :ref:`bool<class_bool>` renormalize=false **)**
 
-Generates mipmaps for the image. Mipmaps are precalculated lower-resolution copies of the image that are automatically used if the image needs to be scaled down when rendered. They help improve image quality and performance when rendering. This method returns an error if the image is compressed, in a custom format, or if the image's width/height is ``0``.
+Generates mipmaps for the image. Mipmaps are precalculated lower-resolution copies of the image that are automatically used if the image needs to be scaled down when rendered. They help improve image quality and performance when rendering. This method returns an error if the image is compressed, in a custom format, or if the image's width/height is ``0``. Enabling ``renormalize`` when generating mipmaps for normal textures will make sure all resulting vector values are normalized.
+
+It is possible to check if the image has mipmaps by calling :ref:`has_mipmaps<class_Image_method_has_mipmaps>` or :ref:`get_mipmap_count<class_Image_method_get_mipmap_count>`.
 
 .. rst-class:: classref-item-separator
 
@@ -1191,6 +1201,18 @@ Returns the image's format. See :ref:`Format<enum_Image_Format>` constants.
 :ref:`int<class_int>` **get_height** **(** **)** |const|
 
 Returns the image's height.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_Image_method_get_mipmap_count:
+
+.. rst-class:: classref-method
+
+:ref:`int<class_int>` **get_mipmap_count** **(** **)** |const|
+
+Returns the number of mipmap levels or 0 if the image has no mipmaps. The largest main level image is not counted as a mipmap level by this method, so if you want to include it you can add 1 to this count.
 
 .. rst-class:: classref-item-separator
 
@@ -1386,6 +1408,18 @@ Loads an image from the binary contents of a JPEG file.
 
 ----
 
+.. _class_Image_method_load_ktx_from_buffer:
+
+.. rst-class:: classref-method
+
+:ref:`Error<enum_@GlobalScope_Error>` **load_ktx_from_buffer** **(** :ref:`PackedByteArray<class_PackedByteArray>` buffer **)**
+
+Loads an image from the binary contents of a KTX file.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_Image_method_load_png_from_buffer:
 
 .. rst-class:: classref-method
@@ -1393,6 +1427,36 @@ Loads an image from the binary contents of a JPEG file.
 :ref:`Error<enum_@GlobalScope_Error>` **load_png_from_buffer** **(** :ref:`PackedByteArray<class_PackedByteArray>` buffer **)**
 
 Loads an image from the binary contents of a PNG file.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_Image_method_load_svg_from_buffer:
+
+.. rst-class:: classref-method
+
+:ref:`Error<enum_@GlobalScope_Error>` **load_svg_from_buffer** **(** :ref:`PackedByteArray<class_PackedByteArray>` buffer, :ref:`float<class_float>` scale=1.0 **)**
+
+Loads an image from the UTF-8 binary contents of an **uncompressed** SVG file (**.svg**).
+
+\ **Note:** Beware when using compressed SVG files (like **.svgz**), they need to be ``decompressed`` before loading.
+
+\ **Note:** This method is only available in engine builds with the SVG module enabled. By default, the SVG module is enabled, but it can be disabled at build-time using the ``module_svg_enabled=no`` SCons option.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_Image_method_load_svg_from_string:
+
+.. rst-class:: classref-method
+
+:ref:`Error<enum_@GlobalScope_Error>` **load_svg_from_string** **(** :ref:`String<class_String>` svg_str, :ref:`float<class_float>` scale=1.0 **)**
+
+Loads an image from the string contents of a SVG file (**.svg**).
+
+\ **Note:** This method is only available in engine builds with the SVG module enabled. By default, the SVG module is enabled, but it can be disabled at build-time using the ``module_svg_enabled=no`` SCons option.
 
 .. rst-class:: classref-item-separator
 

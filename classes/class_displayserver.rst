@@ -34,9 +34,13 @@ Methods
    +-------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`String<class_String>`                                             | :ref:`clipboard_get<class_DisplayServer_method_clipboard_get>` **(** **)** |const|                                                                                                                                                                                                                                                                                                                                                                                                                    |
    +-------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Image<class_Image>`                                               | :ref:`clipboard_get_image<class_DisplayServer_method_clipboard_get_image>` **(** **)** |const|                                                                                                                                                                                                                                                                                                                                                                                                        |
+   +-------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`String<class_String>`                                             | :ref:`clipboard_get_primary<class_DisplayServer_method_clipboard_get_primary>` **(** **)** |const|                                                                                                                                                                                                                                                                                                                                                                                                    |
    +-------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                                                 | :ref:`clipboard_has<class_DisplayServer_method_clipboard_has>` **(** **)** |const|                                                                                                                                                                                                                                                                                                                                                                                                                    |
+   +-------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                                 | :ref:`clipboard_has_image<class_DisplayServer_method_clipboard_has_image>` **(** **)** |const|                                                                                                                                                                                                                                                                                                                                                                                                        |
    +-------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                                                    | :ref:`clipboard_set<class_DisplayServer_method_clipboard_set>` **(** :ref:`String<class_String>` clipboard **)**                                                                                                                                                                                                                                                                                                                                                                                      |
    +-------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -53,6 +57,8 @@ Methods
    | :ref:`Error<enum_@GlobalScope_Error>`                                   | :ref:`dialog_show<class_DisplayServer_method_dialog_show>` **(** :ref:`String<class_String>` title, :ref:`String<class_String>` description, :ref:`PackedStringArray<class_PackedStringArray>` buttons, :ref:`Callable<class_Callable>` callback **)**                                                                                                                                                                                                                                                |
    +-------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                                                    | :ref:`enable_for_stealing_focus<class_DisplayServer_method_enable_for_stealing_focus>` **(** :ref:`int<class_int>` process_id **)**                                                                                                                                                                                                                                                                                                                                                                   |
+   +-------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Error<enum_@GlobalScope_Error>`                                   | :ref:`file_dialog_show<class_DisplayServer_method_file_dialog_show>` **(** :ref:`String<class_String>` title, :ref:`String<class_String>` current_directory, :ref:`String<class_String>` filename, :ref:`bool<class_bool>` show_hidden, :ref:`FileDialogMode<enum_DisplayServer_FileDialogMode>` mode, :ref:`PackedStringArray<class_PackedStringArray>` filters, :ref:`Callable<class_Callable>` callback **)**                                                                                      |
    +-------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                                                    | :ref:`force_process_and_drop_events<class_DisplayServer_method_force_process_and_drop_events>` **(** **)**                                                                                                                                                                                                                                                                                                                                                                                            |
    +-------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -181,6 +187,8 @@ Methods
    | :ref:`int<class_int>`                                                   | :ref:`keyboard_get_current_layout<class_DisplayServer_method_keyboard_get_current_layout>` **(** **)** |const|                                                                                                                                                                                                                                                                                                                                                                                        |
    +-------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Key<enum_@GlobalScope_Key>`                                       | :ref:`keyboard_get_keycode_from_physical<class_DisplayServer_method_keyboard_get_keycode_from_physical>` **(** :ref:`Key<enum_@GlobalScope_Key>` keycode **)** |const|                                                                                                                                                                                                                                                                                                                                |
+   +-------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Key<enum_@GlobalScope_Key>`                                       | :ref:`keyboard_get_label_from_physical<class_DisplayServer_method_keyboard_get_label_from_physical>` **(** :ref:`Key<enum_@GlobalScope_Key>` keycode **)** |const|                                                                                                                                                                                                                                                                                                                                    |
    +-------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                                                   | :ref:`keyboard_get_layout_count<class_DisplayServer_method_keyboard_get_layout_count>` **(** **)** |const|                                                                                                                                                                                                                                                                                                                                                                                            |
    +-------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -886,6 +894,56 @@ Represents the size of the :ref:`CursorShape<enum_DisplayServer_CursorShape>` en
 
 ----
 
+.. _enum_DisplayServer_FileDialogMode:
+
+.. rst-class:: classref-enumeration
+
+enum **FileDialogMode**:
+
+.. _class_DisplayServer_constant_FILE_DIALOG_MODE_OPEN_FILE:
+
+.. rst-class:: classref-enumeration-constant
+
+:ref:`FileDialogMode<enum_DisplayServer_FileDialogMode>` **FILE_DIALOG_MODE_OPEN_FILE** = ``0``
+
+The native file dialog allows selecting one, and only one file.
+
+.. _class_DisplayServer_constant_FILE_DIALOG_MODE_OPEN_FILES:
+
+.. rst-class:: classref-enumeration-constant
+
+:ref:`FileDialogMode<enum_DisplayServer_FileDialogMode>` **FILE_DIALOG_MODE_OPEN_FILES** = ``1``
+
+The native file dialog allows selecting multiple files.
+
+.. _class_DisplayServer_constant_FILE_DIALOG_MODE_OPEN_DIR:
+
+.. rst-class:: classref-enumeration-constant
+
+:ref:`FileDialogMode<enum_DisplayServer_FileDialogMode>` **FILE_DIALOG_MODE_OPEN_DIR** = ``2``
+
+The native file dialog only allows selecting a directory, disallowing the selection of any file.
+
+.. _class_DisplayServer_constant_FILE_DIALOG_MODE_OPEN_ANY:
+
+.. rst-class:: classref-enumeration-constant
+
+:ref:`FileDialogMode<enum_DisplayServer_FileDialogMode>` **FILE_DIALOG_MODE_OPEN_ANY** = ``3``
+
+The native file dialog allows selecting one file or directory.
+
+.. _class_DisplayServer_constant_FILE_DIALOG_MODE_SAVE_FILE:
+
+.. rst-class:: classref-enumeration-constant
+
+:ref:`FileDialogMode<enum_DisplayServer_FileDialogMode>` **FILE_DIALOG_MODE_SAVE_FILE** = ``4``
+
+The native file dialog will warn when a file exists.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _enum_DisplayServer_WindowMode:
 
 .. rst-class:: classref-enumeration
@@ -1134,7 +1192,7 @@ enum **VSyncMode**:
 
 :ref:`VSyncMode<enum_DisplayServer_VSyncMode>` **VSYNC_DISABLED** = ``0``
 
-No vertical synchronization, which means the engine will display frames as fast as possible (tearing may be visible). Framerate is unlimited (nonwithstanding :ref:`Engine.max_fps<class_Engine_property_max_fps>`).
+No vertical synchronization, which means the engine will display frames as fast as possible (tearing may be visible). Framerate is unlimited (notwithstanding :ref:`Engine.max_fps<class_Engine_property_max_fps>`).
 
 .. _class_DisplayServer_constant_VSYNC_ENABLED:
 
@@ -1142,7 +1200,7 @@ No vertical synchronization, which means the engine will display frames as fast 
 
 :ref:`VSyncMode<enum_DisplayServer_VSyncMode>` **VSYNC_ENABLED** = ``1``
 
-Default vertical synchronization mode, the image is displayed only on vertical blanking intervals (no tearing is visible). Framerate is limited by the monitor refresh rate (nonwithstanding :ref:`Engine.max_fps<class_Engine_property_max_fps>`).
+Default vertical synchronization mode, the image is displayed only on vertical blanking intervals (no tearing is visible). Framerate is limited by the monitor refresh rate (notwithstanding :ref:`Engine.max_fps<class_Engine_property_max_fps>`).
 
 .. _class_DisplayServer_constant_VSYNC_ADAPTIVE:
 
@@ -1150,7 +1208,7 @@ Default vertical synchronization mode, the image is displayed only on vertical b
 
 :ref:`VSyncMode<enum_DisplayServer_VSyncMode>` **VSYNC_ADAPTIVE** = ``2``
 
-Behaves like :ref:`VSYNC_DISABLED<class_DisplayServer_constant_VSYNC_DISABLED>` when the framerate drops below the screen's refresh rate to reduce stuttering (tearing may be visible). Otherwise, vertical synchronization is enabled to avoid tearing. Framerate is limited by the monitor refresh rate (nonwithstanding :ref:`Engine.max_fps<class_Engine_property_max_fps>`). Behaves like :ref:`VSYNC_ENABLED<class_DisplayServer_constant_VSYNC_ENABLED>` when using the Compatibility rendering method.
+Behaves like :ref:`VSYNC_DISABLED<class_DisplayServer_constant_VSYNC_DISABLED>` when the framerate drops below the screen's refresh rate to reduce stuttering (tearing may be visible). Otherwise, vertical synchronization is enabled to avoid tearing. Framerate is limited by the monitor refresh rate (notwithstanding :ref:`Engine.max_fps<class_Engine_property_max_fps>`). Behaves like :ref:`VSYNC_ENABLED<class_DisplayServer_constant_VSYNC_ENABLED>` when using the Compatibility rendering method.
 
 .. _class_DisplayServer_constant_VSYNC_MAILBOX:
 
@@ -1158,7 +1216,7 @@ Behaves like :ref:`VSYNC_DISABLED<class_DisplayServer_constant_VSYNC_DISABLED>` 
 
 :ref:`VSyncMode<enum_DisplayServer_VSyncMode>` **VSYNC_MAILBOX** = ``3``
 
-Displays the most recent image in the queue on vertical blanking intervals, while rendering to the other images (no tearing is visible). Framerate is unlimited (nonwithstanding :ref:`Engine.max_fps<class_Engine_property_max_fps>`).
+Displays the most recent image in the queue on vertical blanking intervals, while rendering to the other images (no tearing is visible). Framerate is unlimited (notwithstanding :ref:`Engine.max_fps<class_Engine_property_max_fps>`).
 
 Although not guaranteed, the images can be rendered as fast as possible, which may reduce input lag (also called "Fast" V-Sync mode). :ref:`VSYNC_MAILBOX<class_DisplayServer_constant_VSYNC_MAILBOX>` works best when at least twice as many frames as the display refresh rate are rendered. Behaves like :ref:`VSYNC_ENABLED<class_DisplayServer_constant_VSYNC_ENABLED>` when using the Compatibility rendering method.
 
@@ -1224,11 +1282,11 @@ Window view:
 
 OpenGL context (only with the GL Compatibility renderer):
 
-- Windows: ``HGLRC`` for the window.
+- Windows: ``HGLRC`` for the window (native GL), or ``EGLContext`` for the window (ANGLE).
 
 - Linux: ``GLXContext*`` for the window.
 
-- macOS: ``NSOpenGLContext*`` for the window.
+- macOS: ``NSOpenGLContext*`` for the window (native GL), or ``EGLContext`` for the window (ANGLE).
 
 - Android: ``EGLContext`` for the window.
 
@@ -1352,6 +1410,18 @@ Returns the user's clipboard as a string if possible.
 
 ----
 
+.. _class_DisplayServer_method_clipboard_get_image:
+
+.. rst-class:: classref-method
+
+:ref:`Image<class_Image>` **clipboard_get_image** **(** **)** |const|
+
+Returns the user's clipboard as an image if possible.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_DisplayServer_method_clipboard_get_primary:
 
 .. rst-class:: classref-method
@@ -1372,7 +1442,19 @@ Returns the user's `primary <https://unix.stackexchange.com/questions/139191/wha
 
 :ref:`bool<class_bool>` **clipboard_has** **(** **)** |const|
 
-Returns ``true`` if there is content on the user's clipboard.
+Returns ``true`` if there is a text content on the user's clipboard.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_DisplayServer_method_clipboard_has_image:
+
+.. rst-class:: classref-method
+
+:ref:`bool<class_bool>` **clipboard_has_image** **(** **)** |const|
+
+Returns ``true`` if there is an image content on the user's clipboard.
 
 .. rst-class:: classref-item-separator
 
@@ -1477,6 +1559,32 @@ void **enable_for_stealing_focus** **(** :ref:`int<class_int>` process_id **)**
 Allows the ``process_id`` PID to steal focus from this window. In other words, this disables the operating system's focus stealing protection for the specified PID.
 
 \ **Note:** This method is implemented only on Windows.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_DisplayServer_method_file_dialog_show:
+
+.. rst-class:: classref-method
+
+:ref:`Error<enum_@GlobalScope_Error>` **file_dialog_show** **(** :ref:`String<class_String>` title, :ref:`String<class_String>` current_directory, :ref:`String<class_String>` filename, :ref:`bool<class_bool>` show_hidden, :ref:`FileDialogMode<enum_DisplayServer_FileDialogMode>` mode, :ref:`PackedStringArray<class_PackedStringArray>` filters, :ref:`Callable<class_Callable>` callback **)**
+
+Displays OS native dialog for selecting files or directories in the file system.
+
+Callbacks have the following arguments: ``bool status, PackedStringArray selected_paths``.
+
+\ **Note:** This method is implemented if the display server has the ``FEATURE_NATIVE_DIALOG`` feature.
+
+\ **Note:** This method is implemented on Linux, Windows and macOS.
+
+\ **Note:** ``current_directory`` might be ignored.
+
+\ **Note:** On Linux, ``show_hidden`` is ignored.
+
+\ **Note:** On macOS, native file dialogs have no title.
+
+\ **Note:** On macOS, sandboxed apps will save security-scoped bookmarks to retain access to the opened folders across multiple sessions. Use :ref:`OS.get_granted_permissions<class_OS_method_get_granted_permissions>` to get a list of saved bookmarks.
 
 .. rst-class:: classref-item-separator
 
@@ -1604,7 +1712,7 @@ Returns index of the screen which contains specified rectangle.
 
 :ref:`bool<class_bool>` **get_swap_cancel_ok** **(** **)**
 
-Returns ``true`` if positions of **OK** and **Cancel** buttons are swapped in dialogs. This is enabled by default on Windows and UWP to follow interface conventions, and be toggled by changing :ref:`ProjectSettings.gui/common/swap_cancel_ok<class_ProjectSettings_property_gui/common/swap_cancel_ok>`.
+Returns ``true`` if positions of **OK** and **Cancel** buttons are swapped in dialogs. This is enabled by default on Windows to follow interface conventions, and be toggled by changing :ref:`ProjectSettings.gui/common/swap_cancel_ok<class_ProjectSettings_property_gui/common/swap_cancel_ok>`.
 
 \ **Note:** This doesn't affect native dialogs such as the ones spawned by :ref:`dialog_show<class_DisplayServer_method_dialog_show>`.
 
@@ -2475,7 +2583,7 @@ Returns ``true`` if OS supports dark mode.
 
 :ref:`bool<class_bool>` **is_touchscreen_available** **(** **)** |const|
 
-Returns ``true`` if touch events are available (Android or iOS), the capability is detected on the Webplatform or if :ref:`ProjectSettings.input_devices/pointing/emulate_touch_from_mouse<class_ProjectSettings_property_input_devices/pointing/emulate_touch_from_mouse>` is ``true``.
+Returns ``true`` if touch events are available (Android or iOS), the capability is detected on the Web platform or if :ref:`ProjectSettings.input_devices/pointing/emulate_touch_from_mouse<class_ProjectSettings_property_input_devices/pointing/emulate_touch_from_mouse>` is ``true``.
 
 .. rst-class:: classref-item-separator
 
@@ -2502,6 +2610,20 @@ Returns active keyboard layout index.
 :ref:`Key<enum_@GlobalScope_Key>` **keyboard_get_keycode_from_physical** **(** :ref:`Key<enum_@GlobalScope_Key>` keycode **)** |const|
 
 Converts a physical (US QWERTY) ``keycode`` to one in the active keyboard layout.
+
+\ **Note:** This method is implemented on Linux (X11), macOS and Windows.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_DisplayServer_method_keyboard_get_label_from_physical:
+
+.. rst-class:: classref-method
+
+:ref:`Key<enum_@GlobalScope_Key>` **keyboard_get_label_from_physical** **(** :ref:`Key<enum_@GlobalScope_Key>` keycode **)** |const|
+
+Converts a physical (US QWERTY) ``keycode`` to localized label printed on the key in the active keyboard layout.
 
 \ **Note:** This method is implemented on Linux (X11), macOS and Windows.
 

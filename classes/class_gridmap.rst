@@ -147,6 +147,18 @@ Signals
 
 Emitted when :ref:`cell_size<class_GridMap_property_cell_size>` changes.
 
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_GridMap_signal_changed:
+
+.. rst-class:: classref-signal
+
+**changed** **(** **)**
+
+Emitted when the :ref:`MeshLibrary<class_MeshLibrary>` of this GridMap changes.
+
 .. rst-class:: classref-section-separator
 
 ----
@@ -612,7 +624,7 @@ Returns the position of a grid cell in the GridMap's local coordinate space. To 
 
 void **resource_changed** **(** :ref:`Resource<class_Resource>` resource **)**
 
-Notifies the **GridMap** about changed resource and recreates octant data.
+*Obsoleted.* Use :ref:`Resource.changed<class_Resource_signal_changed>` instead.
 
 .. rst-class:: classref-item-separator
 
