@@ -75,9 +75,13 @@ Methods
    :widths: auto
 
    +-------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | void                    | :ref:`bake_navigation_polygon<class_NavigationRegion2D_method_bake_navigation_polygon>` **(** :ref:`bool<class_bool>` on_thread=true **)**                                  |
+   +-------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>` | :ref:`get_avoidance_layer_value<class_NavigationRegion2D_method_get_avoidance_layer_value>` **(** :ref:`int<class_int>` layer_number **)** |const|                          |
    +-------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>` | :ref:`get_navigation_layer_value<class_NavigationRegion2D_method_get_navigation_layer_value>` **(** :ref:`int<class_int>` layer_number **)** |const|                        |
+   +-------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`RID<class_RID>`   | :ref:`get_navigation_map<class_NavigationRegion2D_method_get_navigation_map>` **(** **)** |const|                                                                           |
    +-------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`RID<class_RID>`   | :ref:`get_region_rid<class_NavigationRegion2D_method_get_region_rid>` **(** **)** |const|                                                                                   |
    +-------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -85,6 +89,37 @@ Methods
    +-------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                    | :ref:`set_navigation_layer_value<class_NavigationRegion2D_method_set_navigation_layer_value>` **(** :ref:`int<class_int>` layer_number, :ref:`bool<class_bool>` value **)** |
    +-------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | void                    | :ref:`set_navigation_map<class_NavigationRegion2D_method_set_navigation_map>` **(** :ref:`RID<class_RID>` navigation_map **)**                                              |
+   +-------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+.. rst-class:: classref-section-separator
+
+----
+
+.. rst-class:: classref-descriptions-group
+
+Signals
+-------
+
+.. _class_NavigationRegion2D_signal_bake_finished:
+
+.. rst-class:: classref-signal
+
+**bake_finished** **(** **)**
+
+Emitted when a navigation polygon bake operation is completed.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_NavigationRegion2D_signal_navigation_polygon_changed:
+
+.. rst-class:: classref-signal
+
+**navigation_polygon_changed** **(** **)**
+
+Emitted when the used navigation polygon is replaced or changes to the internals of the current navigation polygon are committed.
 
 .. rst-class:: classref-section-separator
 
@@ -238,6 +273,18 @@ If enabled the navigation region will use edge connections to connect with other
 Method Descriptions
 -------------------
 
+.. _class_NavigationRegion2D_method_bake_navigation_polygon:
+
+.. rst-class:: classref-method
+
+void **bake_navigation_polygon** **(** :ref:`bool<class_bool>` on_thread=true **)**
+
+Bakes the :ref:`NavigationPolygon<class_NavigationPolygon>`. If ``on_thread`` is set to ``true`` (default), the baking is done on a separate thread.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_NavigationRegion2D_method_get_avoidance_layer_value:
 
 .. rst-class:: classref-method
@@ -257,6 +304,18 @@ Returns whether or not the specified layer of the :ref:`avoidance_layers<class_N
 :ref:`bool<class_bool>` **get_navigation_layer_value** **(** :ref:`int<class_int>` layer_number **)** |const|
 
 Returns whether or not the specified layer of the :ref:`navigation_layers<class_NavigationRegion2D_property_navigation_layers>` bitmask is enabled, given a ``layer_number`` between 1 and 32.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_NavigationRegion2D_method_get_navigation_map:
+
+.. rst-class:: classref-method
+
+:ref:`RID<class_RID>` **get_navigation_map** **(** **)** |const|
+
+Returns the current navigation map :ref:`RID<class_RID>` used by this region.
 
 .. rst-class:: classref-item-separator
 
@@ -293,6 +352,18 @@ Based on ``value``, enables or disables the specified layer in the :ref:`avoidan
 void **set_navigation_layer_value** **(** :ref:`int<class_int>` layer_number, :ref:`bool<class_bool>` value **)**
 
 Based on ``value``, enables or disables the specified layer in the :ref:`navigation_layers<class_NavigationRegion2D_property_navigation_layers>` bitmask, given a ``layer_number`` between 1 and 32.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_NavigationRegion2D_method_set_navigation_map:
+
+.. rst-class:: classref-method
+
+void **set_navigation_map** **(** :ref:`RID<class_RID>` navigation_map **)**
+
+Sets the :ref:`RID<class_RID>` of the navigation map this region should use. By default the region will automatically join the :ref:`World2D<class_World2D>` default navigation map so this function is only required to override the default map.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
