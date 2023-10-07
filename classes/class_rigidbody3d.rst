@@ -470,7 +470,7 @@ See :ref:`add_constant_torque<class_RigidBody3D_method_add_constant_torque>`.
 - void **set_contact_monitor** **(** :ref:`bool<class_bool>` value **)**
 - :ref:`bool<class_bool>` **is_contact_monitor_enabled** **(** **)**
 
-If ``true``, the RigidBody3D will emit signals when it collides with another RigidBody3D.
+If ``true``, the RigidBody3D will emit signals when it collides with another body.
 
 \ **Note:** By default the maximum contacts reported is set to 0, meaning nothing will be recorded, see :ref:`max_contacts_reported<class_RigidBody3D_property_max_contacts_reported>`.
 
@@ -584,7 +584,7 @@ This is multiplied by the global 3D gravity setting found in **Project > Project
 
 The body's moment of inertia. This is like mass, but for rotation: it determines how much torque it takes to rotate the body on each axis. The moment of inertia is usually computed automatically from the mass and the shapes, but this property allows you to set a custom value.
 
-If set to ``Vector3.ZERO``, inertia is automatically computed (default value).
+If set to :ref:`Vector3.ZERO<class_Vector3_constant_ZERO>`, inertia is automatically computed (default value).
 
 \ **Note:** This value does not change when inertia is automatically computed. Use :ref:`PhysicsServer3D<class_PhysicsServer3D>` to get the computed inertia.
 
