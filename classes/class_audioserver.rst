@@ -155,7 +155,19 @@ Signals
 
 **bus_layout_changed** **(** **)**
 
-Emitted when the :ref:`AudioBusLayout<class_AudioBusLayout>` changes.
+Emitted when an audio bus is added, deleted, or moved.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_AudioServer_signal_bus_renamed:
+
+.. rst-class:: classref-signal
+
+**bus_renamed** **(** :ref:`int<class_int>` bus_index, :ref:`StringName<class_StringName>` old_name, :ref:`StringName<class_StringName>` new_name **)**
+
+Emitted when the audio bus at ``bus_index`` is renamed from ``old_name`` to ``new_name``.
 
 .. rst-class:: classref-section-separator
 
@@ -488,7 +500,9 @@ Returns the names of all audio output devices detected on the system.
 
 :ref:`float<class_float>` **get_output_latency** **(** **)** |const|
 
-Returns the audio driver's output latency.
+Returns the audio driver's effective output latency. This is based on :ref:`ProjectSettings.audio/driver/output_latency<class_ProjectSettings_property_audio/driver/output_latency>`, but the exact returned value will differ depending on the operating system and audio driver.
+
+\ **Note:** This can be expensive; it is not recommended to call :ref:`get_output_latency<class_AudioServer_method_get_output_latency>` every frame.
 
 .. rst-class:: classref-item-separator
 

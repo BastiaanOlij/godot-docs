@@ -25,6 +25,10 @@ Negative values for :ref:`size<class_AABB_property_size>` are not supported and 
 
 \ **Note:** Unlike :ref:`Rect2<class_Rect2>`, **AABB** does not have a variant that uses integer coordinates.
 
+.. note::
+
+	There are notable differences when using this API with C#. See :ref:`doc_c_sharp_differences` for more information.
+
 .. rst-class:: classref-introduction-group
 
 Tutorials
@@ -392,7 +396,7 @@ Returns the scalar length of the shortest axis of the **AABB**.
 
 :ref:`Vector3<class_Vector3>` **get_support** **(** :ref:`Vector3<class_Vector3>` dir **)** |const|
 
-Returns the support point in a given direction. This is useful for collision detection algorithms.
+Returns the vertex of the AABB that's the farthest in a given direction. This point is commonly known as the support point in collision detection algorithms.
 
 .. rst-class:: classref-item-separator
 
