@@ -44,7 +44,7 @@ Properties
    +-------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                                           | :ref:`caret_draw_when_editable_disabled<class_TextEdit_property_caret_draw_when_editable_disabled>`         | ``false``                                                                           |
    +-------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                                           | :ref:`caret_mid_grapheme<class_TextEdit_property_caret_mid_grapheme>`                                       | ``true``                                                                            |
+   | :ref:`bool<class_bool>`                                           | :ref:`caret_mid_grapheme<class_TextEdit_property_caret_mid_grapheme>`                                       | ``false``                                                                           |
    +-------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                                           | :ref:`caret_move_on_right_click<class_TextEdit_property_caret_move_on_right_click>`                         | ``true``                                                                            |
    +-------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
@@ -524,7 +524,7 @@ Emitted when a gutter is removed.
 
 Emitted immediately when the text changes.
 
-When text is added ``from_line`` will be less then ``to_line``. On a remove ``to_line`` will be less then ``from_line``.
+When text is added ``from_line`` will be less than ``to_line``. On a remove ``to_line`` will be less than ``from_line``.
 
 .. rst-class:: classref-item-separator
 
@@ -1106,7 +1106,7 @@ If ``true``, caret will be visible when :ref:`editable<class_TextEdit_property_e
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **caret_mid_grapheme** = ``true``
+:ref:`bool<class_bool>` **caret_mid_grapheme** = ``false``
 
 .. rst-class:: classref-property-setget
 
@@ -1476,7 +1476,7 @@ Allow scrolling past the last line into "virtual" space.
 - void **set_smooth_scroll_enabled** **(** :ref:`bool<class_bool>` value **)**
 - :ref:`bool<class_bool>` **is_smooth_scroll_enabled** **(** **)**
 
-Scroll smoothly over the text rather then jumping to the next location.
+Scroll smoothly over the text rather than jumping to the next location.
 
 .. rst-class:: classref-item-separator
 
@@ -3699,7 +3699,7 @@ Sets a custom :ref:`Texture2D<class_Texture2D>` for tab text characters.
 
 :ref:`StyleBox<class_StyleBox>` **focus**
 
-Sets the :ref:`StyleBox<class_StyleBox>` when in focus. The ``focus`` :ref:`StyleBox<class_StyleBox>` is displayed *over* the base :ref:`StyleBox<class_StyleBox>`, so a partially transparent :ref:`StyleBox<class_StyleBox>` should be used to ensure the base :ref:`StyleBox<class_StyleBox>` remains visible. A :ref:`StyleBox<class_StyleBox>` that represents an outline or an underline works well for this purpose. To disable the focus visual effect, assign a :ref:`StyleBoxEmpty<class_StyleBoxEmpty>` resource. Note that disabling the focus visual effect will harm keyboard/controller navigation usability, so this is not recommended for accessibility reasons.
+Sets the :ref:`StyleBox<class_StyleBox>` when in focus. The :ref:`focus<class_TextEdit_theme_style_focus>` :ref:`StyleBox<class_StyleBox>` is displayed *over* the base :ref:`StyleBox<class_StyleBox>`, so a partially transparent :ref:`StyleBox<class_StyleBox>` should be used to ensure the base :ref:`StyleBox<class_StyleBox>` remains visible. A :ref:`StyleBox<class_StyleBox>` that represents an outline or an underline works well for this purpose. To disable the focus visual effect, assign a :ref:`StyleBoxEmpty<class_StyleBoxEmpty>` resource. Note that disabling the focus visual effect will harm keyboard/controller navigation usability, so this is not recommended for accessibility reasons.
 
 .. rst-class:: classref-item-separator
 
