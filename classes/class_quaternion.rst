@@ -23,6 +23,10 @@ Quaternions can be parametrized using both an axis-angle pair or Euler angles. D
 
 \ **Note:** Quaternions need to be normalized before being used for rotation.
 
+.. note::
+
+	There are notable differences when using this API with C#. See :ref:`doc_c_sharp_differences` for more information.
+
 .. rst-class:: classref-introduction-group
 
 Tutorials
@@ -546,7 +550,7 @@ Performs a spherical cubic interpolation between quaternions ``pre_a``, this vec
 
 Performs a spherical cubic interpolation between quaternions ``pre_a``, this vector, ``b``, and ``post_b``, by the given amount ``weight``.
 
-It can perform smoother interpolation than ``spherical_cubic_interpolate()`` by the time values.
+It can perform smoother interpolation than :ref:`spherical_cubic_interpolate<class_Quaternion_method_spherical_cubic_interpolate>` by the time values.
 
 .. rst-class:: classref-section-separator
 
