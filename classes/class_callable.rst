@@ -81,6 +81,10 @@ In GDScript, it's possible to create lambda functions within a method. Lambda fu
         # This will work, as lambdas are custom callables.
         create_tween().tween_callback(func(): my_dictionary.clear())
 
+.. note::
+
+	There are notable differences when using this API with C#. See :ref:`doc_c_sharp_differences` for more information.
+
 .. rst-class:: classref-reftable-group
 
 Constructors
@@ -304,7 +308,7 @@ Returns the total amount of arguments bound (or unbound) via successive :ref:`bi
 
 :ref:`StringName<class_StringName>` **get_method** **(** **)** |const|
 
-Returns the name of the method represented by this **Callable**. If the callable is a lambda function, returns the function's name.
+Returns the name of the method represented by this **Callable**. If the callable is a GDScript lambda function, returns the function's name or ``"<anonymous lambda>"``.
 
 .. rst-class:: classref-item-separator
 
@@ -402,7 +406,7 @@ Returns ``true`` if the callable's object exists and has a valid method name ass
 
 void **rpc** **(** ... **)** |vararg| |const|
 
-Perform an RPC (Remote Procedure Call). This is used for multiplayer and is normally not available, unless the function being called has been marked as *RPC*. Calling this method on unsupported functions will result in an error. See :ref:`Node.rpc<class_Node_method_rpc>`.
+Perform an RPC (Remote Procedure Call) on all connected peers. This is used for multiplayer and is normally not available, unless the function being called has been marked as *RPC* (using :ref:`@GDScript.@rpc<class_@GDScript_annotation_@rpc>` or :ref:`Node.rpc_config<class_Node_method_rpc_config>`). Calling this method on unsupported functions will result in an error. See :ref:`Node.rpc<class_Node_method_rpc>`.
 
 .. rst-class:: classref-item-separator
 
@@ -414,7 +418,7 @@ Perform an RPC (Remote Procedure Call). This is used for multiplayer and is norm
 
 void **rpc_id** **(** :ref:`int<class_int>` peer_id, ... **)** |vararg| |const|
 
-Perform an RPC (Remote Procedure Call) on a specific peer ID (see multiplayer documentation for reference). This is used for multiplayer and is normally not available unless the function being called has been marked as *RPC*. Calling this method on unsupported functions will result in an error. See :ref:`Node.rpc_id<class_Node_method_rpc_id>`.
+Perform an RPC (Remote Procedure Call) on a specific peer ID (see multiplayer documentation for reference). This is used for multiplayer and is normally not available unless the function being called has been marked as *RPC* (using :ref:`@GDScript.@rpc<class_@GDScript_annotation_@rpc>` or :ref:`Node.rpc_config<class_Node_method_rpc_config>`). Calling this method on unsupported functions will result in an error. See :ref:`Node.rpc_id<class_Node_method_rpc_id>`.
 
 .. rst-class:: classref-item-separator
 
