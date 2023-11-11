@@ -23,6 +23,13 @@ Description
 
 Base resource type for all video streams. Classes that derive from **VideoStream** can all be used as resource types to play back videos in :ref:`VideoStreamPlayer<class_VideoStreamPlayer>`.
 
+.. rst-class:: classref-introduction-group
+
+Tutorials
+---------
+
+- :doc:`Playing videos <../tutorials/animation/playing_videos>`
+
 .. rst-class:: classref-reftable-group
 
 Properties
@@ -43,9 +50,9 @@ Methods
 .. table::
    :widths: auto
 
-   +-------------------------------------------------------+----------------------------------------------------------------------------------------------------+
-   | :ref:`VideoStreamPlayback<class_VideoStreamPlayback>` | :ref:`_instantiate_playback<class_VideoStream_method__instantiate_playback>` **(** **)** |virtual| |
-   +-------------------------------------------------------+----------------------------------------------------------------------------------------------------+
+   +-------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
+   | :ref:`VideoStreamPlayback<class_VideoStreamPlayback>` | :ref:`_instantiate_playback<class_VideoStream_private_method__instantiate_playback>` **(** **)** |virtual| |
+   +-------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -80,7 +87,7 @@ For :ref:`VideoStreamTheora<class_VideoStreamTheora>`, this filename should be a
 Method Descriptions
 -------------------
 
-.. _class_VideoStream_method__instantiate_playback:
+.. _class_VideoStream_private_method__instantiate_playback:
 
 .. rst-class:: classref-method
 

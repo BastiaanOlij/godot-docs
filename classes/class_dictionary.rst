@@ -189,6 +189,10 @@ The keys of a dictionary can be iterated with the ``for`` keyword:
 
 \ **Note:** Erasing elements while iterating over dictionaries is **not** supported and will result in unpredictable behavior.
 
+.. note::
+
+	There are notable differences when using this API with C#. See :ref:`doc_c_sharp_differences` for more information.
+
 .. rst-class:: classref-introduction-group
 
 Tutorials
@@ -466,7 +470,7 @@ Returns a hashed 32-bit integer value representing the dictionary contents.
 
 \ **Note:** Dictionaries with the same entries but in a different order will not have the same hash.
 
-\ **Note:** Dictionaries with equal hash values are *not* guaranteed to be the same, because of hash collisions. On the countrary, dictionaries with different hash values are guaranteed to be different.
+\ **Note:** Dictionaries with equal hash values are *not* guaranteed to be the same, because of hash collisions. On the contrary, dictionaries with different hash values are guaranteed to be different.
 
 .. rst-class:: classref-item-separator
 
@@ -527,6 +531,48 @@ Makes the dictionary read-only, i.e. disables modification of the dictionary's c
 void **merge** **(** :ref:`Dictionary<class_Dictionary>` dictionary, :ref:`bool<class_bool>` overwrite=false **)**
 
 Adds entries from ``dictionary`` to this dictionary. By default, duplicate keys are not copied over, unless ``overwrite`` is ``true``.
+
+
+.. tabs::
+
+ .. code-tab:: gdscript
+
+    var dict = { "item": "sword", "quantity": 2 }
+    var other_dict = { "quantity": 15, "color": "silver" }
+    
+    # Overwriting of existing keys is disabled by default.
+    dict.merge(other_dict)
+    print(dict)  # { "item": "sword", "quantity": 2, "color": "silver" }
+    
+    # With overwriting of existing keys enabled.
+    dict.merge(other_dict, true)
+    print(dict)  # { "item": "sword", "quantity": 15, "color": "silver" }
+
+ .. code-tab:: csharp
+
+    var dict = new Godot.Collections.Dictionary
+    {
+        ["item"] = "sword",
+        ["quantity"] = 2,
+    };
+    
+    var otherDict = new Godot.Collections.Dictionary
+    {
+        ["quantity"] = 15,
+        ["color"] = "silver",
+    };
+    
+    // Overwriting of existing keys is disabled by default.
+    dict.Merge(otherDict);
+    GD.Print(dict); // { "item": "sword", "quantity": 2, "color": "silver" }
+    
+    // With overwriting of existing keys enabled.
+    dict.Merge(otherDict, true);
+    GD.Print(dict); // { "item": "sword", "quantity": 15, "color": "silver" }
+
+
+
+\ **Note:** :ref:`merge<class_Dictionary_method_merge>` is *not* recursive. Nested dictionaries are considered as keys that can be overwritten or not depending on the value of ``overwrite``, but they will never be merged together.
 
 .. rst-class:: classref-item-separator
 
