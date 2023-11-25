@@ -181,7 +181,7 @@ Emitted whenever a node is renamed.
 
 **physics_frame** **(** **)**
 
-Emitted immediately before :ref:`Node._physics_process<class_Node_method__physics_process>` is called on every node in the **SceneTree**.
+Emitted immediately before :ref:`Node._physics_process<class_Node_private_method__physics_process>` is called on every node in the **SceneTree**.
 
 .. rst-class:: classref-item-separator
 
@@ -193,7 +193,7 @@ Emitted immediately before :ref:`Node._physics_process<class_Node_method__physic
 
 **process_frame** **(** **)**
 
-Emitted immediately before :ref:`Node._process<class_Node_method__process>` is called on every node in the **SceneTree**.
+Emitted immediately before :ref:`Node._process<class_Node_private_method__process>` is called on every node in the **SceneTree**.
 
 .. rst-class:: classref-item-separator
 
@@ -307,7 +307,9 @@ For mobile platforms, see :ref:`quit_on_go_back<class_SceneTree_property_quit_on
 - void **set_current_scene** **(** :ref:`Node<class_Node>` value **)**
 - :ref:`Node<class_Node>` **get_current_scene** **(** **)**
 
-The current scene.
+Returns the root node of the currently running scene, regardless of its structure.
+
+\ **Warning:** Setting this directly might not work as expected, and will *not* add or remove any nodes from the tree, consider using :ref:`change_scene_to_file<class_SceneTree_method_change_scene_to_file>` or :ref:`change_scene_to_packed<class_SceneTree_method_change_scene_to_packed>` instead.
 
 .. rst-class:: classref-item-separator
 
@@ -421,7 +423,7 @@ If ``true``, the **SceneTree** is paused. Doing so will have the following behav
 
 - 2D and 3D physics will be stopped. This includes signals and collision detection.
 
-- :ref:`Node._process<class_Node_method__process>`, :ref:`Node._physics_process<class_Node_method__physics_process>` and :ref:`Node._input<class_Node_method__input>` will not be called anymore in nodes.
+- :ref:`Node._process<class_Node_private_method__process>`, :ref:`Node._physics_process<class_Node_private_method__physics_process>` and :ref:`Node._input<class_Node_private_method__input>` will not be called anymore in nodes.
 
 .. rst-class:: classref-item-separator
 
@@ -510,7 +512,7 @@ Changes the running scene to the one at the given ``path``, after loading it int
 
 Returns :ref:`@GlobalScope.OK<class_@GlobalScope_constant_OK>` on success, :ref:`@GlobalScope.ERR_CANT_OPEN<class_@GlobalScope_constant_ERR_CANT_OPEN>` if the ``path`` cannot be loaded into a :ref:`PackedScene<class_PackedScene>`, or :ref:`@GlobalScope.ERR_CANT_CREATE<class_@GlobalScope_constant_ERR_CANT_CREATE>` if that scene cannot be instantiated.
 
-\ **Note:** The scene change is deferred, which means that the new scene node is added to the tree at the end of the frame. This ensures that both scenes aren't running at the same time, while still freeing the previous scene in a safe way similar to :ref:`Node.queue_free<class_Node_method_queue_free>`. As such, you won't be able to access the loaded scene immediately after the :ref:`change_scene_to_file<class_SceneTree_method_change_scene_to_file>` call.
+\ **Note:** See :ref:`change_scene_to_packed<class_SceneTree_method_change_scene_to_packed>` for details on the order of operations.
 
 .. rst-class:: classref-item-separator
 
@@ -526,7 +528,13 @@ Changes the running scene to a new instance of the given :ref:`PackedScene<class
 
 Returns :ref:`@GlobalScope.OK<class_@GlobalScope_constant_OK>` on success, :ref:`@GlobalScope.ERR_CANT_CREATE<class_@GlobalScope_constant_ERR_CANT_CREATE>` if the scene cannot be instantiated, or :ref:`@GlobalScope.ERR_INVALID_PARAMETER<class_@GlobalScope_constant_ERR_INVALID_PARAMETER>` if the scene is invalid.
 
-\ **Note:** The scene change is deferred, which means that the new scene node is added to the tree at the end of the frame. You won't be able to access it immediately after the :ref:`change_scene_to_packed<class_SceneTree_method_change_scene_to_packed>` call.
+\ **Note:** Operations happen in the following order when :ref:`change_scene_to_packed<class_SceneTree_method_change_scene_to_packed>` is called:
+
+1. The current scene node is immediately removed from the tree. From that point, :ref:`Node.get_tree<class_Node_method_get_tree>` called on the current (outgoing) scene will return ``null``. :ref:`current_scene<class_SceneTree_property_current_scene>` will be ``null``, too, because the new scene is not available yet.
+
+2. At the end of the frame, the formerly current scene, already removed from the tree, will be deleted (freed from memory) and then the new scene will be instantiated and added to the tree. :ref:`Node.get_tree<class_Node_method_get_tree>` and :ref:`current_scene<class_SceneTree_property_current_scene>` will be back to working as usual.
+
+This ensures that both scenes aren't running at the same time, while still freeing the previous scene in a safe way similar to :ref:`Node.queue_free<class_Node_method_queue_free>`.
 
 .. rst-class:: classref-item-separator
 
@@ -571,7 +579,7 @@ Commonly used to create a one-shot delay timer as in the following example:
 
 The timer will be automatically freed after its time elapses.
 
-\ **Note:** The timer is processed after all of the nodes in the current frame, i.e. node's :ref:`Node._process<class_Node_method__process>` method would be called before the timer (or :ref:`Node._physics_process<class_Node_method__physics_process>` if ``process_in_physics`` is set to ``true``).
+\ **Note:** The timer is processed after all of the nodes in the current frame, i.e. node's :ref:`Node._process<class_Node_private_method__process>` method would be called before the timer (or :ref:`Node._physics_process<class_Node_private_method__physics_process>` if ``process_in_physics`` is set to ``true``).
 
 .. rst-class:: classref-item-separator
 
@@ -584,6 +592,8 @@ The timer will be automatically freed after its time elapses.
 :ref:`Tween<class_Tween>` **create_tween** **(** **)**
 
 Creates and returns a new :ref:`Tween<class_Tween>`. The Tween will start automatically on the next process frame or physics frame (depending on :ref:`TweenProcessMode<enum_Tween_TweenProcessMode>`).
+
+\ **Note:** When creating a :ref:`Tween<class_Tween>` using this method, the :ref:`Tween<class_Tween>` will not be tied to the :ref:`Node<class_Node>` that called it. It will continue to animate even if the :ref:`Node<class_Node>` is freed, but it will automatically finish if there's nothing left to animate. If you want the :ref:`Tween<class_Tween>` to be automatically killed when the :ref:`Node<class_Node>` is freed, use :ref:`Node.create_tween<class_Node_method_create_tween>` or :ref:`Tween.bind_node<class_Tween_method_bind_node>`.
 
 .. rst-class:: classref-item-separator
 
@@ -619,7 +629,7 @@ Returns the current frame number, i.e. the total frame count since the applicati
 
 :ref:`MultiplayerAPI<class_MultiplayerAPI>` **get_multiplayer** **(** :ref:`NodePath<class_NodePath>` for_path=NodePath("") **)** |const|
 
-Return the :ref:`MultiplayerAPI<class_MultiplayerAPI>` configured for the given path, or the default one if ``for_path`` is empty.
+Searches for the :ref:`MultiplayerAPI<class_MultiplayerAPI>` configured for the given path, if one does not exist it searches the parent paths until one is found. If the path is empty, or none is found, the default one is returned. See :ref:`set_multiplayer<class_SceneTree_method_set_multiplayer>`.
 
 .. rst-class:: classref-item-separator
 
@@ -668,6 +678,8 @@ Returns an array of currently existing :ref:`Tween<class_Tween>`\ s in the **Sce
 :ref:`bool<class_bool>` **has_group** **(** :ref:`StringName<class_StringName>` name **)** |const|
 
 Returns ``true`` if the given group exists.
+
+A group exists if any :ref:`Node<class_Node>` in the tree belongs to it (see :ref:`Node.add_to_group<class_Node_method_add_to_group>`). Groups without nodes are removed automatically.
 
 .. rst-class:: classref-item-separator
 
@@ -780,6 +792,8 @@ Sets the given ``property`` to ``value`` on all members of the given group, resp
 void **set_multiplayer** **(** :ref:`MultiplayerAPI<class_MultiplayerAPI>` multiplayer, :ref:`NodePath<class_NodePath>` root_path=NodePath("") **)**
 
 Sets a custom :ref:`MultiplayerAPI<class_MultiplayerAPI>` with the given ``root_path`` (controlling also the relative subpaths), or override the default one if ``root_path`` is empty.
+
+\ **Note:** No :ref:`MultiplayerAPI<class_MultiplayerAPI>` must be configured for the subpath containing ``root_path``, nested custom multiplayers are not allowed. I.e. if one is configured for ``"/root/Foo"`` setting one for ``"/root/Foo/Bar"`` will cause an error.
 
 .. rst-class:: classref-item-separator
 
