@@ -12,7 +12,7 @@ Container
 
 **Inherits:** :ref:`Control<class_Control>` **<** :ref:`CanvasItem<class_CanvasItem>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-**Inherited By:** :ref:`AspectRatioContainer<class_AspectRatioContainer>`, :ref:`BoxContainer<class_BoxContainer>`, :ref:`CenterContainer<class_CenterContainer>`, :ref:`EditorProperty<class_EditorProperty>`, :ref:`FlowContainer<class_FlowContainer>`, :ref:`GraphNode<class_GraphNode>`, :ref:`GridContainer<class_GridContainer>`, :ref:`MarginContainer<class_MarginContainer>`, :ref:`PanelContainer<class_PanelContainer>`, :ref:`ScrollContainer<class_ScrollContainer>`, :ref:`SplitContainer<class_SplitContainer>`, :ref:`SubViewportContainer<class_SubViewportContainer>`, :ref:`TabContainer<class_TabContainer>`
+**Inherited By:** :ref:`AspectRatioContainer<class_AspectRatioContainer>`, :ref:`BoxContainer<class_BoxContainer>`, :ref:`CenterContainer<class_CenterContainer>`, :ref:`EditorProperty<class_EditorProperty>`, :ref:`FlowContainer<class_FlowContainer>`, :ref:`GraphElement<class_GraphElement>`, :ref:`GridContainer<class_GridContainer>`, :ref:`MarginContainer<class_MarginContainer>`, :ref:`PanelContainer<class_PanelContainer>`, :ref:`ScrollContainer<class_ScrollContainer>`, :ref:`SplitContainer<class_SplitContainer>`, :ref:`SubViewportContainer<class_SubViewportContainer>`, :ref:`TabContainer<class_TabContainer>`
 
 Base class for all GUI containers.
 
@@ -51,9 +51,9 @@ Methods
    :widths: auto
 
    +-------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`PackedInt32Array<class_PackedInt32Array>` | :ref:`_get_allowed_size_flags_horizontal<class_Container_method__get_allowed_size_flags_horizontal>` **(** **)** |virtual| |const|                 |
+   | :ref:`PackedInt32Array<class_PackedInt32Array>` | :ref:`_get_allowed_size_flags_horizontal<class_Container_private_method__get_allowed_size_flags_horizontal>` **(** **)** |virtual| |const|         |
    +-------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`PackedInt32Array<class_PackedInt32Array>` | :ref:`_get_allowed_size_flags_vertical<class_Container_method__get_allowed_size_flags_vertical>` **(** **)** |virtual| |const|                     |
+   | :ref:`PackedInt32Array<class_PackedInt32Array>` | :ref:`_get_allowed_size_flags_vertical<class_Container_private_method__get_allowed_size_flags_vertical>` **(** **)** |virtual| |const|             |
    +-------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
    | void                                            | :ref:`fit_child_in_rect<class_Container_method_fit_child_in_rect>` **(** :ref:`Control<class_Control>` child, :ref:`Rect2<class_Rect2>` rect **)** |
    +-------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -123,7 +123,7 @@ Notification for when sorting the children, it must be obeyed immediately.
 Method Descriptions
 -------------------
 
-.. _class_Container_method__get_allowed_size_flags_horizontal:
+.. _class_Container_private_method__get_allowed_size_flags_horizontal:
 
 .. rst-class:: classref-method
 
@@ -137,7 +137,7 @@ Implement to return a list of allowed horizontal :ref:`SizeFlags<enum_Control_Si
 
 ----
 
-.. _class_Container_method__get_allowed_size_flags_vertical:
+.. _class_Container_private_method__get_allowed_size_flags_vertical:
 
 .. rst-class:: classref-method
 
