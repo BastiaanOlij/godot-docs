@@ -36,6 +36,8 @@ Properties
    +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------+
    | :ref:`String<class_String>`                       | :ref:`application/copyright<class_EditorExportPlatformWindows_property_application/copyright>`                       |
    +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`                             | :ref:`application/export_angle<class_EditorExportPlatformWindows_property_application/export_angle>`                 |
+   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------+
    | :ref:`String<class_String>`                       | :ref:`application/file_description<class_EditorExportPlatformWindows_property_application/file_description>`         |
    +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------+
    | :ref:`String<class_String>`                       | :ref:`application/file_version<class_EditorExportPlatformWindows_property_application/file_version>`                 |
@@ -148,6 +150,18 @@ Copyright notice for the bundle visible to the user. Optional. See `StringFileIn
 
 ----
 
+.. _class_EditorExportPlatformWindows_property_application/export_angle:
+
+.. rst-class:: classref-property
+
+:ref:`int<class_int>` **application/export_angle**
+
+If set to ``1``, ANGLE libraries are exported with the exported application. If set to ``0``, ANGLE libraries are exported only if :ref:`ProjectSettings.rendering/gl_compatibility/driver<class_ProjectSettings_property_rendering/gl_compatibility/driver>` is set to ``"opengl3_angle"``.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_EditorExportPlatformWindows_property_application/file_description:
 
 .. rst-class:: classref-property
@@ -166,7 +180,7 @@ File description to be presented to users. Required. See `StringFileInfo <https:
 
 :ref:`String<class_String>` **application/file_version**
 
-Version number of the file. Required. See `StringFileInfo <https://learn.microsoft.com/en-us/windows/win32/menurc/stringfileinfo-block>`__.
+Version number of the file. Falls back to :ref:`ProjectSettings.application/config/version<class_ProjectSettings_property_application/config/version>` if left empty. See `StringFileInfo <https://learn.microsoft.com/en-us/windows/win32/menurc/stringfileinfo-block>`__.
 
 .. rst-class:: classref-item-separator
 
@@ -178,7 +192,7 @@ Version number of the file. Required. See `StringFileInfo <https://learn.microso
 
 :ref:`String<class_String>` **application/icon**
 
-Application icon file. If left empty, it will fallback to :ref:`ProjectSettings.application/config/windows_native_icon<class_ProjectSettings_property_application/config/windows_native_icon>`, and  then to :ref:`ProjectSettings.application/config/icon<class_ProjectSettings_property_application/config/icon>`.
+Application icon file. If left empty, it will fallback to :ref:`ProjectSettings.application/config/windows_native_icon<class_ProjectSettings_property_application/config/windows_native_icon>`, and then to :ref:`ProjectSettings.application/config/icon<class_ProjectSettings_property_application/config/icon>`.
 
 .. rst-class:: classref-item-separator
 
@@ -226,7 +240,7 @@ Name of the application. Required. See `StringFileInfo <https://learn.microsoft.
 
 :ref:`String<class_String>` **application/product_version**
 
-Application version visible to the user. Required. See `StringFileInfo <https://learn.microsoft.com/en-us/windows/win32/menurc/stringfileinfo-block>`__.
+Application version visible to the user. Falls back to :ref:`ProjectSettings.application/config/version<class_ProjectSettings_property_application/config/version>` if left empty. See `StringFileInfo <https://learn.microsoft.com/en-us/windows/win32/menurc/stringfileinfo-block>`__.
 
 .. rst-class:: classref-item-separator
 
