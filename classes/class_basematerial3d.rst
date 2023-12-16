@@ -14,21 +14,21 @@ BaseMaterial3D
 
 **Inherited By:** :ref:`ORMMaterial3D<class_ORMMaterial3D>`, :ref:`StandardMaterial3D<class_StandardMaterial3D>`
 
-Default 3D rendering material.
+Abstract base class for defining the 3D rendering properties of meshes.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-This provides a default material with a wide variety of rendering features and properties without the need to write shader code. See the tutorial below for details.
+This class serves as a default material with a wide variety of rendering features and properties without the need to write shader code. See the tutorial below for details.
 
 .. rst-class:: classref-introduction-group
 
 Tutorials
 ---------
 
-- :doc:`Standard Material 3D <../tutorials/3d/standard_material_3d>`
+- :doc:`Standard Material 3D and ORM Material 3D <../tutorials/3d/standard_material_3d>`
 
 .. rst-class:: classref-reftable-group
 
@@ -110,6 +110,8 @@ Properties
    | :ref:`DiffuseMode<enum_BaseMaterial3D_DiffuseMode>`             | :ref:`diffuse_mode<class_BaseMaterial3D_property_diffuse_mode>`                                                   | ``0``                 |
    +-----------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+-----------------------+
    | :ref:`bool<class_bool>`                                         | :ref:`disable_ambient_light<class_BaseMaterial3D_property_disable_ambient_light>`                                 | ``false``             |
+   +-----------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+-----------------------+
+   | :ref:`bool<class_bool>`                                         | :ref:`disable_fog<class_BaseMaterial3D_property_disable_fog>`                                                     | ``false``             |
    +-----------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+-----------------------+
    | :ref:`bool<class_bool>`                                         | :ref:`disable_receive_shadows<class_BaseMaterial3D_property_disable_receive_shadows>`                             | ``false``             |
    +-----------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+-----------------------+
@@ -477,7 +479,7 @@ enum **TextureFilter**:
 
 :ref:`TextureFilter<enum_BaseMaterial3D_TextureFilter>` **TEXTURE_FILTER_NEAREST** = ``0``
 
-The texture filter reads from the nearest pixel only. The simplest and fastest method of filtering, but the texture will look pixelized.
+The texture filter reads from the nearest pixel only. This makes the texture look pixelated from up close, and grainy from a distance (due to mipmaps not being sampled).
 
 .. _class_BaseMaterial3D_constant_TEXTURE_FILTER_LINEAR:
 
@@ -485,7 +487,7 @@ The texture filter reads from the nearest pixel only. The simplest and fastest m
 
 :ref:`TextureFilter<enum_BaseMaterial3D_TextureFilter>` **TEXTURE_FILTER_LINEAR** = ``1``
 
-The texture filter blends between the nearest 4 pixels. Use this when you want to avoid a pixelated style, but do not want mipmaps.
+The texture filter blends between the nearest 4 pixels. This makes the texture look smooth from up close, and grainy from a distance (due to mipmaps not being sampled).
 
 .. _class_BaseMaterial3D_constant_TEXTURE_FILTER_NEAREST_WITH_MIPMAPS:
 
@@ -493,7 +495,7 @@ The texture filter blends between the nearest 4 pixels. Use this when you want t
 
 :ref:`TextureFilter<enum_BaseMaterial3D_TextureFilter>` **TEXTURE_FILTER_NEAREST_WITH_MIPMAPS** = ``2``
 
-The texture filter reads from the nearest pixel in the nearest mipmap. The fastest way to read from textures with mipmaps.
+The texture filter reads from the nearest pixel and blends between the nearest 2 mipmaps (or uses the nearest mipmap if :ref:`ProjectSettings.rendering/textures/default_filters/use_nearest_mipmap_filter<class_ProjectSettings_property_rendering/textures/default_filters/use_nearest_mipmap_filter>` is ``true``). This makes the texture look pixelated from up close, and smooth from a distance.
 
 .. _class_BaseMaterial3D_constant_TEXTURE_FILTER_LINEAR_WITH_MIPMAPS:
 
@@ -501,7 +503,7 @@ The texture filter reads from the nearest pixel in the nearest mipmap. The faste
 
 :ref:`TextureFilter<enum_BaseMaterial3D_TextureFilter>` **TEXTURE_FILTER_LINEAR_WITH_MIPMAPS** = ``3``
 
-The texture filter blends between the nearest 4 pixels and between the nearest 2 mipmaps. Use this for most cases as mipmaps are important to smooth out pixels that are far from the camera.
+The texture filter blends between the nearest 4 pixels and between the nearest 2 mipmaps (or uses the nearest mipmap if :ref:`ProjectSettings.rendering/textures/default_filters/use_nearest_mipmap_filter<class_ProjectSettings_property_rendering/textures/default_filters/use_nearest_mipmap_filter>` is ``true``). This makes the texture look smooth from up close, and smooth from a distance.
 
 .. _class_BaseMaterial3D_constant_TEXTURE_FILTER_NEAREST_WITH_MIPMAPS_ANISOTROPIC:
 
@@ -509,7 +511,7 @@ The texture filter blends between the nearest 4 pixels and between the nearest 2
 
 :ref:`TextureFilter<enum_BaseMaterial3D_TextureFilter>` **TEXTURE_FILTER_NEAREST_WITH_MIPMAPS_ANISOTROPIC** = ``4``
 
-The texture filter reads from the nearest pixel, but selects a mipmap based on the angle between the surface and the camera view. This reduces artifacts on surfaces that are almost in line with the camera. The anisotropic filtering level can be changed by adjusting :ref:`ProjectSettings.rendering/textures/default_filters/anisotropic_filtering_level<class_ProjectSettings_property_rendering/textures/default_filters/anisotropic_filtering_level>`.
+The texture filter reads from the nearest pixel and blends between 2 mipmaps (or uses the nearest mipmap if :ref:`ProjectSettings.rendering/textures/default_filters/use_nearest_mipmap_filter<class_ProjectSettings_property_rendering/textures/default_filters/use_nearest_mipmap_filter>` is ``true``) based on the angle between the surface and the camera view. This makes the texture look pixelated from up close, and smooth from a distance. Anisotropic filtering improves texture quality on surfaces that are almost in line with the camera, but is slightly slower. The anisotropic filtering level can be changed by adjusting :ref:`ProjectSettings.rendering/textures/default_filters/anisotropic_filtering_level<class_ProjectSettings_property_rendering/textures/default_filters/anisotropic_filtering_level>`.
 
 .. _class_BaseMaterial3D_constant_TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC:
 
@@ -517,7 +519,7 @@ The texture filter reads from the nearest pixel, but selects a mipmap based on t
 
 :ref:`TextureFilter<enum_BaseMaterial3D_TextureFilter>` **TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC** = ``5``
 
-The texture filter blends between the nearest 4 pixels and selects a mipmap based on the angle between the surface and the camera view. This reduces artifacts on surfaces that are almost in line with the camera. This is the slowest of the filtering options, but results in the highest quality texturing. The anisotropic filtering level can be changed by adjusting :ref:`ProjectSettings.rendering/textures/default_filters/anisotropic_filtering_level<class_ProjectSettings_property_rendering/textures/default_filters/anisotropic_filtering_level>`.
+The texture filter blends between the nearest 4 pixels and blends between 2 mipmaps (or uses the nearest mipmap if :ref:`ProjectSettings.rendering/textures/default_filters/use_nearest_mipmap_filter<class_ProjectSettings_property_rendering/textures/default_filters/use_nearest_mipmap_filter>` is ``true``) based on the angle between the surface and the camera view. This makes the texture look smooth from up close, and smooth from a distance. Anisotropic filtering improves texture quality on surfaces that are almost in line with the camera, but is slightly slower. The anisotropic filtering level can be changed by adjusting :ref:`ProjectSettings.rendering/textures/default_filters/anisotropic_filtering_level<class_ProjectSettings_property_rendering/textures/default_filters/anisotropic_filtering_level>`.
 
 .. _class_BaseMaterial3D_constant_TEXTURE_FILTER_MAX:
 
@@ -1093,11 +1095,19 @@ Enables parts of the shader required for :ref:`GPUParticles3D<class_GPUParticles
 
 Enables multichannel signed distance field rendering shader.
 
+.. _class_BaseMaterial3D_constant_FLAG_DISABLE_FOG:
+
+.. rst-class:: classref-enumeration-constant
+
+:ref:`Flags<enum_BaseMaterial3D_Flags>` **FLAG_DISABLE_FOG** = ``21``
+
+Disables receiving depth-based or volumetric fog.
+
 .. _class_BaseMaterial3D_constant_FLAG_MAX:
 
 .. rst-class:: classref-enumeration-constant
 
-:ref:`Flags<enum_BaseMaterial3D_Flags>` **FLAG_MAX** = ``21``
+:ref:`Flags<enum_BaseMaterial3D_Flags>` **FLAG_MAX** = ``22``
 
 Represents the size of the :ref:`Flags<enum_BaseMaterial3D_Flags>` enum.
 
@@ -1217,7 +1227,7 @@ The object's X axis will always face the camera.
 
 :ref:`BillboardMode<enum_BaseMaterial3D_BillboardMode>` **BILLBOARD_PARTICLES** = ``3``
 
-Used for particle systems when assigned to :ref:`GPUParticles3D<class_GPUParticles3D>` and :ref:`CPUParticles3D<class_CPUParticles3D>` nodes. Enables ``particles_anim_*`` properties.
+Used for particle systems when assigned to :ref:`GPUParticles3D<class_GPUParticles3D>` and :ref:`CPUParticles3D<class_CPUParticles3D>` nodes (flipbook animation). Enables ``particles_anim_*`` properties.
 
 The :ref:`ParticleProcessMaterial.anim_speed_min<class_ParticleProcessMaterial_property_anim_speed_min>` or :ref:`CPUParticles3D.anim_speed_min<class_CPUParticles3D_property_anim_speed_min>` should also be set to a value bigger than zero for the animation to play.
 
@@ -1982,6 +1992,23 @@ If ``true``, the object receives no ambient light.
 
 ----
 
+.. _class_BaseMaterial3D_property_disable_fog:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **disable_fog** = ``false``
+
+.. rst-class:: classref-property-setget
+
+- void **set_flag** **(** :ref:`Flags<enum_BaseMaterial3D_Flags>` flag, :ref:`bool<class_bool>` enable **)**
+- :ref:`bool<class_bool>` **get_flag** **(** :ref:`Flags<enum_BaseMaterial3D_Flags>` flag **)** |const|
+
+If ``true``, the object will not be affected by fog (neither volumetric nor depth fog). This is useful for unshaded or transparent materials (e.g. particles), which without this setting will be affected even if fully transparent.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_BaseMaterial3D_property_disable_receive_shadows:
 
 .. rst-class:: classref-property
@@ -2012,7 +2039,7 @@ If ``true``, the object receives no shadow that would otherwise be cast onto it.
 
 Distance at which the object appears fully opaque.
 
-\ **Note:** If ``distance_fade_max_distance`` is less than ``distance_fade_min_distance``, the behavior will be reversed. The object will start to fade away at ``distance_fade_max_distance`` and will fully disappear once it reaches ``distance_fade_min_distance``.
+\ **Note:** If :ref:`distance_fade_max_distance<class_BaseMaterial3D_property_distance_fade_max_distance>` is less than :ref:`distance_fade_min_distance<class_BaseMaterial3D_property_distance_fade_min_distance>`, the behavior will be reversed. The object will start to fade away at :ref:`distance_fade_max_distance<class_BaseMaterial3D_property_distance_fade_max_distance>` and will fully disappear once it reaches :ref:`distance_fade_min_distance<class_BaseMaterial3D_property_distance_fade_min_distance>`.
 
 .. rst-class:: classref-item-separator
 
@@ -2031,7 +2058,7 @@ Distance at which the object appears fully opaque.
 
 Distance at which the object starts to become visible. If the object is less than this distance away, it will be invisible.
 
-\ **Note:** If ``distance_fade_min_distance`` is greater than ``distance_fade_max_distance``, the behavior will be reversed. The object will start to fade away at ``distance_fade_max_distance`` and will fully disappear once it reaches ``distance_fade_min_distance``.
+\ **Note:** If :ref:`distance_fade_min_distance<class_BaseMaterial3D_property_distance_fade_min_distance>` is greater than :ref:`distance_fade_max_distance<class_BaseMaterial3D_property_distance_fade_max_distance>`, the behavior will be reversed. The object will start to fade away at :ref:`distance_fade_max_distance<class_BaseMaterial3D_property_distance_fade_max_distance>` and will fully disappear once it reaches :ref:`distance_fade_min_distance<class_BaseMaterial3D_property_distance_fade_min_distance>`.
 
 .. rst-class:: classref-item-separator
 
@@ -2474,7 +2501,7 @@ Specifies the channel of the :ref:`metallic_texture<class_BaseMaterial3D_propert
 - void **set_msdf_outline_size** **(** :ref:`float<class_float>` value **)**
 - :ref:`float<class_float>` **get_msdf_outline_size** **(** **)**
 
-The width of the shape outine.
+The width of the shape outline.
 
 .. rst-class:: classref-item-separator
 
