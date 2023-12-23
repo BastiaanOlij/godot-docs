@@ -133,6 +133,8 @@ Properties
    +-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+----------------+
    | :ref:`bool<class_bool>`                                                                       | :ref:`use_debanding<class_Viewport_property_use_debanding>`                                           | ``false``      |
    +-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+----------------+
+   | :ref:`bool<class_bool>`                                                                       | :ref:`use_hdr_2d<class_Viewport_property_use_hdr_2d>`                                                 | ``false``      |
+   +-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+----------------+
    | :ref:`bool<class_bool>`                                                                       | :ref:`use_occlusion_culling<class_Viewport_property_use_occlusion_culling>`                           | ``false``      |
    +-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+----------------+
    | :ref:`bool<class_bool>`                                                                       | :ref:`use_taa<class_Viewport_property_use_taa>`                                                       | ``false``      |
@@ -167,6 +169,8 @@ Methods
    +-----------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                                                                       | :ref:`get_canvas_cull_mask_bit<class_Viewport_method_get_canvas_cull_mask_bit>` **(** :ref:`int<class_int>` layer **)** |const|                                                                                                                                        |
    +-----------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Window[]<class_Window>`                                                                 | :ref:`get_embedded_subwindows<class_Viewport_method_get_embedded_subwindows>` **(** **)** |const|                                                                                                                                                                      |
+   +-----------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Transform2D<class_Transform2D>`                                                         | :ref:`get_final_transform<class_Viewport_method_get_final_transform>` **(** **)** |const|                                                                                                                                                                              |
    +-----------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Vector2<class_Vector2>`                                                                 | :ref:`get_mouse_position<class_Viewport_method_get_mouse_position>` **(** **)** |const|                                                                                                                                                                                |
@@ -186,6 +190,8 @@ Methods
    | :ref:`Variant<class_Variant>`                                                                 | :ref:`gui_get_drag_data<class_Viewport_method_gui_get_drag_data>` **(** **)** |const|                                                                                                                                                                                  |
    +-----------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Control<class_Control>`                                                                 | :ref:`gui_get_focus_owner<class_Viewport_method_gui_get_focus_owner>` **(** **)** |const|                                                                                                                                                                              |
+   +-----------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Control<class_Control>`                                                                 | :ref:`gui_get_hovered_control<class_Viewport_method_gui_get_hovered_control>` **(** **)** |const|                                                                                                                                                                      |
    +-----------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                                                                       | :ref:`gui_is_drag_successful<class_Viewport_method_gui_is_drag_successful>` **(** **)** |const|                                                                                                                                                                        |
    +-----------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -346,11 +352,19 @@ Use bilinear scaling for the viewport's 3D buffer. The amount of scaling can be 
 
 Use AMD FidelityFX Super Resolution 1.0 upscaling for the viewport's 3D buffer. The amount of scaling can be set using :ref:`scaling_3d_scale<class_Viewport_property_scaling_3d_scale>`. Values less than ``1.0`` will be result in the viewport being upscaled using FSR. Values greater than ``1.0`` are not supported and bilinear downsampling will be used instead. A value of ``1.0`` disables scaling.
 
+.. _class_Viewport_constant_SCALING_3D_MODE_FSR2:
+
+.. rst-class:: classref-enumeration-constant
+
+:ref:`Scaling3DMode<enum_Viewport_Scaling3DMode>` **SCALING_3D_MODE_FSR2** = ``2``
+
+Use AMD FidelityFX Super Resolution 2.2 upscaling for the viewport's 3D buffer. The amount of scaling can be set using :ref:`scaling_3d_scale<class_Viewport_property_scaling_3d_scale>`. Values less than ``1.0`` will be result in the viewport being upscaled using FSR2. Values greater than ``1.0`` are not supported and bilinear downsampling will be used instead. A value of ``1.0`` will use FSR2 at native resolution as a TAA solution.
+
 .. _class_Viewport_constant_SCALING_3D_MODE_MAX:
 
 .. rst-class:: classref-enumeration-constant
 
-:ref:`Scaling3DMode<enum_Viewport_Scaling3DMode>` **SCALING_3D_MODE_MAX** = ``2``
+:ref:`Scaling3DMode<enum_Viewport_Scaling3DMode>` **SCALING_3D_MODE_MAX** = ``3``
 
 Represents the size of the :ref:`Scaling3DMode<enum_Viewport_Scaling3DMode>` enum.
 
@@ -732,6 +746,14 @@ Draws the decal atlas used by :ref:`Decal<class_Decal>`\ s and light projector t
 
 
 
+.. _class_Viewport_constant_DEBUG_DRAW_INTERNAL_BUFFER:
+
+.. rst-class:: classref-enumeration-constant
+
+:ref:`DebugDraw<enum_Viewport_DebugDraw>` **DEBUG_DRAW_INTERNAL_BUFFER** = ``26``
+
+Draws the internal resolution buffer of the scene before post-processing is applied.
+
 .. rst-class:: classref-item-separator
 
 ----
@@ -748,7 +770,7 @@ enum **DefaultCanvasItemTextureFilter**:
 
 :ref:`DefaultCanvasItemTextureFilter<enum_Viewport_DefaultCanvasItemTextureFilter>` **DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST** = ``0``
 
-The texture filter reads from the nearest pixel only. The simplest and fastest method of filtering, but the texture will look pixelized.
+The texture filter reads from the nearest pixel only. This makes the texture look pixelated from up close, and grainy from a distance (due to mipmaps not being sampled).
 
 .. _class_Viewport_constant_DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_LINEAR:
 
@@ -756,7 +778,7 @@ The texture filter reads from the nearest pixel only. The simplest and fastest m
 
 :ref:`DefaultCanvasItemTextureFilter<enum_Viewport_DefaultCanvasItemTextureFilter>` **DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_LINEAR** = ``1``
 
-The texture filter blends between the nearest 4 pixels. Use this when you want to avoid a pixelated style, but do not want mipmaps.
+The texture filter blends between the nearest 4 pixels. This makes the texture look smooth from up close, and grainy from a distance (due to mipmaps not being sampled).
 
 .. _class_Viewport_constant_DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_LINEAR_WITH_MIPMAPS:
 
@@ -764,7 +786,9 @@ The texture filter blends between the nearest 4 pixels. Use this when you want t
 
 :ref:`DefaultCanvasItemTextureFilter<enum_Viewport_DefaultCanvasItemTextureFilter>` **DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_LINEAR_WITH_MIPMAPS** = ``2``
 
-The texture filter reads from the nearest pixel in the nearest mipmap. The fastest way to read from textures with mipmaps.
+The texture filter blends between the nearest 4 pixels and between the nearest 2 mipmaps (or uses the nearest mipmap if :ref:`ProjectSettings.rendering/textures/default_filters/use_nearest_mipmap_filter<class_ProjectSettings_property_rendering/textures/default_filters/use_nearest_mipmap_filter>` is ``true``). This makes the texture look smooth from up close, and smooth from a distance.
+
+Use this for non-pixel art textures that may be viewed at a low scale (e.g. due to :ref:`Camera2D<class_Camera2D>` zoom or sprite scaling), as mipmaps are important to smooth out pixels that are smaller than on-screen pixels.
 
 .. _class_Viewport_constant_DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST_WITH_MIPMAPS:
 
@@ -772,7 +796,9 @@ The texture filter reads from the nearest pixel in the nearest mipmap. The faste
 
 :ref:`DefaultCanvasItemTextureFilter<enum_Viewport_DefaultCanvasItemTextureFilter>` **DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST_WITH_MIPMAPS** = ``3``
 
-The texture filter blends between the nearest 4 pixels and between the nearest 2 mipmaps.
+The texture filter reads from the nearest pixel and blends between the nearest 2 mipmaps (or uses the nearest mipmap if :ref:`ProjectSettings.rendering/textures/default_filters/use_nearest_mipmap_filter<class_ProjectSettings_property_rendering/textures/default_filters/use_nearest_mipmap_filter>` is ``true``). This makes the texture look pixelated from up close, and smooth from a distance.
+
+Use this for non-pixel art textures that may be viewed at a low scale (e.g. due to :ref:`Camera2D<class_Camera2D>` zoom or sprite scaling), as mipmaps are important to smooth out pixels that are smaller than on-screen pixels.
 
 .. _class_Viewport_constant_DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_MAX:
 
@@ -1296,6 +1322,8 @@ If ``true``, the viewport will use a unique copy of the :ref:`World3D<class_Worl
 
 If ``true``, the objects rendered by viewport become subjects of mouse picking process.
 
+\ **Note:** The number of simultaneously pickable objects is limited to 64 and they are selected in a non-deterministic order, which can be different in each picking process.
+
 .. rst-class:: classref-item-separator
 
 ----
@@ -1314,6 +1342,8 @@ If ``true``, the objects rendered by viewport become subjects of mouse picking p
 If ``true``, objects receive mouse picking events sorted primarily by their :ref:`CanvasItem.z_index<class_CanvasItem_property_z_index>` and secondarily by their position in the scene tree. If ``false``, the order is undetermined.
 
 \ **Note:** This setting is disabled by default because of its potential expensive computational cost.
+
+\ **Note:** Sorting happens after selecting the pickable objects. Because of the limitation of 64 simultaneously pickable objects, it is not guaranteed that the object with the highest :ref:`CanvasItem.z_index<class_CanvasItem_property_z_index>` receives the picking event.
 
 .. rst-class:: classref-item-separator
 
@@ -1569,7 +1599,7 @@ Sets the screen-space antialiasing method used. Screen-space antialiasing works 
 
 Affects the final texture sharpness by reading from a lower or higher mipmap (also called "texture LOD bias"). Negative values make mipmapped textures sharper but grainier when viewed at a distance, while positive values make mipmapped textures blurrier (even when up close).
 
-Enabling temporal antialiasing (:ref:`use_taa<class_Viewport_property_use_taa>`) will automatically apply a ``-0.5`` offset to this value, while enabling FXAA (:ref:`screen_space_aa<class_Viewport_property_screen_space_aa>`) will automatically apply a ``-0.25`` offset to this value. If both TAA and FXAA are enbled at the same time, an offset of ``-0.75`` is applied to this value.
+Enabling temporal antialiasing (:ref:`use_taa<class_Viewport_property_use_taa>`) will automatically apply a ``-0.5`` offset to this value, while enabling FXAA (:ref:`screen_space_aa<class_Viewport_property_screen_space_aa>`) will automatically apply a ``-0.25`` offset to this value. If both TAA and FXAA are enabled at the same time, an offset of ``-0.75`` is applied to this value.
 
 \ **Note:** If :ref:`scaling_3d_scale<class_Viewport_property_scaling_3d_scale>` is lower than ``1.0`` (exclusive), :ref:`texture_mipmap_bias<class_Viewport_property_texture_mipmap_bias>` is used to adjust the automatic mipmap bias which is calculated internally based on the scale factor. The formula for this is ``log2(scaling_3d_scale) + mipmap_bias``.
 
@@ -1615,6 +1645,25 @@ In some cases, debanding may introduce a slightly noticeable dithering pattern. 
 
 ----
 
+.. _class_Viewport_property_use_hdr_2d:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **use_hdr_2d** = ``false``
+
+.. rst-class:: classref-property-setget
+
+- void **set_use_hdr_2d** **(** :ref:`bool<class_bool>` value **)**
+- :ref:`bool<class_bool>` **is_using_hdr_2d** **(** **)**
+
+If ``true``, 2D rendering will use an high dynamic range (HDR) format framebuffer matching the bit depth of the 3D framebuffer. When using the Forward+ renderer this will be a ``RGBA16`` framebuffer, while when using the Mobile renderer it will be a ``RGB10_A2`` framebuffer. Additionally, 2D rendering will take place in linear color space and will be converted to sRGB space immediately before blitting to the screen (if the Viewport is attached to the screen). Practically speaking, this means that the end result of the Viewport will not be clamped into the ``0-1`` range and can be used in 3D rendering without color space adjustments. This allows 2D rendering to take advantage of effects requiring high dynamic range (e.g. 2D glow) as well as substantially improves the appearance of effects requiring highly detailed gradients.
+
+\ **Note:** This setting will have no effect when using the GL Compatibility renderer as the GL Compatibility renderer always renders in low dynamic range for performance reasons.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_Viewport_property_use_occlusion_culling:
 
 .. rst-class:: classref-property
@@ -1629,6 +1678,8 @@ In some cases, debanding may introduce a slightly noticeable dithering pattern. 
 If ``true``, :ref:`OccluderInstance3D<class_OccluderInstance3D>` nodes will be usable for occlusion culling in 3D for this viewport. For the root viewport, :ref:`ProjectSettings.rendering/occlusion_culling/use_occlusion_culling<class_ProjectSettings_property_rendering/occlusion_culling/use_occlusion_culling>` must be set to ``true`` instead.
 
 \ **Note:** Enabling occlusion culling has a cost on the CPU. Only enable occlusion culling if you actually plan to use it, and think whether your scene can actually benefit from occlusion culling. Large, open scenes with few or no objects blocking the view will generally not benefit much from occlusion culling. Large open scenes generally benefit more from mesh LOD and visibility ranges (:ref:`GeometryInstance3D.visibility_range_begin<class_GeometryInstance3D_property_visibility_range_begin>` and :ref:`GeometryInstance3D.visibility_range_end<class_GeometryInstance3D_property_visibility_range_end>`) compared to occlusion culling.
+
+\ **Note:** Due to memory constraints, occlusion culling is not supported by default in Web export templates. It can be enabled by compiling custom Web export templates with ``module_raycast_enabled=yes``.
 
 .. rst-class:: classref-item-separator
 
@@ -1818,6 +1869,20 @@ Returns an individual bit on the rendering layer mask.
 
 ----
 
+.. _class_Viewport_method_get_embedded_subwindows:
+
+.. rst-class:: classref-method
+
+:ref:`Window[]<class_Window>` **get_embedded_subwindows** **(** **)** |const|
+
+Returns a list of the visible embedded :ref:`Window<class_Window>`\ s inside the viewport.
+
+\ **Note:** :ref:`Window<class_Window>`\ s inside other viewports will not be listed.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_Viewport_method_get_final_transform:
 
 .. rst-class:: classref-method
@@ -1848,7 +1913,7 @@ Returns the mouse's position in this **Viewport** using the coordinate system of
 
 :ref:`PositionalShadowAtlasQuadrantSubdiv<enum_Viewport_PositionalShadowAtlasQuadrantSubdiv>` **get_positional_shadow_atlas_quadrant_subdiv** **(** :ref:`int<class_int>` quadrant **)** |const|
 
-Returns the :ref:`PositionalShadowAtlasQuadrantSubdiv<enum_Viewport_PositionalShadowAtlasQuadrantSubdiv>` of the specified quadrant.
+Returns the positional shadow atlas quadrant subdivision of the specified quadrant.
 
 .. rst-class:: classref-item-separator
 
@@ -1886,7 +1951,7 @@ Returns the transform from the Viewport's coordinates to the screen coordinates 
 
 Returns the viewport's texture.
 
-\ **Note:** When trying to store the current texture (e.g. in a file), it might be completely black or outdated if used too early, especially when used in e.g. :ref:`Node._ready<class_Node_method__ready>`. To make sure the texture you get is correct, you can await :ref:`RenderingServer.frame_post_draw<class_RenderingServer_signal_frame_post_draw>` signal.
+\ **Note:** When trying to store the current texture (e.g. in a file), it might be completely black or outdated if used too early, especially when used in e.g. :ref:`Node._ready<class_Node_private_method__ready>`. To make sure the texture you get is correct, you can await :ref:`RenderingServer.frame_post_draw<class_RenderingServer_signal_frame_post_draw>` signal.
 
 ::
 
@@ -1928,7 +1993,7 @@ Returns the visible rectangle in global screen coordinates.
 
 :ref:`Variant<class_Variant>` **gui_get_drag_data** **(** **)** |const|
 
-Returns the drag data from the GUI, that was previously returned by :ref:`Control._get_drag_data<class_Control_method__get_drag_data>`.
+Returns the drag data from the GUI, that was previously returned by :ref:`Control._get_drag_data<class_Control_private_method__get_drag_data>`.
 
 .. rst-class:: classref-item-separator
 
@@ -1941,6 +2006,20 @@ Returns the drag data from the GUI, that was previously returned by :ref:`Contro
 :ref:`Control<class_Control>` **gui_get_focus_owner** **(** **)** |const|
 
 Returns the :ref:`Control<class_Control>` having the focus within this viewport. If no :ref:`Control<class_Control>` has the focus, returns null.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_Viewport_method_gui_get_hovered_control:
+
+.. rst-class:: classref-method
+
+:ref:`Control<class_Control>` **gui_get_hovered_control** **(** **)** |const|
+
+Returns the :ref:`Control<class_Control>` that the mouse is currently hovering over in this viewport. If no :ref:`Control<class_Control>` has the cursor, returns null.
+
+Typically the leaf :ref:`Control<class_Control>` node or deepest level of the subtree which claims hover. This is very useful when used together with :ref:`Node.is_ancestor_of<class_Node_method_is_ancestor_of>` to find if the mouse is within a control tree.
 
 .. rst-class:: classref-item-separator
 
@@ -1992,7 +2071,7 @@ Removes the focus from the currently focused :ref:`Control<class_Control>` withi
 
 Returns whether the current :ref:`InputEvent<class_InputEvent>` has been handled. Input events are not handled until :ref:`set_input_as_handled<class_Viewport_method_set_input_as_handled>` has been called during the lifetime of an :ref:`InputEvent<class_InputEvent>`.
 
-This is usually done as part of input handling methods like :ref:`Node._input<class_Node_method__input>`, :ref:`Control._gui_input<class_Control_method__gui_input>` or others, as well as in corresponding signal handlers.
+This is usually done as part of input handling methods like :ref:`Node._input<class_Node_private_method__input>`, :ref:`Control._gui_input<class_Control_private_method__gui_input>` or others, as well as in corresponding signal handlers.
 
 If :ref:`handle_input_locally<class_Viewport_property_handle_input_locally>` is set to ``false``, this method will try finding the first parent viewport that is set to handle input locally, and return its value for :ref:`is_input_handled<class_Viewport_method_is_input_handled>` instead.
 
@@ -2014,15 +2093,15 @@ While this method serves a similar purpose as :ref:`Input.parse_input_event<clas
 
 Calling this method will propagate calls to child nodes for following methods in the given order:
 
-- :ref:`Node._input<class_Node_method__input>`\ 
+- :ref:`Node._input<class_Node_private_method__input>`\ 
 
-- :ref:`Control._gui_input<class_Control_method__gui_input>` for :ref:`Control<class_Control>` nodes
+- :ref:`Control._gui_input<class_Control_private_method__gui_input>` for :ref:`Control<class_Control>` nodes
 
-- :ref:`Node._shortcut_input<class_Node_method__shortcut_input>`\ 
+- :ref:`Node._shortcut_input<class_Node_private_method__shortcut_input>`\ 
 
-- :ref:`Node._unhandled_input<class_Node_method__unhandled_input>`\ 
+- :ref:`Node._unhandled_key_input<class_Node_private_method__unhandled_key_input>`\ 
 
-- :ref:`Node._unhandled_key_input<class_Node_method__unhandled_key_input>`\ 
+- :ref:`Node._unhandled_input<class_Node_private_method__unhandled_input>`\ 
 
 If an earlier method marks the input as handled via :ref:`set_input_as_handled<class_Viewport_method_set_input_as_handled>`, any later method in this list will not be called.
 
@@ -2058,11 +2137,11 @@ While this method serves a similar purpose as :ref:`Input.parse_input_event<clas
 
 Calling this method will propagate calls to child nodes for following methods in the given order:
 
-- :ref:`Node._shortcut_input<class_Node_method__shortcut_input>`\ 
+- :ref:`Node._shortcut_input<class_Node_private_method__shortcut_input>`\ 
 
-- :ref:`Node._unhandled_input<class_Node_method__unhandled_input>`\ 
+- :ref:`Node._unhandled_key_input<class_Node_private_method__unhandled_key_input>`\ 
 
-- :ref:`Node._unhandled_key_input<class_Node_method__unhandled_key_input>`\ 
+- :ref:`Node._unhandled_input<class_Node_private_method__unhandled_input>`\ 
 
 If an earlier method marks the input as handled via :ref:`set_input_as_handled<class_Viewport_method_set_input_as_handled>`, any later method in this list will not be called.
 
