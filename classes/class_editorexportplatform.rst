@@ -23,7 +23,43 @@ Description
 
 Base resource that provides the functionality of exporting a release build of a project to a platform, from the editor. Stores platform-specific metadata such as the name and supported features of the platform, and performs the exporting of projects, PCK files, and ZIP files. Uses an export template for the platform provided at the time of project exporting.
 
-Used in scripting by :ref:`EditorExportPlugin<class_EditorExportPlugin>` to configure platform-specific customization of scenes and resources. See :ref:`EditorExportPlugin._begin_customize_scenes<class_EditorExportPlugin_method__begin_customize_scenes>` and :ref:`EditorExportPlugin._begin_customize_resources<class_EditorExportPlugin_method__begin_customize_resources>` for more details.
+Used in scripting by :ref:`EditorExportPlugin<class_EditorExportPlugin>` to configure platform-specific customization of scenes and resources. See :ref:`EditorExportPlugin._begin_customize_scenes<class_EditorExportPlugin_private_method__begin_customize_scenes>` and :ref:`EditorExportPlugin._begin_customize_resources<class_EditorExportPlugin_private_method__begin_customize_resources>` for more details.
+
+.. rst-class:: classref-introduction-group
+
+Tutorials
+---------
+
+- `$DOCS_URL/tutorials/platform/consoles.html <Console support in Godot>`__
+
+.. rst-class:: classref-reftable-group
+
+Methods
+-------
+
+.. table::
+   :widths: auto
+
+   +-----------------------------+---------------------------------------------------------------------------------------+
+   | :ref:`String<class_String>` | :ref:`get_os_name<class_EditorExportPlatform_method_get_os_name>` **(** **)** |const| |
+   +-----------------------------+---------------------------------------------------------------------------------------+
+
+.. rst-class:: classref-section-separator
+
+----
+
+.. rst-class:: classref-descriptions-group
+
+Method Descriptions
+-------------------
+
+.. _class_EditorExportPlatform_method_get_os_name:
+
+.. rst-class:: classref-method
+
+:ref:`String<class_String>` **get_os_name** **(** **)** |const|
+
+Returns the name of the export operating system handled by this **EditorExportPlatform** class, as a friendly string. Possible return values are ``Windows``, ``Linux``, ``macOS``, ``Android``, ``iOS``, and ``Web``.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`

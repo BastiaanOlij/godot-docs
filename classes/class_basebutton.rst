@@ -64,9 +64,9 @@ Methods
    :widths: auto
 
    +-------------------------------------------+-------------------------------------------------------------------------------------------------------------------------+
-   | void                                      | :ref:`_pressed<class_BaseButton_method__pressed>` **(** **)** |virtual|                                                 |
+   | void                                      | :ref:`_pressed<class_BaseButton_private_method__pressed>` **(** **)** |virtual|                                         |
    +-------------------------------------------+-------------------------------------------------------------------------------------------------------------------------+
-   | void                                      | :ref:`_toggled<class_BaseButton_method__toggled>` **(** :ref:`bool<class_bool>` button_pressed **)** |virtual|          |
+   | void                                      | :ref:`_toggled<class_BaseButton_private_method__toggled>` **(** :ref:`bool<class_bool>` toggled_on **)** |virtual|      |
    +-------------------------------------------+-------------------------------------------------------------------------------------------------------------------------+
    | :ref:`DrawMode<enum_BaseButton_DrawMode>` | :ref:`get_draw_mode<class_BaseButton_method_get_draw_mode>` **(** **)** |const|                                         |
    +-------------------------------------------+-------------------------------------------------------------------------------------------------------------------------+
@@ -126,9 +126,9 @@ If you need to know the button's pressed state (and :ref:`toggle_mode<class_Base
 
 .. rst-class:: classref-signal
 
-**toggled** **(** :ref:`bool<class_bool>` button_pressed **)**
+**toggled** **(** :ref:`bool<class_bool>` toggled_on **)**
 
-Emitted when the button was just toggled between pressed and normal states (only if :ref:`toggle_mode<class_BaseButton_property_toggle_mode>` is active). The new state is contained in the ``button_pressed`` argument.
+Emitted when the button was just toggled between pressed and normal states (only if :ref:`toggle_mode<class_BaseButton_property_toggle_mode>` is active). The new state is contained in the ``toggled_on`` argument.
 
 .. rst-class:: classref-section-separator
 
@@ -403,23 +403,23 @@ If ``true``, the button is in toggle mode. Makes the button flip state between p
 Method Descriptions
 -------------------
 
-.. _class_BaseButton_method__pressed:
+.. _class_BaseButton_private_method__pressed:
 
 .. rst-class:: classref-method
 
 void **_pressed** **(** **)** |virtual|
 
-Called when the button is pressed. If you need to know the button's pressed state (and :ref:`toggle_mode<class_BaseButton_property_toggle_mode>` is active), use :ref:`_toggled<class_BaseButton_method__toggled>` instead.
+Called when the button is pressed. If you need to know the button's pressed state (and :ref:`toggle_mode<class_BaseButton_property_toggle_mode>` is active), use :ref:`_toggled<class_BaseButton_private_method__toggled>` instead.
 
 .. rst-class:: classref-item-separator
 
 ----
 
-.. _class_BaseButton_method__toggled:
+.. _class_BaseButton_private_method__toggled:
 
 .. rst-class:: classref-method
 
-void **_toggled** **(** :ref:`bool<class_bool>` button_pressed **)** |virtual|
+void **_toggled** **(** :ref:`bool<class_bool>` toggled_on **)** |virtual|
 
 Called when the button is toggled (only if :ref:`toggle_mode<class_BaseButton_property_toggle_mode>` is active).
 
