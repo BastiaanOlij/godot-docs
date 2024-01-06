@@ -170,6 +170,8 @@ Methods
    +-----------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`String<class_String>`                         | :ref:`replacen<class_StringName_method_replacen>` **(** :ref:`String<class_String>` what, :ref:`String<class_String>` forwhat **)** |const|                                            |
    +-----------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`String<class_String>`                         | :ref:`reverse<class_StringName_method_reverse>` **(** **)** |const|                                                                                                                    |
+   +-----------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                               | :ref:`rfind<class_StringName_method_rfind>` **(** :ref:`String<class_String>` what, :ref:`int<class_int>` from=-1 **)** |const|                                                        |
    +-----------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                               | :ref:`rfindn<class_StringName_method_rfindn>` **(** :ref:`String<class_String>` what, :ref:`int<class_int>` from=-1 **)** |const|                                                      |
@@ -751,7 +753,7 @@ This is faster than :ref:`split<class_StringName_method_split>`, if you only nee
 
 Returns the 32-bit hash value representing the string's contents.
 
-\ **Note:** Strings with equal hash values are *not* guaranteed to be the same, as a result of hash collisions. On the countrary, strings with different hash values are guaranteed to be different.
+\ **Note:** Strings with equal hash values are *not* guaranteed to be the same, as a result of hash collisions. On the contrary, strings with different hash values are guaranteed to be different.
 
 .. rst-class:: classref-item-separator
 
@@ -1296,6 +1298,18 @@ Replaces all occurrences of ``what`` inside the string with the given ``forwhat`
 :ref:`String<class_String>` **replacen** **(** :ref:`String<class_String>` what, :ref:`String<class_String>` forwhat **)** |const|
 
 Replaces all **case-insensitive** occurrences of ``what`` inside the string with the given ``forwhat``.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_StringName_method_reverse:
+
+.. rst-class:: classref-method
+
+:ref:`String<class_String>` **reverse** **(** **)** |const|
+
+Returns the copy of this string in reverse order.
 
 .. rst-class:: classref-item-separator
 
@@ -1860,7 +1874,7 @@ Returns a copy of the string with all characters that are not allowed in :ref:`i
 
 :ref:`String<class_String>` **validate_node_name** **(** **)** |const|
 
-Returns a copy of the string with all characters that are not allowed in :ref:`Node.name<class_Node_property_name>` removed (``.`` ``:`` ``@`` ``/`` ``"`` ``%``).
+Returns a copy of the string with all characters that are not allowed in :ref:`Node.name<class_Node_property_name>` (``.`` ``:`` ``@`` ``/`` ``"`` ``%``) replaced with underscores.
 
 .. rst-class:: classref-item-separator
 
