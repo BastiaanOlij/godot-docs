@@ -25,6 +25,10 @@ Negative values for :ref:`size<class_AABB_property_size>` are not supported and 
 
 \ **Note:** Unlike :ref:`Rect2<class_Rect2>`, **AABB** does not have a variant that uses integer coordinates.
 
+.. note::
+
+	There are notable differences when using this API with C#. See :ref:`doc_c_sharp_differences` for more information.
+
 .. rst-class:: classref-introduction-group
 
 Tutorials
@@ -392,7 +396,7 @@ Returns the scalar length of the shortest axis of the **AABB**.
 
 :ref:`Vector3<class_Vector3>` **get_support** **(** :ref:`Vector3<class_Vector3>` dir **)** |const|
 
-Returns the support point in a given direction. This is useful for collision detection algorithms.
+Returns the vertex of the AABB that's the farthest in a given direction. This point is commonly known as the support point in collision detection algorithms.
 
 .. rst-class:: classref-item-separator
 
@@ -581,7 +585,11 @@ Returns ``true`` if the AABBs are not equal.
 
 :ref:`AABB<class_AABB>` **operator *** **(** :ref:`Transform3D<class_Transform3D>` right **)**
 
-Inversely transforms (multiplies) the **AABB** by the given :ref:`Transform3D<class_Transform3D>` transformation matrix.
+Inversely transforms (multiplies) the **AABB** by the given :ref:`Transform3D<class_Transform3D>` transformation matrix, under the assumption that the transformation basis is orthonormal (i.e. rotation/reflection is fine, scaling/skew is not).
+
+\ ``aabb * transform`` is equivalent to ``transform.inverse() * aabb``. See :ref:`Transform3D.inverse<class_Transform3D_method_inverse>`.
+
+For transforming by inverse of an affine transformation (e.g. with scaling) ``transform.affine_inverse() * aabb`` can be used instead. See :ref:`Transform3D.affine_inverse<class_Transform3D_method_affine_inverse>`.
 
 .. rst-class:: classref-item-separator
 

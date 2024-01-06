@@ -49,7 +49,7 @@ Godot tracks all scripting API variables within Variants. Without even realizing
 
 - GDScript automatically wrap values in them. It keeps all data in plain Variants by default and then optionally enforces custom static typing rules on variable types.
 
-- C# is statically typed, but uses its own implementation of the ``Variant`` type in place of Godot's Variant class when it needs to represent a dynamic value. A ``Variant`` can be assigned any compatible type implicitly but converting requires an explicit cast.
+- C# is statically typed, but uses its own implementation of the Variant type in place of Godot's **Variant** class when it needs to represent a dynamic value. C# Variant can be assigned any compatible type implicitly but converting requires an explicit cast.
 
 The global :ref:`@GlobalScope.typeof<class_@GlobalScope_method_typeof>` function returns the enumerated value of the Variant type stored in the current variable (see :ref:`Variant.Type<enum_@GlobalScope_Variant.Type>`).
 
@@ -120,6 +120,10 @@ A Variant:
 \ **Containers (Array and Dictionary):** Both are implemented using variants. A :ref:`Dictionary<class_Dictionary>` can match any datatype used as key to any other datatype. An :ref:`Array<class_Array>` just holds an array of Variants. Of course, a Variant can also hold a :ref:`Dictionary<class_Dictionary>` and an :ref:`Array<class_Array>` inside, making it even more flexible.
 
 Modifications to a container will modify all references to it. A :ref:`Mutex<class_Mutex>` should be created to lock it if multi-threaded access is desired.
+
+.. note::
+
+	There are notable differences when using this API with C#. See :ref:`doc_c_sharp_differences` for more information.
 
 .. rst-class:: classref-introduction-group
 
