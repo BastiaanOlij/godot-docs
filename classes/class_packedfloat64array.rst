@@ -21,6 +21,10 @@ An array specifically designed to hold 64-bit floating-point values (double). Pa
 
 If you only need to pack 32-bit floats tightly, see :ref:`PackedFloat32Array<class_PackedFloat32Array>` for a more memory-friendly alternative.
 
+.. note::
+
+	There are notable differences when using this API with C#. See :ref:`doc_c_sharp_differences` for more information.
+
 .. rst-class:: classref-reftable-group
 
 Constructors
@@ -325,7 +329,7 @@ Removes an element from the array by index.
 
 :ref:`int<class_int>` **resize** **(** :ref:`int<class_int>` new_size **)**
 
-Sets the size of the array. If the array is grown, reserves elements at the end of the array. If the array is shrunk, truncates the array to the new size.
+Sets the size of the array. If the array is grown, reserves elements at the end of the array. If the array is shrunk, truncates the array to the new size. Calling :ref:`resize<class_PackedFloat64Array_method_resize>` once and assigning the new values is faster than adding new elements one by one.
 
 .. rst-class:: classref-item-separator
 

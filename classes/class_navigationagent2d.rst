@@ -153,7 +153,7 @@ Signals
 
 **link_reached** **(** :ref:`Dictionary<class_Dictionary>` details **)**
 
-Notifies when a navigation link has been reached.
+Signals that the agent reached a navigation link. Emitted when the agent moves within :ref:`path_desired_distance<class_NavigationAgent2D_property_path_desired_distance>` of the next position of the path when that position is a navigation link.
 
 The details dictionary may contain the following keys depending on the value of :ref:`path_metadata_flags<class_NavigationAgent2D_property_path_metadata_flags>`:
 
@@ -179,7 +179,9 @@ The details dictionary may contain the following keys depending on the value of 
 
 **navigation_finished** **(** **)**
 
-Notifies when the final position is reached.
+Signals that the agent's navigation has finished. If the target is reachable, navigation ends when the target is reached. If the target is unreachable, navigation ends when the last waypoint of the path is reached. This signal is emitted only once per loaded path.
+
+This signal will be emitted just after :ref:`target_reached<class_NavigationAgent2D_signal_target_reached>` when the target is reachable.
 
 .. rst-class:: classref-item-separator
 
@@ -191,7 +193,13 @@ Notifies when the final position is reached.
 
 **path_changed** **(** **)**
 
-Notifies when the navigation path changes.
+Emitted when the agent had to update the loaded path:
+
+- because path was previously empty.
+
+- because navigation map has changed.
+
+- because agent pushed further away from the current path segment than the :ref:`path_max_distance<class_NavigationAgent2D_property_path_max_distance>`.
 
 .. rst-class:: classref-item-separator
 
@@ -203,7 +211,11 @@ Notifies when the navigation path changes.
 
 **target_reached** **(** **)**
 
-Notifies when the player-defined :ref:`target_position<class_NavigationAgent2D_property_target_position>` is reached.
+Signals that the agent reached the target, i.e. the agent moved within :ref:`target_desired_distance<class_NavigationAgent2D_property_target_desired_distance>` of the :ref:`target_position<class_NavigationAgent2D_property_target_position>`. This signal is emitted only once per loaded path.
+
+This signal will be emitted just before :ref:`navigation_finished<class_NavigationAgent2D_signal_navigation_finished>` when the target is reachable.
+
+It may not always be possible to reach the target but it should always be possible to reach the final position. See :ref:`get_final_position<class_NavigationAgent2D_method_get_final_position>`.
 
 .. rst-class:: classref-item-separator
 
@@ -227,7 +239,7 @@ Notifies when the collision avoidance velocity is calculated. Emitted when :ref:
 
 **waypoint_reached** **(** :ref:`Dictionary<class_Dictionary>` details **)**
 
-Notifies when a waypoint along the path has been reached.
+Signals that the agent reached a waypoint. Emitted when the agent moves within :ref:`path_desired_distance<class_NavigationAgent2D_property_path_desired_distance>` of the next position of the path.
 
 The details dictionary may contain the following keys depending on the value of :ref:`path_metadata_flags<class_NavigationAgent2D_property_path_metadata_flags>`:
 
@@ -480,7 +492,7 @@ The distance to search for other agents.
 - void **set_path_desired_distance** **(** :ref:`float<class_float>` value **)**
 - :ref:`float<class_float>` **get_path_desired_distance** **(** **)**
 
-The distance threshold before a path point is considered to be reached. This allows agents to not have to hit a path point on the path exactly, but only to reach its general area. If this value is set too high, the NavigationAgent will skip points on the path, which can lead too leaving the navigation mesh. If this value is set too low, the NavigationAgent will be stuck in a repath loop because it will constantly overshoot or undershoot the distance to the next point on each physics frame update.
+The distance threshold before a path point is considered to be reached. This allows agents to not have to hit a path point on the path exactly, but only to reach its general area. If this value is set too high, the NavigationAgent will skip points on the path, which can lead to it leaving the navigation mesh. If this value is set too low, the NavigationAgent will be stuck in a repath loop because it will constantly overshoot the distance to the next point on each physics frame update.
 
 .. rst-class:: classref-item-separator
 
@@ -584,7 +596,11 @@ Does not affect normal pathfinding. To change an actor's pathfinding radius bake
 - void **set_target_desired_distance** **(** :ref:`float<class_float>` value **)**
 - :ref:`float<class_float>` **get_target_desired_distance** **(** **)**
 
-The distance threshold before the final target point is considered to be reached. This allows agents to not have to hit the point of the final target exactly, but only to reach its general area. If this value is set too low, the NavigationAgent will be stuck in a repath loop because it will constantly overshoot or undershoot the distance to the final target point on each physics frame update.
+The distance threshold before the target is considered to be reached. On reaching the target, :ref:`target_reached<class_NavigationAgent2D_signal_target_reached>` is emitted and navigation ends (see :ref:`is_navigation_finished<class_NavigationAgent2D_method_is_navigation_finished>` and :ref:`navigation_finished<class_NavigationAgent2D_signal_navigation_finished>`).
+
+You can make navigation end early by setting this property to a value greater than :ref:`path_desired_distance<class_NavigationAgent2D_property_path_desired_distance>` (navigation will end before reaching the last waypoint).
+
+You can also make navigation end closer to the target than each individual path position by setting this property to a value lower than :ref:`path_desired_distance<class_NavigationAgent2D_property_path_desired_distance>` (navigation won't immediately end when reaching the last waypoint). However, if the value set is too low, the agent will be stuck in a repath loop because it will constantly overshoot the distance to the target on each physics frame update.
 
 .. rst-class:: classref-item-separator
 
@@ -601,7 +617,7 @@ The distance threshold before the final target point is considered to be reached
 - void **set_target_position** **(** :ref:`Vector2<class_Vector2>` value **)**
 - :ref:`Vector2<class_Vector2>` **get_target_position** **(** **)**
 
-If set a new navigation path from the current agent position to the :ref:`target_position<class_NavigationAgent2D_property_target_position>` is requested from the NavigationServer.
+If set, a new navigation path from the current agent position to the :ref:`target_position<class_NavigationAgent2D_property_target_position>` is requested from the NavigationServer.
 
 .. rst-class:: classref-item-separator
 
@@ -741,7 +757,7 @@ Returns the path query result for the path the agent is currently following.
 
 :ref:`Vector2<class_Vector2>` **get_final_position** **(** **)**
 
-Returns the reachable final position of the current navigation path in global coordinates. This can change if the navigation path is altered in any way. Because of this, it would be best to check this each frame.
+Returns the reachable final position of the current navigation path in global coordinates. This position can change if the agent needs to update the navigation path which makes the agent emit the :ref:`path_changed<class_NavigationAgent2D_signal_path_changed>` signal.
 
 .. rst-class:: classref-item-separator
 
@@ -801,7 +817,9 @@ Returns the :ref:`RID<class_RID>` of this agent on the :ref:`NavigationServer2D<
 
 :ref:`bool<class_bool>` **is_navigation_finished** **(** **)**
 
-Returns true if the navigation path's final position has been reached.
+Returns ``true`` if the agent's navigation has finished. If the target is reachable, navigation ends when the target is reached. If the target is unreachable, navigation ends when the last waypoint of the path is reached.
+
+\ **Note:** While ``true`` prefer to stop calling update functions like :ref:`get_next_path_position<class_NavigationAgent2D_method_get_next_path_position>`. This avoids jittering the standing agent due to calling repeated path updates.
 
 .. rst-class:: classref-item-separator
 
@@ -813,7 +831,7 @@ Returns true if the navigation path's final position has been reached.
 
 :ref:`bool<class_bool>` **is_target_reachable** **(** **)**
 
-Returns true if :ref:`target_position<class_NavigationAgent2D_property_target_position>` is reachable. The target position is set using :ref:`target_position<class_NavigationAgent2D_property_target_position>`.
+Returns ``true`` if :ref:`get_final_position<class_NavigationAgent2D_method_get_final_position>` is within :ref:`target_desired_distance<class_NavigationAgent2D_property_target_desired_distance>` of the :ref:`target_position<class_NavigationAgent2D_property_target_position>`.
 
 .. rst-class:: classref-item-separator
 
@@ -825,7 +843,7 @@ Returns true if :ref:`target_position<class_NavigationAgent2D_property_target_po
 
 :ref:`bool<class_bool>` **is_target_reached** **(** **)** |const|
 
-Returns true if :ref:`target_position<class_NavigationAgent2D_property_target_position>` is reached. It may not always be possible to reach the target position. It should always be possible to reach the final position though. See :ref:`get_final_position<class_NavigationAgent2D_method_get_final_position>`.
+Returns ``true`` if the agent reached the target, i.e. the agent moved within :ref:`target_desired_distance<class_NavigationAgent2D_property_target_desired_distance>` of the :ref:`target_position<class_NavigationAgent2D_property_target_position>`. It may not always be possible to reach the target but it should always be possible to reach the final position. See :ref:`get_final_position<class_NavigationAgent2D_method_get_final_position>`.
 
 .. rst-class:: classref-item-separator
 

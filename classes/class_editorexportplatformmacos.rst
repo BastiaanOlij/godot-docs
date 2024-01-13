@@ -32,6 +32,8 @@ Properties
    :widths: auto
 
    +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`String<class_String>`                       | :ref:`application/additional_plist_content<class_EditorExportPlatformMacOS_property_application/additional_plist_content>`                                     |
+   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`String<class_String>`                       | :ref:`application/app_category<class_EditorExportPlatformMacOS_property_application/app_category>`                                                             |
    +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`String<class_String>`                       | :ref:`application/bundle_identifier<class_EditorExportPlatformMacOS_property_application/bundle_identifier>`                                                   |
@@ -39,6 +41,8 @@ Properties
    | :ref:`String<class_String>`                       | :ref:`application/copyright<class_EditorExportPlatformMacOS_property_application/copyright>`                                                                   |
    +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Dictionary<class_Dictionary>`               | :ref:`application/copyright_localized<class_EditorExportPlatformMacOS_property_application/copyright_localized>`                                               |
+   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`                             | :ref:`application/export_angle<class_EditorExportPlatformMacOS_property_application/export_angle>`                                                             |
    +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`String<class_String>`                       | :ref:`application/icon<class_EditorExportPlatformMacOS_property_application/icon>`                                                                             |
    +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -85,6 +89,8 @@ Properties
    | :ref:`int<class_int>`                             | :ref:`codesign/entitlements/app_sandbox/files_music<class_EditorExportPlatformMacOS_property_codesign/entitlements/app_sandbox/files_music>`                   |
    +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                             | :ref:`codesign/entitlements/app_sandbox/files_pictures<class_EditorExportPlatformMacOS_property_codesign/entitlements/app_sandbox/files_pictures>`             |
+   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`                             | :ref:`codesign/entitlements/app_sandbox/files_user_selected<class_EditorExportPlatformMacOS_property_codesign/entitlements/app_sandbox/files_user_selected>`   |
    +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Array<class_Array>`                         | :ref:`codesign/entitlements/app_sandbox/helper_executables<class_EditorExportPlatformMacOS_property_codesign/entitlements/app_sandbox/helper_executables>`     |
    +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -218,6 +224,23 @@ Properties
 Property Descriptions
 ---------------------
 
+.. _class_EditorExportPlatformMacOS_property_application/additional_plist_content:
+
+.. rst-class:: classref-property
+
+:ref:`String<class_String>` **application/additional_plist_content**
+
+Additional data added to the root ``<dict>`` section of the `Info.plist <https://developer.apple.com/documentation/bundleresources/information_property_list>`__ file. The value should be an XML section with pairs of key-value elements, e.g.:
+
+::
+
+    <key>key_name</key>
+    <string>value</string>
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_EditorExportPlatformMacOS_property_application/app_category:
 
 .. rst-class:: classref-property
@@ -266,13 +289,25 @@ Copyright notice for the bundle visible to the user (localized).
 
 ----
 
+.. _class_EditorExportPlatformMacOS_property_application/export_angle:
+
+.. rst-class:: classref-property
+
+:ref:`int<class_int>` **application/export_angle**
+
+If set to ``1``, ANGLE libraries are exported with the exported application. If set to ``0``, ANGLE libraries are exported only if :ref:`ProjectSettings.rendering/gl_compatibility/driver<class_ProjectSettings_property_rendering/gl_compatibility/driver>` is set to ``"opengl3_angle"``.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_EditorExportPlatformMacOS_property_application/icon:
 
 .. rst-class:: classref-property
 
 :ref:`String<class_String>` **application/icon**
 
-Application icon file. If left empty, it will fallback to :ref:`ProjectSettings.application/config/macos_native_icon<class_ProjectSettings_property_application/config/macos_native_icon>`, and  then to :ref:`ProjectSettings.application/config/icon<class_ProjectSettings_property_application/config/icon>`.
+Application icon file. If left empty, it will fallback to :ref:`ProjectSettings.application/config/macos_native_icon<class_ProjectSettings_property_application/config/macos_native_icon>`, and then to :ref:`ProjectSettings.application/config/icon<class_ProjectSettings_property_application/config/icon>`.
 
 .. rst-class:: classref-item-separator
 
@@ -308,7 +343,7 @@ Minimum version of macOS required for this application to run in the ``major.min
 
 :ref:`String<class_String>` **application/short_version**
 
-Application version visible to the user, can only contain numeric characters (``0-9``) and periods (``.``).
+Application version visible to the user, can only contain numeric characters (``0-9``) and periods (``.``). Falls back to :ref:`ProjectSettings.application/config/version<class_ProjectSettings_property_application/config/version>` if left empty.
 
 .. rst-class:: classref-item-separator
 
@@ -332,7 +367,7 @@ A four-character creator code that is specific to the bundle. Optional.
 
 :ref:`String<class_String>` **application/version**
 
-Machine-readable application version, in the ``major.minor.patch`` format, can only contain numeric characters (``0-9``) and periods (``.``).
+Machine-readable application version, in the ``major.minor.patch`` format, can only contain numeric characters (``0-9``) and periods (``.``). This must be incremented on every new release pushed to the App Store.
 
 .. rst-class:: classref-item-separator
 
@@ -424,7 +459,7 @@ Array of the additional command line arguments passed to the code signing tool.
 
 :ref:`bool<class_bool>` **codesign/entitlements/address_book**
 
-Enable to allow access to contacts in the user's address book, if it's enabled you should also provide usage message in the ``privacy/address_book_usage_description`` option.	See `com.apple.security.personal-information.addressbook <https://developer.apple.com/documentation/bundleresources/entitlements/com_apple_security_personal-information_addressbook>`__.
+Enable to allow access to contacts in the user's address book, if it's enabled you should also provide usage message in the :ref:`privacy/address_book_usage_description<class_EditorExportPlatformMacOS_property_privacy/address_book_usage_description>` option. See `com.apple.security.personal-information.addressbook <https://developer.apple.com/documentation/bundleresources/entitlements/com_apple_security_personal-information_addressbook>`__.
 
 .. rst-class:: classref-item-separator
 
@@ -552,6 +587,18 @@ Allows read or write access to the user's "Pictures" folder. See `com.apple.secu
 
 ----
 
+.. _class_EditorExportPlatformMacOS_property_codesign/entitlements/app_sandbox/files_user_selected:
+
+.. rst-class:: classref-property
+
+:ref:`int<class_int>` **codesign/entitlements/app_sandbox/files_user_selected**
+
+Allows read or write access to the locations the user has selected using a native file dialog. See `com.apple.security.files.user-selected.read-write <https://developer.apple.com/documentation/bundleresources/entitlements/com_apple_security_files_user-selected_read-write>`__.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_EditorExportPlatformMacOS_property_codesign/entitlements/app_sandbox/helper_executables:
 
 .. rst-class:: classref-property
@@ -606,7 +653,7 @@ Enable to allow app to send Apple events to other apps. See `com.apple.security.
 
 :ref:`bool<class_bool>` **codesign/entitlements/audio_input**
 
-Enable if you need to use the microphone or other audio input sources, if it's enabled you should also provide usage message in the ``privacy/microphone_usage_description`` option. See `com.apple.security.device.audio-input <https://developer.apple.com/documentation/bundleresources/entitlements/com_apple_security_device_audio-input>`__.
+Enable if you need to use the microphone or other audio input sources, if it's enabled you should also provide usage message in the :ref:`privacy/microphone_usage_description<class_EditorExportPlatformMacOS_property_privacy/microphone_usage_description>` option. See `com.apple.security.device.audio-input <https://developer.apple.com/documentation/bundleresources/entitlements/com_apple_security_device_audio-input>`__.
 
 .. rst-class:: classref-item-separator
 
@@ -618,7 +665,7 @@ Enable if you need to use the microphone or other audio input sources, if it's e
 
 :ref:`bool<class_bool>` **codesign/entitlements/calendars**
 
-Enable to allow access to the user's calendar, if it's enabled you should also provide usage message in the ``privacy/calendar_usage_description`` option. See `com.apple.security.personal-information.calendars <https://developer.apple.com/documentation/bundleresources/entitlements/com_apple_security_personal-information_calendars>`__.
+Enable to allow access to the user's calendar, if it's enabled you should also provide usage message in the :ref:`privacy/calendar_usage_description<class_EditorExportPlatformMacOS_property_privacy/calendar_usage_description>` option. See `com.apple.security.personal-information.calendars <https://developer.apple.com/documentation/bundleresources/entitlements/com_apple_security_personal-information_calendars>`__.
 
 .. rst-class:: classref-item-separator
 
@@ -630,7 +677,7 @@ Enable to allow access to the user's calendar, if it's enabled you should also p
 
 :ref:`bool<class_bool>` **codesign/entitlements/camera**
 
-Enable if you need to use the camera, if it's enabled you should also provide usage message in the ``privacy/camera_usage_description`` option. See `com.apple.security.device.camera <https://developer.apple.com/documentation/bundleresources/entitlements/com_apple_security_device_camera>`__.
+Enable if you need to use the camera, if it's enabled you should also provide usage message in the :ref:`privacy/camera_usage_description<class_EditorExportPlatformMacOS_property_privacy/camera_usage_description>` option. See `com.apple.security.device.camera <https://developer.apple.com/documentation/bundleresources/entitlements/com_apple_security_device_camera>`__.
 
 .. rst-class:: classref-item-separator
 
@@ -678,7 +725,7 @@ Allows app to load arbitrary libraries and frameworks (not signed with the same 
 
 :ref:`bool<class_bool>` **codesign/entitlements/location**
 
-Enable if you need to use location information from Location Services, if it's enabled you should also provide usage message in the ``privacy/location_usage_description`` option. See `com.apple.security.personal-information.location <https://developer.apple.com/documentation/bundleresources/entitlements/com_apple_security_personal-information_location>`__.
+Enable if you need to use location information from Location Services, if it's enabled you should also provide usage message in the :ref:`privacy/location_usage_description<class_EditorExportPlatformMacOS_property_privacy/location_usage_description>` option. See `com.apple.security.personal-information.location <https://developer.apple.com/documentation/bundleresources/entitlements/com_apple_security_personal-information_location>`__.
 
 .. rst-class:: classref-item-separator
 
@@ -690,7 +737,7 @@ Enable if you need to use location information from Location Services, if it's e
 
 :ref:`bool<class_bool>` **codesign/entitlements/photos_library**
 
-Enable to allow access to the user's Photos library, if it's enabled you should also provide usage message in the ``privacy/photos_library_usage_description`` option. See `com.apple.security.personal-information.photos-library <https://developer.apple.com/documentation/bundleresources/entitlements/com_apple_security_personal-information_photos-library>`__.
+Enable to allow access to the user's Photos library, if it's enabled you should also provide usage message in the :ref:`privacy/photos_library_usage_description<class_EditorExportPlatformMacOS_property_privacy/photos_library_usage_description>` option. See `com.apple.security.personal-information.photos-library <https://developer.apple.com/documentation/bundleresources/entitlements/com_apple_security_personal-information_photos-library>`__.
 
 .. rst-class:: classref-item-separator
 
@@ -776,7 +823,7 @@ If enabled, a wrapper that can be used to run the application with console outpu
 
 :ref:`bool<class_bool>` **display/high_res**
 
-If ``true``, the application is rendered at native display resolution, otherwise it is always rendered at loHPI resolution and upscaled by OS when required.
+If ``true``, the application is rendered at native display resolution, otherwise it is always rendered at loDPI resolution and upscaled by OS when required.
 
 .. rst-class:: classref-item-separator
 
