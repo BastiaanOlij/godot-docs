@@ -12,14 +12,14 @@ CompressedCubemapArray
 
 **Inherits:** :ref:`CompressedTextureLayered<class_CompressedTextureLayered>` **<** :ref:`TextureLayered<class_TextureLayered>` **<** :ref:`Texture<class_Texture>` **<** :ref:`Resource<class_Resource>` **<** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
-Array of 6-sided textures typically used in 3D rendering, optionally compressed.
+An optionally compressed :ref:`CubemapArray<class_CubemapArray>`.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-A cubemap array that is loaded from a ``.ccubearray`` file. This file format is internal to Godot; it is created by importing other image formats with the import system. **CompressedCubemapArray** can use one of 4 compresson methods:
+A cubemap array that is loaded from a ``.ccubearray`` file. This file format is internal to Godot; it is created by importing other image formats with the import system. **CompressedCubemapArray** can use one of 4 compression methods:
 
 - Lossless (WebP or PNG, uncompressed on the GPU)
 

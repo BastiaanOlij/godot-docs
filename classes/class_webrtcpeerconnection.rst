@@ -23,7 +23,7 @@ Description
 
 A WebRTC connection between the local computer and a remote peer. Provides an interface to connect, maintain and monitor the connection.
 
-Setting up a WebRTC connection between two peers from now on) may not seem a trivial task, but it can be broken down into 3 main steps:
+Setting up a WebRTC connection between two peers may not seem a trivial task, but it can be broken down into 3 main steps:
 
 - The peer that wants to initiate the connection (``A`` from now on) creates an offer and send it to the other peer (``B`` from now on).
 
@@ -376,7 +376,7 @@ Returns the ICE :ref:`GatheringState<enum_WebRTCPeerConnection_GatheringState>` 
 
 :ref:`SignalingState<enum_WebRTCPeerConnection_SignalingState>` **get_signaling_state** **(** **)** |const|
 
-Returns the :ref:`SignalingState<enum_WebRTCPeerConnection_SignalingState>` on the local end of the connection while connecting or reconnecting to another peer.
+Returns the signaling state on the local end of the connection while connecting or reconnecting to another peer.
 
 .. rst-class:: classref-item-separator
 
@@ -417,7 +417,7 @@ Valid ``configuration`` options are:
 
 :ref:`Error<enum_@GlobalScope_Error>` **poll** **(** **)**
 
-Call this method frequently (e.g. in :ref:`Node._process<class_Node_method__process>` or :ref:`Node._physics_process<class_Node_method__physics_process>`) to properly receive signals.
+Call this method frequently (e.g. in :ref:`Node._process<class_Node_private_method__process>` or :ref:`Node._physics_process<class_Node_private_method__physics_process>`) to properly receive signals.
 
 .. rst-class:: classref-item-separator
 
