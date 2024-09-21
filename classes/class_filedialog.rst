@@ -52,6 +52,8 @@ Properties
    +---------------------------------------------------+-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                           | :ref:`show_hidden_files<class_FileDialog_property_show_hidden_files>`       | ``false``                                                                                |
    +---------------------------------------------------+-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------+
+   | :ref:`Vector2i<class_Vector2i>`                   | size                                                                        | ``Vector2i(640, 360)`` (overrides :ref:`Window<class_Window_property_size>`)             |
+   +---------------------------------------------------+-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------+
    | :ref:`String<class_String>`                       | title                                                                       | ``"Save a File"`` (overrides :ref:`Window<class_Window_property_title>`)                 |
    +---------------------------------------------------+-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                           | :ref:`use_native_dialog<class_FileDialog_property_use_native_dialog>`       | ``false``                                                                                |
@@ -65,35 +67,35 @@ Methods
 .. table::
    :widths: auto
 
-   +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | |void|                                            | :ref:`add_filter<class_FileDialog_method_add_filter>`\ (\ filter\: :ref:`String<class_String>`, description\: :ref:`String<class_String>` = ""\ )                                          |
-   +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | |void|                                            | :ref:`add_option<class_FileDialog_method_add_option>`\ (\ name\: :ref:`String<class_String>`, values\: :ref:`PackedStringArray<class_PackedStringArray>`, index\: :ref:`int<class_int>`\ ) |
-   +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | |void|                                            | :ref:`clear_filters<class_FileDialog_method_clear_filters>`\ (\ )                                                                                                                          |
-   +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | |void|                                            | :ref:`deselect_all<class_FileDialog_method_deselect_all>`\ (\ )                                                                                                                            |
-   +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`LineEdit<class_LineEdit>`                   | :ref:`get_line_edit<class_FileDialog_method_get_line_edit>`\ (\ )                                                                                                                          |
-   +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`int<class_int>`                             | :ref:`get_option_default<class_FileDialog_method_get_option_default>`\ (\ option\: :ref:`int<class_int>`\ ) |const|                                                                        |
-   +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`String<class_String>`                       | :ref:`get_option_name<class_FileDialog_method_get_option_name>`\ (\ option\: :ref:`int<class_int>`\ ) |const|                                                                              |
-   +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`PackedStringArray<class_PackedStringArray>` | :ref:`get_option_values<class_FileDialog_method_get_option_values>`\ (\ option\: :ref:`int<class_int>`\ ) |const|                                                                          |
-   +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`Dictionary<class_Dictionary>`               | :ref:`get_selected_options<class_FileDialog_method_get_selected_options>`\ (\ ) |const|                                                                                                    |
-   +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`VBoxContainer<class_VBoxContainer>`         | :ref:`get_vbox<class_FileDialog_method_get_vbox>`\ (\ )                                                                                                                                    |
-   +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | |void|                                            | :ref:`invalidate<class_FileDialog_method_invalidate>`\ (\ )                                                                                                                                |
-   +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | |void|                                            | :ref:`set_option_default<class_FileDialog_method_set_option_default>`\ (\ option\: :ref:`int<class_int>`, index\: :ref:`int<class_int>`\ )                                                 |
-   +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | |void|                                            | :ref:`set_option_name<class_FileDialog_method_set_option_name>`\ (\ option\: :ref:`int<class_int>`, name\: :ref:`String<class_String>`\ )                                                  |
-   +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | |void|                                            | :ref:`set_option_values<class_FileDialog_method_set_option_values>`\ (\ option\: :ref:`int<class_int>`, values\: :ref:`PackedStringArray<class_PackedStringArray>`\ )                      |
-   +---------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                            | :ref:`add_filter<class_FileDialog_method_add_filter>`\ (\ filter\: :ref:`String<class_String>`, description\: :ref:`String<class_String>` = ""\ )                                                        |
+   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                            | :ref:`add_option<class_FileDialog_method_add_option>`\ (\ name\: :ref:`String<class_String>`, values\: :ref:`PackedStringArray<class_PackedStringArray>`, default_value_index\: :ref:`int<class_int>`\ ) |
+   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                            | :ref:`clear_filters<class_FileDialog_method_clear_filters>`\ (\ )                                                                                                                                        |
+   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                            | :ref:`deselect_all<class_FileDialog_method_deselect_all>`\ (\ )                                                                                                                                          |
+   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`LineEdit<class_LineEdit>`                   | :ref:`get_line_edit<class_FileDialog_method_get_line_edit>`\ (\ )                                                                                                                                        |
+   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`                             | :ref:`get_option_default<class_FileDialog_method_get_option_default>`\ (\ option\: :ref:`int<class_int>`\ ) |const|                                                                                      |
+   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`String<class_String>`                       | :ref:`get_option_name<class_FileDialog_method_get_option_name>`\ (\ option\: :ref:`int<class_int>`\ ) |const|                                                                                            |
+   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`PackedStringArray<class_PackedStringArray>` | :ref:`get_option_values<class_FileDialog_method_get_option_values>`\ (\ option\: :ref:`int<class_int>`\ ) |const|                                                                                        |
+   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Dictionary<class_Dictionary>`               | :ref:`get_selected_options<class_FileDialog_method_get_selected_options>`\ (\ ) |const|                                                                                                                  |
+   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`VBoxContainer<class_VBoxContainer>`         | :ref:`get_vbox<class_FileDialog_method_get_vbox>`\ (\ )                                                                                                                                                  |
+   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                            | :ref:`invalidate<class_FileDialog_method_invalidate>`\ (\ )                                                                                                                                              |
+   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                            | :ref:`set_option_default<class_FileDialog_method_set_option_default>`\ (\ option\: :ref:`int<class_int>`, default_value_index\: :ref:`int<class_int>`\ )                                                 |
+   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                            | :ref:`set_option_name<class_FileDialog_method_set_option_name>`\ (\ option\: :ref:`int<class_int>`, name\: :ref:`String<class_String>`\ )                                                                |
+   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                            | :ref:`set_option_values<class_FileDialog_method_set_option_values>`\ (\ option\: :ref:`int<class_int>`, values\: :ref:`PackedStringArray<class_PackedStringArray>`\ )                                    |
+   +---------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-reftable-group
 
@@ -140,7 +142,7 @@ Signals
 
 .. rst-class:: classref-signal
 
-**dir_selected**\ (\ dir\: :ref:`String<class_String>`\ )
+**dir_selected**\ (\ dir\: :ref:`String<class_String>`\ ) :ref:`🔗<class_FileDialog_signal_dir_selected>`
 
 Emitted when the user selects a directory.
 
@@ -152,7 +154,7 @@ Emitted when the user selects a directory.
 
 .. rst-class:: classref-signal
 
-**file_selected**\ (\ path\: :ref:`String<class_String>`\ )
+**file_selected**\ (\ path\: :ref:`String<class_String>`\ ) :ref:`🔗<class_FileDialog_signal_file_selected>`
 
 Emitted when the user selects a file by double-clicking it or pressing the **OK** button.
 
@@ -164,7 +166,7 @@ Emitted when the user selects a file by double-clicking it or pressing the **OK*
 
 .. rst-class:: classref-signal
 
-**files_selected**\ (\ paths\: :ref:`PackedStringArray<class_PackedStringArray>`\ )
+**files_selected**\ (\ paths\: :ref:`PackedStringArray<class_PackedStringArray>`\ ) :ref:`🔗<class_FileDialog_signal_files_selected>`
 
 Emitted when the user selects multiple files.
 
@@ -181,7 +183,7 @@ Enumerations
 
 .. rst-class:: classref-enumeration
 
-enum **FileMode**:
+enum **FileMode**: :ref:`🔗<enum_FileDialog_FileMode>`
 
 .. _class_FileDialog_constant_FILE_MODE_OPEN_FILE:
 
@@ -231,7 +233,7 @@ The dialog will warn when a file exists.
 
 .. rst-class:: classref-enumeration
 
-enum **Access**:
+enum **Access**: :ref:`🔗<enum_FileDialog_Access>`
 
 .. _class_FileDialog_constant_ACCESS_RESOURCES:
 
@@ -270,7 +272,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`Access<enum_FileDialog_Access>` **access** = ``0``
+:ref:`Access<enum_FileDialog_Access>` **access** = ``0`` :ref:`🔗<class_FileDialog_property_access>`
 
 .. rst-class:: classref-property-setget
 
@@ -279,7 +281,7 @@ Property Descriptions
 
 The file system access scope. See :ref:`Access<enum_FileDialog_Access>` constants.
 
-\ **Warning:** Currently, in sandboxed environments such as Web builds or sandboxed macOS apps, FileDialog cannot access the host file system. See `godot-proposals#1123 <https://github.com/godotengine/godot-proposals/issues/1123>`__.
+\ **Warning:** In Web builds, FileDialog cannot access the host file system. In sandboxed Linux and macOS environments, :ref:`use_native_dialog<class_FileDialog_property_use_native_dialog>` is automatically used to allow limited access to host file system.
 
 .. rst-class:: classref-item-separator
 
@@ -289,7 +291,7 @@ The file system access scope. See :ref:`Access<enum_FileDialog_Access>` constant
 
 .. rst-class:: classref-property
 
-:ref:`String<class_String>` **current_dir**
+:ref:`String<class_String>` **current_dir** :ref:`🔗<class_FileDialog_property_current_dir>`
 
 .. rst-class:: classref-property-setget
 
@@ -297,6 +299,8 @@ The file system access scope. See :ref:`Access<enum_FileDialog_Access>` constant
 - :ref:`String<class_String>` **get_current_dir**\ (\ )
 
 The current working directory of the file dialog.
+
+\ **Note:** For native file dialogs, this property is only treated as a hint and may not be respected by specific OS implementations.
 
 .. rst-class:: classref-item-separator
 
@@ -306,7 +310,7 @@ The current working directory of the file dialog.
 
 .. rst-class:: classref-property
 
-:ref:`String<class_String>` **current_file**
+:ref:`String<class_String>` **current_file** :ref:`🔗<class_FileDialog_property_current_file>`
 
 .. rst-class:: classref-property-setget
 
@@ -323,7 +327,7 @@ The currently selected file of the file dialog.
 
 .. rst-class:: classref-property
 
-:ref:`String<class_String>` **current_path**
+:ref:`String<class_String>` **current_path** :ref:`🔗<class_FileDialog_property_current_path>`
 
 .. rst-class:: classref-property-setget
 
@@ -340,7 +344,7 @@ The currently selected file path of the file dialog.
 
 .. rst-class:: classref-property
 
-:ref:`FileMode<enum_FileDialog_FileMode>` **file_mode** = ``4``
+:ref:`FileMode<enum_FileDialog_FileMode>` **file_mode** = ``4`` :ref:`🔗<class_FileDialog_property_file_mode>`
 
 .. rst-class:: classref-property-setget
 
@@ -357,7 +361,7 @@ The dialog's open or save mode, which affects the selection behavior. See :ref:`
 
 .. rst-class:: classref-property
 
-:ref:`PackedStringArray<class_PackedStringArray>` **filters** = ``PackedStringArray()``
+:ref:`PackedStringArray<class_PackedStringArray>` **filters** = ``PackedStringArray()`` :ref:`🔗<class_FileDialog_property_filters>`
 
 .. rst-class:: classref-property-setget
 
@@ -365,6 +369,8 @@ The dialog's open or save mode, which affects the selection behavior. See :ref:`
 - :ref:`PackedStringArray<class_PackedStringArray>` **get_filters**\ (\ )
 
 The available file type filters. Each filter string in the array should be formatted like this: ``*.txt,*.doc;Text Files``. The description text of the filter is optional and can be omitted.
+
+**Note:** The returned array is *copied* and any changes to it will not update the original property value. See :ref:`PackedStringArray<class_PackedStringArray>` for more details.
 
 .. rst-class:: classref-item-separator
 
@@ -374,7 +380,7 @@ The available file type filters. Each filter string in the array should be forma
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **mode_overrides_title** = ``true``
+:ref:`bool<class_bool>` **mode_overrides_title** = ``true`` :ref:`🔗<class_FileDialog_property_mode_overrides_title>`
 
 .. rst-class:: classref-property-setget
 
@@ -391,7 +397,7 @@ If ``true``, changing the :ref:`file_mode<class_FileDialog_property_file_mode>` 
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **option_count** = ``0``
+:ref:`int<class_int>` **option_count** = ``0`` :ref:`🔗<class_FileDialog_property_option_count>`
 
 .. rst-class:: classref-property-setget
 
@@ -408,7 +414,7 @@ The number of additional :ref:`OptionButton<class_OptionButton>`\ s and :ref:`Ch
 
 .. rst-class:: classref-property
 
-:ref:`String<class_String>` **root_subfolder** = ``""``
+:ref:`String<class_String>` **root_subfolder** = ``""`` :ref:`🔗<class_FileDialog_property_root_subfolder>`
 
 .. rst-class:: classref-property-setget
 
@@ -416,6 +422,8 @@ The number of additional :ref:`OptionButton<class_OptionButton>`\ s and :ref:`Ch
 - :ref:`String<class_String>` **get_root_subfolder**\ (\ )
 
 If non-empty, the given sub-folder will be "root" of this **FileDialog**, i.e. user won't be able to go to its parent directory.
+
+\ **Note:** This property is ignored by native file dialogs.
 
 .. rst-class:: classref-item-separator
 
@@ -425,7 +433,7 @@ If non-empty, the given sub-folder will be "root" of this **FileDialog**, i.e. u
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **show_hidden_files** = ``false``
+:ref:`bool<class_bool>` **show_hidden_files** = ``false`` :ref:`🔗<class_FileDialog_property_show_hidden_files>`
 
 .. rst-class:: classref-property-setget
 
@@ -433,6 +441,8 @@ If non-empty, the given sub-folder will be "root" of this **FileDialog**, i.e. u
 - :ref:`bool<class_bool>` **is_showing_hidden_files**\ (\ )
 
 If ``true``, the dialog will show hidden files.
+
+\ **Note:** This property is ignored by native file dialogs on Linux.
 
 .. rst-class:: classref-item-separator
 
@@ -442,7 +452,7 @@ If ``true``, the dialog will show hidden files.
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **use_native_dialog** = ``false``
+:ref:`bool<class_bool>` **use_native_dialog** = ``false`` :ref:`🔗<class_FileDialog_property_use_native_dialog>`
 
 .. rst-class:: classref-property-setget
 
@@ -451,7 +461,11 @@ If ``true``, the dialog will show hidden files.
 
 If ``true``, :ref:`access<class_FileDialog_property_access>` is set to :ref:`ACCESS_FILESYSTEM<class_FileDialog_constant_ACCESS_FILESYSTEM>`, and it is supported by the current :ref:`DisplayServer<class_DisplayServer>`, OS native dialog will be used instead of custom one.
 
-\ **Note:** On macOS, sandboxed apps always use native dialogs to access host filesystem.
+\ **Note:** On Linux and macOS, sandboxed apps always use native dialogs to access the host file system.
+
+\ **Note:** On macOS, sandboxed apps will save security-scoped bookmarks to retain access to the opened folders across multiple sessions. Use :ref:`OS.get_granted_permissions<class_OS_method_get_granted_permissions>` to get a list of saved bookmarks.
+
+\ **Note:** Native dialogs are isolated from the base process, file dialog properties can't be modified once the dialog is shown.
 
 .. rst-class:: classref-section-separator
 
@@ -466,7 +480,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-|void| **add_filter**\ (\ filter\: :ref:`String<class_String>`, description\: :ref:`String<class_String>` = ""\ )
+|void| **add_filter**\ (\ filter\: :ref:`String<class_String>`, description\: :ref:`String<class_String>` = ""\ ) :ref:`🔗<class_FileDialog_method_add_filter>`
 
 Adds a comma-delimited file name ``filter`` option to the **FileDialog** with an optional ``description``, which restricts what files can be picked.
 
@@ -482,9 +496,11 @@ For example, a ``filter`` of ``"*.png, *.jpg"`` and a ``description`` of ``"Imag
 
 .. rst-class:: classref-method
 
-|void| **add_option**\ (\ name\: :ref:`String<class_String>`, values\: :ref:`PackedStringArray<class_PackedStringArray>`, index\: :ref:`int<class_int>`\ )
+|void| **add_option**\ (\ name\: :ref:`String<class_String>`, values\: :ref:`PackedStringArray<class_PackedStringArray>`, default_value_index\: :ref:`int<class_int>`\ ) :ref:`🔗<class_FileDialog_method_add_option>`
 
 Adds an additional :ref:`OptionButton<class_OptionButton>` to the file dialog. If ``values`` is empty, a :ref:`CheckBox<class_CheckBox>` is added instead.
+
+\ ``default_value_index`` should be an index of the value in the ``values``. If ``values`` is empty it should be either ``1`` (checked), or ``0`` (unchecked).
 
 .. rst-class:: classref-item-separator
 
@@ -494,7 +510,7 @@ Adds an additional :ref:`OptionButton<class_OptionButton>` to the file dialog. I
 
 .. rst-class:: classref-method
 
-|void| **clear_filters**\ (\ )
+|void| **clear_filters**\ (\ ) :ref:`🔗<class_FileDialog_method_clear_filters>`
 
 Clear all the added filters in the dialog.
 
@@ -506,7 +522,7 @@ Clear all the added filters in the dialog.
 
 .. rst-class:: classref-method
 
-|void| **deselect_all**\ (\ )
+|void| **deselect_all**\ (\ ) :ref:`🔗<class_FileDialog_method_deselect_all>`
 
 Clear all currently selected items in the dialog.
 
@@ -518,7 +534,7 @@ Clear all currently selected items in the dialog.
 
 .. rst-class:: classref-method
 
-:ref:`LineEdit<class_LineEdit>` **get_line_edit**\ (\ )
+:ref:`LineEdit<class_LineEdit>` **get_line_edit**\ (\ ) :ref:`🔗<class_FileDialog_method_get_line_edit>`
 
 Returns the LineEdit for the selected file.
 
@@ -532,7 +548,7 @@ Returns the LineEdit for the selected file.
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **get_option_default**\ (\ option\: :ref:`int<class_int>`\ ) |const|
+:ref:`int<class_int>` **get_option_default**\ (\ option\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_FileDialog_method_get_option_default>`
 
 Returns the default value index of the :ref:`OptionButton<class_OptionButton>` or :ref:`CheckBox<class_CheckBox>` with index ``option``.
 
@@ -544,7 +560,7 @@ Returns the default value index of the :ref:`OptionButton<class_OptionButton>` o
 
 .. rst-class:: classref-method
 
-:ref:`String<class_String>` **get_option_name**\ (\ option\: :ref:`int<class_int>`\ ) |const|
+:ref:`String<class_String>` **get_option_name**\ (\ option\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_FileDialog_method_get_option_name>`
 
 Returns the name of the :ref:`OptionButton<class_OptionButton>` or :ref:`CheckBox<class_CheckBox>` with index ``option``.
 
@@ -556,7 +572,7 @@ Returns the name of the :ref:`OptionButton<class_OptionButton>` or :ref:`CheckBo
 
 .. rst-class:: classref-method
 
-:ref:`PackedStringArray<class_PackedStringArray>` **get_option_values**\ (\ option\: :ref:`int<class_int>`\ ) |const|
+:ref:`PackedStringArray<class_PackedStringArray>` **get_option_values**\ (\ option\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_FileDialog_method_get_option_values>`
 
 Returns an array of values of the :ref:`OptionButton<class_OptionButton>` with index ``option``.
 
@@ -568,7 +584,7 @@ Returns an array of values of the :ref:`OptionButton<class_OptionButton>` with i
 
 .. rst-class:: classref-method
 
-:ref:`Dictionary<class_Dictionary>` **get_selected_options**\ (\ ) |const|
+:ref:`Dictionary<class_Dictionary>` **get_selected_options**\ (\ ) |const| :ref:`🔗<class_FileDialog_method_get_selected_options>`
 
 Returns a :ref:`Dictionary<class_Dictionary>` with the selected values of the additional :ref:`OptionButton<class_OptionButton>`\ s and/or :ref:`CheckBox<class_CheckBox>`\ es. :ref:`Dictionary<class_Dictionary>` keys are names and values are selected value indices.
 
@@ -580,11 +596,13 @@ Returns a :ref:`Dictionary<class_Dictionary>` with the selected values of the ad
 
 .. rst-class:: classref-method
 
-:ref:`VBoxContainer<class_VBoxContainer>` **get_vbox**\ (\ )
+:ref:`VBoxContainer<class_VBoxContainer>` **get_vbox**\ (\ ) :ref:`🔗<class_FileDialog_method_get_vbox>`
 
 Returns the vertical box container of the dialog, custom controls can be added to it.
 
 \ **Warning:** This is a required internal node, removing and freeing it may cause a crash. If you wish to hide it or any of its children, use their :ref:`CanvasItem.visible<class_CanvasItem_property_visible>` property.
+
+\ **Note:** Changes to this node are ignored by native file dialogs, use :ref:`add_option<class_FileDialog_method_add_option>` to add custom elements to the dialog instead.
 
 .. rst-class:: classref-item-separator
 
@@ -594,9 +612,11 @@ Returns the vertical box container of the dialog, custom controls can be added t
 
 .. rst-class:: classref-method
 
-|void| **invalidate**\ (\ )
+|void| **invalidate**\ (\ ) :ref:`🔗<class_FileDialog_method_invalidate>`
 
 Invalidate and update the current dialog content list.
+
+\ **Note:** This method does nothing on native file dialogs.
 
 .. rst-class:: classref-item-separator
 
@@ -606,7 +626,7 @@ Invalidate and update the current dialog content list.
 
 .. rst-class:: classref-method
 
-|void| **set_option_default**\ (\ option\: :ref:`int<class_int>`, index\: :ref:`int<class_int>`\ )
+|void| **set_option_default**\ (\ option\: :ref:`int<class_int>`, default_value_index\: :ref:`int<class_int>`\ ) :ref:`🔗<class_FileDialog_method_set_option_default>`
 
 Sets the default value index of the :ref:`OptionButton<class_OptionButton>` or :ref:`CheckBox<class_CheckBox>` with index ``option``.
 
@@ -618,7 +638,7 @@ Sets the default value index of the :ref:`OptionButton<class_OptionButton>` or :
 
 .. rst-class:: classref-method
 
-|void| **set_option_name**\ (\ option\: :ref:`int<class_int>`, name\: :ref:`String<class_String>`\ )
+|void| **set_option_name**\ (\ option\: :ref:`int<class_int>`, name\: :ref:`String<class_String>`\ ) :ref:`🔗<class_FileDialog_method_set_option_name>`
 
 Sets the name of the :ref:`OptionButton<class_OptionButton>` or :ref:`CheckBox<class_CheckBox>` with index ``option``.
 
@@ -630,7 +650,7 @@ Sets the name of the :ref:`OptionButton<class_OptionButton>` or :ref:`CheckBox<c
 
 .. rst-class:: classref-method
 
-|void| **set_option_values**\ (\ option\: :ref:`int<class_int>`, values\: :ref:`PackedStringArray<class_PackedStringArray>`\ )
+|void| **set_option_values**\ (\ option\: :ref:`int<class_int>`, values\: :ref:`PackedStringArray<class_PackedStringArray>`\ ) :ref:`🔗<class_FileDialog_method_set_option_values>`
 
 Sets the option values of the :ref:`OptionButton<class_OptionButton>` with index ``option``.
 
@@ -647,7 +667,7 @@ Theme Property Descriptions
 
 .. rst-class:: classref-themeproperty
 
-:ref:`Color<class_Color>` **file_disabled_color** = ``Color(1, 1, 1, 0.25)``
+:ref:`Color<class_Color>` **file_disabled_color** = ``Color(1, 1, 1, 0.25)`` :ref:`🔗<class_FileDialog_theme_color_file_disabled_color>`
 
 The color tint for disabled files (when the **FileDialog** is used in open folder mode).
 
@@ -659,7 +679,7 @@ The color tint for disabled files (when the **FileDialog** is used in open folde
 
 .. rst-class:: classref-themeproperty
 
-:ref:`Color<class_Color>` **file_icon_color** = ``Color(1, 1, 1, 1)``
+:ref:`Color<class_Color>` **file_icon_color** = ``Color(1, 1, 1, 1)`` :ref:`🔗<class_FileDialog_theme_color_file_icon_color>`
 
 The color modulation applied to the file icon.
 
@@ -671,7 +691,7 @@ The color modulation applied to the file icon.
 
 .. rst-class:: classref-themeproperty
 
-:ref:`Color<class_Color>` **folder_icon_color** = ``Color(1, 1, 1, 1)``
+:ref:`Color<class_Color>` **folder_icon_color** = ``Color(1, 1, 1, 1)`` :ref:`🔗<class_FileDialog_theme_color_folder_icon_color>`
 
 The color modulation applied to the folder icon.
 
@@ -683,7 +703,7 @@ The color modulation applied to the folder icon.
 
 .. rst-class:: classref-themeproperty
 
-:ref:`Texture2D<class_Texture2D>` **back_folder**
+:ref:`Texture2D<class_Texture2D>` **back_folder** :ref:`🔗<class_FileDialog_theme_icon_back_folder>`
 
 Custom icon for the back arrow.
 
@@ -695,7 +715,7 @@ Custom icon for the back arrow.
 
 .. rst-class:: classref-themeproperty
 
-:ref:`Texture2D<class_Texture2D>` **create_folder**
+:ref:`Texture2D<class_Texture2D>` **create_folder** :ref:`🔗<class_FileDialog_theme_icon_create_folder>`
 
 Custom icon for the create folder button.
 
@@ -707,7 +727,7 @@ Custom icon for the create folder button.
 
 .. rst-class:: classref-themeproperty
 
-:ref:`Texture2D<class_Texture2D>` **file**
+:ref:`Texture2D<class_Texture2D>` **file** :ref:`🔗<class_FileDialog_theme_icon_file>`
 
 Custom icon for files.
 
@@ -719,7 +739,7 @@ Custom icon for files.
 
 .. rst-class:: classref-themeproperty
 
-:ref:`Texture2D<class_Texture2D>` **folder**
+:ref:`Texture2D<class_Texture2D>` **folder** :ref:`🔗<class_FileDialog_theme_icon_folder>`
 
 Custom icon for folders.
 
@@ -731,7 +751,7 @@ Custom icon for folders.
 
 .. rst-class:: classref-themeproperty
 
-:ref:`Texture2D<class_Texture2D>` **forward_folder**
+:ref:`Texture2D<class_Texture2D>` **forward_folder** :ref:`🔗<class_FileDialog_theme_icon_forward_folder>`
 
 Custom icon for the forward arrow.
 
@@ -743,7 +763,7 @@ Custom icon for the forward arrow.
 
 .. rst-class:: classref-themeproperty
 
-:ref:`Texture2D<class_Texture2D>` **parent_folder**
+:ref:`Texture2D<class_Texture2D>` **parent_folder** :ref:`🔗<class_FileDialog_theme_icon_parent_folder>`
 
 Custom icon for the parent folder arrow.
 
@@ -755,7 +775,7 @@ Custom icon for the parent folder arrow.
 
 .. rst-class:: classref-themeproperty
 
-:ref:`Texture2D<class_Texture2D>` **reload**
+:ref:`Texture2D<class_Texture2D>` **reload** :ref:`🔗<class_FileDialog_theme_icon_reload>`
 
 Custom icon for the reload button.
 
@@ -767,7 +787,7 @@ Custom icon for the reload button.
 
 .. rst-class:: classref-themeproperty
 
-:ref:`Texture2D<class_Texture2D>` **toggle_hidden**
+:ref:`Texture2D<class_Texture2D>` **toggle_hidden** :ref:`🔗<class_FileDialog_theme_icon_toggle_hidden>`
 
 Custom icon for the toggle hidden button.
 
