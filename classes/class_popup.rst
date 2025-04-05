@@ -36,6 +36,8 @@ Properties
    +-------------------------+---------------+-------------------------------------------------------------------------+
    | :ref:`bool<class_bool>` | popup_window  | ``true`` (overrides :ref:`Window<class_Window_property_popup_window>`)  |
    +-------------------------+---------------+-------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>` | popup_wm_hint | ``true`` (overrides :ref:`Window<class_Window_property_popup_wm_hint>`) |
+   +-------------------------+---------------+-------------------------------------------------------------------------+
    | :ref:`bool<class_bool>` | transient     | ``true`` (overrides :ref:`Window<class_Window_property_transient>`)     |
    +-------------------------+---------------+-------------------------------------------------------------------------+
    | :ref:`bool<class_bool>` | unresizable   | ``true`` (overrides :ref:`Window<class_Window_property_unresizable>`)   |
@@ -44,18 +46,6 @@ Properties
    +-------------------------+---------------+-------------------------------------------------------------------------+
    | :ref:`bool<class_bool>` | wrap_controls | ``true`` (overrides :ref:`Window<class_Window_property_wrap_controls>`) |
    +-------------------------+---------------+-------------------------------------------------------------------------+
-
-.. rst-class:: classref-reftable-group
-
-Theme Properties
-----------------
-
-.. table::
-   :widths: auto
-
-   +---------------------------------+---------------------------------------------+
-   | :ref:`StyleBox<class_StyleBox>` | :ref:`panel<class_Popup_theme_style_panel>` |
-   +---------------------------------+---------------------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -70,26 +60,9 @@ Signals
 
 .. rst-class:: classref-signal
 
-**popup_hide**\ (\ )
+**popup_hide**\ (\ ) :ref:`🔗<class_Popup_signal_popup_hide>`
 
 Emitted when the popup is hidden.
-
-.. rst-class:: classref-section-separator
-
-----
-
-.. rst-class:: classref-descriptions-group
-
-Theme Property Descriptions
----------------------------
-
-.. _class_Popup_theme_style_panel:
-
-.. rst-class:: classref-themeproperty
-
-:ref:`StyleBox<class_StyleBox>` **panel**
-
-Default :ref:`StyleBox<class_StyleBox>` for the **Popup**.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
