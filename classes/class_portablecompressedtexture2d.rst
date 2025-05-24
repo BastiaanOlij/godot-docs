@@ -37,15 +37,13 @@ Properties
 .. table::
    :widths: auto
 
-   +-----------------------------------------------+--------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------+
-   | :ref:`PackedByteArray<class_PackedByteArray>` | :ref:`_data<class_PortableCompressedTexture2D_property__data>`                                   | ``PackedByteArray()``                                                                  |
-   +-----------------------------------------------+--------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                       | :ref:`keep_compressed_buffer<class_PortableCompressedTexture2D_property_keep_compressed_buffer>` | ``false``                                                                              |
-   +-----------------------------------------------+--------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                       | resource_local_to_scene                                                                          | ``false`` (overrides :ref:`Resource<class_Resource_property_resource_local_to_scene>`) |
-   +-----------------------------------------------+--------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------+
-   | :ref:`Vector2<class_Vector2>`                 | :ref:`size_override<class_PortableCompressedTexture2D_property_size_override>`                   | ``Vector2(0, 0)``                                                                      |
-   +-----------------------------------------------+--------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------+
+   +-------------------------------+--------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`       | :ref:`keep_compressed_buffer<class_PortableCompressedTexture2D_property_keep_compressed_buffer>` | ``false``                                                                              |
+   +-------------------------------+--------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`       | resource_local_to_scene                                                                          | ``false`` (overrides :ref:`Resource<class_Resource_property_resource_local_to_scene>`) |
+   +-------------------------------+--------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------+
+   | :ref:`Vector2<class_Vector2>` | :ref:`size_override<class_PortableCompressedTexture2D_property_size_override>`                   | ``Vector2(0, 0)``                                                                      |
+   +-------------------------------+--------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-reftable-group
 
@@ -64,6 +62,8 @@ Methods
    +--------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                                                  | :ref:`is_keeping_all_compressed_buffers<class_PortableCompressedTexture2D_method_is_keeping_all_compressed_buffers>`\ (\ ) |static|                                                                                                                                                                                       |
    +--------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                                                   | :ref:`set_basisu_compressor_params<class_PortableCompressedTexture2D_method_set_basisu_compressor_params>`\ (\ uastc_level\: :ref:`int<class_int>`, rdo_quality_loss\: :ref:`float<class_float>`\ )                                                                                                                       |
+   +--------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | |void|                                                                   | :ref:`set_keep_all_compressed_buffers<class_PortableCompressedTexture2D_method_set_keep_all_compressed_buffers>`\ (\ keep\: :ref:`bool<class_bool>`\ ) |static|                                                                                                                                                           |
    +--------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
@@ -80,7 +80,7 @@ Enumerations
 
 .. rst-class:: classref-enumeration
 
-enum **CompressionMode**:
+enum **CompressionMode**: :ref:`🔗<enum_PortableCompressedTexture2D_CompressionMode>`
 
 .. _class_PortableCompressedTexture2D_constant_COMPRESSION_MODE_LOSSLESS:
 
@@ -154,6 +154,18 @@ enum **CompressionMode**:
 
 
 
+.. _class_PortableCompressedTexture2D_constant_COMPRESSION_MODE_ASTC:
+
+.. rst-class:: classref-enumeration-constant
+
+:ref:`CompressionMode<enum_PortableCompressedTexture2D_CompressionMode>` **COMPRESSION_MODE_ASTC** = ``6``
+
+.. container:: contribute
+
+	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+
+
+
 .. rst-class:: classref-section-separator
 
 ----
@@ -163,25 +175,11 @@ enum **CompressionMode**:
 Property Descriptions
 ---------------------
 
-.. _class_PortableCompressedTexture2D_property__data:
-
-.. rst-class:: classref-property
-
-:ref:`PackedByteArray<class_PackedByteArray>` **_data** = ``PackedByteArray()``
-
-.. container:: contribute
-
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
-
-.. rst-class:: classref-item-separator
-
-----
-
 .. _class_PortableCompressedTexture2D_property_keep_compressed_buffer:
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **keep_compressed_buffer** = ``false``
+:ref:`bool<class_bool>` **keep_compressed_buffer** = ``false`` :ref:`🔗<class_PortableCompressedTexture2D_property_keep_compressed_buffer>`
 
 .. rst-class:: classref-property-setget
 
@@ -192,6 +190,8 @@ When running on the editor, this class will keep the source compressed data in m
 
 This flag allows to keep the compressed data in memory if you intend it to persist after loading.
 
+\ **Note:** This must be set before :ref:`create_from_image()<class_PortableCompressedTexture2D_method_create_from_image>` to take effect.
+
 .. rst-class:: classref-item-separator
 
 ----
@@ -200,7 +200,7 @@ This flag allows to keep the compressed data in memory if you intend it to persi
 
 .. rst-class:: classref-property
 
-:ref:`Vector2<class_Vector2>` **size_override** = ``Vector2(0, 0)``
+:ref:`Vector2<class_Vector2>` **size_override** = ``Vector2(0, 0)`` :ref:`🔗<class_PortableCompressedTexture2D_property_size_override>`
 
 .. rst-class:: classref-property-setget
 
@@ -222,7 +222,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-|void| **create_from_image**\ (\ image\: :ref:`Image<class_Image>`, compression_mode\: :ref:`CompressionMode<enum_PortableCompressedTexture2D_CompressionMode>`, normal_map\: :ref:`bool<class_bool>` = false, lossy_quality\: :ref:`float<class_float>` = 0.8\ )
+|void| **create_from_image**\ (\ image\: :ref:`Image<class_Image>`, compression_mode\: :ref:`CompressionMode<enum_PortableCompressedTexture2D_CompressionMode>`, normal_map\: :ref:`bool<class_bool>` = false, lossy_quality\: :ref:`float<class_float>` = 0.8\ ) :ref:`🔗<class_PortableCompressedTexture2D_method_create_from_image>`
 
 Initializes the compressed texture from a base image. The compression mode must be provided.
 
@@ -238,7 +238,7 @@ If lossy compression is requested, the quality setting can optionally be provide
 
 .. rst-class:: classref-method
 
-:ref:`CompressionMode<enum_PortableCompressedTexture2D_CompressionMode>` **get_compression_mode**\ (\ ) |const|
+:ref:`CompressionMode<enum_PortableCompressedTexture2D_CompressionMode>` **get_compression_mode**\ (\ ) |const| :ref:`🔗<class_PortableCompressedTexture2D_method_get_compression_mode>`
 
 Return the compression mode used (valid after initialized).
 
@@ -250,7 +250,7 @@ Return the compression mode used (valid after initialized).
 
 .. rst-class:: classref-method
 
-:ref:`Format<enum_Image_Format>` **get_format**\ (\ ) |const|
+:ref:`Format<enum_Image_Format>` **get_format**\ (\ ) |const| :ref:`🔗<class_PortableCompressedTexture2D_method_get_format>`
 
 Return the image format used (valid after initialized).
 
@@ -262,9 +262,23 @@ Return the image format used (valid after initialized).
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_keeping_all_compressed_buffers**\ (\ ) |static|
+:ref:`bool<class_bool>` **is_keeping_all_compressed_buffers**\ (\ ) |static| :ref:`🔗<class_PortableCompressedTexture2D_method_is_keeping_all_compressed_buffers>`
 
 Return whether the flag is overridden for all textures of this type.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_PortableCompressedTexture2D_method_set_basisu_compressor_params:
+
+.. rst-class:: classref-method
+
+|void| **set_basisu_compressor_params**\ (\ uastc_level\: :ref:`int<class_int>`, rdo_quality_loss\: :ref:`float<class_float>`\ ) :ref:`🔗<class_PortableCompressedTexture2D_method_set_basisu_compressor_params>`
+
+Sets the compressor parameters for Basis Universal compression. See also the settings in :ref:`ResourceImporterTexture<class_ResourceImporterTexture>`.
+
+\ **Note:** This must be set before :ref:`create_from_image()<class_PortableCompressedTexture2D_method_create_from_image>` to take effect.
 
 .. rst-class:: classref-item-separator
 
@@ -274,7 +288,7 @@ Return whether the flag is overridden for all textures of this type.
 
 .. rst-class:: classref-method
 
-|void| **set_keep_all_compressed_buffers**\ (\ keep\: :ref:`bool<class_bool>`\ ) |static|
+|void| **set_keep_all_compressed_buffers**\ (\ keep\: :ref:`bool<class_bool>`\ ) |static| :ref:`🔗<class_PortableCompressedTexture2D_method_set_keep_all_compressed_buffers>`
 
 Overrides the flag globally for all textures of this type. This is used primarily by the editor.
 
