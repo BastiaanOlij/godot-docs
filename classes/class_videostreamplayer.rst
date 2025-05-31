@@ -99,7 +99,7 @@ Signals
 
 .. rst-class:: classref-signal
 
-**finished**\ (\ )
+**finished**\ (\ ) :ref:`🔗<class_VideoStreamPlayer_signal_finished>`
 
 Emitted when playback is finished.
 
@@ -116,7 +116,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **audio_track** = ``0``
+:ref:`int<class_int>` **audio_track** = ``0`` :ref:`🔗<class_VideoStreamPlayer_property_audio_track>`
 
 .. rst-class:: classref-property-setget
 
@@ -133,7 +133,7 @@ The embedded audio track to play.
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **autoplay** = ``false``
+:ref:`bool<class_bool>` **autoplay** = ``false`` :ref:`🔗<class_VideoStreamPlayer_property_autoplay>`
 
 .. rst-class:: classref-property-setget
 
@@ -150,7 +150,7 @@ If ``true``, playback starts when the scene loads.
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **buffering_msec** = ``500``
+:ref:`int<class_int>` **buffering_msec** = ``500`` :ref:`🔗<class_VideoStreamPlayer_property_buffering_msec>`
 
 .. rst-class:: classref-property-setget
 
@@ -167,7 +167,7 @@ Amount of time in milliseconds to store in buffer while playing.
 
 .. rst-class:: classref-property
 
-:ref:`StringName<class_StringName>` **bus** = ``&"Master"``
+:ref:`StringName<class_StringName>` **bus** = ``&"Master"`` :ref:`🔗<class_VideoStreamPlayer_property_bus>`
 
 .. rst-class:: classref-property-setget
 
@@ -184,7 +184,7 @@ Audio bus to use for sound playback.
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **expand** = ``false``
+:ref:`bool<class_bool>` **expand** = ``false`` :ref:`🔗<class_VideoStreamPlayer_property_expand>`
 
 .. rst-class:: classref-property-setget
 
@@ -201,7 +201,7 @@ If ``true``, the video scales to the control size. Otherwise, the control minimu
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **loop** = ``false``
+:ref:`bool<class_bool>` **loop** = ``false`` :ref:`🔗<class_VideoStreamPlayer_property_loop>`
 
 .. rst-class:: classref-property-setget
 
@@ -218,7 +218,7 @@ If ``true``, the video restarts when it reaches its end.
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **paused** = ``false``
+:ref:`bool<class_bool>` **paused** = ``false`` :ref:`🔗<class_VideoStreamPlayer_property_paused>`
 
 .. rst-class:: classref-property-setget
 
@@ -235,7 +235,7 @@ If ``true``, the video is paused.
 
 .. rst-class:: classref-property
 
-:ref:`VideoStream<class_VideoStream>` **stream**
+:ref:`VideoStream<class_VideoStream>` **stream** :ref:`🔗<class_VideoStreamPlayer_property_stream>`
 
 .. rst-class:: classref-property-setget
 
@@ -252,7 +252,7 @@ The assigned video stream. See description for supported formats.
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **stream_position**
+:ref:`float<class_float>` **stream_position** :ref:`🔗<class_VideoStreamPlayer_property_stream_position>`
 
 .. rst-class:: classref-property-setget
 
@@ -260,8 +260,6 @@ The assigned video stream. See description for supported formats.
 - :ref:`float<class_float>` **get_stream_position**\ (\ )
 
 The current position of the stream, in seconds.
-
-\ **Note:** Changing this value won't have any effect as seeking is not implemented yet, except in video formats implemented by a GDExtension add-on.
 
 .. rst-class:: classref-item-separator
 
@@ -271,7 +269,7 @@ The current position of the stream, in seconds.
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **volume**
+:ref:`float<class_float>` **volume** :ref:`🔗<class_VideoStreamPlayer_property_volume>`
 
 .. rst-class:: classref-property-setget
 
@@ -288,7 +286,7 @@ Audio volume as a linear value.
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **volume_db** = ``0.0``
+:ref:`float<class_float>` **volume_db** = ``0.0`` :ref:`🔗<class_VideoStreamPlayer_property_volume_db>`
 
 .. rst-class:: classref-property-setget
 
@@ -310,11 +308,9 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`float<class_float>` **get_stream_length**\ (\ ) |const|
+:ref:`float<class_float>` **get_stream_length**\ (\ ) |const| :ref:`🔗<class_VideoStreamPlayer_method_get_stream_length>`
 
 The length of the current stream, in seconds.
-
-\ **Note:** For :ref:`VideoStreamTheora<class_VideoStreamTheora>` streams (the built-in format supported by Godot), this value will always be zero, as getting the stream length is not implemented yet. The feature may be supported by video formats implemented by a GDExtension add-on.
 
 .. rst-class:: classref-item-separator
 
@@ -324,7 +320,7 @@ The length of the current stream, in seconds.
 
 .. rst-class:: classref-method
 
-:ref:`String<class_String>` **get_stream_name**\ (\ ) |const|
+:ref:`String<class_String>` **get_stream_name**\ (\ ) |const| :ref:`🔗<class_VideoStreamPlayer_method_get_stream_name>`
 
 Returns the video stream's name, or ``"<No Stream>"`` if no video stream is assigned.
 
@@ -336,7 +332,7 @@ Returns the video stream's name, or ``"<No Stream>"`` if no video stream is assi
 
 .. rst-class:: classref-method
 
-:ref:`Texture2D<class_Texture2D>` **get_video_texture**\ (\ ) |const|
+:ref:`Texture2D<class_Texture2D>` **get_video_texture**\ (\ ) |const| :ref:`🔗<class_VideoStreamPlayer_method_get_video_texture>`
 
 Returns the current frame as a :ref:`Texture2D<class_Texture2D>`.
 
@@ -348,7 +344,7 @@ Returns the current frame as a :ref:`Texture2D<class_Texture2D>`.
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_playing**\ (\ ) |const|
+:ref:`bool<class_bool>` **is_playing**\ (\ ) |const| :ref:`🔗<class_VideoStreamPlayer_method_is_playing>`
 
 Returns ``true`` if the video is playing.
 
@@ -362,7 +358,7 @@ Returns ``true`` if the video is playing.
 
 .. rst-class:: classref-method
 
-|void| **play**\ (\ )
+|void| **play**\ (\ ) :ref:`🔗<class_VideoStreamPlayer_method_play>`
 
 Starts the video playback from the beginning. If the video is paused, this will not unpause the video.
 
@@ -374,7 +370,7 @@ Starts the video playback from the beginning. If the video is paused, this will 
 
 .. rst-class:: classref-method
 
-|void| **stop**\ (\ )
+|void| **stop**\ (\ ) :ref:`🔗<class_VideoStreamPlayer_method_stop>`
 
 Stops the video playback and sets the stream position to 0.
 
