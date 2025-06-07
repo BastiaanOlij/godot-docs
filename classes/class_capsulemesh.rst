@@ -52,7 +52,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **height** = ``2.0``
+:ref:`float<class_float>` **height** = ``2.0`` :ref:`🔗<class_CapsuleMesh_property_height>`
 
 .. rst-class:: classref-property-setget
 
@@ -69,7 +69,7 @@ Total height of the capsule mesh (including the hemispherical ends).
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **radial_segments** = ``64``
+:ref:`int<class_int>` **radial_segments** = ``64`` :ref:`🔗<class_CapsuleMesh_property_radial_segments>`
 
 .. rst-class:: classref-property-setget
 
@@ -86,7 +86,7 @@ Number of radial segments on the capsule mesh.
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **radius** = ``0.5``
+:ref:`float<class_float>` **radius** = ``0.5`` :ref:`🔗<class_CapsuleMesh_property_radius>`
 
 .. rst-class:: classref-property-setget
 
@@ -103,7 +103,7 @@ Radius of the capsule mesh.
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **rings** = ``8``
+:ref:`int<class_int>` **rings** = ``8`` :ref:`🔗<class_CapsuleMesh_property_rings>`
 
 .. rst-class:: classref-property-setget
 
@@ -113,6 +113,7 @@ Radius of the capsule mesh.
 Number of rings along the height of the capsule.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

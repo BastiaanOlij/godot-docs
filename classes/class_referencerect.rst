@@ -50,7 +50,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`Color<class_Color>` **border_color** = ``Color(1, 0, 0, 1)``
+:ref:`Color<class_Color>` **border_color** = ``Color(1, 0, 0, 1)`` :ref:`🔗<class_ReferenceRect_property_border_color>`
 
 .. rst-class:: classref-property-setget
 
@@ -67,7 +67,7 @@ Sets the border color of the **ReferenceRect**.
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **border_width** = ``1.0``
+:ref:`float<class_float>` **border_width** = ``1.0`` :ref:`🔗<class_ReferenceRect_property_border_width>`
 
 .. rst-class:: classref-property-setget
 
@@ -84,7 +84,7 @@ Sets the border width of the **ReferenceRect**. The border grows both inwards an
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **editor_only** = ``true``
+:ref:`bool<class_bool>` **editor_only** = ``true`` :ref:`🔗<class_ReferenceRect_property_editor_only>`
 
 .. rst-class:: classref-property-setget
 
@@ -94,6 +94,7 @@ Sets the border width of the **ReferenceRect**. The border grows both inwards an
 If ``true``, the **ReferenceRect** will only be visible while in editor. Otherwise, **ReferenceRect** will be visible in the running project.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
