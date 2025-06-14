@@ -57,7 +57,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`Material<class_Material>` **material**
+:ref:`Material<class_Material>` **material** :ref:`🔗<class_CSGBox3D_property_material>`
 
 .. rst-class:: classref-property-setget
 
@@ -74,7 +74,7 @@ The material used to render the box.
 
 .. rst-class:: classref-property
 
-:ref:`Vector3<class_Vector3>` **size** = ``Vector3(1, 1, 1)``
+:ref:`Vector3<class_Vector3>` **size** = ``Vector3(1, 1, 1)`` :ref:`🔗<class_CSGBox3D_property_size>`
 
 .. rst-class:: classref-property-setget
 
@@ -84,6 +84,7 @@ The material used to render the box.
 The box's width, height and depth.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

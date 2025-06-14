@@ -56,7 +56,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **constant_angular_velocity** = ``0.0``
+:ref:`float<class_float>` **constant_angular_velocity** = ``0.0`` :ref:`🔗<class_StaticBody2D_property_constant_angular_velocity>`
 
 .. rst-class:: classref-property-setget
 
@@ -73,7 +73,7 @@ The body's constant angular velocity. This does not rotate the body, but affects
 
 .. rst-class:: classref-property
 
-:ref:`Vector2<class_Vector2>` **constant_linear_velocity** = ``Vector2(0, 0)``
+:ref:`Vector2<class_Vector2>` **constant_linear_velocity** = ``Vector2(0, 0)`` :ref:`🔗<class_StaticBody2D_property_constant_linear_velocity>`
 
 .. rst-class:: classref-property-setget
 
@@ -90,7 +90,7 @@ The body's constant linear velocity. This does not move the body, but affects to
 
 .. rst-class:: classref-property
 
-:ref:`PhysicsMaterial<class_PhysicsMaterial>` **physics_material_override**
+:ref:`PhysicsMaterial<class_PhysicsMaterial>` **physics_material_override** :ref:`🔗<class_StaticBody2D_property_physics_material_override>`
 
 .. rst-class:: classref-property-setget
 
@@ -102,6 +102,7 @@ The physics material override for the body.
 If a material is assigned to this property, it will be used instead of any other physics material, such as an inherited one.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
