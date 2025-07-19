@@ -61,7 +61,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **compress** = ``true``
+:ref:`bool<class_bool>` **compress** = ``true`` :ref:`🔗<class_ResourceImporterBMFont_property_compress>`
 
 If ``true``, uses lossless compression for the resulting font.
 
@@ -73,7 +73,7 @@ If ``true``, uses lossless compression for the resulting font.
 
 .. rst-class:: classref-property
 
-:ref:`Array<class_Array>` **fallbacks** = ``[]``
+:ref:`Array<class_Array>` **fallbacks** = ``[]`` :ref:`🔗<class_ResourceImporterBMFont_property_fallbacks>`
 
 List of font fallbacks to use if a glyph isn't found in this bitmap font. Fonts at the beginning of the array are attempted first.
 
@@ -85,11 +85,12 @@ List of font fallbacks to use if a glyph isn't found in this bitmap font. Fonts 
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **scaling_mode** = ``2``
+:ref:`int<class_int>` **scaling_mode** = ``2`` :ref:`🔗<class_ResourceImporterBMFont_property_scaling_mode>`
 
 Font scaling mode.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
