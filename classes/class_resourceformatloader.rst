@@ -70,7 +70,7 @@ Enumerations
 
 .. rst-class:: classref-enumeration
 
-enum **CacheMode**:
+enum **CacheMode**: :ref:`🔗<enum_ResourceFormatLoader_CacheMode>`
 
 .. _class_ResourceFormatLoader_constant_CACHE_MODE_IGNORE:
 
@@ -125,7 +125,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **_exists**\ (\ path\: :ref:`String<class_String>`\ ) |virtual| |const|
+:ref:`bool<class_bool>` **_exists**\ (\ path\: :ref:`String<class_String>`\ ) |virtual| |const| :ref:`🔗<class_ResourceFormatLoader_private_method__exists>`
 
 .. container:: contribute
 
@@ -139,7 +139,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`PackedStringArray<class_PackedStringArray>` **_get_classes_used**\ (\ path\: :ref:`String<class_String>`\ ) |virtual| |const|
+:ref:`PackedStringArray<class_PackedStringArray>` **_get_classes_used**\ (\ path\: :ref:`String<class_String>`\ ) |virtual| |const| :ref:`🔗<class_ResourceFormatLoader_private_method__get_classes_used>`
 
 .. container:: contribute
 
@@ -153,11 +153,27 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`PackedStringArray<class_PackedStringArray>` **_get_dependencies**\ (\ path\: :ref:`String<class_String>`, add_types\: :ref:`bool<class_bool>`\ ) |virtual| |const|
+:ref:`PackedStringArray<class_PackedStringArray>` **_get_dependencies**\ (\ path\: :ref:`String<class_String>`, add_types\: :ref:`bool<class_bool>`\ ) |virtual| |const| :ref:`🔗<class_ResourceFormatLoader_private_method__get_dependencies>`
 
-If implemented, gets the dependencies of a given resource. If ``add_types`` is ``true``, paths should be appended ``::TypeName``, where ``TypeName`` is the class name of the dependency.
+Should return the dependencies for the resource at the given ``path``. Each dependency is a string composed of one to three sections separated by ``::``, with trailing empty sections omitted:
 
-\ **Note:** Custom resource types defined by scripts aren't known by the :ref:`ClassDB<class_ClassDB>`, so you might just return ``"Resource"`` for them.
+- The first section should contain the UID if the resource has one. Otherwise, it should contain the file path.
+
+- The second section should contain the class name of the dependency if ``add_types`` is ``true``. Otherwise, it should be empty.
+
+- The third section should contain the fallback path if the resource has a UID. Otherwise, it should be empty.
+
+::
+
+    func _get_dependencies(path, add_types):
+        return [
+            "uid://fqgvuwrkuixh::Script::res://script.gd",
+            "uid://fqgvuwrkuixh::::res://script.gd",
+            "res://script.gd::Script",
+            "res://script.gd",
+        ]
+
+\ **Note:** Custom resource types defined by scripts aren't known by the :ref:`ClassDB<class_ClassDB>`, so ``"Resource"`` can be used for the class name.
 
 .. rst-class:: classref-item-separator
 
@@ -167,7 +183,7 @@ If implemented, gets the dependencies of a given resource. If ``add_types`` is `
 
 .. rst-class:: classref-method
 
-:ref:`PackedStringArray<class_PackedStringArray>` **_get_recognized_extensions**\ (\ ) |virtual| |const|
+:ref:`PackedStringArray<class_PackedStringArray>` **_get_recognized_extensions**\ (\ ) |virtual| |const| :ref:`🔗<class_ResourceFormatLoader_private_method__get_recognized_extensions>`
 
 Gets the list of extensions for files this loader is able to read.
 
@@ -179,7 +195,7 @@ Gets the list of extensions for files this loader is able to read.
 
 .. rst-class:: classref-method
 
-:ref:`String<class_String>` **_get_resource_script_class**\ (\ path\: :ref:`String<class_String>`\ ) |virtual| |const|
+:ref:`String<class_String>` **_get_resource_script_class**\ (\ path\: :ref:`String<class_String>`\ ) |virtual| |const| :ref:`🔗<class_ResourceFormatLoader_private_method__get_resource_script_class>`
 
 Returns the script class name associated with the :ref:`Resource<class_Resource>` under the given ``path``. If the resource has no script or the script isn't a named class, it should return ``""``.
 
@@ -191,7 +207,7 @@ Returns the script class name associated with the :ref:`Resource<class_Resource>
 
 .. rst-class:: classref-method
 
-:ref:`String<class_String>` **_get_resource_type**\ (\ path\: :ref:`String<class_String>`\ ) |virtual| |const|
+:ref:`String<class_String>` **_get_resource_type**\ (\ path\: :ref:`String<class_String>`\ ) |virtual| |const| :ref:`🔗<class_ResourceFormatLoader_private_method__get_resource_type>`
 
 Gets the class name of the resource associated with the given path. If the loader cannot handle it, it should return ``""``.
 
@@ -205,11 +221,9 @@ Gets the class name of the resource associated with the given path. If the loade
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **_get_resource_uid**\ (\ path\: :ref:`String<class_String>`\ ) |virtual| |const|
+:ref:`int<class_int>` **_get_resource_uid**\ (\ path\: :ref:`String<class_String>`\ ) |virtual| |const| :ref:`🔗<class_ResourceFormatLoader_private_method__get_resource_uid>`
 
-.. container:: contribute
-
-	There is currently no description for this method. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+Should return the unique ID for the resource associated with the given path. If this method is not overridden, a ``.uid`` file is generated along with the resource file, containing the unique ID.
 
 .. rst-class:: classref-item-separator
 
@@ -219,7 +233,7 @@ Gets the class name of the resource associated with the given path. If the loade
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **_handles_type**\ (\ type\: :ref:`StringName<class_StringName>`\ ) |virtual| |const|
+:ref:`bool<class_bool>` **_handles_type**\ (\ type\: :ref:`StringName<class_StringName>`\ ) |virtual| |const| :ref:`🔗<class_ResourceFormatLoader_private_method__handles_type>`
 
 Tells which resource class this loader can load.
 
@@ -233,7 +247,7 @@ Tells which resource class this loader can load.
 
 .. rst-class:: classref-method
 
-:ref:`Variant<class_Variant>` **_load**\ (\ path\: :ref:`String<class_String>`, original_path\: :ref:`String<class_String>`, use_sub_threads\: :ref:`bool<class_bool>`, cache_mode\: :ref:`int<class_int>`\ ) |virtual| |const|
+:ref:`Variant<class_Variant>` **_load**\ (\ path\: :ref:`String<class_String>`, original_path\: :ref:`String<class_String>`, use_sub_threads\: :ref:`bool<class_bool>`, cache_mode\: :ref:`int<class_int>`\ ) |virtual| |const| :ref:`🔗<class_ResourceFormatLoader_private_method__load>`
 
 Loads a resource when the engine finds this loader to be compatible. If the loaded resource is the result of an import, ``original_path`` will target the source file. Returns a :ref:`Resource<class_Resource>` object on success, or an :ref:`Error<enum_@GlobalScope_Error>` constant in case of failure.
 
@@ -247,11 +261,11 @@ The ``cache_mode`` property defines whether and how the cache should be used or 
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **_recognize_path**\ (\ path\: :ref:`String<class_String>`, type\: :ref:`StringName<class_StringName>`\ ) |virtual| |const|
+:ref:`bool<class_bool>` **_recognize_path**\ (\ path\: :ref:`String<class_String>`, type\: :ref:`StringName<class_StringName>`\ ) |virtual| |const| :ref:`🔗<class_ResourceFormatLoader_private_method__recognize_path>`
 
 Tells whether or not this loader should load a resource from its resource path for a given type.
 
-If it is not implemented, the default behavior returns whether the path's extension is within the ones provided by :ref:`_get_recognized_extensions<class_ResourceFormatLoader_private_method__get_recognized_extensions>`, and if the type is within the ones provided by :ref:`_get_resource_type<class_ResourceFormatLoader_private_method__get_resource_type>`.
+If it is not implemented, the default behavior returns whether the path's extension is within the ones provided by :ref:`_get_recognized_extensions()<class_ResourceFormatLoader_private_method__get_recognized_extensions>`, and if the type is within the ones provided by :ref:`_get_resource_type()<class_ResourceFormatLoader_private_method__get_resource_type>`.
 
 .. rst-class:: classref-item-separator
 
@@ -261,13 +275,14 @@ If it is not implemented, the default behavior returns whether the path's extens
 
 .. rst-class:: classref-method
 
-:ref:`Error<enum_@GlobalScope_Error>` **_rename_dependencies**\ (\ path\: :ref:`String<class_String>`, renames\: :ref:`Dictionary<class_Dictionary>`\ ) |virtual| |const|
+:ref:`Error<enum_@GlobalScope_Error>` **_rename_dependencies**\ (\ path\: :ref:`String<class_String>`, renames\: :ref:`Dictionary<class_Dictionary>`\ ) |virtual| |const| :ref:`🔗<class_ResourceFormatLoader_private_method__rename_dependencies>`
 
 If implemented, renames dependencies within the given resource and saves it. ``renames`` is a dictionary ``{ String => String }`` mapping old dependency paths to new paths.
 
 Returns :ref:`@GlobalScope.OK<class_@GlobalScope_constant_OK>` on success, or an :ref:`Error<enum_@GlobalScope_Error>` constant in case of failure.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

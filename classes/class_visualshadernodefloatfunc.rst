@@ -46,7 +46,7 @@ Enumerations
 
 .. rst-class:: classref-enumeration
 
-enum **Function**:
+enum **Function**: :ref:`🔗<enum_VisualShaderNodeFloatFunc_Function>`
 
 .. _class_VisualShaderNodeFloatFunc_constant_FUNC_SIN:
 
@@ -325,16 +325,17 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`Function<enum_VisualShaderNodeFloatFunc_Function>` **function** = ``13``
+:ref:`Function<enum_VisualShaderNodeFloatFunc_Function>` **function** = ``13`` :ref:`🔗<class_VisualShaderNodeFloatFunc_property_function>`
 
 .. rst-class:: classref-property-setget
 
 - |void| **set_function**\ (\ value\: :ref:`Function<enum_VisualShaderNodeFloatFunc_Function>`\ )
 - :ref:`Function<enum_VisualShaderNodeFloatFunc_Function>` **get_function**\ (\ )
 
-A function to be applied to the scalar. See :ref:`Function<enum_VisualShaderNodeFloatFunc_Function>` for options.
+A function to be applied to the scalar.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
