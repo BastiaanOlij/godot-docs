@@ -46,7 +46,7 @@ Enumerations
 
 .. rst-class:: classref-enumeration
 
-enum **Operator**:
+enum **Operator**: :ref:`🔗<enum_VisualShaderNodeUIntOp_Operator>`
 
 .. _class_VisualShaderNodeUIntOp_constant_OP_ADD:
 
@@ -165,16 +165,17 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`Operator<enum_VisualShaderNodeUIntOp_Operator>` **operator** = ``0``
+:ref:`Operator<enum_VisualShaderNodeUIntOp_Operator>` **operator** = ``0`` :ref:`🔗<class_VisualShaderNodeUIntOp_property_operator>`
 
 .. rst-class:: classref-property-setget
 
 - |void| **set_operator**\ (\ value\: :ref:`Operator<enum_VisualShaderNodeUIntOp_Operator>`\ )
 - :ref:`Operator<enum_VisualShaderNodeUIntOp_Operator>` **get_operator**\ (\ )
 
-An operator to be applied to the inputs. See :ref:`Operator<enum_VisualShaderNodeUIntOp_Operator>` for options.
+An operator to be applied to the inputs.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
