@@ -87,7 +87,7 @@ Theme Property Descriptions
 
 .. rst-class:: classref-themeproperty
 
-:ref:`int<class_int>` **margin_bottom** = ``0``
+:ref:`int<class_int>` **margin_bottom** = ``0`` :ref:`🔗<class_MarginContainer_theme_constant_margin_bottom>`
 
 Offsets towards the inside direct children of the container by this amount of pixels from the bottom.
 
@@ -99,7 +99,7 @@ Offsets towards the inside direct children of the container by this amount of pi
 
 .. rst-class:: classref-themeproperty
 
-:ref:`int<class_int>` **margin_left** = ``0``
+:ref:`int<class_int>` **margin_left** = ``0`` :ref:`🔗<class_MarginContainer_theme_constant_margin_left>`
 
 Offsets towards the inside direct children of the container by this amount of pixels from the left.
 
@@ -111,7 +111,7 @@ Offsets towards the inside direct children of the container by this amount of pi
 
 .. rst-class:: classref-themeproperty
 
-:ref:`int<class_int>` **margin_right** = ``0``
+:ref:`int<class_int>` **margin_right** = ``0`` :ref:`🔗<class_MarginContainer_theme_constant_margin_right>`
 
 Offsets towards the inside direct children of the container by this amount of pixels from the right.
 
@@ -123,11 +123,12 @@ Offsets towards the inside direct children of the container by this amount of pi
 
 .. rst-class:: classref-themeproperty
 
-:ref:`int<class_int>` **margin_top** = ``0``
+:ref:`int<class_int>` **margin_top** = ``0`` :ref:`🔗<class_MarginContainer_theme_constant_margin_top>`
 
 Offsets towards the inside direct children of the container by this amount of pixels from the top.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
