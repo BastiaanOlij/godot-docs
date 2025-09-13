@@ -65,7 +65,7 @@ Enumerations
 
 .. rst-class:: classref-enumeration
 
-enum **Mode**:
+enum **Mode**: :ref:`🔗<enum_AudioEffectDistortion_Mode>`
 
 .. _class_AudioEffectDistortion_constant_MODE_CLIP:
 
@@ -83,7 +83,7 @@ Digital distortion effect which cuts off peaks at the top and bottom of the wave
 
 .. container:: contribute
 
-	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+	There is currently no description for this enum. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!
 
 
 
@@ -124,7 +124,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **drive** = ``0.0``
+:ref:`float<class_float>` **drive** = ``0.0`` :ref:`🔗<class_AudioEffectDistortion_property_drive>`
 
 .. rst-class:: classref-property-setget
 
@@ -141,7 +141,7 @@ Distortion power. Value can range from 0 to 1.
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **keep_hf_hz** = ``16000.0``
+:ref:`float<class_float>` **keep_hf_hz** = ``16000.0`` :ref:`🔗<class_AudioEffectDistortion_property_keep_hf_hz>`
 
 .. rst-class:: classref-property-setget
 
@@ -158,7 +158,7 @@ High-pass filter, in Hz. Frequencies higher than this value will not be affected
 
 .. rst-class:: classref-property
 
-:ref:`Mode<enum_AudioEffectDistortion_Mode>` **mode** = ``0``
+:ref:`Mode<enum_AudioEffectDistortion_Mode>` **mode** = ``0`` :ref:`🔗<class_AudioEffectDistortion_property_mode>`
 
 .. rst-class:: classref-property-setget
 
@@ -175,7 +175,7 @@ Distortion type.
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **post_gain** = ``0.0``
+:ref:`float<class_float>` **post_gain** = ``0.0`` :ref:`🔗<class_AudioEffectDistortion_property_post_gain>`
 
 .. rst-class:: classref-property-setget
 
@@ -192,7 +192,7 @@ Increases or decreases the volume after the effect, in decibels. Value can range
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **pre_gain** = ``0.0``
+:ref:`float<class_float>` **pre_gain** = ``0.0`` :ref:`🔗<class_AudioEffectDistortion_property_pre_gain>`
 
 .. rst-class:: classref-property-setget
 
@@ -202,6 +202,7 @@ Increases or decreases the volume after the effect, in decibels. Value can range
 Increases or decreases the volume before the effect, in decibels. Value can range from -60 to 60.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
