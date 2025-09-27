@@ -30,6 +30,8 @@ Tutorials
 
 - :doc:`Internationalizing games <../tutorials/i18n/internationalizing_games>`
 
+- :doc:`Localization using gettext <../tutorials/i18n/localization_using_gettext>`
+
 - :doc:`Locales <../tutorials/i18n/locales>`
 
 .. rst-class:: classref-reftable-group
@@ -87,7 +89,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`String<class_String>` **locale** = ``"en"``
+:ref:`String<class_String>` **locale** = ``"en"`` :ref:`🔗<class_Translation_property_locale>`
 
 .. rst-class:: classref-property-setget
 
@@ -109,9 +111,9 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`StringName<class_StringName>` **_get_message**\ (\ src_message\: :ref:`StringName<class_StringName>`, context\: :ref:`StringName<class_StringName>`\ ) |virtual| |const|
+:ref:`StringName<class_StringName>` **_get_message**\ (\ src_message\: :ref:`StringName<class_StringName>`, context\: :ref:`StringName<class_StringName>`\ ) |virtual| |const| :ref:`🔗<class_Translation_private_method__get_message>`
 
-Virtual method to override :ref:`get_message<class_Translation_method_get_message>`.
+Virtual method to override :ref:`get_message()<class_Translation_method_get_message>`.
 
 .. rst-class:: classref-item-separator
 
@@ -121,9 +123,9 @@ Virtual method to override :ref:`get_message<class_Translation_method_get_messag
 
 .. rst-class:: classref-method
 
-:ref:`StringName<class_StringName>` **_get_plural_message**\ (\ src_message\: :ref:`StringName<class_StringName>`, src_plural_message\: :ref:`StringName<class_StringName>`, n\: :ref:`int<class_int>`, context\: :ref:`StringName<class_StringName>`\ ) |virtual| |const|
+:ref:`StringName<class_StringName>` **_get_plural_message**\ (\ src_message\: :ref:`StringName<class_StringName>`, src_plural_message\: :ref:`StringName<class_StringName>`, n\: :ref:`int<class_int>`, context\: :ref:`StringName<class_StringName>`\ ) |virtual| |const| :ref:`🔗<class_Translation_private_method__get_plural_message>`
 
-Virtual method to override :ref:`get_plural_message<class_Translation_method_get_plural_message>`.
+Virtual method to override :ref:`get_plural_message()<class_Translation_method_get_plural_message>`.
 
 .. rst-class:: classref-item-separator
 
@@ -133,7 +135,7 @@ Virtual method to override :ref:`get_plural_message<class_Translation_method_get
 
 .. rst-class:: classref-method
 
-|void| **add_message**\ (\ src_message\: :ref:`StringName<class_StringName>`, xlated_message\: :ref:`StringName<class_StringName>`, context\: :ref:`StringName<class_StringName>` = &""\ )
+|void| **add_message**\ (\ src_message\: :ref:`StringName<class_StringName>`, xlated_message\: :ref:`StringName<class_StringName>`, context\: :ref:`StringName<class_StringName>` = &""\ ) :ref:`🔗<class_Translation_method_add_message>`
 
 Adds a message if nonexistent, followed by its translation.
 
@@ -147,11 +149,13 @@ An additional context could be used to specify the translation context or differ
 
 .. rst-class:: classref-method
 
-|void| **add_plural_message**\ (\ src_message\: :ref:`StringName<class_StringName>`, xlated_messages\: :ref:`PackedStringArray<class_PackedStringArray>`, context\: :ref:`StringName<class_StringName>` = &""\ )
+|void| **add_plural_message**\ (\ src_message\: :ref:`StringName<class_StringName>`, xlated_messages\: :ref:`PackedStringArray<class_PackedStringArray>`, context\: :ref:`StringName<class_StringName>` = &""\ ) :ref:`🔗<class_Translation_method_add_plural_message>`
 
 Adds a message involving plural translation if nonexistent, followed by its translation.
 
 An additional context could be used to specify the translation context or differentiate polysemic words.
+
+\ **Note:** Plurals are only supported in :doc:`gettext-based translations (PO) <../tutorials/i18n/localization_using_gettext>`, not CSV.
 
 .. rst-class:: classref-item-separator
 
@@ -161,7 +165,7 @@ An additional context could be used to specify the translation context or differ
 
 .. rst-class:: classref-method
 
-|void| **erase_message**\ (\ src_message\: :ref:`StringName<class_StringName>`, context\: :ref:`StringName<class_StringName>` = &""\ )
+|void| **erase_message**\ (\ src_message\: :ref:`StringName<class_StringName>`, context\: :ref:`StringName<class_StringName>` = &""\ ) :ref:`🔗<class_Translation_method_erase_message>`
 
 Erases a message.
 
@@ -173,7 +177,7 @@ Erases a message.
 
 .. rst-class:: classref-method
 
-:ref:`StringName<class_StringName>` **get_message**\ (\ src_message\: :ref:`StringName<class_StringName>`, context\: :ref:`StringName<class_StringName>` = &""\ ) |const|
+:ref:`StringName<class_StringName>` **get_message**\ (\ src_message\: :ref:`StringName<class_StringName>`, context\: :ref:`StringName<class_StringName>` = &""\ ) |const| :ref:`🔗<class_Translation_method_get_message>`
 
 Returns a message's translation.
 
@@ -185,7 +189,7 @@ Returns a message's translation.
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **get_message_count**\ (\ ) |const|
+:ref:`int<class_int>` **get_message_count**\ (\ ) |const| :ref:`🔗<class_Translation_method_get_message_count>`
 
 Returns the number of existing messages.
 
@@ -197,7 +201,7 @@ Returns the number of existing messages.
 
 .. rst-class:: classref-method
 
-:ref:`PackedStringArray<class_PackedStringArray>` **get_message_list**\ (\ ) |const|
+:ref:`PackedStringArray<class_PackedStringArray>` **get_message_list**\ (\ ) |const| :ref:`🔗<class_Translation_method_get_message_list>`
 
 Returns all the messages (keys).
 
@@ -209,11 +213,13 @@ Returns all the messages (keys).
 
 .. rst-class:: classref-method
 
-:ref:`StringName<class_StringName>` **get_plural_message**\ (\ src_message\: :ref:`StringName<class_StringName>`, src_plural_message\: :ref:`StringName<class_StringName>`, n\: :ref:`int<class_int>`, context\: :ref:`StringName<class_StringName>` = &""\ ) |const|
+:ref:`StringName<class_StringName>` **get_plural_message**\ (\ src_message\: :ref:`StringName<class_StringName>`, src_plural_message\: :ref:`StringName<class_StringName>`, n\: :ref:`int<class_int>`, context\: :ref:`StringName<class_StringName>` = &""\ ) |const| :ref:`🔗<class_Translation_method_get_plural_message>`
 
 Returns a message's translation involving plurals.
 
 The number ``n`` is the number or quantity of the plural object. It will be used to guide the translation system to fetch the correct plural form for the selected language.
+
+\ **Note:** Plurals are only supported in :doc:`gettext-based translations (PO) <../tutorials/i18n/localization_using_gettext>`, not CSV.
 
 .. rst-class:: classref-item-separator
 
@@ -223,11 +229,12 @@ The number ``n`` is the number or quantity of the plural object. It will be used
 
 .. rst-class:: classref-method
 
-:ref:`PackedStringArray<class_PackedStringArray>` **get_translated_message_list**\ (\ ) |const|
+:ref:`PackedStringArray<class_PackedStringArray>` **get_translated_message_list**\ (\ ) |const| :ref:`🔗<class_Translation_method_get_translated_message_list>`
 
 Returns all the messages (translated text).
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

@@ -58,7 +58,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **get_local_port**\ (\ ) |const|
+:ref:`int<class_int>` **get_local_port**\ (\ ) |const| :ref:`🔗<class_TCPServer_method_get_local_port>`
 
 Returns the local port this server is listening to.
 
@@ -70,7 +70,7 @@ Returns the local port this server is listening to.
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_connection_available**\ (\ ) |const|
+:ref:`bool<class_bool>` **is_connection_available**\ (\ ) |const| :ref:`🔗<class_TCPServer_method_is_connection_available>`
 
 Returns ``true`` if a connection is available for taking.
 
@@ -82,7 +82,7 @@ Returns ``true`` if a connection is available for taking.
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_listening**\ (\ ) |const|
+:ref:`bool<class_bool>` **is_listening**\ (\ ) |const| :ref:`🔗<class_TCPServer_method_is_listening>`
 
 Returns ``true`` if the server is currently listening for connections.
 
@@ -94,7 +94,7 @@ Returns ``true`` if the server is currently listening for connections.
 
 .. rst-class:: classref-method
 
-:ref:`Error<enum_@GlobalScope_Error>` **listen**\ (\ port\: :ref:`int<class_int>`, bind_address\: :ref:`String<class_String>` = "*"\ )
+:ref:`Error<enum_@GlobalScope_Error>` **listen**\ (\ port\: :ref:`int<class_int>`, bind_address\: :ref:`String<class_String>` = "*"\ ) :ref:`🔗<class_TCPServer_method_listen>`
 
 Listen on the ``port`` binding to ``bind_address``.
 
@@ -112,7 +112,7 @@ If ``bind_address`` is set to any valid address (e.g. ``"192.168.1.101"``, ``"::
 
 .. rst-class:: classref-method
 
-|void| **stop**\ (\ )
+|void| **stop**\ (\ ) :ref:`🔗<class_TCPServer_method_stop>`
 
 Stops listening.
 
@@ -124,11 +124,12 @@ Stops listening.
 
 .. rst-class:: classref-method
 
-:ref:`StreamPeerTCP<class_StreamPeerTCP>` **take_connection**\ (\ )
+:ref:`StreamPeerTCP<class_StreamPeerTCP>` **take_connection**\ (\ ) :ref:`🔗<class_TCPServer_method_take_connection>`
 
 If a connection is available, returns a StreamPeerTCP with the connection.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
