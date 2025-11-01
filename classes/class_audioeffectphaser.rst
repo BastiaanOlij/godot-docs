@@ -63,14 +63,14 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **depth** = ``1.0``
+:ref:`float<class_float>` **depth** = ``1.0`` :ref:`🔗<class_AudioEffectPhaser_property_depth>`
 
 .. rst-class:: classref-property-setget
 
 - |void| **set_depth**\ (\ value\: :ref:`float<class_float>`\ )
 - :ref:`float<class_float>` **get_depth**\ (\ )
 
-Governs how high the filter frequencies sweep. Low value will primarily affect bass frequencies. High value can sweep high into the treble. Value can range from 0.1 to 4.
+Determines how high the filter frequencies sweep. Low value will primarily affect bass frequencies. High value can sweep high into the treble. Value can range from ``0.1`` to ``4.0``.
 
 .. rst-class:: classref-item-separator
 
@@ -80,7 +80,7 @@ Governs how high the filter frequencies sweep. Low value will primarily affect b
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **feedback** = ``0.7``
+:ref:`float<class_float>` **feedback** = ``0.7`` :ref:`🔗<class_AudioEffectPhaser_property_feedback>`
 
 .. rst-class:: classref-property-setget
 
@@ -97,7 +97,7 @@ Output percent of modified sound. Value can range from 0.1 to 0.9.
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **range_max_hz** = ``1600.0``
+:ref:`float<class_float>` **range_max_hz** = ``1600.0`` :ref:`🔗<class_AudioEffectPhaser_property_range_max_hz>`
 
 .. rst-class:: classref-property-setget
 
@@ -114,7 +114,7 @@ Determines the maximum frequency affected by the LFO modulations, in Hz. Value c
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **range_min_hz** = ``440.0``
+:ref:`float<class_float>` **range_min_hz** = ``440.0`` :ref:`🔗<class_AudioEffectPhaser_property_range_min_hz>`
 
 .. rst-class:: classref-property-setget
 
@@ -131,7 +131,7 @@ Determines the minimum frequency affected by the LFO modulations, in Hz. Value c
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **rate_hz** = ``0.5``
+:ref:`float<class_float>` **rate_hz** = ``0.5`` :ref:`🔗<class_AudioEffectPhaser_property_rate_hz>`
 
 .. rst-class:: classref-property-setget
 
@@ -141,6 +141,7 @@ Determines the minimum frequency affected by the LFO modulations, in Hz. Value c
 Adjusts the rate in Hz at which the effect sweeps up and down across the frequency range.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
