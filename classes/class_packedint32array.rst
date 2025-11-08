@@ -21,6 +21,8 @@ An array specifically designed to hold 32-bit integer values. Packs data tightly
 
 \ **Note:** This type stores signed 32-bit integers, which means it can take values in the interval ``[-2^31, 2^31 - 1]``, i.e. ``[-2147483648, 2147483647]``. Exceeding those bounds will wrap around. In comparison, :ref:`int<class_int>` uses signed 64-bit integers which can hold much larger values. If you need to pack 64-bit integers tightly, see :ref:`PackedInt64Array<class_PackedInt64Array>`.
 
+\ **Note:** Packed arrays are always passed by reference. To get a copy of an array that can be modified independently of the original array, use :ref:`duplicate()<class_PackedInt32Array_method_duplicate>`. This is *not* the case for built-in properties and methods. In these cases the returned packed array is a copy, and changing it will *not* affect the original value. To update a built-in property of this type, modify the returned array and then assign it to the property again.
+
 .. note::
 
 	There are notable differences when using this API with C#. See :ref:`doc_c_sharp_differences` for more information.
@@ -60,11 +62,15 @@ Methods
    +-------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                           | :ref:`count<class_PackedInt32Array_method_count>`\ (\ value\: :ref:`int<class_int>`\ ) |const|                                           |
    +-------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`PackedInt32Array<class_PackedInt32Array>` | :ref:`duplicate<class_PackedInt32Array_method_duplicate>`\ (\ )                                                                          |
+   | :ref:`PackedInt32Array<class_PackedInt32Array>` | :ref:`duplicate<class_PackedInt32Array_method_duplicate>`\ (\ ) |const|                                                                  |
+   +-------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                         | :ref:`erase<class_PackedInt32Array_method_erase>`\ (\ value\: :ref:`int<class_int>`\ )                                                   |
    +-------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
    | |void|                                          | :ref:`fill<class_PackedInt32Array_method_fill>`\ (\ value\: :ref:`int<class_int>`\ )                                                     |
    +-------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                           | :ref:`find<class_PackedInt32Array_method_find>`\ (\ value\: :ref:`int<class_int>`, from\: :ref:`int<class_int>` = 0\ ) |const|           |
+   +-------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`                           | :ref:`get<class_PackedInt32Array_method_get>`\ (\ index\: :ref:`int<class_int>`\ ) |const|                                               |
    +-------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                         | :ref:`has<class_PackedInt32Array_method_has>`\ (\ value\: :ref:`int<class_int>`\ ) |const|                                               |
    +-------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
@@ -124,7 +130,7 @@ Constructor Descriptions
 
 .. rst-class:: classref-constructor
 
-:ref:`PackedInt32Array<class_PackedInt32Array>` **PackedInt32Array**\ (\ )
+:ref:`PackedInt32Array<class_PackedInt32Array>` **PackedInt32Array**\ (\ ) :ref:`🔗<class_PackedInt32Array_constructor_PackedInt32Array>`
 
 Constructs an empty **PackedInt32Array**.
 
@@ -161,9 +167,9 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **append**\ (\ value\: :ref:`int<class_int>`\ )
+:ref:`bool<class_bool>` **append**\ (\ value\: :ref:`int<class_int>`\ ) :ref:`🔗<class_PackedInt32Array_method_append>`
 
-Appends an element at the end of the array (alias of :ref:`push_back<class_PackedInt32Array_method_push_back>`).
+Appends an element at the end of the array (alias of :ref:`push_back()<class_PackedInt32Array_method_push_back>`).
 
 .. rst-class:: classref-item-separator
 
@@ -173,7 +179,7 @@ Appends an element at the end of the array (alias of :ref:`push_back<class_Packe
 
 .. rst-class:: classref-method
 
-|void| **append_array**\ (\ array\: :ref:`PackedInt32Array<class_PackedInt32Array>`\ )
+|void| **append_array**\ (\ array\: :ref:`PackedInt32Array<class_PackedInt32Array>`\ ) :ref:`🔗<class_PackedInt32Array_method_append_array>`
 
 Appends a **PackedInt32Array** at the end of this array.
 
@@ -185,11 +191,11 @@ Appends a **PackedInt32Array** at the end of this array.
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **bsearch**\ (\ value\: :ref:`int<class_int>`, before\: :ref:`bool<class_bool>` = true\ )
+:ref:`int<class_int>` **bsearch**\ (\ value\: :ref:`int<class_int>`, before\: :ref:`bool<class_bool>` = true\ ) :ref:`🔗<class_PackedInt32Array_method_bsearch>`
 
 Finds the index of an existing value (or the insertion index that maintains sorting order, if the value is not yet present in the array) using binary search. Optionally, a ``before`` specifier can be passed. If ``false``, the returned index comes after all existing entries of the value in the array.
 
-\ **Note:** Calling :ref:`bsearch<class_PackedInt32Array_method_bsearch>` on an unsorted array results in unexpected behavior.
+\ **Note:** Calling :ref:`bsearch()<class_PackedInt32Array_method_bsearch>` on an unsorted array results in unexpected behavior.
 
 .. rst-class:: classref-item-separator
 
@@ -199,9 +205,9 @@ Finds the index of an existing value (or the insertion index that maintains sort
 
 .. rst-class:: classref-method
 
-|void| **clear**\ (\ )
+|void| **clear**\ (\ ) :ref:`🔗<class_PackedInt32Array_method_clear>`
 
-Clears the array. This is equivalent to using :ref:`resize<class_PackedInt32Array_method_resize>` with a size of ``0``.
+Clears the array. This is equivalent to using :ref:`resize()<class_PackedInt32Array_method_resize>` with a size of ``0``.
 
 .. rst-class:: classref-item-separator
 
@@ -211,7 +217,7 @@ Clears the array. This is equivalent to using :ref:`resize<class_PackedInt32Arra
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **count**\ (\ value\: :ref:`int<class_int>`\ ) |const|
+:ref:`int<class_int>` **count**\ (\ value\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_PackedInt32Array_method_count>`
 
 Returns the number of times an element is in the array.
 
@@ -223,9 +229,21 @@ Returns the number of times an element is in the array.
 
 .. rst-class:: classref-method
 
-:ref:`PackedInt32Array<class_PackedInt32Array>` **duplicate**\ (\ )
+:ref:`PackedInt32Array<class_PackedInt32Array>` **duplicate**\ (\ ) |const| :ref:`🔗<class_PackedInt32Array_method_duplicate>`
 
 Creates a copy of the array, and returns it.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_PackedInt32Array_method_erase:
+
+.. rst-class:: classref-method
+
+:ref:`bool<class_bool>` **erase**\ (\ value\: :ref:`int<class_int>`\ ) :ref:`🔗<class_PackedInt32Array_method_erase>`
+
+Removes the first occurrence of a value from the array and returns ``true``. If the value does not exist in the array, nothing happens and ``false`` is returned. To remove an element by index, use :ref:`remove_at()<class_PackedInt32Array_method_remove_at>` instead.
 
 .. rst-class:: classref-item-separator
 
@@ -235,9 +253,9 @@ Creates a copy of the array, and returns it.
 
 .. rst-class:: classref-method
 
-|void| **fill**\ (\ value\: :ref:`int<class_int>`\ )
+|void| **fill**\ (\ value\: :ref:`int<class_int>`\ ) :ref:`🔗<class_PackedInt32Array_method_fill>`
 
-Assigns the given value to all elements in the array. This can typically be used together with :ref:`resize<class_PackedInt32Array_method_resize>` to create an array with a given size and initialized elements.
+Assigns the given value to all elements in the array. This can typically be used together with :ref:`resize()<class_PackedInt32Array_method_resize>` to create an array with a given size and initialized elements.
 
 .. rst-class:: classref-item-separator
 
@@ -247,9 +265,23 @@ Assigns the given value to all elements in the array. This can typically be used
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **find**\ (\ value\: :ref:`int<class_int>`, from\: :ref:`int<class_int>` = 0\ ) |const|
+:ref:`int<class_int>` **find**\ (\ value\: :ref:`int<class_int>`, from\: :ref:`int<class_int>` = 0\ ) |const| :ref:`🔗<class_PackedInt32Array_method_find>`
 
 Searches the array for a value and returns its index or ``-1`` if not found. Optionally, the initial search index can be passed.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_PackedInt32Array_method_get:
+
+.. rst-class:: classref-method
+
+:ref:`int<class_int>` **get**\ (\ index\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_PackedInt32Array_method_get>`
+
+Returns the 32-bit integer at the given ``index`` in the array. If ``index`` out-of-bounds or negative, this method fails and returns ``0``.
+
+This method is similar (but not identical) to the ``[]`` operator. Most notably, when this method fails, it doesn't pause project execution if run from the editor.
 
 .. rst-class:: classref-item-separator
 
@@ -259,7 +291,7 @@ Searches the array for a value and returns its index or ``-1`` if not found. Opt
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **has**\ (\ value\: :ref:`int<class_int>`\ ) |const|
+:ref:`bool<class_bool>` **has**\ (\ value\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_PackedInt32Array_method_has>`
 
 Returns ``true`` if the array contains ``value``.
 
@@ -271,7 +303,7 @@ Returns ``true`` if the array contains ``value``.
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **insert**\ (\ at_index\: :ref:`int<class_int>`, value\: :ref:`int<class_int>`\ )
+:ref:`int<class_int>` **insert**\ (\ at_index\: :ref:`int<class_int>`, value\: :ref:`int<class_int>`\ ) :ref:`🔗<class_PackedInt32Array_method_insert>`
 
 Inserts a new integer at a given position in the array. The position must be valid, or at the end of the array (``idx == size()``).
 
@@ -283,7 +315,7 @@ Inserts a new integer at a given position in the array. The position must be val
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_empty**\ (\ ) |const|
+:ref:`bool<class_bool>` **is_empty**\ (\ ) |const| :ref:`🔗<class_PackedInt32Array_method_is_empty>`
 
 Returns ``true`` if the array is empty.
 
@@ -295,7 +327,7 @@ Returns ``true`` if the array is empty.
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **push_back**\ (\ value\: :ref:`int<class_int>`\ )
+:ref:`bool<class_bool>` **push_back**\ (\ value\: :ref:`int<class_int>`\ ) :ref:`🔗<class_PackedInt32Array_method_push_back>`
 
 Appends a value to the array.
 
@@ -307,7 +339,7 @@ Appends a value to the array.
 
 .. rst-class:: classref-method
 
-|void| **remove_at**\ (\ index\: :ref:`int<class_int>`\ )
+|void| **remove_at**\ (\ index\: :ref:`int<class_int>`\ ) :ref:`🔗<class_PackedInt32Array_method_remove_at>`
 
 Removes an element from the array by index.
 
@@ -319,9 +351,11 @@ Removes an element from the array by index.
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **resize**\ (\ new_size\: :ref:`int<class_int>`\ )
+:ref:`int<class_int>` **resize**\ (\ new_size\: :ref:`int<class_int>`\ ) :ref:`🔗<class_PackedInt32Array_method_resize>`
 
-Sets the size of the array. If the array is grown, reserves elements at the end of the array. If the array is shrunk, truncates the array to the new size. Calling :ref:`resize<class_PackedInt32Array_method_resize>` once and assigning the new values is faster than adding new elements one by one.
+Sets the size of the array. If the array is grown, reserves elements at the end of the array. If the array is shrunk, truncates the array to the new size. Calling :ref:`resize()<class_PackedInt32Array_method_resize>` once and assigning the new values is faster than adding new elements one by one.
+
+Returns :ref:`@GlobalScope.OK<class_@GlobalScope_constant_OK>` on success, or one of the following :ref:`Error<enum_@GlobalScope_Error>` constants if this method fails: :ref:`@GlobalScope.ERR_INVALID_PARAMETER<class_@GlobalScope_constant_ERR_INVALID_PARAMETER>` if the size is negative, or :ref:`@GlobalScope.ERR_OUT_OF_MEMORY<class_@GlobalScope_constant_ERR_OUT_OF_MEMORY>` if allocations fail. Use :ref:`size()<class_PackedInt32Array_method_size>` to find the actual size of the array after resize.
 
 .. rst-class:: classref-item-separator
 
@@ -331,7 +365,7 @@ Sets the size of the array. If the array is grown, reserves elements at the end 
 
 .. rst-class:: classref-method
 
-|void| **reverse**\ (\ )
+|void| **reverse**\ (\ ) :ref:`🔗<class_PackedInt32Array_method_reverse>`
 
 Reverses the order of the elements in the array.
 
@@ -343,7 +377,7 @@ Reverses the order of the elements in the array.
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **rfind**\ (\ value\: :ref:`int<class_int>`, from\: :ref:`int<class_int>` = -1\ ) |const|
+:ref:`int<class_int>` **rfind**\ (\ value\: :ref:`int<class_int>`, from\: :ref:`int<class_int>` = -1\ ) |const| :ref:`🔗<class_PackedInt32Array_method_rfind>`
 
 Searches the array in reverse order. Optionally, a start search index can be passed. If negative, the start index is considered relative to the end of the array.
 
@@ -355,7 +389,7 @@ Searches the array in reverse order. Optionally, a start search index can be pas
 
 .. rst-class:: classref-method
 
-|void| **set**\ (\ index\: :ref:`int<class_int>`, value\: :ref:`int<class_int>`\ )
+|void| **set**\ (\ index\: :ref:`int<class_int>`, value\: :ref:`int<class_int>`\ ) :ref:`🔗<class_PackedInt32Array_method_set>`
 
 Changes the integer at the given index.
 
@@ -367,7 +401,7 @@ Changes the integer at the given index.
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **size**\ (\ ) |const|
+:ref:`int<class_int>` **size**\ (\ ) |const| :ref:`🔗<class_PackedInt32Array_method_size>`
 
 Returns the number of elements in the array.
 
@@ -379,7 +413,7 @@ Returns the number of elements in the array.
 
 .. rst-class:: classref-method
 
-:ref:`PackedInt32Array<class_PackedInt32Array>` **slice**\ (\ begin\: :ref:`int<class_int>`, end\: :ref:`int<class_int>` = 2147483647\ ) |const|
+:ref:`PackedInt32Array<class_PackedInt32Array>` **slice**\ (\ begin\: :ref:`int<class_int>`, end\: :ref:`int<class_int>` = 2147483647\ ) |const| :ref:`🔗<class_PackedInt32Array_method_slice>`
 
 Returns the slice of the **PackedInt32Array**, from ``begin`` (inclusive) to ``end`` (exclusive), as a new **PackedInt32Array**.
 
@@ -395,7 +429,7 @@ If either ``begin`` or ``end`` are negative, they will be relative to the end of
 
 .. rst-class:: classref-method
 
-|void| **sort**\ (\ )
+|void| **sort**\ (\ ) :ref:`🔗<class_PackedInt32Array_method_sort>`
 
 Sorts the elements of the array in ascending order.
 
@@ -407,9 +441,9 @@ Sorts the elements of the array in ascending order.
 
 .. rst-class:: classref-method
 
-:ref:`PackedByteArray<class_PackedByteArray>` **to_byte_array**\ (\ ) |const|
+:ref:`PackedByteArray<class_PackedByteArray>` **to_byte_array**\ (\ ) |const| :ref:`🔗<class_PackedInt32Array_method_to_byte_array>`
 
-Returns a copy of the data converted to a :ref:`PackedByteArray<class_PackedByteArray>`, where each element have been encoded as 4 bytes.
+Returns a copy of the data converted to a :ref:`PackedByteArray<class_PackedByteArray>`, where each element has been encoded as 4 bytes.
 
 The size of the new array will be ``int32_array.size() * 4``.
 
@@ -426,7 +460,7 @@ Operator Descriptions
 
 .. rst-class:: classref-operator
 
-:ref:`bool<class_bool>` **operator !=**\ (\ right\: :ref:`PackedInt32Array<class_PackedInt32Array>`\ )
+:ref:`bool<class_bool>` **operator !=**\ (\ right\: :ref:`PackedInt32Array<class_PackedInt32Array>`\ ) :ref:`🔗<class_PackedInt32Array_operator_neq_PackedInt32Array>`
 
 Returns ``true`` if contents of the arrays differ.
 
@@ -438,9 +472,9 @@ Returns ``true`` if contents of the arrays differ.
 
 .. rst-class:: classref-operator
 
-:ref:`PackedInt32Array<class_PackedInt32Array>` **operator +**\ (\ right\: :ref:`PackedInt32Array<class_PackedInt32Array>`\ )
+:ref:`PackedInt32Array<class_PackedInt32Array>` **operator +**\ (\ right\: :ref:`PackedInt32Array<class_PackedInt32Array>`\ ) :ref:`🔗<class_PackedInt32Array_operator_sum_PackedInt32Array>`
 
-Returns a new **PackedInt32Array** with contents of ``right`` added at the end of this array. For better performance, consider using :ref:`append_array<class_PackedInt32Array_method_append_array>` instead.
+Returns a new **PackedInt32Array** with contents of ``right`` added at the end of this array. For better performance, consider using :ref:`append_array()<class_PackedInt32Array_method_append_array>` instead.
 
 .. rst-class:: classref-item-separator
 
@@ -450,7 +484,7 @@ Returns a new **PackedInt32Array** with contents of ``right`` added at the end o
 
 .. rst-class:: classref-operator
 
-:ref:`bool<class_bool>` **operator ==**\ (\ right\: :ref:`PackedInt32Array<class_PackedInt32Array>`\ )
+:ref:`bool<class_bool>` **operator ==**\ (\ right\: :ref:`PackedInt32Array<class_PackedInt32Array>`\ ) :ref:`🔗<class_PackedInt32Array_operator_eq_PackedInt32Array>`
 
 Returns ``true`` if contents of both arrays are the same, i.e. they have all equal ints at the corresponding indices.
 
@@ -462,13 +496,14 @@ Returns ``true`` if contents of both arrays are the same, i.e. they have all equ
 
 .. rst-class:: classref-operator
 
-:ref:`int<class_int>` **operator []**\ (\ index\: :ref:`int<class_int>`\ )
+:ref:`int<class_int>` **operator []**\ (\ index\: :ref:`int<class_int>`\ ) :ref:`🔗<class_PackedInt32Array_operator_idx_int>`
 
 Returns the :ref:`int<class_int>` at index ``index``. Negative indices can be used to access the elements starting from the end. Using index out of array's bounds will result in an error.
 
 Note that :ref:`int<class_int>` type is 64-bit, unlike the values stored in the array.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

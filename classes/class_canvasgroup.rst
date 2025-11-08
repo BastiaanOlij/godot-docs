@@ -27,16 +27,16 @@ Child :ref:`CanvasItem<class_CanvasItem>` nodes of a **CanvasGroup** are drawn a
 
     shader_type canvas_item;
     render_mode unshaded;
-    
+
     uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
-    
+
     void fragment() {
         vec4 c = textureLod(screen_texture, SCREEN_UV, 0.0);
-    
+
         if (c.a > 0.0001) {
             c.rgb /= c.a;
         }
-    
+
         COLOR *= c;
     }
 
@@ -71,7 +71,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **clear_margin** = ``10.0``
+:ref:`float<class_float>` **clear_margin** = ``10.0`` :ref:`🔗<class_CanvasGroup_property_clear_margin>`
 
 .. rst-class:: classref-property-setget
 
@@ -88,7 +88,7 @@ Sets the size of the margin used to expand the clearing rect of this **CanvasGro
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **fit_margin** = ``10.0``
+:ref:`float<class_float>` **fit_margin** = ``10.0`` :ref:`🔗<class_CanvasGroup_property_fit_margin>`
 
 .. rst-class:: classref-property-setget
 
@@ -105,7 +105,7 @@ Sets the size of a margin used to expand the drawable rect of this **CanvasGroup
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **use_mipmaps** = ``false``
+:ref:`bool<class_bool>` **use_mipmaps** = ``false`` :ref:`🔗<class_CanvasGroup_property_use_mipmaps>`
 
 .. rst-class:: classref-property-setget
 
@@ -115,6 +115,7 @@ Sets the size of a margin used to expand the drawable rect of this **CanvasGroup
 If ``true``, calculates mipmaps for the backbuffer before drawing the **CanvasGroup** so that mipmaps can be used in a custom :ref:`ShaderMaterial<class_ShaderMaterial>` attached to the **CanvasGroup**. Generating mipmaps has a performance cost so this should not be enabled unless required.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
