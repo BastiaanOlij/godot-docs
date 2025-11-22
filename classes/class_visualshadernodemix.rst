@@ -46,7 +46,7 @@ Enumerations
 
 .. rst-class:: classref-enumeration
 
-enum **OpType**:
+enum **OpType**: :ref:`🔗<enum_VisualShaderNodeMix_OpType>`
 
 .. _class_VisualShaderNodeMix_constant_OP_TYPE_SCALAR:
 
@@ -125,7 +125,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`OpType<enum_VisualShaderNodeMix_OpType>` **op_type** = ``0``
+:ref:`OpType<enum_VisualShaderNodeMix_OpType>` **op_type** = ``0`` :ref:`🔗<class_VisualShaderNodeMix_property_op_type>`
 
 .. rst-class:: classref-property-setget
 
@@ -135,6 +135,7 @@ Property Descriptions
 A type of operands and returned value.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

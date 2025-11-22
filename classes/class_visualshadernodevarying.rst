@@ -50,7 +50,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`String<class_String>` **varying_name** = ``"[None]"``
+:ref:`String<class_String>` **varying_name** = ``"[None]"`` :ref:`🔗<class_VisualShaderNodeVarying_property_varying_name>`
 
 .. rst-class:: classref-property-setget
 
@@ -67,7 +67,7 @@ Name of the variable. Must be unique.
 
 .. rst-class:: classref-property
 
-:ref:`VaryingType<enum_VisualShader_VaryingType>` **varying_type** = ``0``
+:ref:`VaryingType<enum_VisualShader_VaryingType>` **varying_type** = ``0`` :ref:`🔗<class_VisualShaderNodeVarying_property_varying_type>`
 
 .. rst-class:: classref-property-setget
 
@@ -77,6 +77,7 @@ Name of the variable. Must be unique.
 Type of the variable. Determines where the variable can be accessed.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
