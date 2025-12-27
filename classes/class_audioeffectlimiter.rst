@@ -10,6 +10,8 @@
 AudioEffectLimiter
 ==================
 
+**Deprecated:** Use :ref:`AudioEffectHardLimiter<class_AudioEffectHardLimiter>` instead.
+
 **Inherits:** :ref:`AudioEffect<class_AudioEffect>` **<** :ref:`Resource<class_Resource>` **<** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
 Adds a soft-clip limiter audio effect to an Audio bus.
@@ -61,7 +63,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **ceiling_db** = ``-0.1``
+:ref:`float<class_float>` **ceiling_db** = ``-0.1`` :ref:`🔗<class_AudioEffectLimiter_property_ceiling_db>`
 
 .. rst-class:: classref-property-setget
 
@@ -78,7 +80,7 @@ The waveform's maximum allowed value, in decibels. Value can range from -20 to -
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **soft_clip_db** = ``2.0``
+:ref:`float<class_float>` **soft_clip_db** = ``2.0`` :ref:`🔗<class_AudioEffectLimiter_property_soft_clip_db>`
 
 .. rst-class:: classref-property-setget
 
@@ -95,7 +97,7 @@ Applies a gain to the limited waves, in decibels. Value can range from 0 to 6.
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **soft_clip_ratio** = ``10.0``
+:ref:`float<class_float>` **soft_clip_ratio** = ``10.0`` :ref:`🔗<class_AudioEffectLimiter_property_soft_clip_ratio>`
 
 .. rst-class:: classref-property-setget
 
@@ -104,7 +106,7 @@ Applies a gain to the limited waves, in decibels. Value can range from 0 to 6.
 
 .. container:: contribute
 
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+	There is currently no description for this property. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!
 
 .. rst-class:: classref-item-separator
 
@@ -114,7 +116,7 @@ Applies a gain to the limited waves, in decibels. Value can range from 0 to 6.
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **threshold_db** = ``0.0``
+:ref:`float<class_float>` **threshold_db** = ``0.0`` :ref:`🔗<class_AudioEffectLimiter_property_threshold_db>`
 
 .. rst-class:: classref-property-setget
 
@@ -124,6 +126,7 @@ Applies a gain to the limited waves, in decibels. Value can range from 0 to 6.
 Threshold from which the limiter begins to be active, in decibels. Value can range from -30 to 0.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
