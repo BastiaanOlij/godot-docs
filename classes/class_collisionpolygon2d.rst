@@ -19,9 +19,9 @@ A node that provides a polygon shape to a :ref:`CollisionObject2D<class_Collisio
 Description
 -----------
 
-A node that provides a thickened polygon shape (a prism) to a :ref:`CollisionObject2D<class_CollisionObject2D>` parent and allows to edit it. The polygon can be concave or convex. This can give a detection shape to an :ref:`Area2D<class_Area2D>` or turn :ref:`PhysicsBody2D<class_PhysicsBody2D>` into a solid object.
+A node that provides a polygon shape to a :ref:`CollisionObject2D<class_CollisionObject2D>` parent and allows it to be edited. The polygon can be concave or convex. This can give a detection shape to an :ref:`Area2D<class_Area2D>`, turn a :ref:`PhysicsBody2D<class_PhysicsBody2D>` into a solid object, or give a hollow shape to a :ref:`StaticBody2D<class_StaticBody2D>`.
 
-\ **Warning:** A non-uniformly scaled :ref:`CollisionShape2D<class_CollisionShape2D>` will likely not behave as expected. Make sure to keep its scale the same on all axes and adjust its shape resource instead.
+\ **Warning:** A non-uniformly scaled **CollisionPolygon2D** will likely not behave as expected. Make sure to keep its scale the same on all axes and adjust its polygon instead.
 
 .. rst-class:: classref-reftable-group
 
@@ -56,7 +56,7 @@ Enumerations
 
 .. rst-class:: classref-enumeration
 
-enum **BuildMode**:
+enum **BuildMode**: :ref:`🔗<enum_CollisionPolygon2D_BuildMode>`
 
 .. _class_CollisionPolygon2D_constant_BUILD_SOLIDS:
 
@@ -87,14 +87,14 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`BuildMode<enum_CollisionPolygon2D_BuildMode>` **build_mode** = ``0``
+:ref:`BuildMode<enum_CollisionPolygon2D_BuildMode>` **build_mode** = ``0`` :ref:`🔗<class_CollisionPolygon2D_property_build_mode>`
 
 .. rst-class:: classref-property-setget
 
 - |void| **set_build_mode**\ (\ value\: :ref:`BuildMode<enum_CollisionPolygon2D_BuildMode>`\ )
 - :ref:`BuildMode<enum_CollisionPolygon2D_BuildMode>` **get_build_mode**\ (\ )
 
-Collision build mode. Use one of the :ref:`BuildMode<enum_CollisionPolygon2D_BuildMode>` constants.
+Collision build mode.
 
 .. rst-class:: classref-item-separator
 
@@ -104,14 +104,14 @@ Collision build mode. Use one of the :ref:`BuildMode<enum_CollisionPolygon2D_Bui
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **disabled** = ``false``
+:ref:`bool<class_bool>` **disabled** = ``false`` :ref:`🔗<class_CollisionPolygon2D_property_disabled>`
 
 .. rst-class:: classref-property-setget
 
 - |void| **set_disabled**\ (\ value\: :ref:`bool<class_bool>`\ )
 - :ref:`bool<class_bool>` **is_disabled**\ (\ )
 
-If ``true``, no collisions will be detected.
+If ``true``, no collisions will be detected. This property should be changed with :ref:`Object.set_deferred()<class_Object_method_set_deferred>`.
 
 .. rst-class:: classref-item-separator
 
@@ -121,7 +121,7 @@ If ``true``, no collisions will be detected.
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **one_way_collision** = ``false``
+:ref:`bool<class_bool>` **one_way_collision** = ``false`` :ref:`🔗<class_CollisionPolygon2D_property_one_way_collision>`
 
 .. rst-class:: classref-property-setget
 
@@ -140,7 +140,7 @@ If ``true``, only edges that face up, relative to **CollisionPolygon2D**'s rotat
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **one_way_collision_margin** = ``1.0``
+:ref:`float<class_float>` **one_way_collision_margin** = ``1.0`` :ref:`🔗<class_CollisionPolygon2D_property_one_way_collision_margin>`
 
 .. rst-class:: classref-property-setget
 
@@ -157,7 +157,7 @@ The margin used for one-way collision (in pixels). Higher values will make the s
 
 .. rst-class:: classref-property
 
-:ref:`PackedVector2Array<class_PackedVector2Array>` **polygon** = ``PackedVector2Array()``
+:ref:`PackedVector2Array<class_PackedVector2Array>` **polygon** = ``PackedVector2Array()`` :ref:`🔗<class_CollisionPolygon2D_property_polygon>`
 
 .. rst-class:: classref-property-setget
 
@@ -168,9 +168,10 @@ The polygon's list of vertices. Each point will be connected to the next, and th
 
 \ **Note:** The returned vertices are in the local coordinate space of the given **CollisionPolygon2D**.
 
-\ **Warning:** The returned value is a clone of the :ref:`PackedVector2Array<class_PackedVector2Array>`, not a reference.
+**Note:** The returned array is *copied* and any changes to it will not update the original property value. See :ref:`PackedVector2Array<class_PackedVector2Array>` for more details.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

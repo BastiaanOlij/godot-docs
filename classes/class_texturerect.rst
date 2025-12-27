@@ -26,7 +26,7 @@ A control that displays a texture, for example an icon inside a GUI. The texture
 Tutorials
 ---------
 
-- `3D Voxel Demo <https://godotengine.org/asset-library/asset/676>`__
+- `3D Voxel Demo <https://godotengine.org/asset-library/asset/2755>`__
 
 .. rst-class:: classref-reftable-group
 
@@ -63,7 +63,7 @@ Enumerations
 
 .. rst-class:: classref-enumeration
 
-enum **ExpandMode**:
+enum **ExpandMode**: :ref:`🔗<enum_TextureRect_ExpandMode>`
 
 .. _class_TextureRect_constant_EXPAND_KEEP_SIZE:
 
@@ -121,7 +121,7 @@ Same as :ref:`EXPAND_FIT_HEIGHT<class_TextureRect_constant_EXPAND_FIT_HEIGHT>`, 
 
 .. rst-class:: classref-enumeration
 
-enum **StretchMode**:
+enum **StretchMode**: :ref:`🔗<enum_TextureRect_StretchMode>`
 
 .. _class_TextureRect_constant_STRETCH_SCALE:
 
@@ -192,7 +192,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`ExpandMode<enum_TextureRect_ExpandMode>` **expand_mode** = ``0``
+:ref:`ExpandMode<enum_TextureRect_ExpandMode>` **expand_mode** = ``0`` :ref:`🔗<class_TextureRect_property_expand_mode>`
 
 .. rst-class:: classref-property-setget
 
@@ -201,7 +201,7 @@ Property Descriptions
 
 **Experimental:** Using :ref:`EXPAND_FIT_WIDTH<class_TextureRect_constant_EXPAND_FIT_WIDTH>`, :ref:`EXPAND_FIT_WIDTH_PROPORTIONAL<class_TextureRect_constant_EXPAND_FIT_WIDTH_PROPORTIONAL>`, :ref:`EXPAND_FIT_HEIGHT<class_TextureRect_constant_EXPAND_FIT_HEIGHT>`, or :ref:`EXPAND_FIT_HEIGHT_PROPORTIONAL<class_TextureRect_constant_EXPAND_FIT_HEIGHT_PROPORTIONAL>` may result in unstable behavior in some :ref:`Container<class_Container>` controls. This behavior may be re-evaluated and changed in the future.
 
-Defines how minimum size is determined based on the texture's size. See :ref:`ExpandMode<enum_TextureRect_ExpandMode>` for options.
+Defines how minimum size is determined based on the texture's size.
 
 .. rst-class:: classref-item-separator
 
@@ -211,7 +211,7 @@ Defines how minimum size is determined based on the texture's size. See :ref:`Ex
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **flip_h** = ``false``
+:ref:`bool<class_bool>` **flip_h** = ``false`` :ref:`🔗<class_TextureRect_property_flip_h>`
 
 .. rst-class:: classref-property-setget
 
@@ -228,7 +228,7 @@ If ``true``, texture is flipped horizontally.
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **flip_v** = ``false``
+:ref:`bool<class_bool>` **flip_v** = ``false`` :ref:`🔗<class_TextureRect_property_flip_v>`
 
 .. rst-class:: classref-property-setget
 
@@ -245,14 +245,14 @@ If ``true``, texture is flipped vertically.
 
 .. rst-class:: classref-property
 
-:ref:`StretchMode<enum_TextureRect_StretchMode>` **stretch_mode** = ``0``
+:ref:`StretchMode<enum_TextureRect_StretchMode>` **stretch_mode** = ``0`` :ref:`🔗<class_TextureRect_property_stretch_mode>`
 
 .. rst-class:: classref-property-setget
 
 - |void| **set_stretch_mode**\ (\ value\: :ref:`StretchMode<enum_TextureRect_StretchMode>`\ )
 - :ref:`StretchMode<enum_TextureRect_StretchMode>` **get_stretch_mode**\ (\ )
 
-Controls the texture's behavior when resizing the node's bounding rectangle. See :ref:`StretchMode<enum_TextureRect_StretchMode>`.
+Controls the texture's behavior when resizing the node's bounding rectangle.
 
 .. rst-class:: classref-item-separator
 
@@ -262,7 +262,7 @@ Controls the texture's behavior when resizing the node's bounding rectangle. See
 
 .. rst-class:: classref-property
 
-:ref:`Texture2D<class_Texture2D>` **texture**
+:ref:`Texture2D<class_Texture2D>` **texture** :ref:`🔗<class_TextureRect_property_texture>`
 
 .. rst-class:: classref-property-setget
 
@@ -272,6 +272,7 @@ Controls the texture's behavior when resizing the node's bounding rectangle. See
 The node's :ref:`Texture2D<class_Texture2D>` resource.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
