@@ -21,7 +21,7 @@ Description
 
 The **Input** singleton handles key presses, mouse buttons and movement, gamepads, and input actions. Actions and their events can be set in the **Input Map** tab in **Project > Project Settings**, or with the :ref:`InputMap<class_InputMap>` class.
 
-\ **Note:** **Input**'s methods reflect the global input state and are not affected by :ref:`Control.accept_event<class_Control_method_accept_event>` or :ref:`Viewport.set_input_as_handled<class_Viewport_method_set_input_as_handled>`, as those methods only deal with the way input is propagated in the :ref:`SceneTree<class_SceneTree>`.
+\ **Note:** **Input**'s methods reflect the global input state and are not affected by :ref:`Control.accept_event()<class_Control_method_accept_event>` or :ref:`Viewport.set_input_as_handled()<class_Viewport_method_set_input_as_handled>`, as those methods only deal with the way input is propagated in the :ref:`SceneTree<class_SceneTree>`.
 
 .. rst-class:: classref-introduction-group
 
@@ -30,9 +30,9 @@ Tutorials
 
 - :doc:`Inputs documentation index <../tutorials/inputs/index>`
 
-- `2D Dodge The Creeps Demo <https://godotengine.org/asset-library/asset/515>`__
+- `2D Dodge The Creeps Demo <https://godotengine.org/asset-library/asset/2712>`__
 
-- `3D Voxel Demo <https://godotengine.org/asset-library/asset/676>`__
+- `3D Voxel Demo <https://godotengine.org/asset-library/asset/2755>`__
 
 .. rst-class:: classref-reftable-group
 
@@ -107,9 +107,15 @@ Methods
    +-------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Vector2<class_Vector2>`                                           | :ref:`get_vector<class_Input_method_get_vector>`\ (\ negative_x\: :ref:`StringName<class_StringName>`, positive_x\: :ref:`StringName<class_StringName>`, negative_y\: :ref:`StringName<class_StringName>`, positive_y\: :ref:`StringName<class_StringName>`, deadzone\: :ref:`float<class_float>` = -1.0\ ) |const| |
    +-------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                                 | :ref:`has_joy_light<class_Input_method_has_joy_light>`\ (\ device\: :ref:`int<class_int>`\ ) |const|                                                                                                                                                                                                                |
+   +-------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                                                 | :ref:`is_action_just_pressed<class_Input_method_is_action_just_pressed>`\ (\ action\: :ref:`StringName<class_StringName>`, exact_match\: :ref:`bool<class_bool>` = false\ ) |const|                                                                                                                                 |
    +-------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                                 | :ref:`is_action_just_pressed_by_event<class_Input_method_is_action_just_pressed_by_event>`\ (\ action\: :ref:`StringName<class_StringName>`, event\: :ref:`InputEvent<class_InputEvent>`, exact_match\: :ref:`bool<class_bool>` = false\ ) |const|                                                                  |
+   +-------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                                                 | :ref:`is_action_just_released<class_Input_method_is_action_just_released>`\ (\ action\: :ref:`StringName<class_StringName>`, exact_match\: :ref:`bool<class_bool>` = false\ ) |const|                                                                                                                               |
+   +-------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                                 | :ref:`is_action_just_released_by_event<class_Input_method_is_action_just_released_by_event>`\ (\ action\: :ref:`StringName<class_StringName>`, event\: :ref:`InputEvent<class_InputEvent>`, exact_match\: :ref:`bool<class_bool>` = false\ ) |const|                                                                |
    +-------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                                                 | :ref:`is_action_pressed<class_Input_method_is_action_pressed>`\ (\ action\: :ref:`StringName<class_StringName>`, exact_match\: :ref:`bool<class_bool>` = false\ ) |const|                                                                                                                                           |
    +-------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -141,6 +147,8 @@ Methods
    +-------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | |void|                                                                  | :ref:`set_gyroscope<class_Input_method_set_gyroscope>`\ (\ value\: :ref:`Vector3<class_Vector3>`\ )                                                                                                                                                                                                                 |
    +-------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                                 | :ref:`set_joy_light<class_Input_method_set_joy_light>`\ (\ device\: :ref:`int<class_int>`, color\: :ref:`Color<class_Color>`\ )                                                                                                                                                                                     |
+   +-------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | |void|                                                                  | :ref:`set_magnetometer<class_Input_method_set_magnetometer>`\ (\ value\: :ref:`Vector3<class_Vector3>`\ )                                                                                                                                                                                                           |
    +-------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                                                 | :ref:`should_ignore_device<class_Input_method_should_ignore_device>`\ (\ vendor_id\: :ref:`int<class_int>`, product_id\: :ref:`int<class_int>`\ ) |const|                                                                                                                                                           |
@@ -149,7 +157,7 @@ Methods
    +-------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | |void|                                                                  | :ref:`stop_joy_vibration<class_Input_method_stop_joy_vibration>`\ (\ device\: :ref:`int<class_int>`\ )                                                                                                                                                                                                              |
    +-------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | |void|                                                                  | :ref:`vibrate_handheld<class_Input_method_vibrate_handheld>`\ (\ duration_ms\: :ref:`int<class_int>` = 500\ )                                                                                                                                                                                                       |
+   | |void|                                                                  | :ref:`vibrate_handheld<class_Input_method_vibrate_handheld>`\ (\ duration_ms\: :ref:`int<class_int>` = 500, amplitude\: :ref:`float<class_float>` = -1.0\ )                                                                                                                                                         |
    +-------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | |void|                                                                  | :ref:`warp_mouse<class_Input_method_warp_mouse>`\ (\ position\: :ref:`Vector2<class_Vector2>`\ )                                                                                                                                                                                                                    |
    +-------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -167,7 +175,7 @@ Signals
 
 .. rst-class:: classref-signal
 
-**joy_connection_changed**\ (\ device\: :ref:`int<class_int>`, connected\: :ref:`bool<class_bool>`\ )
+**joy_connection_changed**\ (\ device\: :ref:`int<class_int>`, connected\: :ref:`bool<class_bool>`\ ) :ref:`🔗<class_Input_signal_joy_connection_changed>`
 
 Emitted when a joypad device has been connected or disconnected.
 
@@ -184,7 +192,7 @@ Enumerations
 
 .. rst-class:: classref-enumeration
 
-enum **MouseMode**:
+enum **MouseMode**: :ref:`🔗<enum_Input_MouseMode>`
 
 .. _class_Input_constant_MOUSE_MODE_VISIBLE:
 
@@ -228,6 +236,14 @@ Confines the mouse cursor to the game window, and make it visible.
 
 Confines the mouse cursor to the game window, and make it hidden.
 
+.. _class_Input_constant_MOUSE_MODE_MAX:
+
+.. rst-class:: classref-enumeration-constant
+
+:ref:`MouseMode<enum_Input_MouseMode>` **MOUSE_MODE_MAX** = ``5``
+
+Max value of the :ref:`MouseMode<enum_Input_MouseMode>`.
+
 .. rst-class:: classref-item-separator
 
 ----
@@ -236,7 +252,7 @@ Confines the mouse cursor to the game window, and make it hidden.
 
 .. rst-class:: classref-enumeration
 
-enum **CursorShape**:
+enum **CursorShape**: :ref:`🔗<enum_Input_CursorShape>`
 
 .. _class_Input_constant_CURSOR_ARROW:
 
@@ -389,7 +405,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **emulate_mouse_from_touch**
+:ref:`bool<class_bool>` **emulate_mouse_from_touch** :ref:`🔗<class_Input_property_emulate_mouse_from_touch>`
 
 .. rst-class:: classref-property-setget
 
@@ -406,7 +422,7 @@ If ``true``, sends mouse input events when tapping or swiping on the touchscreen
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **emulate_touch_from_mouse**
+:ref:`bool<class_bool>` **emulate_touch_from_mouse** :ref:`🔗<class_Input_property_emulate_touch_from_mouse>`
 
 .. rst-class:: classref-property-setget
 
@@ -423,14 +439,14 @@ If ``true``, sends touch input events when clicking or dragging the mouse. See a
 
 .. rst-class:: classref-property
 
-:ref:`MouseMode<enum_Input_MouseMode>` **mouse_mode**
+:ref:`MouseMode<enum_Input_MouseMode>` **mouse_mode** :ref:`🔗<class_Input_property_mouse_mode>`
 
 .. rst-class:: classref-property-setget
 
 - |void| **set_mouse_mode**\ (\ value\: :ref:`MouseMode<enum_Input_MouseMode>`\ )
 - :ref:`MouseMode<enum_Input_MouseMode>` **get_mouse_mode**\ (\ )
 
-Controls the mouse mode. See :ref:`MouseMode<enum_Input_MouseMode>` for more information.
+Controls the mouse mode.
 
 .. rst-class:: classref-item-separator
 
@@ -440,7 +456,7 @@ Controls the mouse mode. See :ref:`MouseMode<enum_Input_MouseMode>` for more inf
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **use_accumulated_input**
+:ref:`bool<class_bool>` **use_accumulated_input** :ref:`🔗<class_Input_property_use_accumulated_input>`
 
 .. rst-class:: classref-property-setget
 
@@ -466,13 +482,13 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-|void| **action_press**\ (\ action\: :ref:`StringName<class_StringName>`, strength\: :ref:`float<class_float>` = 1.0\ )
+|void| **action_press**\ (\ action\: :ref:`StringName<class_StringName>`, strength\: :ref:`float<class_float>` = 1.0\ ) :ref:`🔗<class_Input_method_action_press>`
 
 This will simulate pressing the specified action.
 
 The strength can be used for non-boolean actions, it's ranged between 0 and 1 representing the intensity of the given action.
 
-\ **Note:** This method will not cause any :ref:`Node._input<class_Node_private_method__input>` calls. It is intended to be used with :ref:`is_action_pressed<class_Input_method_is_action_pressed>` and :ref:`is_action_just_pressed<class_Input_method_is_action_just_pressed>`. If you want to simulate ``_input``, use :ref:`parse_input_event<class_Input_method_parse_input_event>` instead.
+\ **Note:** This method will not cause any :ref:`Node._input()<class_Node_private_method__input>` calls. It is intended to be used with :ref:`is_action_pressed()<class_Input_method_is_action_pressed>` and :ref:`is_action_just_pressed()<class_Input_method_is_action_just_pressed>`. If you want to simulate ``_input``, use :ref:`parse_input_event()<class_Input_method_parse_input_event>` instead.
 
 .. rst-class:: classref-item-separator
 
@@ -482,7 +498,7 @@ The strength can be used for non-boolean actions, it's ranged between 0 and 1 re
 
 .. rst-class:: classref-method
 
-|void| **action_release**\ (\ action\: :ref:`StringName<class_StringName>`\ )
+|void| **action_release**\ (\ action\: :ref:`StringName<class_StringName>`\ ) :ref:`🔗<class_Input_method_action_release>`
 
 If the specified action is already pressed, this will release it.
 
@@ -494,7 +510,7 @@ If the specified action is already pressed, this will release it.
 
 .. rst-class:: classref-method
 
-|void| **add_joy_mapping**\ (\ mapping\: :ref:`String<class_String>`, update_existing\: :ref:`bool<class_bool>` = false\ )
+|void| **add_joy_mapping**\ (\ mapping\: :ref:`String<class_String>`, update_existing\: :ref:`bool<class_bool>` = false\ ) :ref:`🔗<class_Input_method_add_joy_mapping>`
 
 Adds a new mapping entry (in SDL2 format) to the mapping database. Optionally update already connected devices.
 
@@ -506,7 +522,7 @@ Adds a new mapping entry (in SDL2 format) to the mapping database. Optionally up
 
 .. rst-class:: classref-method
 
-|void| **flush_buffered_events**\ (\ )
+|void| **flush_buffered_events**\ (\ ) :ref:`🔗<class_Input_method_flush_buffered_events>`
 
 Sends all input events which are in the current buffer to the game loop. These events may have been buffered as a result of accumulated input (:ref:`use_accumulated_input<class_Input_property_use_accumulated_input>`) or agile input flushing (:ref:`ProjectSettings.input_devices/buffering/agile_event_flushing<class_ProjectSettings_property_input_devices/buffering/agile_event_flushing>`).
 
@@ -520,13 +536,15 @@ The engine will already do this itself at key execution points (at least once pe
 
 .. rst-class:: classref-method
 
-:ref:`Vector3<class_Vector3>` **get_accelerometer**\ (\ ) |const|
+:ref:`Vector3<class_Vector3>` **get_accelerometer**\ (\ ) |const| :ref:`🔗<class_Input_method_get_accelerometer>`
 
 Returns the acceleration in m/s² of the device's accelerometer sensor, if the device has one. Otherwise, the method returns :ref:`Vector3.ZERO<class_Vector3_constant_ZERO>`.
 
 Note this method returns an empty :ref:`Vector3<class_Vector3>` when running from the editor even when your device has an accelerometer. You must export your project to a supported device to read values from the accelerometer.
 
 \ **Note:** This method only works on Android and iOS. On other platforms, it always returns :ref:`Vector3.ZERO<class_Vector3_constant_ZERO>`.
+
+\ **Note:** For Android, :ref:`ProjectSettings.input_devices/sensors/enable_accelerometer<class_ProjectSettings_property_input_devices/sensors/enable_accelerometer>` must be enabled.
 
 .. rst-class:: classref-item-separator
 
@@ -536,9 +554,9 @@ Note this method returns an empty :ref:`Vector3<class_Vector3>` when running fro
 
 .. rst-class:: classref-method
 
-:ref:`float<class_float>` **get_action_raw_strength**\ (\ action\: :ref:`StringName<class_StringName>`, exact_match\: :ref:`bool<class_bool>` = false\ ) |const|
+:ref:`float<class_float>` **get_action_raw_strength**\ (\ action\: :ref:`StringName<class_StringName>`, exact_match\: :ref:`bool<class_bool>` = false\ ) |const| :ref:`🔗<class_Input_method_get_action_raw_strength>`
 
-Returns a value between 0 and 1 representing the raw intensity of the given action, ignoring the action's deadzone. In most cases, you should use :ref:`get_action_strength<class_Input_method_get_action_strength>` instead.
+Returns a value between 0 and 1 representing the raw intensity of the given action, ignoring the action's deadzone. In most cases, you should use :ref:`get_action_strength()<class_Input_method_get_action_strength>` instead.
 
 If ``exact_match`` is ``false``, it ignores additional input modifiers for :ref:`InputEventKey<class_InputEventKey>` and :ref:`InputEventMouseButton<class_InputEventMouseButton>` events, and the direction for :ref:`InputEventJoypadMotion<class_InputEventJoypadMotion>` events.
 
@@ -550,7 +568,7 @@ If ``exact_match`` is ``false``, it ignores additional input modifiers for :ref:
 
 .. rst-class:: classref-method
 
-:ref:`float<class_float>` **get_action_strength**\ (\ action\: :ref:`StringName<class_StringName>`, exact_match\: :ref:`bool<class_bool>` = false\ ) |const|
+:ref:`float<class_float>` **get_action_strength**\ (\ action\: :ref:`StringName<class_StringName>`, exact_match\: :ref:`bool<class_bool>` = false\ ) |const| :ref:`🔗<class_Input_method_get_action_strength>`
 
 Returns a value between 0 and 1 representing the intensity of the given action. In a joypad, for example, the further away the axis (analog sticks or L2, R2 triggers) is from the dead zone, the closer the value will be to 1. If the action is mapped to a control that has no axis such as the keyboard, the value returned will be 0 or 1.
 
@@ -564,7 +582,7 @@ If ``exact_match`` is ``false``, it ignores additional input modifiers for :ref:
 
 .. rst-class:: classref-method
 
-:ref:`float<class_float>` **get_axis**\ (\ negative_action\: :ref:`StringName<class_StringName>`, positive_action\: :ref:`StringName<class_StringName>`\ ) |const|
+:ref:`float<class_float>` **get_axis**\ (\ negative_action\: :ref:`StringName<class_StringName>`, positive_action\: :ref:`StringName<class_StringName>`\ ) |const| :ref:`🔗<class_Input_method_get_axis>`
 
 Get axis input by specifying two actions, one negative and one positive.
 
@@ -578,7 +596,7 @@ This is a shorthand for writing ``Input.get_action_strength("positive_action") -
 
 .. rst-class:: classref-method
 
-:ref:`Array<class_Array>`\[:ref:`int<class_int>`\] **get_connected_joypads**\ (\ )
+:ref:`Array<class_Array>`\[:ref:`int<class_int>`\] **get_connected_joypads**\ (\ ) :ref:`🔗<class_Input_method_get_connected_joypads>`
 
 Returns an :ref:`Array<class_Array>` containing the device IDs of all currently connected joypads.
 
@@ -590,9 +608,9 @@ Returns an :ref:`Array<class_Array>` containing the device IDs of all currently 
 
 .. rst-class:: classref-method
 
-:ref:`CursorShape<enum_Input_CursorShape>` **get_current_cursor_shape**\ (\ ) |const|
+:ref:`CursorShape<enum_Input_CursorShape>` **get_current_cursor_shape**\ (\ ) |const| :ref:`🔗<class_Input_method_get_current_cursor_shape>`
 
-Returns the currently assigned cursor shape (see :ref:`CursorShape<enum_Input_CursorShape>`).
+Returns the currently assigned cursor shape.
 
 .. rst-class:: classref-item-separator
 
@@ -602,11 +620,13 @@ Returns the currently assigned cursor shape (see :ref:`CursorShape<enum_Input_Cu
 
 .. rst-class:: classref-method
 
-:ref:`Vector3<class_Vector3>` **get_gravity**\ (\ ) |const|
+:ref:`Vector3<class_Vector3>` **get_gravity**\ (\ ) |const| :ref:`🔗<class_Input_method_get_gravity>`
 
 Returns the gravity in m/s² of the device's accelerometer sensor, if the device has one. Otherwise, the method returns :ref:`Vector3.ZERO<class_Vector3_constant_ZERO>`.
 
 \ **Note:** This method only works on Android and iOS. On other platforms, it always returns :ref:`Vector3.ZERO<class_Vector3_constant_ZERO>`.
+
+\ **Note:** For Android, :ref:`ProjectSettings.input_devices/sensors/enable_gravity<class_ProjectSettings_property_input_devices/sensors/enable_gravity>` must be enabled.
 
 .. rst-class:: classref-item-separator
 
@@ -616,11 +636,13 @@ Returns the gravity in m/s² of the device's accelerometer sensor, if the device
 
 .. rst-class:: classref-method
 
-:ref:`Vector3<class_Vector3>` **get_gyroscope**\ (\ ) |const|
+:ref:`Vector3<class_Vector3>` **get_gyroscope**\ (\ ) |const| :ref:`🔗<class_Input_method_get_gyroscope>`
 
 Returns the rotation rate in rad/s around a device's X, Y, and Z axes of the gyroscope sensor, if the device has one. Otherwise, the method returns :ref:`Vector3.ZERO<class_Vector3_constant_ZERO>`.
 
 \ **Note:** This method only works on Android and iOS. On other platforms, it always returns :ref:`Vector3.ZERO<class_Vector3_constant_ZERO>`.
+
+\ **Note:** For Android, :ref:`ProjectSettings.input_devices/sensors/enable_gyroscope<class_ProjectSettings_property_input_devices/sensors/enable_gyroscope>` must be enabled.
 
 .. rst-class:: classref-item-separator
 
@@ -630,9 +652,9 @@ Returns the rotation rate in rad/s around a device's X, Y, and Z axes of the gyr
 
 .. rst-class:: classref-method
 
-:ref:`float<class_float>` **get_joy_axis**\ (\ device\: :ref:`int<class_int>`, axis\: :ref:`JoyAxis<enum_@GlobalScope_JoyAxis>`\ ) |const|
+:ref:`float<class_float>` **get_joy_axis**\ (\ device\: :ref:`int<class_int>`, axis\: :ref:`JoyAxis<enum_@GlobalScope_JoyAxis>`\ ) |const| :ref:`🔗<class_Input_method_get_joy_axis>`
 
-Returns the current value of the joypad axis at given index (see :ref:`JoyAxis<enum_@GlobalScope_JoyAxis>`).
+Returns the current value of the joypad axis at index ``axis``.
 
 .. rst-class:: classref-item-separator
 
@@ -642,9 +664,11 @@ Returns the current value of the joypad axis at given index (see :ref:`JoyAxis<e
 
 .. rst-class:: classref-method
 
-:ref:`String<class_String>` **get_joy_guid**\ (\ device\: :ref:`int<class_int>`\ ) |const|
+:ref:`String<class_String>` **get_joy_guid**\ (\ device\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_Input_method_get_joy_guid>`
 
-Returns a SDL2-compatible device GUID on platforms that use gamepad remapping, e.g. ``030000004c050000c405000000010000``. Returns ``"Default Gamepad"`` otherwise. Godot uses the `SDL2 game controller database <https://github.com/gabomdq/SDL_GameControllerDB>`__ to determine gamepad names and mappings based on this GUID.
+Returns an SDL2-compatible device GUID on platforms that use gamepad remapping, e.g. ``030000004c050000c405000000010000``. Returns an empty string if it cannot be found. Godot uses the `SDL2 game controller database <https://github.com/gabomdq/SDL_GameControllerDB>`__ to determine gamepad names and mappings based on this GUID.
+
+On Windows, all XInput joypad GUIDs will be overridden by Godot to ``__XINPUT_DEVICE__``, because their mappings are the same.
 
 .. rst-class:: classref-item-separator
 
@@ -654,23 +678,25 @@ Returns a SDL2-compatible device GUID on platforms that use gamepad remapping, e
 
 .. rst-class:: classref-method
 
-:ref:`Dictionary<class_Dictionary>` **get_joy_info**\ (\ device\: :ref:`int<class_int>`\ ) |const|
+:ref:`Dictionary<class_Dictionary>` **get_joy_info**\ (\ device\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_Input_method_get_joy_info>`
 
 Returns a dictionary with extra platform-specific information about the device, e.g. the raw gamepad name from the OS or the Steam Input index.
 
-On Windows the dictionary contains the following fields:
+On Windows, Linux, and macOS, the dictionary contains the following fields:
 
-\ ``xinput_index``: The index of the controller in the XInput system.
-
-On Linux:
-
-\ ``raw_name``: The name of the controller as it came from the OS, before getting renamed by the godot controller database.
+\ ``raw_name``: The name of the controller as it came from the OS, before getting renamed by the controller database.
 
 \ ``vendor_id``: The USB vendor ID of the device.
 
 \ ``product_id``: The USB product ID of the device.
 
 \ ``steam_input_index``: The Steam Input gamepad index, if the device is not a Steam Input device this key won't be present.
+
+On Windows, the dictionary can have an additional field:
+
+\ ``xinput_index``: The index of the controller in the XInput system. This key won't be present for devices not handled by XInput.
+
+\ **Note:** The returned dictionary is always empty on Android, iOS, visionOS, and Web.
 
 .. rst-class:: classref-item-separator
 
@@ -680,7 +706,7 @@ On Linux:
 
 .. rst-class:: classref-method
 
-:ref:`String<class_String>` **get_joy_name**\ (\ device\: :ref:`int<class_int>`\ )
+:ref:`String<class_String>` **get_joy_name**\ (\ device\: :ref:`int<class_int>`\ ) :ref:`🔗<class_Input_method_get_joy_name>`
 
 Returns the name of the joypad at the specified device index, e.g. ``PS4 Controller``. Godot uses the `SDL2 game controller database <https://github.com/gabomdq/SDL_GameControllerDB>`__ to determine gamepad names.
 
@@ -692,7 +718,7 @@ Returns the name of the joypad at the specified device index, e.g. ``PS4 Control
 
 .. rst-class:: classref-method
 
-:ref:`float<class_float>` **get_joy_vibration_duration**\ (\ device\: :ref:`int<class_int>`\ )
+:ref:`float<class_float>` **get_joy_vibration_duration**\ (\ device\: :ref:`int<class_int>`\ ) :ref:`🔗<class_Input_method_get_joy_vibration_duration>`
 
 Returns the duration of the current vibration effect in seconds.
 
@@ -704,7 +730,7 @@ Returns the duration of the current vibration effect in seconds.
 
 .. rst-class:: classref-method
 
-:ref:`Vector2<class_Vector2>` **get_joy_vibration_strength**\ (\ device\: :ref:`int<class_int>`\ )
+:ref:`Vector2<class_Vector2>` **get_joy_vibration_strength**\ (\ device\: :ref:`int<class_int>`\ ) :ref:`🔗<class_Input_method_get_joy_vibration_strength>`
 
 Returns the strength of the joypad vibration: x is the strength of the weak motor, and y is the strength of the strong motor.
 
@@ -716,7 +742,7 @@ Returns the strength of the joypad vibration: x is the strength of the weak moto
 
 .. rst-class:: classref-method
 
-:ref:`Vector2<class_Vector2>` **get_last_mouse_screen_velocity**\ (\ )
+:ref:`Vector2<class_Vector2>` **get_last_mouse_screen_velocity**\ (\ ) :ref:`🔗<class_Input_method_get_last_mouse_screen_velocity>`
 
 Returns the last mouse velocity in screen coordinates. To provide a precise and jitter-free velocity, mouse velocity is only calculated every 0.1s. Therefore, mouse velocity will lag mouse movements.
 
@@ -728,7 +754,7 @@ Returns the last mouse velocity in screen coordinates. To provide a precise and 
 
 .. rst-class:: classref-method
 
-:ref:`Vector2<class_Vector2>` **get_last_mouse_velocity**\ (\ )
+:ref:`Vector2<class_Vector2>` **get_last_mouse_velocity**\ (\ ) :ref:`🔗<class_Input_method_get_last_mouse_velocity>`
 
 Returns the last mouse velocity. To provide a precise and jitter-free velocity, mouse velocity is only calculated every 0.1s. Therefore, mouse velocity will lag mouse movements.
 
@@ -740,11 +766,13 @@ Returns the last mouse velocity. To provide a precise and jitter-free velocity, 
 
 .. rst-class:: classref-method
 
-:ref:`Vector3<class_Vector3>` **get_magnetometer**\ (\ ) |const|
+:ref:`Vector3<class_Vector3>` **get_magnetometer**\ (\ ) |const| :ref:`🔗<class_Input_method_get_magnetometer>`
 
 Returns the magnetic field strength in micro-Tesla for all axes of the device's magnetometer sensor, if the device has one. Otherwise, the method returns :ref:`Vector3.ZERO<class_Vector3_constant_ZERO>`.
 
 \ **Note:** This method only works on Android and iOS. On other platforms, it always returns :ref:`Vector3.ZERO<class_Vector3_constant_ZERO>`.
+
+\ **Note:** For Android, :ref:`ProjectSettings.input_devices/sensors/enable_magnetometer<class_ProjectSettings_property_input_devices/sensors/enable_magnetometer>` must be enabled.
 
 .. rst-class:: classref-item-separator
 
@@ -754,9 +782,9 @@ Returns the magnetic field strength in micro-Tesla for all axes of the device's 
 
 .. rst-class:: classref-method
 
-|bitfield|\[:ref:`MouseButtonMask<enum_@GlobalScope_MouseButtonMask>`\] **get_mouse_button_mask**\ (\ ) |const|
+|bitfield|\[:ref:`MouseButtonMask<enum_@GlobalScope_MouseButtonMask>`\] **get_mouse_button_mask**\ (\ ) |const| :ref:`🔗<class_Input_method_get_mouse_button_mask>`
 
-Returns mouse buttons as a bitmask. If multiple mouse buttons are pressed at the same time, the bits are added together. Equivalent to :ref:`DisplayServer.mouse_get_button_state<class_DisplayServer_method_mouse_get_button_state>`.
+Returns mouse buttons as a bitmask. If multiple mouse buttons are pressed at the same time, the bits are added together. Equivalent to :ref:`DisplayServer.mouse_get_button_state()<class_DisplayServer_method_mouse_get_button_state>`.
 
 .. rst-class:: classref-item-separator
 
@@ -766,7 +794,7 @@ Returns mouse buttons as a bitmask. If multiple mouse buttons are pressed at the
 
 .. rst-class:: classref-method
 
-:ref:`Vector2<class_Vector2>` **get_vector**\ (\ negative_x\: :ref:`StringName<class_StringName>`, positive_x\: :ref:`StringName<class_StringName>`, negative_y\: :ref:`StringName<class_StringName>`, positive_y\: :ref:`StringName<class_StringName>`, deadzone\: :ref:`float<class_float>` = -1.0\ ) |const|
+:ref:`Vector2<class_Vector2>` **get_vector**\ (\ negative_x\: :ref:`StringName<class_StringName>`, positive_x\: :ref:`StringName<class_StringName>`, negative_y\: :ref:`StringName<class_StringName>`, positive_y\: :ref:`StringName<class_StringName>`, deadzone\: :ref:`float<class_float>` = -1.0\ ) |const| :ref:`🔗<class_Input_method_get_vector>`
 
 Gets an input vector by specifying four actions for the positive and negative X and Y axes.
 
@@ -778,11 +806,25 @@ By default, the deadzone is automatically calculated from the average of the act
 
 ----
 
+.. _class_Input_method_has_joy_light:
+
+.. rst-class:: classref-method
+
+:ref:`bool<class_bool>` **has_joy_light**\ (\ device\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_Input_method_has_joy_light>`
+
+Returns ``true`` if the joypad has an LED light that can change colors and/or brightness. See also :ref:`set_joy_light()<class_Input_method_set_joy_light>`.
+
+\ **Note:** This feature is only supported on Windows, Linux, and macOS.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_Input_method_is_action_just_pressed:
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_action_just_pressed**\ (\ action\: :ref:`StringName<class_StringName>`, exact_match\: :ref:`bool<class_bool>` = false\ ) |const|
+:ref:`bool<class_bool>` **is_action_just_pressed**\ (\ action\: :ref:`StringName<class_StringName>`, exact_match\: :ref:`bool<class_bool>` = false\ ) |const| :ref:`🔗<class_Input_method_is_action_just_pressed>`
 
 Returns ``true`` when the user has *started* pressing the action event in the current frame or physics tick. It will only return ``true`` on the frame or tick that the user pressed down the button.
 
@@ -792,9 +834,29 @@ If ``exact_match`` is ``false``, it ignores additional input modifiers for :ref:
 
 \ **Note:** Returning ``true`` does not imply that the action is *still* pressed. An action can be pressed and released again rapidly, and ``true`` will still be returned so as not to miss input.
 
-\ **Note:** Due to keyboard ghosting, :ref:`is_action_just_pressed<class_Input_method_is_action_just_pressed>` may return ``false`` even if one of the action's keys is pressed. See `Input examples <../tutorials/inputs/input_examples.html#keyboard-events>`__ in the documentation for more information.
+\ **Note:** Due to keyboard ghosting, :ref:`is_action_just_pressed()<class_Input_method_is_action_just_pressed>` may return ``false`` even if one of the action's keys is pressed. See `Input examples <../tutorials/inputs/input_examples.html#keyboard-events>`__ in the documentation for more information.
 
-\ **Note:** During input handling (e.g. :ref:`Node._input<class_Node_private_method__input>`), use :ref:`InputEvent.is_action_pressed<class_InputEvent_method_is_action_pressed>` instead to query the action state of the current event.
+\ **Note:** During input handling (e.g. :ref:`Node._input()<class_Node_private_method__input>`), use :ref:`InputEvent.is_action_pressed()<class_InputEvent_method_is_action_pressed>` instead to query the action state of the current event. See also :ref:`is_action_just_pressed_by_event()<class_Input_method_is_action_just_pressed_by_event>`.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_Input_method_is_action_just_pressed_by_event:
+
+.. rst-class:: classref-method
+
+:ref:`bool<class_bool>` **is_action_just_pressed_by_event**\ (\ action\: :ref:`StringName<class_StringName>`, event\: :ref:`InputEvent<class_InputEvent>`, exact_match\: :ref:`bool<class_bool>` = false\ ) |const| :ref:`🔗<class_Input_method_is_action_just_pressed_by_event>`
+
+Returns ``true`` when the user has *started* pressing the action event in the current frame or physics tick, and the first event that triggered action press in the current frame/physics tick was ``event``. It will only return ``true`` on the frame or tick that the user pressed down the button.
+
+This is useful for code that needs to run only once when an action is pressed, and the action is processed during input handling (e.g. :ref:`Node._input()<class_Node_private_method__input>`).
+
+If ``exact_match`` is ``false``, it ignores additional input modifiers for :ref:`InputEventKey<class_InputEventKey>` and :ref:`InputEventMouseButton<class_InputEventMouseButton>` events, and the direction for :ref:`InputEventJoypadMotion<class_InputEventJoypadMotion>` events.
+
+\ **Note:** Returning ``true`` does not imply that the action is *still* pressed. An action can be pressed and released again rapidly, and ``true`` will still be returned so as not to miss input.
+
+\ **Note:** Due to keyboard ghosting, :ref:`is_action_just_pressed()<class_Input_method_is_action_just_pressed>` may return ``false`` even if one of the action's keys is pressed. See `Input examples <../tutorials/inputs/input_examples.html#keyboard-events>`__ in the documentation for more information.
 
 .. rst-class:: classref-item-separator
 
@@ -804,7 +866,7 @@ If ``exact_match`` is ``false``, it ignores additional input modifiers for :ref:
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_action_just_released**\ (\ action\: :ref:`StringName<class_StringName>`, exact_match\: :ref:`bool<class_bool>` = false\ ) |const|
+:ref:`bool<class_bool>` **is_action_just_released**\ (\ action\: :ref:`StringName<class_StringName>`, exact_match\: :ref:`bool<class_bool>` = false\ ) |const| :ref:`🔗<class_Input_method_is_action_just_released>`
 
 Returns ``true`` when the user *stops* pressing the action event in the current frame or physics tick. It will only return ``true`` on the frame or tick that the user releases the button.
 
@@ -812,7 +874,25 @@ Returns ``true`` when the user *stops* pressing the action event in the current 
 
 If ``exact_match`` is ``false``, it ignores additional input modifiers for :ref:`InputEventKey<class_InputEventKey>` and :ref:`InputEventMouseButton<class_InputEventMouseButton>` events, and the direction for :ref:`InputEventJoypadMotion<class_InputEventJoypadMotion>` events.
 
-\ **Note:** During input handling (e.g. :ref:`Node._input<class_Node_private_method__input>`), use :ref:`InputEvent.is_action_released<class_InputEvent_method_is_action_released>` instead to query the action state of the current event.
+\ **Note:** During input handling (e.g. :ref:`Node._input()<class_Node_private_method__input>`), use :ref:`InputEvent.is_action_released()<class_InputEvent_method_is_action_released>` instead to query the action state of the current event. See also :ref:`is_action_just_released_by_event()<class_Input_method_is_action_just_released_by_event>`.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_Input_method_is_action_just_released_by_event:
+
+.. rst-class:: classref-method
+
+:ref:`bool<class_bool>` **is_action_just_released_by_event**\ (\ action\: :ref:`StringName<class_StringName>`, event\: :ref:`InputEvent<class_InputEvent>`, exact_match\: :ref:`bool<class_bool>` = false\ ) |const| :ref:`🔗<class_Input_method_is_action_just_released_by_event>`
+
+Returns ``true`` when the user *stops* pressing the action event in the current frame or physics tick, and the first event that triggered action release in the current frame/physics tick was ``event``. It will only return ``true`` on the frame or tick that the user releases the button.
+
+This is useful when an action is processed during input handling (e.g. :ref:`Node._input()<class_Node_private_method__input>`).
+
+\ **Note:** Returning ``true`` does not imply that the action is *still* not pressed. An action can be released and pressed again rapidly, and ``true`` will still be returned so as not to miss input.
+
+If ``exact_match`` is ``false``, it ignores additional input modifiers for :ref:`InputEventKey<class_InputEventKey>` and :ref:`InputEventMouseButton<class_InputEventMouseButton>` events, and the direction for :ref:`InputEventJoypadMotion<class_InputEventJoypadMotion>` events.
 
 .. rst-class:: classref-item-separator
 
@@ -822,13 +902,13 @@ If ``exact_match`` is ``false``, it ignores additional input modifiers for :ref:
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_action_pressed**\ (\ action\: :ref:`StringName<class_StringName>`, exact_match\: :ref:`bool<class_bool>` = false\ ) |const|
+:ref:`bool<class_bool>` **is_action_pressed**\ (\ action\: :ref:`StringName<class_StringName>`, exact_match\: :ref:`bool<class_bool>` = false\ ) |const| :ref:`🔗<class_Input_method_is_action_pressed>`
 
 Returns ``true`` if you are pressing the action event.
 
 If ``exact_match`` is ``false``, it ignores additional input modifiers for :ref:`InputEventKey<class_InputEventKey>` and :ref:`InputEventMouseButton<class_InputEventMouseButton>` events, and the direction for :ref:`InputEventJoypadMotion<class_InputEventJoypadMotion>` events.
 
-\ **Note:** Due to keyboard ghosting, :ref:`is_action_pressed<class_Input_method_is_action_pressed>` may return ``false`` even if one of the action's keys is pressed. See `Input examples <../tutorials/inputs/input_examples.html#keyboard-events>`__ in the documentation for more information.
+\ **Note:** Due to keyboard ghosting, :ref:`is_action_pressed()<class_Input_method_is_action_pressed>` may return ``false`` even if one of the action's keys is pressed. See `Input examples <../tutorials/inputs/input_examples.html#keyboard-events>`__ in the documentation for more information.
 
 .. rst-class:: classref-item-separator
 
@@ -838,9 +918,9 @@ If ``exact_match`` is ``false``, it ignores additional input modifiers for :ref:
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_anything_pressed**\ (\ ) |const|
+:ref:`bool<class_bool>` **is_anything_pressed**\ (\ ) |const| :ref:`🔗<class_Input_method_is_anything_pressed>`
 
-Returns ``true`` if any action, key, joypad button, or mouse button is being pressed. This will also return ``true`` if any action is simulated via code by calling :ref:`action_press<class_Input_method_action_press>`.
+Returns ``true`` if any action, key, joypad button, or mouse button is being pressed. This will also return ``true`` if any action is simulated via code by calling :ref:`action_press()<class_Input_method_action_press>`.
 
 .. rst-class:: classref-item-separator
 
@@ -850,9 +930,9 @@ Returns ``true`` if any action, key, joypad button, or mouse button is being pre
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_joy_button_pressed**\ (\ device\: :ref:`int<class_int>`, button\: :ref:`JoyButton<enum_@GlobalScope_JoyButton>`\ ) |const|
+:ref:`bool<class_bool>` **is_joy_button_pressed**\ (\ device\: :ref:`int<class_int>`, button\: :ref:`JoyButton<enum_@GlobalScope_JoyButton>`\ ) |const| :ref:`🔗<class_Input_method_is_joy_button_pressed>`
 
-Returns ``true`` if you are pressing the joypad button (see :ref:`JoyButton<enum_@GlobalScope_JoyButton>`).
+Returns ``true`` if you are pressing the joypad button at index ``button``.
 
 .. rst-class:: classref-item-separator
 
@@ -862,7 +942,7 @@ Returns ``true`` if you are pressing the joypad button (see :ref:`JoyButton<enum
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_joy_known**\ (\ device\: :ref:`int<class_int>`\ )
+:ref:`bool<class_bool>` **is_joy_known**\ (\ device\: :ref:`int<class_int>`\ ) :ref:`🔗<class_Input_method_is_joy_known>`
 
 Returns ``true`` if the system knows the specified device. This means that it sets all button and axis indices. Unknown joypads are not expected to match these constants, but you can still retrieve events from them.
 
@@ -874,7 +954,7 @@ Returns ``true`` if the system knows the specified device. This means that it se
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_key_label_pressed**\ (\ keycode\: :ref:`Key<enum_@GlobalScope_Key>`\ ) |const|
+:ref:`bool<class_bool>` **is_key_label_pressed**\ (\ keycode\: :ref:`Key<enum_@GlobalScope_Key>`\ ) |const| :ref:`🔗<class_Input_method_is_key_label_pressed>`
 
 Returns ``true`` if you are pressing the key with the ``keycode`` printed on it. You can pass a :ref:`Key<enum_@GlobalScope_Key>` constant or any Unicode character code.
 
@@ -886,13 +966,13 @@ Returns ``true`` if you are pressing the key with the ``keycode`` printed on it.
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_key_pressed**\ (\ keycode\: :ref:`Key<enum_@GlobalScope_Key>`\ ) |const|
+:ref:`bool<class_bool>` **is_key_pressed**\ (\ keycode\: :ref:`Key<enum_@GlobalScope_Key>`\ ) |const| :ref:`🔗<class_Input_method_is_key_pressed>`
 
 Returns ``true`` if you are pressing the Latin key in the current keyboard layout. You can pass a :ref:`Key<enum_@GlobalScope_Key>` constant.
 
-\ :ref:`is_key_pressed<class_Input_method_is_key_pressed>` is only recommended over :ref:`is_physical_key_pressed<class_Input_method_is_physical_key_pressed>` in non-game applications. This ensures that shortcut keys behave as expected depending on the user's keyboard layout, as keyboard shortcuts are generally dependent on the keyboard layout in non-game applications. If in doubt, use :ref:`is_physical_key_pressed<class_Input_method_is_physical_key_pressed>`.
+\ :ref:`is_key_pressed()<class_Input_method_is_key_pressed>` is only recommended over :ref:`is_physical_key_pressed()<class_Input_method_is_physical_key_pressed>` in non-game applications. This ensures that shortcut keys behave as expected depending on the user's keyboard layout, as keyboard shortcuts are generally dependent on the keyboard layout in non-game applications. If in doubt, use :ref:`is_physical_key_pressed()<class_Input_method_is_physical_key_pressed>`.
 
-\ **Note:** Due to keyboard ghosting, :ref:`is_key_pressed<class_Input_method_is_key_pressed>` may return ``false`` even if one of the action's keys is pressed. See `Input examples <../tutorials/inputs/input_examples.html#keyboard-events>`__ in the documentation for more information.
+\ **Note:** Due to keyboard ghosting, :ref:`is_key_pressed()<class_Input_method_is_key_pressed>` may return ``false`` even if one of the action's keys is pressed. See `Input examples <../tutorials/inputs/input_examples.html#keyboard-events>`__ in the documentation for more information.
 
 .. rst-class:: classref-item-separator
 
@@ -902,7 +982,7 @@ Returns ``true`` if you are pressing the Latin key in the current keyboard layou
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_mouse_button_pressed**\ (\ button\: :ref:`MouseButton<enum_@GlobalScope_MouseButton>`\ ) |const|
+:ref:`bool<class_bool>` **is_mouse_button_pressed**\ (\ button\: :ref:`MouseButton<enum_@GlobalScope_MouseButton>`\ ) |const| :ref:`🔗<class_Input_method_is_mouse_button_pressed>`
 
 Returns ``true`` if you are pressing the mouse button specified with :ref:`MouseButton<enum_@GlobalScope_MouseButton>`.
 
@@ -914,13 +994,13 @@ Returns ``true`` if you are pressing the mouse button specified with :ref:`Mouse
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_physical_key_pressed**\ (\ keycode\: :ref:`Key<enum_@GlobalScope_Key>`\ ) |const|
+:ref:`bool<class_bool>` **is_physical_key_pressed**\ (\ keycode\: :ref:`Key<enum_@GlobalScope_Key>`\ ) |const| :ref:`🔗<class_Input_method_is_physical_key_pressed>`
 
 Returns ``true`` if you are pressing the key in the physical location on the 101/102-key US QWERTY keyboard. You can pass a :ref:`Key<enum_@GlobalScope_Key>` constant.
 
-\ :ref:`is_physical_key_pressed<class_Input_method_is_physical_key_pressed>` is recommended over :ref:`is_key_pressed<class_Input_method_is_key_pressed>` for in-game actions, as it will make :kbd:`W`/:kbd:`A`/:kbd:`S`/:kbd:`D` layouts work regardless of the user's keyboard layout. :ref:`is_physical_key_pressed<class_Input_method_is_physical_key_pressed>` will also ensure that the top row number keys work on any keyboard layout. If in doubt, use :ref:`is_physical_key_pressed<class_Input_method_is_physical_key_pressed>`.
+\ :ref:`is_physical_key_pressed()<class_Input_method_is_physical_key_pressed>` is recommended over :ref:`is_key_pressed()<class_Input_method_is_key_pressed>` for in-game actions, as it will make :kbd:`W`/:kbd:`A`/:kbd:`S`/:kbd:`D` layouts work regardless of the user's keyboard layout. :ref:`is_physical_key_pressed()<class_Input_method_is_physical_key_pressed>` will also ensure that the top row number keys work on any keyboard layout. If in doubt, use :ref:`is_physical_key_pressed()<class_Input_method_is_physical_key_pressed>`.
 
-\ **Note:** Due to keyboard ghosting, :ref:`is_physical_key_pressed<class_Input_method_is_physical_key_pressed>` may return ``false`` even if one of the action's keys is pressed. See `Input examples <../tutorials/inputs/input_examples.html#keyboard-events>`__ in the documentation for more information.
+\ **Note:** Due to keyboard ghosting, :ref:`is_physical_key_pressed()<class_Input_method_is_physical_key_pressed>` may return ``false`` even if one of the action's keys is pressed. See `Input examples <../tutorials/inputs/input_examples.html#keyboard-events>`__ in the documentation for more information.
 
 .. rst-class:: classref-item-separator
 
@@ -930,11 +1010,9 @@ Returns ``true`` if you are pressing the key in the physical location on the 101
 
 .. rst-class:: classref-method
 
-|void| **parse_input_event**\ (\ event\: :ref:`InputEvent<class_InputEvent>`\ )
+|void| **parse_input_event**\ (\ event\: :ref:`InputEvent<class_InputEvent>`\ ) :ref:`🔗<class_Input_method_parse_input_event>`
 
-Feeds an :ref:`InputEvent<class_InputEvent>` to the game. Can be used to artificially trigger input events from code. Also generates :ref:`Node._input<class_Node_private_method__input>` calls.
-
-\ **Example:**\ 
+Feeds an :ref:`InputEvent<class_InputEvent>` to the game. Can be used to artificially trigger input events from code. Also generates :ref:`Node._input()<class_Node_private_method__input>` calls.
 
 
 .. tabs::
@@ -955,7 +1033,7 @@ Feeds an :ref:`InputEvent<class_InputEvent>` to the game. Can be used to artific
 
 
 
-\ **Note:** Calling this function has no influence on the operating system. So for example sending an :ref:`InputEventMouseMotion<class_InputEventMouseMotion>` will not move the OS mouse cursor to the specified position (use :ref:`warp_mouse<class_Input_method_warp_mouse>` instead) and sending :kbd:`Alt/Cmd + Tab` as :ref:`InputEventKey<class_InputEventKey>` won't toggle between active windows.
+\ **Note:** Calling this function has no influence on the operating system. So for example sending an :ref:`InputEventMouseMotion<class_InputEventMouseMotion>` will not move the OS mouse cursor to the specified position (use :ref:`warp_mouse()<class_Input_method_warp_mouse>` instead) and sending :kbd:`Alt/Cmd + Tab` as :ref:`InputEventKey<class_InputEventKey>` won't toggle between active windows.
 
 .. rst-class:: classref-item-separator
 
@@ -965,9 +1043,11 @@ Feeds an :ref:`InputEvent<class_InputEvent>` to the game. Can be used to artific
 
 .. rst-class:: classref-method
 
-|void| **remove_joy_mapping**\ (\ guid\: :ref:`String<class_String>`\ )
+|void| **remove_joy_mapping**\ (\ guid\: :ref:`String<class_String>`\ ) :ref:`🔗<class_Input_method_remove_joy_mapping>`
 
-Removes all mappings from the internal database that match the given GUID.
+Removes all mappings from the internal database that match the given GUID. All currently connected joypads that use this GUID will become unmapped.
+
+On Android, Godot will map to an internal fallback mapping.
 
 .. rst-class:: classref-item-separator
 
@@ -977,7 +1057,7 @@ Removes all mappings from the internal database that match the given GUID.
 
 .. rst-class:: classref-method
 
-|void| **set_accelerometer**\ (\ value\: :ref:`Vector3<class_Vector3>`\ )
+|void| **set_accelerometer**\ (\ value\: :ref:`Vector3<class_Vector3>`\ ) :ref:`🔗<class_Input_method_set_accelerometer>`
 
 Sets the acceleration value of the accelerometer sensor. Can be used for debugging on devices without a hardware sensor, for example in an editor on a PC.
 
@@ -991,9 +1071,9 @@ Sets the acceleration value of the accelerometer sensor. Can be used for debuggi
 
 .. rst-class:: classref-method
 
-|void| **set_custom_mouse_cursor**\ (\ image\: :ref:`Resource<class_Resource>`, shape\: :ref:`CursorShape<enum_Input_CursorShape>` = 0, hotspot\: :ref:`Vector2<class_Vector2>` = Vector2(0, 0)\ )
+|void| **set_custom_mouse_cursor**\ (\ image\: :ref:`Resource<class_Resource>`, shape\: :ref:`CursorShape<enum_Input_CursorShape>` = 0, hotspot\: :ref:`Vector2<class_Vector2>` = Vector2(0, 0)\ ) :ref:`🔗<class_Input_method_set_custom_mouse_cursor>`
 
-Sets a custom mouse cursor image, which is only visible inside the game window. The hotspot can also be specified. Passing ``null`` to the image parameter resets to the system cursor. See :ref:`CursorShape<enum_Input_CursorShape>` for the list of shapes.
+Sets a custom mouse cursor image, which is only visible inside the game window, for the given mouse ``shape``. The hotspot can also be specified. Passing ``null`` to the image parameter resets to the system cursor.
 
 \ ``image`` can be either :ref:`Texture2D<class_Texture2D>` or :ref:`Image<class_Image>` and its size must be lower than or equal to 256×256. To avoid rendering issues, sizes lower than or equal to 128×128 are recommended.
 
@@ -1013,7 +1093,7 @@ Sets a custom mouse cursor image, which is only visible inside the game window. 
 
 .. rst-class:: classref-method
 
-|void| **set_default_cursor_shape**\ (\ shape\: :ref:`CursorShape<enum_Input_CursorShape>` = 0\ )
+|void| **set_default_cursor_shape**\ (\ shape\: :ref:`CursorShape<enum_Input_CursorShape>` = 0\ ) :ref:`🔗<class_Input_method_set_default_cursor_shape>`
 
 Sets the default cursor shape to be used in the viewport instead of :ref:`CURSOR_ARROW<class_Input_constant_CURSOR_ARROW>`.
 
@@ -1029,7 +1109,7 @@ Sets the default cursor shape to be used in the viewport instead of :ref:`CURSOR
 
 .. rst-class:: classref-method
 
-|void| **set_gravity**\ (\ value\: :ref:`Vector3<class_Vector3>`\ )
+|void| **set_gravity**\ (\ value\: :ref:`Vector3<class_Vector3>`\ ) :ref:`🔗<class_Input_method_set_gravity>`
 
 Sets the gravity value of the accelerometer sensor. Can be used for debugging on devices without a hardware sensor, for example in an editor on a PC.
 
@@ -1043,7 +1123,7 @@ Sets the gravity value of the accelerometer sensor. Can be used for debugging on
 
 .. rst-class:: classref-method
 
-|void| **set_gyroscope**\ (\ value\: :ref:`Vector3<class_Vector3>`\ )
+|void| **set_gyroscope**\ (\ value\: :ref:`Vector3<class_Vector3>`\ ) :ref:`🔗<class_Input_method_set_gyroscope>`
 
 Sets the value of the rotation rate of the gyroscope sensor. Can be used for debugging on devices without a hardware sensor, for example in an editor on a PC.
 
@@ -1053,11 +1133,27 @@ Sets the value of the rotation rate of the gyroscope sensor. Can be used for deb
 
 ----
 
+.. _class_Input_method_set_joy_light:
+
+.. rst-class:: classref-method
+
+:ref:`bool<class_bool>` **set_joy_light**\ (\ device\: :ref:`int<class_int>`, color\: :ref:`Color<class_Color>`\ ) :ref:`🔗<class_Input_method_set_joy_light>`
+
+Sets the joypad's LED light, if available, to the specified color. Returns ``true`` if the operation was successful. See also :ref:`has_joy_light()<class_Input_method_has_joy_light>`.
+
+\ **Note:** There is no way to get the color of the light from a joypad. If you need to know the assigned color, store it separately.
+
+\ **Note:** This feature is only supported on Windows, Linux, and macOS.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_Input_method_set_magnetometer:
 
 .. rst-class:: classref-method
 
-|void| **set_magnetometer**\ (\ value\: :ref:`Vector3<class_Vector3>`\ )
+|void| **set_magnetometer**\ (\ value\: :ref:`Vector3<class_Vector3>`\ ) :ref:`🔗<class_Input_method_set_magnetometer>`
 
 Sets the value of the magnetic field of the magnetometer sensor. Can be used for debugging on devices without a hardware sensor, for example in an editor on a PC.
 
@@ -1071,7 +1167,7 @@ Sets the value of the magnetic field of the magnetometer sensor. Can be used for
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **should_ignore_device**\ (\ vendor_id\: :ref:`int<class_int>`, product_id\: :ref:`int<class_int>`\ ) |const|
+:ref:`bool<class_bool>` **should_ignore_device**\ (\ vendor_id\: :ref:`int<class_int>`, product_id\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_Input_method_should_ignore_device>`
 
 Queries whether an input device should be ignored or not. Devices can be ignored by setting the environment variable ``SDL_GAMECONTROLLER_IGNORE_DEVICES``. Read the `SDL documentation <https://wiki.libsdl.org/SDL2>`__ for more information.
 
@@ -1085,9 +1181,9 @@ Queries whether an input device should be ignored or not. Devices can be ignored
 
 .. rst-class:: classref-method
 
-|void| **start_joy_vibration**\ (\ device\: :ref:`int<class_int>`, weak_magnitude\: :ref:`float<class_float>`, strong_magnitude\: :ref:`float<class_float>`, duration\: :ref:`float<class_float>` = 0\ )
+|void| **start_joy_vibration**\ (\ device\: :ref:`int<class_int>`, weak_magnitude\: :ref:`float<class_float>`, strong_magnitude\: :ref:`float<class_float>`, duration\: :ref:`float<class_float>` = 0\ ) :ref:`🔗<class_Input_method_start_joy_vibration>`
 
-Starts to vibrate the joypad. Joypads usually come with two rumble motors, a strong and a weak one. ``weak_magnitude`` is the strength of the weak motor (between 0 and 1) and ``strong_magnitude`` is the strength of the strong motor (between 0 and 1). ``duration`` is the duration of the effect in seconds (a duration of 0 will try to play the vibration indefinitely). The vibration can be stopped early by calling :ref:`stop_joy_vibration<class_Input_method_stop_joy_vibration>`.
+Starts to vibrate the joypad. Joypads usually come with two rumble motors, a strong and a weak one. ``weak_magnitude`` is the strength of the weak motor (between 0 and 1) and ``strong_magnitude`` is the strength of the strong motor (between 0 and 1). ``duration`` is the duration of the effect in seconds (a duration of 0 will try to play the vibration indefinitely). The vibration can be stopped early by calling :ref:`stop_joy_vibration()<class_Input_method_stop_joy_vibration>`.
 
 \ **Note:** Not every hardware is compatible with long effect durations; it is recommended to restart an effect if it has to be played for more than a few seconds.
 
@@ -1101,9 +1197,9 @@ Starts to vibrate the joypad. Joypads usually come with two rumble motors, a str
 
 .. rst-class:: classref-method
 
-|void| **stop_joy_vibration**\ (\ device\: :ref:`int<class_int>`\ )
+|void| **stop_joy_vibration**\ (\ device\: :ref:`int<class_int>`\ ) :ref:`🔗<class_Input_method_stop_joy_vibration>`
 
-Stops the vibration of the joypad started with :ref:`start_joy_vibration<class_Input_method_start_joy_vibration>`.
+Stops the vibration of the joypad started with :ref:`start_joy_vibration()<class_Input_method_start_joy_vibration>`.
 
 .. rst-class:: classref-item-separator
 
@@ -1113,17 +1209,21 @@ Stops the vibration of the joypad started with :ref:`start_joy_vibration<class_I
 
 .. rst-class:: classref-method
 
-|void| **vibrate_handheld**\ (\ duration_ms\: :ref:`int<class_int>` = 500\ )
+|void| **vibrate_handheld**\ (\ duration_ms\: :ref:`int<class_int>` = 500, amplitude\: :ref:`float<class_float>` = -1.0\ ) :ref:`🔗<class_Input_method_vibrate_handheld>`
 
 Vibrate the handheld device for the specified duration in milliseconds.
 
+\ ``amplitude`` is the strength of the vibration, as a value between ``0.0`` and ``1.0``. If set to ``-1.0``, the default vibration strength of the device is used.
+
 \ **Note:** This method is implemented on Android, iOS, and Web. It has no effect on other platforms.
 
-\ **Note:** For Android, :ref:`vibrate_handheld<class_Input_method_vibrate_handheld>` requires enabling the ``VIBRATE`` permission in the export preset. Otherwise, :ref:`vibrate_handheld<class_Input_method_vibrate_handheld>` will have no effect.
+\ **Note:** For Android, :ref:`vibrate_handheld()<class_Input_method_vibrate_handheld>` requires enabling the ``VIBRATE`` permission in the export preset. Otherwise, :ref:`vibrate_handheld()<class_Input_method_vibrate_handheld>` will have no effect.
 
 \ **Note:** For iOS, specifying the duration is only supported in iOS 13 and later.
 
-\ **Note:** Some web browsers such as Safari and Firefox for Android do not support :ref:`vibrate_handheld<class_Input_method_vibrate_handheld>`.
+\ **Note:** For Web, the amplitude cannot be changed.
+
+\ **Note:** Some web browsers such as Safari and Firefox for Android do not support :ref:`vibrate_handheld()<class_Input_method_vibrate_handheld>`.
 
 .. rst-class:: classref-item-separator
 
@@ -1133,15 +1233,16 @@ Vibrate the handheld device for the specified duration in milliseconds.
 
 .. rst-class:: classref-method
 
-|void| **warp_mouse**\ (\ position\: :ref:`Vector2<class_Vector2>`\ )
+|void| **warp_mouse**\ (\ position\: :ref:`Vector2<class_Vector2>`\ ) :ref:`🔗<class_Input_method_warp_mouse>`
 
 Sets the mouse position to the specified vector, provided in pixels and relative to an origin at the upper left corner of the currently focused Window Manager game window.
 
 Mouse position is clipped to the limits of the screen resolution, or to the limits of the game window if :ref:`MouseMode<enum_Input_MouseMode>` is set to :ref:`MOUSE_MODE_CONFINED<class_Input_constant_MOUSE_MODE_CONFINED>` or :ref:`MOUSE_MODE_CONFINED_HIDDEN<class_Input_constant_MOUSE_MODE_CONFINED_HIDDEN>`.
 
-\ **Note:** :ref:`warp_mouse<class_Input_method_warp_mouse>` is only supported on Windows, macOS and Linux. It has no effect on Android, iOS and Web.
+\ **Note:** :ref:`warp_mouse()<class_Input_method_warp_mouse>` is only supported on Windows, macOS and Linux. It has no effect on Android, iOS and Web.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

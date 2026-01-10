@@ -14,7 +14,7 @@ GLTFSkin
 
 .. container:: contribute
 
-	There is currently no description for this class. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+	There is currently no description for this class. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!
 
 .. rst-class:: classref-introduction-group
 
@@ -82,7 +82,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`Skin<class_Skin>` **godot_skin**
+:ref:`Skin<class_Skin>` **godot_skin** :ref:`🔗<class_GLTFSkin_property_godot_skin>`
 
 .. rst-class:: classref-property-setget
 
@@ -91,7 +91,7 @@ Property Descriptions
 
 .. container:: contribute
 
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+	There is currently no description for this property. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!
 
 .. rst-class:: classref-item-separator
 
@@ -101,7 +101,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`PackedInt32Array<class_PackedInt32Array>` **joints** = ``PackedInt32Array()``
+:ref:`PackedInt32Array<class_PackedInt32Array>` **joints** = ``PackedInt32Array()`` :ref:`🔗<class_GLTFSkin_property_joints>`
 
 .. rst-class:: classref-property-setget
 
@@ -110,7 +110,9 @@ Property Descriptions
 
 .. container:: contribute
 
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+	There is currently no description for this property. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!
+
+**Note:** The returned array is *copied* and any changes to it will not update the original property value. See :ref:`PackedInt32Array<class_PackedInt32Array>` for more details.
 
 .. rst-class:: classref-item-separator
 
@@ -120,7 +122,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`PackedInt32Array<class_PackedInt32Array>` **joints_original** = ``PackedInt32Array()``
+:ref:`PackedInt32Array<class_PackedInt32Array>` **joints_original** = ``PackedInt32Array()`` :ref:`🔗<class_GLTFSkin_property_joints_original>`
 
 .. rst-class:: classref-property-setget
 
@@ -129,7 +131,9 @@ Property Descriptions
 
 .. container:: contribute
 
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+	There is currently no description for this property. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!
+
+**Note:** The returned array is *copied* and any changes to it will not update the original property value. See :ref:`PackedInt32Array<class_PackedInt32Array>` for more details.
 
 .. rst-class:: classref-item-separator
 
@@ -139,7 +143,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`PackedInt32Array<class_PackedInt32Array>` **non_joints** = ``PackedInt32Array()``
+:ref:`PackedInt32Array<class_PackedInt32Array>` **non_joints** = ``PackedInt32Array()`` :ref:`🔗<class_GLTFSkin_property_non_joints>`
 
 .. rst-class:: classref-property-setget
 
@@ -148,7 +152,9 @@ Property Descriptions
 
 .. container:: contribute
 
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+	There is currently no description for this property. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!
+
+**Note:** The returned array is *copied* and any changes to it will not update the original property value. See :ref:`PackedInt32Array<class_PackedInt32Array>` for more details.
 
 .. rst-class:: classref-item-separator
 
@@ -158,7 +164,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`PackedInt32Array<class_PackedInt32Array>` **roots** = ``PackedInt32Array()``
+:ref:`PackedInt32Array<class_PackedInt32Array>` **roots** = ``PackedInt32Array()`` :ref:`🔗<class_GLTFSkin_property_roots>`
 
 .. rst-class:: classref-property-setget
 
@@ -167,7 +173,9 @@ Property Descriptions
 
 .. container:: contribute
 
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+	There is currently no description for this property. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!
+
+**Note:** The returned array is *copied* and any changes to it will not update the original property value. See :ref:`PackedInt32Array<class_PackedInt32Array>` for more details.
 
 .. rst-class:: classref-item-separator
 
@@ -177,7 +185,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **skeleton** = ``-1``
+:ref:`int<class_int>` **skeleton** = ``-1`` :ref:`🔗<class_GLTFSkin_property_skeleton>`
 
 .. rst-class:: classref-property-setget
 
@@ -186,7 +194,7 @@ Property Descriptions
 
 .. container:: contribute
 
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+	There is currently no description for this property. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!
 
 .. rst-class:: classref-item-separator
 
@@ -196,7 +204,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **skin_root** = ``-1``
+:ref:`int<class_int>` **skin_root** = ``-1`` :ref:`🔗<class_GLTFSkin_property_skin_root>`
 
 .. rst-class:: classref-property-setget
 
@@ -205,7 +213,7 @@ Property Descriptions
 
 .. container:: contribute
 
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+	There is currently no description for this property. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!
 
 .. rst-class:: classref-section-separator
 
@@ -220,11 +228,11 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`Array<class_Array>`\[:ref:`Transform3D<class_Transform3D>`\] **get_inverse_binds**\ (\ )
+:ref:`Array<class_Array>`\[:ref:`Transform3D<class_Transform3D>`\] **get_inverse_binds**\ (\ ) :ref:`🔗<class_GLTFSkin_method_get_inverse_binds>`
 
 .. container:: contribute
 
-	There is currently no description for this method. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+	There is currently no description for this method. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!
 
 .. rst-class:: classref-item-separator
 
@@ -234,11 +242,11 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`Dictionary<class_Dictionary>` **get_joint_i_to_bone_i**\ (\ )
+:ref:`Dictionary<class_Dictionary>` **get_joint_i_to_bone_i**\ (\ ) :ref:`🔗<class_GLTFSkin_method_get_joint_i_to_bone_i>`
 
 .. container:: contribute
 
-	There is currently no description for this method. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+	There is currently no description for this method. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!
 
 .. rst-class:: classref-item-separator
 
@@ -248,11 +256,11 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`Dictionary<class_Dictionary>` **get_joint_i_to_name**\ (\ )
+:ref:`Dictionary<class_Dictionary>` **get_joint_i_to_name**\ (\ ) :ref:`🔗<class_GLTFSkin_method_get_joint_i_to_name>`
 
 .. container:: contribute
 
-	There is currently no description for this method. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+	There is currently no description for this method. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!
 
 .. rst-class:: classref-item-separator
 
@@ -262,11 +270,11 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-|void| **set_inverse_binds**\ (\ inverse_binds\: :ref:`Array<class_Array>`\[:ref:`Transform3D<class_Transform3D>`\]\ )
+|void| **set_inverse_binds**\ (\ inverse_binds\: :ref:`Array<class_Array>`\[:ref:`Transform3D<class_Transform3D>`\]\ ) :ref:`🔗<class_GLTFSkin_method_set_inverse_binds>`
 
 .. container:: contribute
 
-	There is currently no description for this method. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+	There is currently no description for this method. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!
 
 .. rst-class:: classref-item-separator
 
@@ -276,11 +284,11 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-|void| **set_joint_i_to_bone_i**\ (\ joint_i_to_bone_i\: :ref:`Dictionary<class_Dictionary>`\ )
+|void| **set_joint_i_to_bone_i**\ (\ joint_i_to_bone_i\: :ref:`Dictionary<class_Dictionary>`\ ) :ref:`🔗<class_GLTFSkin_method_set_joint_i_to_bone_i>`
 
 .. container:: contribute
 
-	There is currently no description for this method. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+	There is currently no description for this method. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!
 
 .. rst-class:: classref-item-separator
 
@@ -290,13 +298,14 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-|void| **set_joint_i_to_name**\ (\ joint_i_to_name\: :ref:`Dictionary<class_Dictionary>`\ )
+|void| **set_joint_i_to_name**\ (\ joint_i_to_name\: :ref:`Dictionary<class_Dictionary>`\ ) :ref:`🔗<class_GLTFSkin_method_set_joint_i_to_name>`
 
 .. container:: contribute
 
-	There is currently no description for this method. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+	There is currently no description for this method. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
