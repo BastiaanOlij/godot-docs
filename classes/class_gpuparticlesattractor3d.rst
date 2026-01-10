@@ -60,7 +60,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **attenuation** = ``1.0``
+:ref:`float<class_float>` **attenuation** = ``1.0`` :ref:`🔗<class_GPUParticlesAttractor3D_property_attenuation>`
 
 .. rst-class:: classref-property-setget
 
@@ -77,7 +77,7 @@ The particle attractor's attenuation. Higher values result in more gradual pushi
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **cull_mask** = ``4294967295``
+:ref:`int<class_int>` **cull_mask** = ``4294967295`` :ref:`🔗<class_GPUParticlesAttractor3D_property_cull_mask>`
 
 .. rst-class:: classref-property-setget
 
@@ -98,7 +98,7 @@ Particle attraction can also be disabled on a per-process material basis by sett
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **directionality** = ``0.0``
+:ref:`float<class_float>` **directionality** = ``0.0`` :ref:`🔗<class_GPUParticlesAttractor3D_property_directionality>`
 
 .. rst-class:: classref-property-setget
 
@@ -117,7 +117,7 @@ Adjusts how directional the attractor is. At ``0.0``, the attractor is not direc
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **strength** = ``1.0``
+:ref:`float<class_float>` **strength** = ``1.0`` :ref:`🔗<class_GPUParticlesAttractor3D_property_strength>`
 
 .. rst-class:: classref-property-setget
 
@@ -127,6 +127,7 @@ Adjusts how directional the attractor is. At ``0.0``, the attractor is not direc
 Adjusts the strength of the attractor. If :ref:`strength<class_GPUParticlesAttractor3D_property_strength>` is negative, particles will be pushed in the opposite direction. Particles will be pushed *away* from the attractor's origin if :ref:`directionality<class_GPUParticlesAttractor3D_property_directionality>` is ``0.0``, or towards local +Z if :ref:`directionality<class_GPUParticlesAttractor3D_property_directionality>` is greater than ``0.0``.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
