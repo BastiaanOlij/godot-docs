@@ -25,7 +25,7 @@ A class stored as a resource. A script extends the functionality of all objects 
 
 This is the base class for all scripts and should not be used directly. Trying to create a new script with this class will result in an error.
 
-The ``new`` method of a script subclass creates a new instance. :ref:`Object.set_script<class_Object_method_set_script>` extends an existing object, if that object's class matches one of the script's base classes.
+The ``new`` method of a script subclass creates a new instance. :ref:`Object.set_script()<class_Object_method_set_script>` extends an existing object, if that object's class matches one of the script's base classes.
 
 .. rst-class:: classref-introduction-group
 
@@ -65,6 +65,8 @@ Methods
    +------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Variant<class_Variant>`                                    | :ref:`get_property_default_value<class_Script_method_get_property_default_value>`\ (\ property\: :ref:`StringName<class_StringName>`\ ) |
    +------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Variant<class_Variant>`                                    | :ref:`get_rpc_config<class_Script_method_get_rpc_config>`\ (\ ) |const|                                                                 |
+   +------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Dictionary<class_Dictionary>`                              | :ref:`get_script_constant_map<class_Script_method_get_script_constant_map>`\ (\ )                                                       |
    +------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Array<class_Array>`\[:ref:`Dictionary<class_Dictionary>`\] | :ref:`get_script_method_list<class_Script_method_get_script_method_list>`\ (\ )                                                         |
@@ -99,7 +101,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`String<class_String>` **source_code**
+:ref:`String<class_String>` **source_code** :ref:`🔗<class_Script_property_source_code>`
 
 .. rst-class:: classref-property-setget
 
@@ -121,7 +123,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **can_instantiate**\ (\ ) |const|
+:ref:`bool<class_bool>` **can_instantiate**\ (\ ) |const| :ref:`🔗<class_Script_method_can_instantiate>`
 
 Returns ``true`` if the script can be instantiated.
 
@@ -133,7 +135,7 @@ Returns ``true`` if the script can be instantiated.
 
 .. rst-class:: classref-method
 
-:ref:`Script<class_Script>` **get_base_script**\ (\ ) |const|
+:ref:`Script<class_Script>` **get_base_script**\ (\ ) |const| :ref:`🔗<class_Script_method_get_base_script>`
 
 Returns the script directly inherited by this script.
 
@@ -145,7 +147,7 @@ Returns the script directly inherited by this script.
 
 .. rst-class:: classref-method
 
-:ref:`StringName<class_StringName>` **get_global_name**\ (\ ) |const|
+:ref:`StringName<class_StringName>` **get_global_name**\ (\ ) |const| :ref:`🔗<class_Script_method_get_global_name>`
 
 Returns the class name associated with the script, if there is one. Returns an empty string otherwise.
 
@@ -162,7 +164,7 @@ To give the script a global name, you can use the ``class_name`` keyword in GDSc
  .. code-tab:: csharp
 
     using Godot;
-    
+
     [GlobalClass]
     public partial class MyNode : Node
     {
@@ -178,7 +180,7 @@ To give the script a global name, you can use the ``class_name`` keyword in GDSc
 
 .. rst-class:: classref-method
 
-:ref:`StringName<class_StringName>` **get_instance_base_type**\ (\ ) |const|
+:ref:`StringName<class_StringName>` **get_instance_base_type**\ (\ ) |const| :ref:`🔗<class_Script_method_get_instance_base_type>`
 
 Returns the script's base type.
 
@@ -190,9 +192,21 @@ Returns the script's base type.
 
 .. rst-class:: classref-method
 
-:ref:`Variant<class_Variant>` **get_property_default_value**\ (\ property\: :ref:`StringName<class_StringName>`\ )
+:ref:`Variant<class_Variant>` **get_property_default_value**\ (\ property\: :ref:`StringName<class_StringName>`\ ) :ref:`🔗<class_Script_method_get_property_default_value>`
 
 Returns the default value of the specified property.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_Script_method_get_rpc_config:
+
+.. rst-class:: classref-method
+
+:ref:`Variant<class_Variant>` **get_rpc_config**\ (\ ) |const| :ref:`🔗<class_Script_method_get_rpc_config>`
+
+Returns a :ref:`Dictionary<class_Dictionary>` mapping method names to their RPC configuration defined by this script.
 
 .. rst-class:: classref-item-separator
 
@@ -202,7 +216,7 @@ Returns the default value of the specified property.
 
 .. rst-class:: classref-method
 
-:ref:`Dictionary<class_Dictionary>` **get_script_constant_map**\ (\ )
+:ref:`Dictionary<class_Dictionary>` **get_script_constant_map**\ (\ ) :ref:`🔗<class_Script_method_get_script_constant_map>`
 
 Returns a dictionary containing constant names and their values.
 
@@ -214,9 +228,11 @@ Returns a dictionary containing constant names and their values.
 
 .. rst-class:: classref-method
 
-:ref:`Array<class_Array>`\[:ref:`Dictionary<class_Dictionary>`\] **get_script_method_list**\ (\ )
+:ref:`Array<class_Array>`\[:ref:`Dictionary<class_Dictionary>`\] **get_script_method_list**\ (\ ) :ref:`🔗<class_Script_method_get_script_method_list>`
 
 Returns the list of methods in this **Script**.
+
+\ **Note:** The dictionaries returned by this method are formatted identically to those returned by :ref:`Object.get_method_list()<class_Object_method_get_method_list>`.
 
 .. rst-class:: classref-item-separator
 
@@ -226,9 +242,11 @@ Returns the list of methods in this **Script**.
 
 .. rst-class:: classref-method
 
-:ref:`Array<class_Array>`\[:ref:`Dictionary<class_Dictionary>`\] **get_script_property_list**\ (\ )
+:ref:`Array<class_Array>`\[:ref:`Dictionary<class_Dictionary>`\] **get_script_property_list**\ (\ ) :ref:`🔗<class_Script_method_get_script_property_list>`
 
 Returns the list of properties in this **Script**.
+
+\ **Note:** The dictionaries returned by this method are formatted identically to those returned by :ref:`Object.get_property_list()<class_Object_method_get_property_list>`.
 
 .. rst-class:: classref-item-separator
 
@@ -238,9 +256,11 @@ Returns the list of properties in this **Script**.
 
 .. rst-class:: classref-method
 
-:ref:`Array<class_Array>`\[:ref:`Dictionary<class_Dictionary>`\] **get_script_signal_list**\ (\ )
+:ref:`Array<class_Array>`\[:ref:`Dictionary<class_Dictionary>`\] **get_script_signal_list**\ (\ ) :ref:`🔗<class_Script_method_get_script_signal_list>`
 
-Returns the list of user signals defined in this **Script**.
+Returns the list of signals defined in this **Script**.
+
+\ **Note:** The dictionaries returned by this method are formatted identically to those returned by :ref:`Object.get_signal_list()<class_Object_method_get_signal_list>`.
 
 .. rst-class:: classref-item-separator
 
@@ -250,7 +270,7 @@ Returns the list of user signals defined in this **Script**.
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **has_script_signal**\ (\ signal_name\: :ref:`StringName<class_StringName>`\ ) |const|
+:ref:`bool<class_bool>` **has_script_signal**\ (\ signal_name\: :ref:`StringName<class_StringName>`\ ) |const| :ref:`🔗<class_Script_method_has_script_signal>`
 
 Returns ``true`` if the script, or a base class, defines a signal with the given name.
 
@@ -262,9 +282,11 @@ Returns ``true`` if the script, or a base class, defines a signal with the given
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **has_source_code**\ (\ ) |const|
+:ref:`bool<class_bool>` **has_source_code**\ (\ ) |const| :ref:`🔗<class_Script_method_has_source_code>`
 
 Returns ``true`` if the script contains non-empty source code.
+
+\ **Note:** If a script does not have source code, this does not mean that it is invalid or unusable. For example, a :ref:`GDScript<class_GDScript>` that was exported with binary tokenization has no source code, but still behaves as expected and could be instantiated. This can be checked with :ref:`can_instantiate()<class_Script_method_can_instantiate>`.
 
 .. rst-class:: classref-item-separator
 
@@ -274,7 +296,7 @@ Returns ``true`` if the script contains non-empty source code.
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **instance_has**\ (\ base_object\: :ref:`Object<class_Object>`\ ) |const|
+:ref:`bool<class_bool>` **instance_has**\ (\ base_object\: :ref:`Object<class_Object>`\ ) |const| :ref:`🔗<class_Script_method_instance_has>`
 
 Returns ``true`` if ``base_object`` is an instance of this script.
 
@@ -286,7 +308,7 @@ Returns ``true`` if ``base_object`` is an instance of this script.
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_abstract**\ (\ ) |const|
+:ref:`bool<class_bool>` **is_abstract**\ (\ ) |const| :ref:`🔗<class_Script_method_is_abstract>`
 
 Returns ``true`` if the script is an abstract script. An abstract script does not have a constructor and cannot be instantiated.
 
@@ -298,7 +320,7 @@ Returns ``true`` if the script is an abstract script. An abstract script does no
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_tool**\ (\ ) |const|
+:ref:`bool<class_bool>` **is_tool**\ (\ ) |const| :ref:`🔗<class_Script_method_is_tool>`
 
 Returns ``true`` if the script is a tool script. A tool script can run in the editor.
 
@@ -310,11 +332,12 @@ Returns ``true`` if the script is a tool script. A tool script can run in the ed
 
 .. rst-class:: classref-method
 
-:ref:`Error<enum_@GlobalScope_Error>` **reload**\ (\ keep_state\: :ref:`bool<class_bool>` = false\ )
+:ref:`Error<enum_@GlobalScope_Error>` **reload**\ (\ keep_state\: :ref:`bool<class_bool>` = false\ ) :ref:`🔗<class_Script_method_reload>`
 
 Reloads the script's class implementation. Returns an error code.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

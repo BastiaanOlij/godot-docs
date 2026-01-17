@@ -50,7 +50,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`Mesh<class_Mesh>` **mesh**
+:ref:`Mesh<class_Mesh>` **mesh** :ref:`🔗<class_VisualShaderNodeParticleMeshEmitter_property_mesh>`
 
 .. rst-class:: classref-property-setget
 
@@ -67,7 +67,7 @@ The :ref:`Mesh<class_Mesh>` that defines emission shape.
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **surface_index** = ``0``
+:ref:`int<class_int>` **surface_index** = ``0`` :ref:`🔗<class_VisualShaderNodeParticleMeshEmitter_property_surface_index>`
 
 .. rst-class:: classref-property-setget
 
@@ -84,7 +84,7 @@ Index of the surface that emits particles. :ref:`use_all_surfaces<class_VisualSh
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **use_all_surfaces** = ``true``
+:ref:`bool<class_bool>` **use_all_surfaces** = ``true`` :ref:`🔗<class_VisualShaderNodeParticleMeshEmitter_property_use_all_surfaces>`
 
 .. rst-class:: classref-property-setget
 
@@ -94,6 +94,7 @@ Index of the surface that emits particles. :ref:`use_all_surfaces<class_VisualSh
 If ``true``, the particles will emit from all surfaces of the mesh.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
