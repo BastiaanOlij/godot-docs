@@ -81,7 +81,7 @@ Enumerations
 
 .. rst-class:: classref-enumeration
 
-enum **AlignmentMode**:
+enum **AlignmentMode**: :ref:`🔗<enum_BoxContainer_AlignmentMode>`
 
 .. _class_BoxContainer_constant_ALIGNMENT_BEGIN:
 
@@ -120,7 +120,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`AlignmentMode<enum_BoxContainer_AlignmentMode>` **alignment** = ``0``
+:ref:`AlignmentMode<enum_BoxContainer_AlignmentMode>` **alignment** = ``0`` :ref:`🔗<class_BoxContainer_property_alignment>`
 
 .. rst-class:: classref-property-setget
 
@@ -137,7 +137,7 @@ The alignment of the container's children (must be one of :ref:`ALIGNMENT_BEGIN<
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **vertical** = ``false``
+:ref:`bool<class_bool>` **vertical** = ``false`` :ref:`🔗<class_BoxContainer_property_vertical>`
 
 .. rst-class:: classref-property-setget
 
@@ -161,7 +161,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`Control<class_Control>` **add_spacer**\ (\ begin\: :ref:`bool<class_bool>`\ )
+:ref:`Control<class_Control>` **add_spacer**\ (\ begin\: :ref:`bool<class_bool>`\ ) :ref:`🔗<class_BoxContainer_method_add_spacer>`
 
 Adds a :ref:`Control<class_Control>` node to the box as a spacer. If ``begin`` is ``true``, it will insert the :ref:`Control<class_Control>` node in front of all other children.
 
@@ -178,11 +178,12 @@ Theme Property Descriptions
 
 .. rst-class:: classref-themeproperty
 
-:ref:`int<class_int>` **separation** = ``4``
+:ref:`int<class_int>` **separation** = ``4`` :ref:`🔗<class_BoxContainer_theme_constant_separation>`
 
 The space between the **BoxContainer**'s elements, in pixels.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
