@@ -61,7 +61,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **current** = ``false``
+:ref:`bool<class_bool>` **current** = ``false`` :ref:`🔗<class_XROrigin3D_property_current>`
 
 .. rst-class:: classref-property-setget
 
@@ -78,7 +78,7 @@ If ``true``, this origin node is currently being used by the :ref:`XRServer<clas
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **world_scale** = ``1.0``
+:ref:`float<class_float>` **world_scale** = ``1.0`` :ref:`🔗<class_XROrigin3D_property_world_scale>`
 
 .. rst-class:: classref-property-setget
 
@@ -88,6 +88,7 @@ If ``true``, this origin node is currently being used by the :ref:`XRServer<clas
 The scale of the game world compared to the real world. This is the same as :ref:`XRServer.world_scale<class_XRServer_property_world_scale>`. By default, most AR/VR platforms assume that 1 game unit corresponds to 1 real world meter.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
