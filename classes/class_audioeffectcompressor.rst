@@ -25,7 +25,7 @@ Dynamic range compressor reduces the level of the sound when the amplitude goes 
 
 Compressor has many uses in the mix:
 
-- In the Master bus to compress the whole output (although an :ref:`AudioEffectLimiter<class_AudioEffectLimiter>` is probably better).
+- In the Master bus to compress the whole output (although an :ref:`AudioEffectHardLimiter<class_AudioEffectHardLimiter>` is probably better).
 
 - In voice channels to ensure they sound as balanced as possible.
 
@@ -77,7 +77,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **attack_us** = ``20.0``
+:ref:`float<class_float>` **attack_us** = ``20.0`` :ref:`🔗<class_AudioEffectCompressor_property_attack_us>`
 
 .. rst-class:: classref-property-setget
 
@@ -94,7 +94,7 @@ Compressor's reaction time when the signal exceeds the threshold, in microsecond
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **gain** = ``0.0``
+:ref:`float<class_float>` **gain** = ``0.0`` :ref:`🔗<class_AudioEffectCompressor_property_gain>`
 
 .. rst-class:: classref-property-setget
 
@@ -111,7 +111,7 @@ Gain applied to the output signal.
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **mix** = ``1.0``
+:ref:`float<class_float>` **mix** = ``1.0`` :ref:`🔗<class_AudioEffectCompressor_property_mix>`
 
 .. rst-class:: classref-property-setget
 
@@ -128,7 +128,7 @@ Balance between original signal and effect signal. Value can range from 0 (total
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **ratio** = ``4.0``
+:ref:`float<class_float>` **ratio** = ``4.0`` :ref:`🔗<class_AudioEffectCompressor_property_ratio>`
 
 .. rst-class:: classref-property-setget
 
@@ -145,7 +145,7 @@ Amount of compression applied to the audio once it passes the threshold level. T
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **release_ms** = ``250.0``
+:ref:`float<class_float>` **release_ms** = ``250.0`` :ref:`🔗<class_AudioEffectCompressor_property_release_ms>`
 
 .. rst-class:: classref-property-setget
 
@@ -162,7 +162,7 @@ Compressor's delay time to stop reducing the signal after the signal level falls
 
 .. rst-class:: classref-property
 
-:ref:`StringName<class_StringName>` **sidechain** = ``&""``
+:ref:`StringName<class_StringName>` **sidechain** = ``&""`` :ref:`🔗<class_AudioEffectCompressor_property_sidechain>`
 
 .. rst-class:: classref-property-setget
 
@@ -179,7 +179,7 @@ Reduce the sound level using another audio bus for threshold detection.
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **threshold** = ``0.0``
+:ref:`float<class_float>` **threshold** = ``0.0`` :ref:`🔗<class_AudioEffectCompressor_property_threshold>`
 
 .. rst-class:: classref-property-setget
 
@@ -189,6 +189,7 @@ Reduce the sound level using another audio bus for threshold detection.
 The level above which compression is applied to the audio. Value can range from -60 to 0.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
