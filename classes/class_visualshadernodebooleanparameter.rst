@@ -48,7 +48,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **default_value** = ``false``
+:ref:`bool<class_bool>` **default_value** = ``false`` :ref:`🔗<class_VisualShaderNodeBooleanParameter_property_default_value>`
 
 .. rst-class:: classref-property-setget
 
@@ -65,7 +65,7 @@ A default value to be assigned within the shader.
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **default_value_enabled** = ``false``
+:ref:`bool<class_bool>` **default_value_enabled** = ``false`` :ref:`🔗<class_VisualShaderNodeBooleanParameter_property_default_value_enabled>`
 
 .. rst-class:: classref-property-setget
 
@@ -75,6 +75,7 @@ A default value to be assigned within the shader.
 Enables usage of the :ref:`default_value<class_VisualShaderNodeBooleanParameter_property_default_value>`.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
