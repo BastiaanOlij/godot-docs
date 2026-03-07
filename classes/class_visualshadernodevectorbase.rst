@@ -48,7 +48,7 @@ Enumerations
 
 .. rst-class:: classref-enumeration
 
-enum **OpType**:
+enum **OpType**: :ref:`🔗<enum_VisualShaderNodeVectorBase_OpType>`
 
 .. _class_VisualShaderNodeVectorBase_constant_OP_TYPE_VECTOR_2D:
 
@@ -95,7 +95,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`OpType<enum_VisualShaderNodeVectorBase_OpType>` **op_type** = ``1``
+:ref:`OpType<enum_VisualShaderNodeVectorBase_OpType>` **op_type** = ``1`` :ref:`🔗<class_VisualShaderNodeVectorBase_property_op_type>`
 
 .. rst-class:: classref-property-setget
 
@@ -105,6 +105,7 @@ Property Descriptions
 A vector type that this operation is performed on.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
