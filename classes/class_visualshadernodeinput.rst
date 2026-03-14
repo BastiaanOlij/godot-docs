@@ -65,7 +65,7 @@ Signals
 
 .. rst-class:: classref-signal
 
-**input_type_changed**\ (\ )
+**input_type_changed**\ (\ ) :ref:`🔗<class_VisualShaderNodeInput_signal_input_type_changed>`
 
 Emitted when input is changed via :ref:`input_name<class_VisualShaderNodeInput_property_input_name>`.
 
@@ -82,7 +82,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`String<class_String>` **input_name** = ``"[None]"``
+:ref:`String<class_String>` **input_name** = ``"[None]"`` :ref:`🔗<class_VisualShaderNodeInput_property_input_name>`
 
 .. rst-class:: classref-property-setget
 
@@ -104,11 +104,12 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`String<class_String>` **get_input_real_name**\ (\ ) |const|
+:ref:`String<class_String>` **get_input_real_name**\ (\ ) |const| :ref:`🔗<class_VisualShaderNodeInput_method_get_input_real_name>`
 
 Returns a translated name of the current constant in the Godot Shader Language. E.g. ``"ALBEDO"`` if the :ref:`input_name<class_VisualShaderNodeInput_property_input_name>` equal to ``"albedo"``.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
