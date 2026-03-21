@@ -36,6 +36,8 @@ Properties
    +------------------------------------------+---------------------------------------------------------------------------+---------------------------------------------------------------------+
    | :ref:`FocusMode<enum_Control_FocusMode>` | focus_mode                                                                | ``1`` (overrides :ref:`Control<class_Control_property_focus_mode>`) |
    +------------------------------------------+---------------------------------------------------------------------------+---------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                  | :ref:`mouse_target<class_SubViewportContainer_property_mouse_target>`     | ``false``                                                           |
+   +------------------------------------------+---------------------------------------------------------------------------+---------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                  | :ref:`stretch<class_SubViewportContainer_property_stretch>`               | ``false``                                                           |
    +------------------------------------------+---------------------------------------------------------------------------+---------------------------------------------------------------------+
    | :ref:`int<class_int>`                    | :ref:`stretch_shrink<class_SubViewportContainer_property_stretch_shrink>` | ``1``                                                               |
@@ -62,11 +64,32 @@ Methods
 Property Descriptions
 ---------------------
 
+.. _class_SubViewportContainer_property_mouse_target:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **mouse_target** = ``false`` :ref:`🔗<class_SubViewportContainer_property_mouse_target>`
+
+.. rst-class:: classref-property-setget
+
+- |void| **set_mouse_target**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_mouse_target_enabled**\ (\ )
+
+Configure, if either the **SubViewportContainer** or alternatively the :ref:`Control<class_Control>` nodes of its :ref:`SubViewport<class_SubViewport>` children should be available as targets of mouse-related functionalities, like identifying the drop target in drag-and-drop operations or cursor shape of hovered :ref:`Control<class_Control>` node.
+
+If ``false``, the :ref:`Control<class_Control>` nodes inside its :ref:`SubViewport<class_SubViewport>` children are considered as targets.
+
+If ``true``, the **SubViewportContainer** itself will be considered as a target.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_SubViewportContainer_property_stretch:
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **stretch** = ``false``
+:ref:`bool<class_bool>` **stretch** = ``false`` :ref:`🔗<class_SubViewportContainer_property_stretch>`
 
 .. rst-class:: classref-property-setget
 
@@ -85,7 +108,7 @@ If ``true``, the sub-viewport will be automatically resized to the control's siz
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **stretch_shrink** = ``1``
+:ref:`int<class_int>` **stretch_shrink** = ``1`` :ref:`🔗<class_SubViewportContainer_property_stretch_shrink>`
 
 .. rst-class:: classref-property-setget
 
@@ -111,13 +134,14 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **_propagate_input_event**\ (\ event\: :ref:`InputEvent<class_InputEvent>`\ ) |virtual| |const|
+:ref:`bool<class_bool>` **_propagate_input_event**\ (\ event\: :ref:`InputEvent<class_InputEvent>`\ ) |virtual| |const| :ref:`🔗<class_SubViewportContainer_private_method__propagate_input_event>`
 
 **Experimental:** This method may be changed or removed in future versions.
 
 Virtual method to be implemented by the user. If it returns ``true``, the ``event`` is propagated to :ref:`SubViewport<class_SubViewport>` children. Propagation doesn't happen if it returns ``false``. If the function is not implemented, all events are propagated to SubViewports.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
