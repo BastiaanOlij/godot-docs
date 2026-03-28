@@ -10,8 +10,6 @@
 GraphNode
 =========
 
-**Experimental:** This class may be changed or removed in future versions.
-
 **Inherits:** :ref:`GraphElement<class_GraphElement>` **<** :ref:`Container<class_Container>` **<** :ref:`Control<class_Control>` **<** :ref:`CanvasItem<class_CanvasItem>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
 A container with connection ports, representing a node in a :ref:`GraphEdit<class_GraphEdit>`.
@@ -27,7 +25,7 @@ Each **GraphNode** slot is defined by its index and can provide the node with up
 
 Slots can be configured in the Inspector dock once you add at least one child :ref:`Control<class_Control>`. The properties are grouped by each slot's index in the "Slot" section.
 
-\ **Note:** While GraphNode is set up using slots and slot indices, connections are made between the ports which are enabled. Because of that :ref:`GraphEdit<class_GraphEdit>` uses the port's index and not the slot's index. You can use :ref:`get_input_port_slot<class_GraphNode_method_get_input_port_slot>` and :ref:`get_output_port_slot<class_GraphNode_method_get_output_port_slot>` to get the slot index from the port index.
+\ **Note:** While GraphNode is set up using slots and slot indices, connections are made between the ports which are enabled. Because of that :ref:`GraphEdit<class_GraphEdit>` uses the port's index and not the slot's index. You can use :ref:`get_input_port_slot()<class_GraphNode_method_get_input_port_slot>` and :ref:`get_output_port_slot()<class_GraphNode_method_get_output_port_slot>` to get the slot index from the port index.
 
 .. rst-class:: classref-reftable-group
 
@@ -37,11 +35,17 @@ Properties
 .. table::
    :widths: auto
 
-   +----------------------------------------------+----------------------------------------------+-----------------------------------------------------------------------+
-   | :ref:`MouseFilter<enum_Control_MouseFilter>` | mouse_filter                                 | ``0`` (overrides :ref:`Control<class_Control_property_mouse_filter>`) |
-   +----------------------------------------------+----------------------------------------------+-----------------------------------------------------------------------+
-   | :ref:`String<class_String>`                  | :ref:`title<class_GraphNode_property_title>` | ``""``                                                                |
-   +----------------------------------------------+----------------------------------------------+-----------------------------------------------------------------------+
+   +----------------------------------------------+------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+
+   | :ref:`FocusMode<enum_Control_FocusMode>`     | focus_mode                                                                                     | ``3`` (overrides :ref:`Control<class_Control_property_focus_mode>`)   |
+   +----------------------------------------------+------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                      | :ref:`ignore_invalid_connection_type<class_GraphNode_property_ignore_invalid_connection_type>` | ``false``                                                             |
+   +----------------------------------------------+------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+
+   | :ref:`MouseFilter<enum_Control_MouseFilter>` | mouse_filter                                                                                   | ``0`` (overrides :ref:`Control<class_Control_property_mouse_filter>`) |
+   +----------------------------------------------+------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+
+   | :ref:`FocusMode<enum_Control_FocusMode>`     | :ref:`slots_focus_mode<class_GraphNode_property_slots_focus_mode>`                             | ``3``                                                                 |
+   +----------------------------------------------+------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+
+   | :ref:`String<class_String>`                  | :ref:`title<class_GraphNode_property_title>`                                                   | ``""``                                                                |
+   +----------------------------------------------+------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+
 
 .. rst-class:: classref-reftable-group
 
@@ -86,6 +90,10 @@ Methods
    +-------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Texture2D<class_Texture2D>`         | :ref:`get_slot_custom_icon_right<class_GraphNode_method_get_slot_custom_icon_right>`\ (\ slot_index\: :ref:`int<class_int>`\ ) |const|                                                                                                                                                                                                                                                                                                                                                                                 |
    +-------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Variant<class_Variant>`             | :ref:`get_slot_metadata_left<class_GraphNode_method_get_slot_metadata_left>`\ (\ slot_index\: :ref:`int<class_int>`\ ) |const|                                                                                                                                                                                                                                                                                                                                                                                         |
+   +-------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Variant<class_Variant>`             | :ref:`get_slot_metadata_right<class_GraphNode_method_get_slot_metadata_right>`\ (\ slot_index\: :ref:`int<class_int>`\ ) |const|                                                                                                                                                                                                                                                                                                                                                                                       |
+   +-------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                     | :ref:`get_slot_type_left<class_GraphNode_method_get_slot_type_left>`\ (\ slot_index\: :ref:`int<class_int>`\ ) |const|                                                                                                                                                                                                                                                                                                                                                                                                 |
    +-------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                     | :ref:`get_slot_type_right<class_GraphNode_method_get_slot_type_right>`\ (\ slot_index\: :ref:`int<class_int>`\ ) |const|                                                                                                                                                                                                                                                                                                                                                                                               |
@@ -114,6 +122,10 @@ Methods
    +-------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | |void|                                    | :ref:`set_slot_enabled_right<class_GraphNode_method_set_slot_enabled_right>`\ (\ slot_index\: :ref:`int<class_int>`, enable\: :ref:`bool<class_bool>`\ )                                                                                                                                                                                                                                                                                                                                                               |
    +-------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                    | :ref:`set_slot_metadata_left<class_GraphNode_method_set_slot_metadata_left>`\ (\ slot_index\: :ref:`int<class_int>`, value\: :ref:`Variant<class_Variant>`\ )                                                                                                                                                                                                                                                                                                                                                          |
+   +-------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                    | :ref:`set_slot_metadata_right<class_GraphNode_method_set_slot_metadata_right>`\ (\ slot_index\: :ref:`int<class_int>`, value\: :ref:`Variant<class_Variant>`\ )                                                                                                                                                                                                                                                                                                                                                        |
+   +-------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | |void|                                    | :ref:`set_slot_type_left<class_GraphNode_method_set_slot_type_left>`\ (\ slot_index\: :ref:`int<class_int>`, type\: :ref:`int<class_int>`\ )                                                                                                                                                                                                                                                                                                                                                                           |
    +-------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | |void|                                    | :ref:`set_slot_type_right<class_GraphNode_method_set_slot_type_right>`\ (\ slot_index\: :ref:`int<class_int>`, type\: :ref:`int<class_int>`\ )                                                                                                                                                                                                                                                                                                                                                                         |
@@ -138,9 +150,13 @@ Theme Properties
    +-----------------------------------+-------------------------------------------------------------------------+-----------------------------------+
    | :ref:`StyleBox<class_StyleBox>`   | :ref:`panel<class_GraphNode_theme_style_panel>`                         |                                   |
    +-----------------------------------+-------------------------------------------------------------------------+-----------------------------------+
+   | :ref:`StyleBox<class_StyleBox>`   | :ref:`panel_focus<class_GraphNode_theme_style_panel_focus>`             |                                   |
+   +-----------------------------------+-------------------------------------------------------------------------+-----------------------------------+
    | :ref:`StyleBox<class_StyleBox>`   | :ref:`panel_selected<class_GraphNode_theme_style_panel_selected>`       |                                   |
    +-----------------------------------+-------------------------------------------------------------------------+-----------------------------------+
    | :ref:`StyleBox<class_StyleBox>`   | :ref:`slot<class_GraphNode_theme_style_slot>`                           |                                   |
+   +-----------------------------------+-------------------------------------------------------------------------+-----------------------------------+
+   | :ref:`StyleBox<class_StyleBox>`   | :ref:`slot_selected<class_GraphNode_theme_style_slot_selected>`         |                                   |
    +-----------------------------------+-------------------------------------------------------------------------+-----------------------------------+
    | :ref:`StyleBox<class_StyleBox>`   | :ref:`titlebar<class_GraphNode_theme_style_titlebar>`                   |                                   |
    +-----------------------------------+-------------------------------------------------------------------------+-----------------------------------+
@@ -156,11 +172,23 @@ Theme Properties
 Signals
 -------
 
+.. _class_GraphNode_signal_slot_sizes_changed:
+
+.. rst-class:: classref-signal
+
+**slot_sizes_changed**\ (\ ) :ref:`🔗<class_GraphNode_signal_slot_sizes_changed>`
+
+Emitted when any slot's size might have changed.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_GraphNode_signal_slot_updated:
 
 .. rst-class:: classref-signal
 
-**slot_updated**\ (\ slot_index\: :ref:`int<class_int>`\ )
+**slot_updated**\ (\ slot_index\: :ref:`int<class_int>`\ ) :ref:`🔗<class_GraphNode_signal_slot_updated>`
 
 Emitted when any GraphNode's slot is updated.
 
@@ -173,11 +201,51 @@ Emitted when any GraphNode's slot is updated.
 Property Descriptions
 ---------------------
 
+.. _class_GraphNode_property_ignore_invalid_connection_type:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **ignore_invalid_connection_type** = ``false`` :ref:`🔗<class_GraphNode_property_ignore_invalid_connection_type>`
+
+.. rst-class:: classref-property-setget
+
+- |void| **set_ignore_invalid_connection_type**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_ignoring_valid_connection_type**\ (\ )
+
+If ``true``, you can connect ports with different types, even if the connection was not explicitly allowed in the parent :ref:`GraphEdit<class_GraphEdit>`.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_GraphNode_property_slots_focus_mode:
+
+.. rst-class:: classref-property
+
+:ref:`FocusMode<enum_Control_FocusMode>` **slots_focus_mode** = ``3`` :ref:`🔗<class_GraphNode_property_slots_focus_mode>`
+
+.. rst-class:: classref-property-setget
+
+- |void| **set_slots_focus_mode**\ (\ value\: :ref:`FocusMode<enum_Control_FocusMode>`\ )
+- :ref:`FocusMode<enum_Control_FocusMode>` **get_slots_focus_mode**\ (\ )
+
+Determines how connection slots can be focused.
+
+- If set to :ref:`Control.FOCUS_CLICK<class_Control_constant_FOCUS_CLICK>`, connections can only be made with the mouse.
+
+- If set to :ref:`Control.FOCUS_ALL<class_Control_constant_FOCUS_ALL>`, slots can also be focused using the :ref:`ProjectSettings.input/ui_up<class_ProjectSettings_property_input/ui_up>` and :ref:`ProjectSettings.input/ui_down<class_ProjectSettings_property_input/ui_down>` and connected using :ref:`ProjectSettings.input/ui_left<class_ProjectSettings_property_input/ui_left>` and :ref:`ProjectSettings.input/ui_right<class_ProjectSettings_property_input/ui_right>` input actions.
+
+- If set to :ref:`Control.FOCUS_ACCESSIBILITY<class_Control_constant_FOCUS_ACCESSIBILITY>`, slot input actions are only enabled when the screen reader is active.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_GraphNode_property_title:
 
 .. rst-class:: classref-property
 
-:ref:`String<class_String>` **title** = ``""``
+:ref:`String<class_String>` **title** = ``""`` :ref:`🔗<class_GraphNode_property_title>`
 
 .. rst-class:: classref-property-setget
 
@@ -199,11 +267,11 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-|void| **_draw_port**\ (\ slot_index\: :ref:`int<class_int>`, position\: :ref:`Vector2i<class_Vector2i>`, left\: :ref:`bool<class_bool>`, color\: :ref:`Color<class_Color>`\ ) |virtual|
+|void| **_draw_port**\ (\ slot_index\: :ref:`int<class_int>`, position\: :ref:`Vector2i<class_Vector2i>`, left\: :ref:`bool<class_bool>`, color\: :ref:`Color<class_Color>`\ ) |virtual| :ref:`🔗<class_GraphNode_private_method__draw_port>`
 
 .. container:: contribute
 
-	There is currently no description for this method. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+	There is currently no description for this method. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!
 
 .. rst-class:: classref-item-separator
 
@@ -213,7 +281,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-|void| **clear_all_slots**\ (\ )
+|void| **clear_all_slots**\ (\ ) :ref:`🔗<class_GraphNode_method_clear_all_slots>`
 
 Disables all slots of the GraphNode. This will remove all input/output ports from the GraphNode.
 
@@ -225,7 +293,7 @@ Disables all slots of the GraphNode. This will remove all input/output ports fro
 
 .. rst-class:: classref-method
 
-|void| **clear_slot**\ (\ slot_index\: :ref:`int<class_int>`\ )
+|void| **clear_slot**\ (\ slot_index\: :ref:`int<class_int>`\ ) :ref:`🔗<class_GraphNode_method_clear_slot>`
 
 Disables the slot with the given ``slot_index``. This will remove the corresponding input and output port from the GraphNode.
 
@@ -237,7 +305,7 @@ Disables the slot with the given ``slot_index``. This will remove the correspond
 
 .. rst-class:: classref-method
 
-:ref:`Color<class_Color>` **get_input_port_color**\ (\ port_idx\: :ref:`int<class_int>`\ )
+:ref:`Color<class_Color>` **get_input_port_color**\ (\ port_idx\: :ref:`int<class_int>`\ ) :ref:`🔗<class_GraphNode_method_get_input_port_color>`
 
 Returns the :ref:`Color<class_Color>` of the input port with the given ``port_idx``.
 
@@ -249,7 +317,7 @@ Returns the :ref:`Color<class_Color>` of the input port with the given ``port_id
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **get_input_port_count**\ (\ )
+:ref:`int<class_int>` **get_input_port_count**\ (\ ) :ref:`🔗<class_GraphNode_method_get_input_port_count>`
 
 Returns the number of slots with an enabled input port.
 
@@ -261,7 +329,7 @@ Returns the number of slots with an enabled input port.
 
 .. rst-class:: classref-method
 
-:ref:`Vector2<class_Vector2>` **get_input_port_position**\ (\ port_idx\: :ref:`int<class_int>`\ )
+:ref:`Vector2<class_Vector2>` **get_input_port_position**\ (\ port_idx\: :ref:`int<class_int>`\ ) :ref:`🔗<class_GraphNode_method_get_input_port_position>`
 
 Returns the position of the input port with the given ``port_idx``.
 
@@ -273,7 +341,7 @@ Returns the position of the input port with the given ``port_idx``.
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **get_input_port_slot**\ (\ port_idx\: :ref:`int<class_int>`\ )
+:ref:`int<class_int>` **get_input_port_slot**\ (\ port_idx\: :ref:`int<class_int>`\ ) :ref:`🔗<class_GraphNode_method_get_input_port_slot>`
 
 Returns the corresponding slot index of the input port with the given ``port_idx``.
 
@@ -285,7 +353,7 @@ Returns the corresponding slot index of the input port with the given ``port_idx
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **get_input_port_type**\ (\ port_idx\: :ref:`int<class_int>`\ )
+:ref:`int<class_int>` **get_input_port_type**\ (\ port_idx\: :ref:`int<class_int>`\ ) :ref:`🔗<class_GraphNode_method_get_input_port_type>`
 
 Returns the type of the input port with the given ``port_idx``.
 
@@ -297,7 +365,7 @@ Returns the type of the input port with the given ``port_idx``.
 
 .. rst-class:: classref-method
 
-:ref:`Color<class_Color>` **get_output_port_color**\ (\ port_idx\: :ref:`int<class_int>`\ )
+:ref:`Color<class_Color>` **get_output_port_color**\ (\ port_idx\: :ref:`int<class_int>`\ ) :ref:`🔗<class_GraphNode_method_get_output_port_color>`
 
 Returns the :ref:`Color<class_Color>` of the output port with the given ``port_idx``.
 
@@ -309,7 +377,7 @@ Returns the :ref:`Color<class_Color>` of the output port with the given ``port_i
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **get_output_port_count**\ (\ )
+:ref:`int<class_int>` **get_output_port_count**\ (\ ) :ref:`🔗<class_GraphNode_method_get_output_port_count>`
 
 Returns the number of slots with an enabled output port.
 
@@ -321,7 +389,7 @@ Returns the number of slots with an enabled output port.
 
 .. rst-class:: classref-method
 
-:ref:`Vector2<class_Vector2>` **get_output_port_position**\ (\ port_idx\: :ref:`int<class_int>`\ )
+:ref:`Vector2<class_Vector2>` **get_output_port_position**\ (\ port_idx\: :ref:`int<class_int>`\ ) :ref:`🔗<class_GraphNode_method_get_output_port_position>`
 
 Returns the position of the output port with the given ``port_idx``.
 
@@ -333,7 +401,7 @@ Returns the position of the output port with the given ``port_idx``.
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **get_output_port_slot**\ (\ port_idx\: :ref:`int<class_int>`\ )
+:ref:`int<class_int>` **get_output_port_slot**\ (\ port_idx\: :ref:`int<class_int>`\ ) :ref:`🔗<class_GraphNode_method_get_output_port_slot>`
 
 Returns the corresponding slot index of the output port with the given ``port_idx``.
 
@@ -345,7 +413,7 @@ Returns the corresponding slot index of the output port with the given ``port_id
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **get_output_port_type**\ (\ port_idx\: :ref:`int<class_int>`\ )
+:ref:`int<class_int>` **get_output_port_type**\ (\ port_idx\: :ref:`int<class_int>`\ ) :ref:`🔗<class_GraphNode_method_get_output_port_type>`
 
 Returns the type of the output port with the given ``port_idx``.
 
@@ -357,7 +425,7 @@ Returns the type of the output port with the given ``port_idx``.
 
 .. rst-class:: classref-method
 
-:ref:`Color<class_Color>` **get_slot_color_left**\ (\ slot_index\: :ref:`int<class_int>`\ ) |const|
+:ref:`Color<class_Color>` **get_slot_color_left**\ (\ slot_index\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_GraphNode_method_get_slot_color_left>`
 
 Returns the left (input) :ref:`Color<class_Color>` of the slot with the given ``slot_index``.
 
@@ -369,7 +437,7 @@ Returns the left (input) :ref:`Color<class_Color>` of the slot with the given ``
 
 .. rst-class:: classref-method
 
-:ref:`Color<class_Color>` **get_slot_color_right**\ (\ slot_index\: :ref:`int<class_int>`\ ) |const|
+:ref:`Color<class_Color>` **get_slot_color_right**\ (\ slot_index\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_GraphNode_method_get_slot_color_right>`
 
 Returns the right (output) :ref:`Color<class_Color>` of the slot with the given ``slot_index``.
 
@@ -381,7 +449,7 @@ Returns the right (output) :ref:`Color<class_Color>` of the slot with the given 
 
 .. rst-class:: classref-method
 
-:ref:`Texture2D<class_Texture2D>` **get_slot_custom_icon_left**\ (\ slot_index\: :ref:`int<class_int>`\ ) |const|
+:ref:`Texture2D<class_Texture2D>` **get_slot_custom_icon_left**\ (\ slot_index\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_GraphNode_method_get_slot_custom_icon_left>`
 
 Returns the left (input) custom :ref:`Texture2D<class_Texture2D>` of the slot with the given ``slot_index``.
 
@@ -393,9 +461,33 @@ Returns the left (input) custom :ref:`Texture2D<class_Texture2D>` of the slot wi
 
 .. rst-class:: classref-method
 
-:ref:`Texture2D<class_Texture2D>` **get_slot_custom_icon_right**\ (\ slot_index\: :ref:`int<class_int>`\ ) |const|
+:ref:`Texture2D<class_Texture2D>` **get_slot_custom_icon_right**\ (\ slot_index\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_GraphNode_method_get_slot_custom_icon_right>`
 
 Returns the right (output) custom :ref:`Texture2D<class_Texture2D>` of the slot with the given ``slot_index``.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_GraphNode_method_get_slot_metadata_left:
+
+.. rst-class:: classref-method
+
+:ref:`Variant<class_Variant>` **get_slot_metadata_left**\ (\ slot_index\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_GraphNode_method_get_slot_metadata_left>`
+
+Returns the left (input) metadata of the slot with the given ``slot_index``.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_GraphNode_method_get_slot_metadata_right:
+
+.. rst-class:: classref-method
+
+:ref:`Variant<class_Variant>` **get_slot_metadata_right**\ (\ slot_index\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_GraphNode_method_get_slot_metadata_right>`
+
+Returns the right (output) metadata of the slot with the given ``slot_index``.
 
 .. rst-class:: classref-item-separator
 
@@ -405,7 +497,7 @@ Returns the right (output) custom :ref:`Texture2D<class_Texture2D>` of the slot 
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **get_slot_type_left**\ (\ slot_index\: :ref:`int<class_int>`\ ) |const|
+:ref:`int<class_int>` **get_slot_type_left**\ (\ slot_index\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_GraphNode_method_get_slot_type_left>`
 
 Returns the left (input) type of the slot with the given ``slot_index``.
 
@@ -417,7 +509,7 @@ Returns the left (input) type of the slot with the given ``slot_index``.
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **get_slot_type_right**\ (\ slot_index\: :ref:`int<class_int>`\ ) |const|
+:ref:`int<class_int>` **get_slot_type_right**\ (\ slot_index\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_GraphNode_method_get_slot_type_right>`
 
 Returns the right (output) type of the slot with the given ``slot_index``.
 
@@ -429,7 +521,7 @@ Returns the right (output) type of the slot with the given ``slot_index``.
 
 .. rst-class:: classref-method
 
-:ref:`HBoxContainer<class_HBoxContainer>` **get_titlebar_hbox**\ (\ )
+:ref:`HBoxContainer<class_HBoxContainer>` **get_titlebar_hbox**\ (\ ) :ref:`🔗<class_GraphNode_method_get_titlebar_hbox>`
 
 Returns the :ref:`HBoxContainer<class_HBoxContainer>` used for the title bar, only containing a :ref:`Label<class_Label>` for displaying the title by default. This can be used to add custom controls to the title bar such as option or close buttons.
 
@@ -441,9 +533,9 @@ Returns the :ref:`HBoxContainer<class_HBoxContainer>` used for the title bar, on
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_slot_draw_stylebox**\ (\ slot_index\: :ref:`int<class_int>`\ ) |const|
+:ref:`bool<class_bool>` **is_slot_draw_stylebox**\ (\ slot_index\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_GraphNode_method_is_slot_draw_stylebox>`
 
-Returns true if the background :ref:`StyleBox<class_StyleBox>` of the slot with the given ``slot_index`` is drawn.
+Returns ``true`` if the background :ref:`StyleBox<class_StyleBox>` of the slot with the given ``slot_index`` is drawn.
 
 .. rst-class:: classref-item-separator
 
@@ -453,7 +545,7 @@ Returns true if the background :ref:`StyleBox<class_StyleBox>` of the slot with 
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_slot_enabled_left**\ (\ slot_index\: :ref:`int<class_int>`\ ) |const|
+:ref:`bool<class_bool>` **is_slot_enabled_left**\ (\ slot_index\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_GraphNode_method_is_slot_enabled_left>`
 
 Returns ``true`` if left (input) side of the slot with the given ``slot_index`` is enabled.
 
@@ -465,7 +557,7 @@ Returns ``true`` if left (input) side of the slot with the given ``slot_index`` 
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_slot_enabled_right**\ (\ slot_index\: :ref:`int<class_int>`\ ) |const|
+:ref:`bool<class_bool>` **is_slot_enabled_right**\ (\ slot_index\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_GraphNode_method_is_slot_enabled_right>`
 
 Returns ``true`` if right (output) side of the slot with the given ``slot_index`` is enabled.
 
@@ -477,13 +569,13 @@ Returns ``true`` if right (output) side of the slot with the given ``slot_index`
 
 .. rst-class:: classref-method
 
-|void| **set_slot**\ (\ slot_index\: :ref:`int<class_int>`, enable_left_port\: :ref:`bool<class_bool>`, type_left\: :ref:`int<class_int>`, color_left\: :ref:`Color<class_Color>`, enable_right_port\: :ref:`bool<class_bool>`, type_right\: :ref:`int<class_int>`, color_right\: :ref:`Color<class_Color>`, custom_icon_left\: :ref:`Texture2D<class_Texture2D>` = null, custom_icon_right\: :ref:`Texture2D<class_Texture2D>` = null, draw_stylebox\: :ref:`bool<class_bool>` = true\ )
+|void| **set_slot**\ (\ slot_index\: :ref:`int<class_int>`, enable_left_port\: :ref:`bool<class_bool>`, type_left\: :ref:`int<class_int>`, color_left\: :ref:`Color<class_Color>`, enable_right_port\: :ref:`bool<class_bool>`, type_right\: :ref:`int<class_int>`, color_right\: :ref:`Color<class_Color>`, custom_icon_left\: :ref:`Texture2D<class_Texture2D>` = null, custom_icon_right\: :ref:`Texture2D<class_Texture2D>` = null, draw_stylebox\: :ref:`bool<class_bool>` = true\ ) :ref:`🔗<class_GraphNode_method_set_slot>`
 
 Sets properties of the slot with the given ``slot_index``.
 
 If ``enable_left_port``/``enable_right_port`` is ``true``, a port will appear and the slot will be able to be connected from this side.
 
-With ``type_left``/``type_right`` an arbitrary type can be assigned to each port. Two ports can be connected if they share the same type, or if the connection between their types is allowed in the parent :ref:`GraphEdit<class_GraphEdit>` (see :ref:`GraphEdit.add_valid_connection_type<class_GraphEdit_method_add_valid_connection_type>`). Keep in mind that the :ref:`GraphEdit<class_GraphEdit>` has the final say in accepting the connection. Type compatibility simply allows the :ref:`GraphEdit.connection_request<class_GraphEdit_signal_connection_request>` signal to be emitted.
+With ``type_left``/``type_right`` an arbitrary type can be assigned to each port. Two ports can be connected if they share the same type, or if the connection between their types is allowed in the parent :ref:`GraphEdit<class_GraphEdit>` (see :ref:`GraphEdit.add_valid_connection_type()<class_GraphEdit_method_add_valid_connection_type>`). Keep in mind that the :ref:`GraphEdit<class_GraphEdit>` has the final say in accepting the connection. Type compatibility simply allows the :ref:`GraphEdit.connection_request<class_GraphEdit_signal_connection_request>` signal to be emitted.
 
 Ports can be further customized using ``color_left``/``color_right`` and ``custom_icon_left``/``custom_icon_right``. The color parameter adds a tint to the icon. The custom icon can be used to override the default port dot.
 
@@ -501,7 +593,7 @@ Individual properties can also be set using one of the ``set_slot_*`` methods.
 
 .. rst-class:: classref-method
 
-|void| **set_slot_color_left**\ (\ slot_index\: :ref:`int<class_int>`, color\: :ref:`Color<class_Color>`\ )
+|void| **set_slot_color_left**\ (\ slot_index\: :ref:`int<class_int>`, color\: :ref:`Color<class_Color>`\ ) :ref:`🔗<class_GraphNode_method_set_slot_color_left>`
 
 Sets the :ref:`Color<class_Color>` of the left (input) side of the slot with the given ``slot_index`` to ``color``.
 
@@ -513,7 +605,7 @@ Sets the :ref:`Color<class_Color>` of the left (input) side of the slot with the
 
 .. rst-class:: classref-method
 
-|void| **set_slot_color_right**\ (\ slot_index\: :ref:`int<class_int>`, color\: :ref:`Color<class_Color>`\ )
+|void| **set_slot_color_right**\ (\ slot_index\: :ref:`int<class_int>`, color\: :ref:`Color<class_Color>`\ ) :ref:`🔗<class_GraphNode_method_set_slot_color_right>`
 
 Sets the :ref:`Color<class_Color>` of the right (output) side of the slot with the given ``slot_index`` to ``color``.
 
@@ -525,7 +617,7 @@ Sets the :ref:`Color<class_Color>` of the right (output) side of the slot with t
 
 .. rst-class:: classref-method
 
-|void| **set_slot_custom_icon_left**\ (\ slot_index\: :ref:`int<class_int>`, custom_icon\: :ref:`Texture2D<class_Texture2D>`\ )
+|void| **set_slot_custom_icon_left**\ (\ slot_index\: :ref:`int<class_int>`, custom_icon\: :ref:`Texture2D<class_Texture2D>`\ ) :ref:`🔗<class_GraphNode_method_set_slot_custom_icon_left>`
 
 Sets the custom :ref:`Texture2D<class_Texture2D>` of the left (input) side of the slot with the given ``slot_index`` to ``custom_icon``.
 
@@ -537,7 +629,7 @@ Sets the custom :ref:`Texture2D<class_Texture2D>` of the left (input) side of th
 
 .. rst-class:: classref-method
 
-|void| **set_slot_custom_icon_right**\ (\ slot_index\: :ref:`int<class_int>`, custom_icon\: :ref:`Texture2D<class_Texture2D>`\ )
+|void| **set_slot_custom_icon_right**\ (\ slot_index\: :ref:`int<class_int>`, custom_icon\: :ref:`Texture2D<class_Texture2D>`\ ) :ref:`🔗<class_GraphNode_method_set_slot_custom_icon_right>`
 
 Sets the custom :ref:`Texture2D<class_Texture2D>` of the right (output) side of the slot with the given ``slot_index`` to ``custom_icon``.
 
@@ -549,7 +641,7 @@ Sets the custom :ref:`Texture2D<class_Texture2D>` of the right (output) side of 
 
 .. rst-class:: classref-method
 
-|void| **set_slot_draw_stylebox**\ (\ slot_index\: :ref:`int<class_int>`, enable\: :ref:`bool<class_bool>`\ )
+|void| **set_slot_draw_stylebox**\ (\ slot_index\: :ref:`int<class_int>`, enable\: :ref:`bool<class_bool>`\ ) :ref:`🔗<class_GraphNode_method_set_slot_draw_stylebox>`
 
 Toggles the background :ref:`StyleBox<class_StyleBox>` of the slot with the given ``slot_index``.
 
@@ -561,7 +653,7 @@ Toggles the background :ref:`StyleBox<class_StyleBox>` of the slot with the give
 
 .. rst-class:: classref-method
 
-|void| **set_slot_enabled_left**\ (\ slot_index\: :ref:`int<class_int>`, enable\: :ref:`bool<class_bool>`\ )
+|void| **set_slot_enabled_left**\ (\ slot_index\: :ref:`int<class_int>`, enable\: :ref:`bool<class_bool>`\ ) :ref:`🔗<class_GraphNode_method_set_slot_enabled_left>`
 
 Toggles the left (input) side of the slot with the given ``slot_index``. If ``enable`` is ``true``, a port will appear on the left side and the slot will be able to be connected from this side.
 
@@ -573,9 +665,33 @@ Toggles the left (input) side of the slot with the given ``slot_index``. If ``en
 
 .. rst-class:: classref-method
 
-|void| **set_slot_enabled_right**\ (\ slot_index\: :ref:`int<class_int>`, enable\: :ref:`bool<class_bool>`\ )
+|void| **set_slot_enabled_right**\ (\ slot_index\: :ref:`int<class_int>`, enable\: :ref:`bool<class_bool>`\ ) :ref:`🔗<class_GraphNode_method_set_slot_enabled_right>`
 
 Toggles the right (output) side of the slot with the given ``slot_index``. If ``enable`` is ``true``, a port will appear on the right side and the slot will be able to be connected from this side.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_GraphNode_method_set_slot_metadata_left:
+
+.. rst-class:: classref-method
+
+|void| **set_slot_metadata_left**\ (\ slot_index\: :ref:`int<class_int>`, value\: :ref:`Variant<class_Variant>`\ ) :ref:`🔗<class_GraphNode_method_set_slot_metadata_left>`
+
+Sets the custom metadata for the left (input) side of the slot with the given ``slot_index`` to ``value``.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_GraphNode_method_set_slot_metadata_right:
+
+.. rst-class:: classref-method
+
+|void| **set_slot_metadata_right**\ (\ slot_index\: :ref:`int<class_int>`, value\: :ref:`Variant<class_Variant>`\ ) :ref:`🔗<class_GraphNode_method_set_slot_metadata_right>`
+
+Sets the custom metadata for the right (output) side of the slot with the given ``slot_index`` to ``value``.
 
 .. rst-class:: classref-item-separator
 
@@ -585,7 +701,7 @@ Toggles the right (output) side of the slot with the given ``slot_index``. If ``
 
 .. rst-class:: classref-method
 
-|void| **set_slot_type_left**\ (\ slot_index\: :ref:`int<class_int>`, type\: :ref:`int<class_int>`\ )
+|void| **set_slot_type_left**\ (\ slot_index\: :ref:`int<class_int>`, type\: :ref:`int<class_int>`\ ) :ref:`🔗<class_GraphNode_method_set_slot_type_left>`
 
 Sets the left (input) type of the slot with the given ``slot_index`` to ``type``. If the value is negative, all connections will be disallowed to be created via user inputs.
 
@@ -597,7 +713,7 @@ Sets the left (input) type of the slot with the given ``slot_index`` to ``type``
 
 .. rst-class:: classref-method
 
-|void| **set_slot_type_right**\ (\ slot_index\: :ref:`int<class_int>`, type\: :ref:`int<class_int>`\ )
+|void| **set_slot_type_right**\ (\ slot_index\: :ref:`int<class_int>`, type\: :ref:`int<class_int>`\ ) :ref:`🔗<class_GraphNode_method_set_slot_type_right>`
 
 Sets the right (output) type of the slot with the given ``slot_index`` to ``type``. If the value is negative, all connections will be disallowed to be created via user inputs.
 
@@ -614,7 +730,7 @@ Theme Property Descriptions
 
 .. rst-class:: classref-themeproperty
 
-:ref:`Color<class_Color>` **resizer_color** = ``Color(0.875, 0.875, 0.875, 1)``
+:ref:`Color<class_Color>` **resizer_color** = ``Color(0.875, 0.875, 0.875, 1)`` :ref:`🔗<class_GraphNode_theme_color_resizer_color>`
 
 The color modulation applied to the resizer icon.
 
@@ -626,7 +742,7 @@ The color modulation applied to the resizer icon.
 
 .. rst-class:: classref-themeproperty
 
-:ref:`int<class_int>` **port_h_offset** = ``0``
+:ref:`int<class_int>` **port_h_offset** = ``0`` :ref:`🔗<class_GraphNode_theme_constant_port_h_offset>`
 
 Horizontal offset for the ports.
 
@@ -638,7 +754,7 @@ Horizontal offset for the ports.
 
 .. rst-class:: classref-themeproperty
 
-:ref:`int<class_int>` **separation** = ``2``
+:ref:`int<class_int>` **separation** = ``2`` :ref:`🔗<class_GraphNode_theme_constant_separation>`
 
 The vertical distance between ports.
 
@@ -650,7 +766,7 @@ The vertical distance between ports.
 
 .. rst-class:: classref-themeproperty
 
-:ref:`Texture2D<class_Texture2D>` **port**
+:ref:`Texture2D<class_Texture2D>` **port** :ref:`🔗<class_GraphNode_theme_icon_port>`
 
 The icon used for representing ports.
 
@@ -662,9 +778,21 @@ The icon used for representing ports.
 
 .. rst-class:: classref-themeproperty
 
-:ref:`StyleBox<class_StyleBox>` **panel**
+:ref:`StyleBox<class_StyleBox>` **panel** :ref:`🔗<class_GraphNode_theme_style_panel>`
 
 The default background for the slot area of the **GraphNode**.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_GraphNode_theme_style_panel_focus:
+
+.. rst-class:: classref-themeproperty
+
+:ref:`StyleBox<class_StyleBox>` **panel_focus** :ref:`🔗<class_GraphNode_theme_style_panel_focus>`
+
+:ref:`StyleBox<class_StyleBox>` used when the **GraphNode** is focused (when used with assistive apps).
 
 .. rst-class:: classref-item-separator
 
@@ -674,7 +802,7 @@ The default background for the slot area of the **GraphNode**.
 
 .. rst-class:: classref-themeproperty
 
-:ref:`StyleBox<class_StyleBox>` **panel_selected**
+:ref:`StyleBox<class_StyleBox>` **panel_selected** :ref:`🔗<class_GraphNode_theme_style_panel_selected>`
 
 The :ref:`StyleBox<class_StyleBox>` used for the slot area when selected.
 
@@ -686,9 +814,21 @@ The :ref:`StyleBox<class_StyleBox>` used for the slot area when selected.
 
 .. rst-class:: classref-themeproperty
 
-:ref:`StyleBox<class_StyleBox>` **slot**
+:ref:`StyleBox<class_StyleBox>` **slot** :ref:`🔗<class_GraphNode_theme_style_slot>`
 
 The :ref:`StyleBox<class_StyleBox>` used for each slot of the **GraphNode**.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_GraphNode_theme_style_slot_selected:
+
+.. rst-class:: classref-themeproperty
+
+:ref:`StyleBox<class_StyleBox>` **slot_selected** :ref:`🔗<class_GraphNode_theme_style_slot_selected>`
+
+:ref:`StyleBox<class_StyleBox>` used when the slot is focused (when used with assistive apps).
 
 .. rst-class:: classref-item-separator
 
@@ -698,7 +838,7 @@ The :ref:`StyleBox<class_StyleBox>` used for each slot of the **GraphNode**.
 
 .. rst-class:: classref-themeproperty
 
-:ref:`StyleBox<class_StyleBox>` **titlebar**
+:ref:`StyleBox<class_StyleBox>` **titlebar** :ref:`🔗<class_GraphNode_theme_style_titlebar>`
 
 The :ref:`StyleBox<class_StyleBox>` used for the title bar of the **GraphNode**.
 
@@ -710,11 +850,12 @@ The :ref:`StyleBox<class_StyleBox>` used for the title bar of the **GraphNode**.
 
 .. rst-class:: classref-themeproperty
 
-:ref:`StyleBox<class_StyleBox>` **titlebar_selected**
+:ref:`StyleBox<class_StyleBox>` **titlebar_selected** :ref:`🔗<class_GraphNode_theme_style_titlebar_selected>`
 
 The :ref:`StyleBox<class_StyleBox>` used for the title bar of the **GraphNode** when it is selected.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

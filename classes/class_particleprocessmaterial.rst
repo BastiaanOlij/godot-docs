@@ -100,6 +100,8 @@ Properties
    +--------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------------+
    | :ref:`Vector3<class_Vector3>`                                      | :ref:`emission_ring_axis<class_ParticleProcessMaterial_property_emission_ring_axis>`                                   |                         |
    +--------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------------+
+   | :ref:`float<class_float>`                                          | :ref:`emission_ring_cone_angle<class_ParticleProcessMaterial_property_emission_ring_cone_angle>`                       |                         |
+   +--------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------------+
    | :ref:`float<class_float>`                                          | :ref:`emission_ring_height<class_ParticleProcessMaterial_property_emission_ring_height>`                               |                         |
    +--------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------------+
    | :ref:`float<class_float>`                                          | :ref:`emission_ring_inner_radius<class_ParticleProcessMaterial_property_emission_ring_inner_radius>`                   |                         |
@@ -164,6 +166,20 @@ Properties
    +--------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------------+
    | :ref:`float<class_float>`                                          | :ref:`radial_velocity_min<class_ParticleProcessMaterial_property_radial_velocity_min>`                                 | ``0.0``                 |
    +--------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------------+
+   | :ref:`Vector3<class_Vector3>`                                      | :ref:`rotation_3d_max<class_ParticleProcessMaterial_property_rotation_3d_max>`                                         |                         |
+   +--------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------------+
+   | :ref:`Vector3<class_Vector3>`                                      | :ref:`rotation_3d_min<class_ParticleProcessMaterial_property_rotation_3d_min>`                                         |                         |
+   +--------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------------+
+   | :ref:`Texture2D<class_Texture2D>`                                  | :ref:`rotation_velocity_3d_curve<class_ParticleProcessMaterial_property_rotation_velocity_3d_curve>`                   |                         |
+   +--------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------------+
+   | :ref:`Vector3<class_Vector3>`                                      | :ref:`rotation_velocity_3d_max<class_ParticleProcessMaterial_property_rotation_velocity_3d_max>`                       |                         |
+   +--------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------------+
+   | :ref:`Vector3<class_Vector3>`                                      | :ref:`rotation_velocity_3d_min<class_ParticleProcessMaterial_property_rotation_velocity_3d_min>`                       |                         |
+   +--------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------------+
+   | :ref:`Vector3<class_Vector3>`                                      | :ref:`scale_3d_max<class_ParticleProcessMaterial_property_scale_3d_max>`                                               |                         |
+   +--------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------------+
+   | :ref:`Vector3<class_Vector3>`                                      | :ref:`scale_3d_min<class_ParticleProcessMaterial_property_scale_3d_min>`                                               |                         |
+   +--------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------------+
    | :ref:`Texture2D<class_Texture2D>`                                  | :ref:`scale_curve<class_ParticleProcessMaterial_property_scale_curve>`                                                 |                         |
    +--------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------------+
    | :ref:`float<class_float>`                                          | :ref:`scale_max<class_ParticleProcessMaterial_property_scale_max>`                                                     | ``1.0``                 |
@@ -181,6 +197,8 @@ Properties
    | :ref:`int<class_int>`                                              | :ref:`sub_emitter_amount_at_collision<class_ParticleProcessMaterial_property_sub_emitter_amount_at_collision>`         |                         |
    +--------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------------+
    | :ref:`int<class_int>`                                              | :ref:`sub_emitter_amount_at_end<class_ParticleProcessMaterial_property_sub_emitter_amount_at_end>`                     |                         |
+   +--------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------------+
+   | :ref:`int<class_int>`                                              | :ref:`sub_emitter_amount_at_start<class_ParticleProcessMaterial_property_sub_emitter_amount_at_start>`                 |                         |
    +--------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------------+
    | :ref:`float<class_float>`                                          | :ref:`sub_emitter_frequency<class_ParticleProcessMaterial_property_sub_emitter_frequency>`                             |                         |
    +--------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------------+
@@ -213,6 +231,12 @@ Properties
    | :ref:`float<class_float>`                                          | :ref:`turbulence_noise_speed_random<class_ParticleProcessMaterial_property_turbulence_noise_speed_random>`             | ``0.2``                 |
    +--------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------------+
    | :ref:`float<class_float>`                                          | :ref:`turbulence_noise_strength<class_ParticleProcessMaterial_property_turbulence_noise_strength>`                     | ``1.0``                 |
+   +--------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------------+
+   | :ref:`bool<class_bool>`                                            | :ref:`use_rotation_3d<class_ParticleProcessMaterial_property_use_rotation_3d>`                                         | ``false``               |
+   +--------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------------+
+   | :ref:`bool<class_bool>`                                            | :ref:`use_rotation_velocity_3d<class_ParticleProcessMaterial_property_use_rotation_velocity_3d>`                       | ``false``               |
+   +--------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------------+
+   | :ref:`bool<class_bool>`                                            | :ref:`use_scale_3d<class_ParticleProcessMaterial_property_use_scale_3d>`                                               | ``false``               |
    +--------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------------+
    | :ref:`Texture2D<class_Texture2D>`                                  | :ref:`velocity_limit_curve<class_ParticleProcessMaterial_property_velocity_limit_curve>`                               |                         |
    +--------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------------------+
@@ -255,6 +279,25 @@ Methods
 
 .. rst-class:: classref-descriptions-group
 
+Signals
+-------
+
+.. _class_ParticleProcessMaterial_signal_emission_shape_changed:
+
+.. rst-class:: classref-signal
+
+**emission_shape_changed**\ (\ ) :ref:`🔗<class_ParticleProcessMaterial_signal_emission_shape_changed>`
+
+Emitted when this material's emission shape is changed in any way. This includes changes to :ref:`emission_shape<class_ParticleProcessMaterial_property_emission_shape>`, :ref:`emission_shape_scale<class_ParticleProcessMaterial_property_emission_shape_scale>`, or :ref:`emission_sphere_radius<class_ParticleProcessMaterial_property_emission_sphere_radius>`, and any other property that affects the emission shape's offset, size, scale, or orientation.
+
+\ **Note:** This signal is only emitted inside the editor for performance reasons.
+
+.. rst-class:: classref-section-separator
+
+----
+
+.. rst-class:: classref-descriptions-group
+
 Enumerations
 ------------
 
@@ -262,7 +305,7 @@ Enumerations
 
 .. rst-class:: classref-enumeration
 
-enum **Parameter**:
+enum **Parameter**: :ref:`🔗<enum_ParticleProcessMaterial_Parameter>`
 
 .. _class_ParticleProcessMaterial_constant_PARAM_INITIAL_LINEAR_VELOCITY:
 
@@ -270,7 +313,7 @@ enum **Parameter**:
 
 :ref:`Parameter<enum_ParticleProcessMaterial_Parameter>` **PARAM_INITIAL_LINEAR_VELOCITY** = ``0``
 
-Use with :ref:`set_param_min<class_ParticleProcessMaterial_method_set_param_min>`, :ref:`set_param_max<class_ParticleProcessMaterial_method_set_param_max>`, and :ref:`set_param_texture<class_ParticleProcessMaterial_method_set_param_texture>` to set initial velocity properties.
+Use with :ref:`set_param_min()<class_ParticleProcessMaterial_method_set_param_min>`, :ref:`set_param_max()<class_ParticleProcessMaterial_method_set_param_max>`, and :ref:`set_param_texture()<class_ParticleProcessMaterial_method_set_param_texture>` to set initial velocity properties.
 
 .. _class_ParticleProcessMaterial_constant_PARAM_ANGULAR_VELOCITY:
 
@@ -278,7 +321,7 @@ Use with :ref:`set_param_min<class_ParticleProcessMaterial_method_set_param_min>
 
 :ref:`Parameter<enum_ParticleProcessMaterial_Parameter>` **PARAM_ANGULAR_VELOCITY** = ``1``
 
-Use with :ref:`set_param_min<class_ParticleProcessMaterial_method_set_param_min>`, :ref:`set_param_max<class_ParticleProcessMaterial_method_set_param_max>`, and :ref:`set_param_texture<class_ParticleProcessMaterial_method_set_param_texture>` to set angular velocity properties.
+Use with :ref:`set_param_min()<class_ParticleProcessMaterial_method_set_param_min>`, :ref:`set_param_max()<class_ParticleProcessMaterial_method_set_param_max>`, and :ref:`set_param_texture()<class_ParticleProcessMaterial_method_set_param_texture>` to set angular velocity properties.
 
 .. _class_ParticleProcessMaterial_constant_PARAM_ORBIT_VELOCITY:
 
@@ -286,7 +329,7 @@ Use with :ref:`set_param_min<class_ParticleProcessMaterial_method_set_param_min>
 
 :ref:`Parameter<enum_ParticleProcessMaterial_Parameter>` **PARAM_ORBIT_VELOCITY** = ``2``
 
-Use with :ref:`set_param_min<class_ParticleProcessMaterial_method_set_param_min>`, :ref:`set_param_max<class_ParticleProcessMaterial_method_set_param_max>`, and :ref:`set_param_texture<class_ParticleProcessMaterial_method_set_param_texture>` to set orbital velocity properties.
+Use with :ref:`set_param_min()<class_ParticleProcessMaterial_method_set_param_min>`, :ref:`set_param_max()<class_ParticleProcessMaterial_method_set_param_max>`, and :ref:`set_param_texture()<class_ParticleProcessMaterial_method_set_param_texture>` to set orbital velocity properties.
 
 .. _class_ParticleProcessMaterial_constant_PARAM_LINEAR_ACCEL:
 
@@ -294,7 +337,7 @@ Use with :ref:`set_param_min<class_ParticleProcessMaterial_method_set_param_min>
 
 :ref:`Parameter<enum_ParticleProcessMaterial_Parameter>` **PARAM_LINEAR_ACCEL** = ``3``
 
-Use with :ref:`set_param_min<class_ParticleProcessMaterial_method_set_param_min>`, :ref:`set_param_max<class_ParticleProcessMaterial_method_set_param_max>`, and :ref:`set_param_texture<class_ParticleProcessMaterial_method_set_param_texture>` to set linear acceleration properties.
+Use with :ref:`set_param_min()<class_ParticleProcessMaterial_method_set_param_min>`, :ref:`set_param_max()<class_ParticleProcessMaterial_method_set_param_max>`, and :ref:`set_param_texture()<class_ParticleProcessMaterial_method_set_param_texture>` to set linear acceleration properties.
 
 .. _class_ParticleProcessMaterial_constant_PARAM_RADIAL_ACCEL:
 
@@ -302,7 +345,7 @@ Use with :ref:`set_param_min<class_ParticleProcessMaterial_method_set_param_min>
 
 :ref:`Parameter<enum_ParticleProcessMaterial_Parameter>` **PARAM_RADIAL_ACCEL** = ``4``
 
-Use with :ref:`set_param_min<class_ParticleProcessMaterial_method_set_param_min>`, :ref:`set_param_max<class_ParticleProcessMaterial_method_set_param_max>`, and :ref:`set_param_texture<class_ParticleProcessMaterial_method_set_param_texture>` to set radial acceleration properties.
+Use with :ref:`set_param_min()<class_ParticleProcessMaterial_method_set_param_min>`, :ref:`set_param_max()<class_ParticleProcessMaterial_method_set_param_max>`, and :ref:`set_param_texture()<class_ParticleProcessMaterial_method_set_param_texture>` to set radial acceleration properties.
 
 .. _class_ParticleProcessMaterial_constant_PARAM_TANGENTIAL_ACCEL:
 
@@ -310,7 +353,7 @@ Use with :ref:`set_param_min<class_ParticleProcessMaterial_method_set_param_min>
 
 :ref:`Parameter<enum_ParticleProcessMaterial_Parameter>` **PARAM_TANGENTIAL_ACCEL** = ``5``
 
-Use with :ref:`set_param_min<class_ParticleProcessMaterial_method_set_param_min>`, :ref:`set_param_max<class_ParticleProcessMaterial_method_set_param_max>`, and :ref:`set_param_texture<class_ParticleProcessMaterial_method_set_param_texture>` to set tangential acceleration properties.
+Use with :ref:`set_param_min()<class_ParticleProcessMaterial_method_set_param_min>`, :ref:`set_param_max()<class_ParticleProcessMaterial_method_set_param_max>`, and :ref:`set_param_texture()<class_ParticleProcessMaterial_method_set_param_texture>` to set tangential acceleration properties.
 
 .. _class_ParticleProcessMaterial_constant_PARAM_DAMPING:
 
@@ -318,7 +361,7 @@ Use with :ref:`set_param_min<class_ParticleProcessMaterial_method_set_param_min>
 
 :ref:`Parameter<enum_ParticleProcessMaterial_Parameter>` **PARAM_DAMPING** = ``6``
 
-Use with :ref:`set_param_min<class_ParticleProcessMaterial_method_set_param_min>`, :ref:`set_param_max<class_ParticleProcessMaterial_method_set_param_max>`, and :ref:`set_param_texture<class_ParticleProcessMaterial_method_set_param_texture>` to set damping properties.
+Use with :ref:`set_param_min()<class_ParticleProcessMaterial_method_set_param_min>`, :ref:`set_param_max()<class_ParticleProcessMaterial_method_set_param_max>`, and :ref:`set_param_texture()<class_ParticleProcessMaterial_method_set_param_texture>` to set damping properties.
 
 .. _class_ParticleProcessMaterial_constant_PARAM_ANGLE:
 
@@ -326,7 +369,7 @@ Use with :ref:`set_param_min<class_ParticleProcessMaterial_method_set_param_min>
 
 :ref:`Parameter<enum_ParticleProcessMaterial_Parameter>` **PARAM_ANGLE** = ``7``
 
-Use with :ref:`set_param_min<class_ParticleProcessMaterial_method_set_param_min>`, :ref:`set_param_max<class_ParticleProcessMaterial_method_set_param_max>`, and :ref:`set_param_texture<class_ParticleProcessMaterial_method_set_param_texture>` to set angle properties.
+Use with :ref:`set_param_min()<class_ParticleProcessMaterial_method_set_param_min>`, :ref:`set_param_max()<class_ParticleProcessMaterial_method_set_param_max>`, and :ref:`set_param_texture()<class_ParticleProcessMaterial_method_set_param_texture>` to set angle properties.
 
 .. _class_ParticleProcessMaterial_constant_PARAM_SCALE:
 
@@ -334,7 +377,7 @@ Use with :ref:`set_param_min<class_ParticleProcessMaterial_method_set_param_min>
 
 :ref:`Parameter<enum_ParticleProcessMaterial_Parameter>` **PARAM_SCALE** = ``8``
 
-Use with :ref:`set_param_min<class_ParticleProcessMaterial_method_set_param_min>`, :ref:`set_param_max<class_ParticleProcessMaterial_method_set_param_max>`, and :ref:`set_param_texture<class_ParticleProcessMaterial_method_set_param_texture>` to set scale properties.
+Use with :ref:`set_param_min()<class_ParticleProcessMaterial_method_set_param_min>`, :ref:`set_param_max()<class_ParticleProcessMaterial_method_set_param_max>`, and :ref:`set_param_texture()<class_ParticleProcessMaterial_method_set_param_texture>` to set scale properties.
 
 .. _class_ParticleProcessMaterial_constant_PARAM_HUE_VARIATION:
 
@@ -342,7 +385,7 @@ Use with :ref:`set_param_min<class_ParticleProcessMaterial_method_set_param_min>
 
 :ref:`Parameter<enum_ParticleProcessMaterial_Parameter>` **PARAM_HUE_VARIATION** = ``9``
 
-Use with :ref:`set_param_min<class_ParticleProcessMaterial_method_set_param_min>`, :ref:`set_param_max<class_ParticleProcessMaterial_method_set_param_max>`, and :ref:`set_param_texture<class_ParticleProcessMaterial_method_set_param_texture>` to set hue variation properties.
+Use with :ref:`set_param_min()<class_ParticleProcessMaterial_method_set_param_min>`, :ref:`set_param_max()<class_ParticleProcessMaterial_method_set_param_max>`, and :ref:`set_param_texture()<class_ParticleProcessMaterial_method_set_param_texture>` to set hue variation properties.
 
 .. _class_ParticleProcessMaterial_constant_PARAM_ANIM_SPEED:
 
@@ -350,7 +393,7 @@ Use with :ref:`set_param_min<class_ParticleProcessMaterial_method_set_param_min>
 
 :ref:`Parameter<enum_ParticleProcessMaterial_Parameter>` **PARAM_ANIM_SPEED** = ``10``
 
-Use with :ref:`set_param_min<class_ParticleProcessMaterial_method_set_param_min>`, :ref:`set_param_max<class_ParticleProcessMaterial_method_set_param_max>`, and :ref:`set_param_texture<class_ParticleProcessMaterial_method_set_param_texture>` to set animation speed properties.
+Use with :ref:`set_param_min()<class_ParticleProcessMaterial_method_set_param_min>`, :ref:`set_param_max()<class_ParticleProcessMaterial_method_set_param_max>`, and :ref:`set_param_texture()<class_ParticleProcessMaterial_method_set_param_texture>` to set animation speed properties.
 
 .. _class_ParticleProcessMaterial_constant_PARAM_ANIM_OFFSET:
 
@@ -358,7 +401,7 @@ Use with :ref:`set_param_min<class_ParticleProcessMaterial_method_set_param_min>
 
 :ref:`Parameter<enum_ParticleProcessMaterial_Parameter>` **PARAM_ANIM_OFFSET** = ``11``
 
-Use with :ref:`set_param_min<class_ParticleProcessMaterial_method_set_param_min>`, :ref:`set_param_max<class_ParticleProcessMaterial_method_set_param_max>`, and :ref:`set_param_texture<class_ParticleProcessMaterial_method_set_param_texture>` to set animation offset properties.
+Use with :ref:`set_param_min()<class_ParticleProcessMaterial_method_set_param_min>`, :ref:`set_param_max()<class_ParticleProcessMaterial_method_set_param_max>`, and :ref:`set_param_texture()<class_ParticleProcessMaterial_method_set_param_texture>` to set animation offset properties.
 
 .. _class_ParticleProcessMaterial_constant_PARAM_RADIAL_VELOCITY:
 
@@ -366,7 +409,7 @@ Use with :ref:`set_param_min<class_ParticleProcessMaterial_method_set_param_min>
 
 :ref:`Parameter<enum_ParticleProcessMaterial_Parameter>` **PARAM_RADIAL_VELOCITY** = ``15``
 
-Use with :ref:`set_param_min<class_ParticleProcessMaterial_method_set_param_min>`, :ref:`set_param_max<class_ParticleProcessMaterial_method_set_param_max>`, and :ref:`set_param_texture<class_ParticleProcessMaterial_method_set_param_texture>` to set radial velocity properties.
+Use with :ref:`set_param_min()<class_ParticleProcessMaterial_method_set_param_min>`, :ref:`set_param_max()<class_ParticleProcessMaterial_method_set_param_max>`, and :ref:`set_param_texture()<class_ParticleProcessMaterial_method_set_param_texture>` to set radial velocity properties.
 
 .. _class_ParticleProcessMaterial_constant_PARAM_DIRECTIONAL_VELOCITY:
 
@@ -374,7 +417,7 @@ Use with :ref:`set_param_min<class_ParticleProcessMaterial_method_set_param_min>
 
 :ref:`Parameter<enum_ParticleProcessMaterial_Parameter>` **PARAM_DIRECTIONAL_VELOCITY** = ``16``
 
-Use with :ref:`set_param_min<class_ParticleProcessMaterial_method_set_param_min>`, :ref:`set_param_max<class_ParticleProcessMaterial_method_set_param_max>`, and :ref:`set_param_texture<class_ParticleProcessMaterial_method_set_param_texture>` to set directional velocity properties.
+Use with :ref:`set_param_min()<class_ParticleProcessMaterial_method_set_param_min>`, :ref:`set_param_max()<class_ParticleProcessMaterial_method_set_param_max>`, and :ref:`set_param_texture()<class_ParticleProcessMaterial_method_set_param_texture>` to set directional velocity properties.
 
 .. _class_ParticleProcessMaterial_constant_PARAM_SCALE_OVER_VELOCITY:
 
@@ -382,7 +425,7 @@ Use with :ref:`set_param_min<class_ParticleProcessMaterial_method_set_param_min>
 
 :ref:`Parameter<enum_ParticleProcessMaterial_Parameter>` **PARAM_SCALE_OVER_VELOCITY** = ``17``
 
-Use with :ref:`set_param_min<class_ParticleProcessMaterial_method_set_param_min>`, :ref:`set_param_max<class_ParticleProcessMaterial_method_set_param_max>`, and :ref:`set_param_texture<class_ParticleProcessMaterial_method_set_param_texture>` to set scale over velocity properties.
+Use with :ref:`set_param_min()<class_ParticleProcessMaterial_method_set_param_min>`, :ref:`set_param_max()<class_ParticleProcessMaterial_method_set_param_max>`, and :ref:`set_param_texture()<class_ParticleProcessMaterial_method_set_param_texture>` to set scale over velocity properties.
 
 .. _class_ParticleProcessMaterial_constant_PARAM_MAX:
 
@@ -398,7 +441,7 @@ Represents the size of the :ref:`Parameter<enum_ParticleProcessMaterial_Paramete
 
 :ref:`Parameter<enum_ParticleProcessMaterial_Parameter>` **PARAM_TURB_VEL_INFLUENCE** = ``13``
 
-Use with :ref:`set_param_min<class_ParticleProcessMaterial_method_set_param_min>` and :ref:`set_param_max<class_ParticleProcessMaterial_method_set_param_max>` to set the turbulence minimum und maximum influence on each particles velocity.
+Use with :ref:`set_param_min()<class_ParticleProcessMaterial_method_set_param_min>` and :ref:`set_param_max()<class_ParticleProcessMaterial_method_set_param_max>` to set the turbulence minimum und maximum influence on each particles velocity.
 
 .. _class_ParticleProcessMaterial_constant_PARAM_TURB_INIT_DISPLACEMENT:
 
@@ -406,7 +449,7 @@ Use with :ref:`set_param_min<class_ParticleProcessMaterial_method_set_param_min>
 
 :ref:`Parameter<enum_ParticleProcessMaterial_Parameter>` **PARAM_TURB_INIT_DISPLACEMENT** = ``14``
 
-Use with :ref:`set_param_min<class_ParticleProcessMaterial_method_set_param_min>` and :ref:`set_param_max<class_ParticleProcessMaterial_method_set_param_max>` to set the turbulence minimum and maximum displacement of the particles spawn position.
+Use with :ref:`set_param_min()<class_ParticleProcessMaterial_method_set_param_min>` and :ref:`set_param_max()<class_ParticleProcessMaterial_method_set_param_max>` to set the turbulence minimum and maximum displacement of the particles spawn position.
 
 .. _class_ParticleProcessMaterial_constant_PARAM_TURB_INFLUENCE_OVER_LIFE:
 
@@ -414,7 +457,7 @@ Use with :ref:`set_param_min<class_ParticleProcessMaterial_method_set_param_min>
 
 :ref:`Parameter<enum_ParticleProcessMaterial_Parameter>` **PARAM_TURB_INFLUENCE_OVER_LIFE** = ``12``
 
-Use with :ref:`set_param_texture<class_ParticleProcessMaterial_method_set_param_texture>` to set the turbulence influence over the particles life time.
+Use with :ref:`set_param_texture()<class_ParticleProcessMaterial_method_set_param_texture>` to set the turbulence influence over the particles life time.
 
 .. rst-class:: classref-item-separator
 
@@ -424,7 +467,7 @@ Use with :ref:`set_param_texture<class_ParticleProcessMaterial_method_set_param_
 
 .. rst-class:: classref-enumeration
 
-enum **ParticleFlags**:
+enum **ParticleFlags**: :ref:`🔗<enum_ParticleProcessMaterial_ParticleFlags>`
 
 .. _class_ParticleProcessMaterial_constant_PARTICLE_FLAG_ALIGN_Y_TO_VELOCITY:
 
@@ -432,7 +475,7 @@ enum **ParticleFlags**:
 
 :ref:`ParticleFlags<enum_ParticleProcessMaterial_ParticleFlags>` **PARTICLE_FLAG_ALIGN_Y_TO_VELOCITY** = ``0``
 
-Use with :ref:`set_particle_flag<class_ParticleProcessMaterial_method_set_particle_flag>` to set :ref:`particle_flag_align_y<class_ParticleProcessMaterial_property_particle_flag_align_y>`.
+Use with :ref:`set_particle_flag()<class_ParticleProcessMaterial_method_set_particle_flag>` to set :ref:`particle_flag_align_y<class_ParticleProcessMaterial_property_particle_flag_align_y>`.
 
 .. _class_ParticleProcessMaterial_constant_PARTICLE_FLAG_ROTATE_Y:
 
@@ -440,7 +483,7 @@ Use with :ref:`set_particle_flag<class_ParticleProcessMaterial_method_set_partic
 
 :ref:`ParticleFlags<enum_ParticleProcessMaterial_ParticleFlags>` **PARTICLE_FLAG_ROTATE_Y** = ``1``
 
-Use with :ref:`set_particle_flag<class_ParticleProcessMaterial_method_set_particle_flag>` to set :ref:`particle_flag_rotate_y<class_ParticleProcessMaterial_property_particle_flag_rotate_y>`.
+Use with :ref:`set_particle_flag()<class_ParticleProcessMaterial_method_set_particle_flag>` to set :ref:`particle_flag_rotate_y<class_ParticleProcessMaterial_property_particle_flag_rotate_y>`.
 
 .. _class_ParticleProcessMaterial_constant_PARTICLE_FLAG_DISABLE_Z:
 
@@ -448,7 +491,7 @@ Use with :ref:`set_particle_flag<class_ParticleProcessMaterial_method_set_partic
 
 :ref:`ParticleFlags<enum_ParticleProcessMaterial_ParticleFlags>` **PARTICLE_FLAG_DISABLE_Z** = ``2``
 
-Use with :ref:`set_particle_flag<class_ParticleProcessMaterial_method_set_particle_flag>` to set :ref:`particle_flag_disable_z<class_ParticleProcessMaterial_property_particle_flag_disable_z>`.
+Use with :ref:`set_particle_flag()<class_ParticleProcessMaterial_method_set_particle_flag>` to set :ref:`particle_flag_disable_z<class_ParticleProcessMaterial_property_particle_flag_disable_z>`.
 
 .. _class_ParticleProcessMaterial_constant_PARTICLE_FLAG_DAMPING_AS_FRICTION:
 
@@ -458,7 +501,7 @@ Use with :ref:`set_particle_flag<class_ParticleProcessMaterial_method_set_partic
 
 .. container:: contribute
 
-	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+	There is currently no description for this enum. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!
 
 
 
@@ -478,7 +521,7 @@ Represents the size of the :ref:`ParticleFlags<enum_ParticleProcessMaterial_Part
 
 .. rst-class:: classref-enumeration
 
-enum **EmissionShape**:
+enum **EmissionShape**: :ref:`🔗<enum_ParticleProcessMaterial_EmissionShape>`
 
 .. _class_ParticleProcessMaterial_constant_EMISSION_SHAPE_POINT:
 
@@ -552,7 +595,7 @@ Represents the size of the :ref:`EmissionShape<enum_ParticleProcessMaterial_Emis
 
 .. rst-class:: classref-enumeration
 
-enum **SubEmitterMode**:
+enum **SubEmitterMode**: :ref:`🔗<enum_ParticleProcessMaterial_SubEmitterMode>`
 
 .. _class_ParticleProcessMaterial_constant_SUB_EMITTER_DISABLED:
 
@@ -560,11 +603,7 @@ enum **SubEmitterMode**:
 
 :ref:`SubEmitterMode<enum_ParticleProcessMaterial_SubEmitterMode>` **SUB_EMITTER_DISABLED** = ``0``
 
-.. container:: contribute
-
-	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
-
-
+The subemitter is disabled.
 
 .. _class_ParticleProcessMaterial_constant_SUB_EMITTER_CONSTANT:
 
@@ -572,11 +611,7 @@ enum **SubEmitterMode**:
 
 :ref:`SubEmitterMode<enum_ParticleProcessMaterial_SubEmitterMode>` **SUB_EMITTER_CONSTANT** = ``1``
 
-.. container:: contribute
-
-	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
-
-
+The submitter is emitted on the constant interval defined by :ref:`sub_emitter_frequency<class_ParticleProcessMaterial_property_sub_emitter_frequency>`.
 
 .. _class_ParticleProcessMaterial_constant_SUB_EMITTER_AT_END:
 
@@ -584,11 +619,7 @@ enum **SubEmitterMode**:
 
 :ref:`SubEmitterMode<enum_ParticleProcessMaterial_SubEmitterMode>` **SUB_EMITTER_AT_END** = ``2``
 
-.. container:: contribute
-
-	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
-
-
+The subemitter is emitted at the end of the particle's lifetime.
 
 .. _class_ParticleProcessMaterial_constant_SUB_EMITTER_AT_COLLISION:
 
@@ -596,17 +627,21 @@ enum **SubEmitterMode**:
 
 :ref:`SubEmitterMode<enum_ParticleProcessMaterial_SubEmitterMode>` **SUB_EMITTER_AT_COLLISION** = ``3``
 
-.. container:: contribute
+The subemitter is emitted when the particle collides.
 
-	There is currently no description for this enum. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+.. _class_ParticleProcessMaterial_constant_SUB_EMITTER_AT_START:
 
+.. rst-class:: classref-enumeration-constant
 
+:ref:`SubEmitterMode<enum_ParticleProcessMaterial_SubEmitterMode>` **SUB_EMITTER_AT_START** = ``4``
+
+The subemitter is emitted when the particle spawns.
 
 .. _class_ParticleProcessMaterial_constant_SUB_EMITTER_MAX:
 
 .. rst-class:: classref-enumeration-constant
 
-:ref:`SubEmitterMode<enum_ParticleProcessMaterial_SubEmitterMode>` **SUB_EMITTER_MAX** = ``4``
+:ref:`SubEmitterMode<enum_ParticleProcessMaterial_SubEmitterMode>` **SUB_EMITTER_MAX** = ``5``
 
 Represents the size of the :ref:`SubEmitterMode<enum_ParticleProcessMaterial_SubEmitterMode>` enum.
 
@@ -618,7 +653,7 @@ Represents the size of the :ref:`SubEmitterMode<enum_ParticleProcessMaterial_Sub
 
 .. rst-class:: classref-enumeration
 
-enum **CollisionMode**:
+enum **CollisionMode**: :ref:`🔗<enum_ParticleProcessMaterial_CollisionMode>`
 
 .. _class_ParticleProcessMaterial_constant_COLLISION_DISABLED:
 
@@ -665,7 +700,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`Texture2D<class_Texture2D>` **alpha_curve**
+:ref:`Texture2D<class_Texture2D>` **alpha_curve** :ref:`🔗<class_ParticleProcessMaterial_property_alpha_curve>`
 
 .. rst-class:: classref-property-setget
 
@@ -673,6 +708,8 @@ Property Descriptions
 - :ref:`Texture2D<class_Texture2D>` **get_alpha_curve**\ (\ )
 
 The alpha value of each particle's color will be multiplied by this :ref:`CurveTexture<class_CurveTexture>` over its lifetime.
+
+\ **Note:** :ref:`alpha_curve<class_ParticleProcessMaterial_property_alpha_curve>` multiplies the particle mesh's vertex colors. To have a visible effect on a :ref:`BaseMaterial3D<class_BaseMaterial3D>`, :ref:`BaseMaterial3D.vertex_color_use_as_albedo<class_BaseMaterial3D_property_vertex_color_use_as_albedo>` *must* be ``true``. For a :ref:`ShaderMaterial<class_ShaderMaterial>`, ``ALPHA *= COLOR.a;`` must be inserted in the shader's ``fragment()`` function. Otherwise, :ref:`alpha_curve<class_ParticleProcessMaterial_property_alpha_curve>` will have no visible effect.
 
 .. rst-class:: classref-item-separator
 
@@ -682,7 +719,7 @@ The alpha value of each particle's color will be multiplied by this :ref:`CurveT
 
 .. rst-class:: classref-property
 
-:ref:`Texture2D<class_Texture2D>` **angle_curve**
+:ref:`Texture2D<class_Texture2D>` **angle_curve** :ref:`🔗<class_ParticleProcessMaterial_property_angle_curve>`
 
 .. rst-class:: classref-property-setget
 
@@ -699,7 +736,7 @@ Each particle's rotation will be animated along this :ref:`CurveTexture<class_Cu
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **angle_max** = ``0.0``
+:ref:`float<class_float>` **angle_max** = ``0.0`` :ref:`🔗<class_ParticleProcessMaterial_property_angle_max>`
 
 .. rst-class:: classref-property-setget
 
@@ -718,7 +755,7 @@ Only applied when :ref:`particle_flag_disable_z<class_ParticleProcessMaterial_pr
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **angle_min** = ``0.0``
+:ref:`float<class_float>` **angle_min** = ``0.0`` :ref:`🔗<class_ParticleProcessMaterial_property_angle_min>`
 
 .. rst-class:: classref-property-setget
 
@@ -735,7 +772,7 @@ Minimum equivalent of :ref:`angle_max<class_ParticleProcessMaterial_property_ang
 
 .. rst-class:: classref-property
 
-:ref:`Texture2D<class_Texture2D>` **angular_velocity_curve**
+:ref:`Texture2D<class_Texture2D>` **angular_velocity_curve** :ref:`🔗<class_ParticleProcessMaterial_property_angular_velocity_curve>`
 
 .. rst-class:: classref-property-setget
 
@@ -752,7 +789,7 @@ Each particle's angular velocity (rotation speed) will vary along this :ref:`Cur
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **angular_velocity_max** = ``0.0``
+:ref:`float<class_float>` **angular_velocity_max** = ``0.0`` :ref:`🔗<class_ParticleProcessMaterial_property_angular_velocity_max>`
 
 .. rst-class:: classref-property-setget
 
@@ -771,7 +808,7 @@ Only applied when :ref:`particle_flag_disable_z<class_ParticleProcessMaterial_pr
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **angular_velocity_min** = ``0.0``
+:ref:`float<class_float>` **angular_velocity_min** = ``0.0`` :ref:`🔗<class_ParticleProcessMaterial_property_angular_velocity_min>`
 
 .. rst-class:: classref-property-setget
 
@@ -788,7 +825,7 @@ Minimum equivalent of :ref:`angular_velocity_max<class_ParticleProcessMaterial_p
 
 .. rst-class:: classref-property
 
-:ref:`Texture2D<class_Texture2D>` **anim_offset_curve**
+:ref:`Texture2D<class_Texture2D>` **anim_offset_curve** :ref:`🔗<class_ParticleProcessMaterial_property_anim_offset_curve>`
 
 .. rst-class:: classref-property-setget
 
@@ -805,7 +842,7 @@ Each particle's animation offset will vary along this :ref:`CurveTexture<class_C
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **anim_offset_max** = ``0.0``
+:ref:`float<class_float>` **anim_offset_max** = ``0.0`` :ref:`🔗<class_ParticleProcessMaterial_property_anim_offset_max>`
 
 .. rst-class:: classref-property-setget
 
@@ -822,7 +859,7 @@ Maximum animation offset that corresponds to frame index in the texture. ``0`` i
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **anim_offset_min** = ``0.0``
+:ref:`float<class_float>` **anim_offset_min** = ``0.0`` :ref:`🔗<class_ParticleProcessMaterial_property_anim_offset_min>`
 
 .. rst-class:: classref-property-setget
 
@@ -839,7 +876,7 @@ Minimum equivalent of :ref:`anim_offset_max<class_ParticleProcessMaterial_proper
 
 .. rst-class:: classref-property
 
-:ref:`Texture2D<class_Texture2D>` **anim_speed_curve**
+:ref:`Texture2D<class_Texture2D>` **anim_speed_curve** :ref:`🔗<class_ParticleProcessMaterial_property_anim_speed_curve>`
 
 .. rst-class:: classref-property-setget
 
@@ -856,7 +893,7 @@ Each particle's animation speed will vary along this :ref:`CurveTexture<class_Cu
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **anim_speed_max** = ``0.0``
+:ref:`float<class_float>` **anim_speed_max** = ``0.0`` :ref:`🔗<class_ParticleProcessMaterial_property_anim_speed_max>`
 
 .. rst-class:: classref-property-setget
 
@@ -875,7 +912,7 @@ With animation speed greater than ``1``, remember to enable :ref:`CanvasItemMate
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **anim_speed_min** = ``0.0``
+:ref:`float<class_float>` **anim_speed_min** = ``0.0`` :ref:`🔗<class_ParticleProcessMaterial_property_anim_speed_min>`
 
 .. rst-class:: classref-property-setget
 
@@ -892,7 +929,7 @@ Minimum equivalent of :ref:`anim_speed_max<class_ParticleProcessMaterial_propert
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **attractor_interaction_enabled** = ``true``
+:ref:`bool<class_bool>` **attractor_interaction_enabled** = ``true`` :ref:`🔗<class_ParticleProcessMaterial_property_attractor_interaction_enabled>`
 
 .. rst-class:: classref-property-setget
 
@@ -909,7 +946,7 @@ If ``true``, interaction with particle attractors is enabled. In 3D, attraction 
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **collision_bounce**
+:ref:`float<class_float>` **collision_bounce** :ref:`🔗<class_ParticleProcessMaterial_property_collision_bounce>`
 
 .. rst-class:: classref-property-setget
 
@@ -926,7 +963,7 @@ The particles' bounciness. Values range from ``0`` (no bounce) to ``1`` (full bo
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **collision_friction**
+:ref:`float<class_float>` **collision_friction** :ref:`🔗<class_ParticleProcessMaterial_property_collision_friction>`
 
 .. rst-class:: classref-property-setget
 
@@ -943,7 +980,7 @@ The particles' friction. Values range from ``0`` (frictionless) to ``1`` (maximu
 
 .. rst-class:: classref-property
 
-:ref:`CollisionMode<enum_ParticleProcessMaterial_CollisionMode>` **collision_mode** = ``0``
+:ref:`CollisionMode<enum_ParticleProcessMaterial_CollisionMode>` **collision_mode** = ``0`` :ref:`🔗<class_ParticleProcessMaterial_property_collision_mode>`
 
 .. rst-class:: classref-property-setget
 
@@ -964,7 +1001,7 @@ The particles' collision mode.
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **collision_use_scale** = ``false``
+:ref:`bool<class_bool>` **collision_use_scale** = ``false`` :ref:`🔗<class_ParticleProcessMaterial_property_collision_use_scale>`
 
 .. rst-class:: classref-property-setget
 
@@ -981,7 +1018,7 @@ If ``true``, :ref:`GPUParticles3D.collision_base_size<class_GPUParticles3D_prope
 
 .. rst-class:: classref-property
 
-:ref:`Color<class_Color>` **color** = ``Color(1, 1, 1, 1)``
+:ref:`Color<class_Color>` **color** = ``Color(1, 1, 1, 1)`` :ref:`🔗<class_ParticleProcessMaterial_property_color>`
 
 .. rst-class:: classref-property-setget
 
@@ -1000,7 +1037,7 @@ Each particle's initial color. If the :ref:`GPUParticles2D<class_GPUParticles2D>
 
 .. rst-class:: classref-property
 
-:ref:`Texture2D<class_Texture2D>` **color_initial_ramp**
+:ref:`Texture2D<class_Texture2D>` **color_initial_ramp** :ref:`🔗<class_ParticleProcessMaterial_property_color_initial_ramp>`
 
 .. rst-class:: classref-property-setget
 
@@ -1019,7 +1056,7 @@ Each particle's initial color will vary along this :ref:`GradientTexture1D<class
 
 .. rst-class:: classref-property
 
-:ref:`Texture2D<class_Texture2D>` **color_ramp**
+:ref:`Texture2D<class_Texture2D>` **color_ramp** :ref:`🔗<class_ParticleProcessMaterial_property_color_ramp>`
 
 .. rst-class:: classref-property-setget
 
@@ -1038,7 +1075,7 @@ Each particle's color will vary along this :ref:`GradientTexture1D<class_Gradien
 
 .. rst-class:: classref-property
 
-:ref:`Texture2D<class_Texture2D>` **damping_curve**
+:ref:`Texture2D<class_Texture2D>` **damping_curve** :ref:`🔗<class_ParticleProcessMaterial_property_damping_curve>`
 
 .. rst-class:: classref-property-setget
 
@@ -1055,7 +1092,7 @@ Damping will vary along this :ref:`CurveTexture<class_CurveTexture>`.
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **damping_max** = ``0.0``
+:ref:`float<class_float>` **damping_max** = ``0.0`` :ref:`🔗<class_ParticleProcessMaterial_property_damping_max>`
 
 .. rst-class:: classref-property-setget
 
@@ -1072,7 +1109,7 @@ The maximum rate at which particles lose velocity. For example value of ``100`` 
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **damping_min** = ``0.0``
+:ref:`float<class_float>` **damping_min** = ``0.0`` :ref:`🔗<class_ParticleProcessMaterial_property_damping_min>`
 
 .. rst-class:: classref-property-setget
 
@@ -1089,7 +1126,7 @@ Minimum equivalent of :ref:`damping_max<class_ParticleProcessMaterial_property_d
 
 .. rst-class:: classref-property
 
-:ref:`Vector3<class_Vector3>` **direction** = ``Vector3(1, 0, 0)``
+:ref:`Vector3<class_Vector3>` **direction** = ``Vector3(1, 0, 0)`` :ref:`🔗<class_ParticleProcessMaterial_property_direction>`
 
 .. rst-class:: classref-property-setget
 
@@ -1106,7 +1143,7 @@ Unit vector specifying the particles' emission direction.
 
 .. rst-class:: classref-property
 
-:ref:`Texture2D<class_Texture2D>` **directional_velocity_curve**
+:ref:`Texture2D<class_Texture2D>` **directional_velocity_curve** :ref:`🔗<class_ParticleProcessMaterial_property_directional_velocity_curve>`
 
 .. rst-class:: classref-property-setget
 
@@ -1125,7 +1162,7 @@ A curve that specifies the velocity along each of the axes of the particle syste
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **directional_velocity_max**
+:ref:`float<class_float>` **directional_velocity_max** :ref:`🔗<class_ParticleProcessMaterial_property_directional_velocity_max>`
 
 .. rst-class:: classref-property-setget
 
@@ -1144,7 +1181,7 @@ Maximum directional velocity value, which is multiplied by :ref:`directional_vel
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **directional_velocity_min**
+:ref:`float<class_float>` **directional_velocity_min** :ref:`🔗<class_ParticleProcessMaterial_property_directional_velocity_min>`
 
 .. rst-class:: classref-property-setget
 
@@ -1163,7 +1200,7 @@ Minimum directional velocity value, which is multiplied by :ref:`directional_vel
 
 .. rst-class:: classref-property
 
-:ref:`Vector3<class_Vector3>` **emission_box_extents**
+:ref:`Vector3<class_Vector3>` **emission_box_extents** :ref:`🔗<class_ParticleProcessMaterial_property_emission_box_extents>`
 
 .. rst-class:: classref-property-setget
 
@@ -1171,6 +1208,8 @@ Minimum directional velocity value, which is multiplied by :ref:`directional_vel
 - :ref:`Vector3<class_Vector3>` **get_emission_box_extents**\ (\ )
 
 The box's extents if :ref:`emission_shape<class_ParticleProcessMaterial_property_emission_shape>` is set to :ref:`EMISSION_SHAPE_BOX<class_ParticleProcessMaterial_constant_EMISSION_SHAPE_BOX>`.
+
+\ **Note:** :ref:`emission_box_extents<class_ParticleProcessMaterial_property_emission_box_extents>` starts from the center point and applies the X, Y, and Z values in both directions. The size is twice the area of the extents.
 
 .. rst-class:: classref-item-separator
 
@@ -1180,7 +1219,7 @@ The box's extents if :ref:`emission_shape<class_ParticleProcessMaterial_property
 
 .. rst-class:: classref-property
 
-:ref:`Texture2D<class_Texture2D>` **emission_color_texture**
+:ref:`Texture2D<class_Texture2D>` **emission_color_texture** :ref:`🔗<class_ParticleProcessMaterial_property_emission_color_texture>`
 
 .. rst-class:: classref-property-setget
 
@@ -1199,7 +1238,7 @@ Particle color will be modulated by color determined by sampling this texture at
 
 .. rst-class:: classref-property
 
-:ref:`Texture2D<class_Texture2D>` **emission_curve**
+:ref:`Texture2D<class_Texture2D>` **emission_curve** :ref:`🔗<class_ParticleProcessMaterial_property_emission_curve>`
 
 .. rst-class:: classref-property-setget
 
@@ -1208,7 +1247,7 @@ Particle color will be modulated by color determined by sampling this texture at
 
 Each particle's color will be multiplied by this :ref:`CurveTexture<class_CurveTexture>` over its lifetime.
 
-\ **Note:** This property won't have a visible effect unless the render material is marked as unshaded.
+\ **Note:** :ref:`emission_curve<class_ParticleProcessMaterial_property_emission_curve>` multiplies the particle mesh's vertex colors. To have a visible effect on a :ref:`BaseMaterial3D<class_BaseMaterial3D>`, :ref:`BaseMaterial3D.vertex_color_use_as_albedo<class_BaseMaterial3D_property_vertex_color_use_as_albedo>` *must* be ``true``. For a :ref:`ShaderMaterial<class_ShaderMaterial>`, ``ALBEDO *= COLOR.rgb;`` must be inserted in the shader's ``fragment()`` function. Otherwise, :ref:`emission_curve<class_ParticleProcessMaterial_property_emission_curve>` will have no visible effect.
 
 .. rst-class:: classref-item-separator
 
@@ -1218,7 +1257,7 @@ Each particle's color will be multiplied by this :ref:`CurveTexture<class_CurveT
 
 .. rst-class:: classref-property
 
-:ref:`Texture2D<class_Texture2D>` **emission_normal_texture**
+:ref:`Texture2D<class_Texture2D>` **emission_normal_texture** :ref:`🔗<class_ParticleProcessMaterial_property_emission_normal_texture>`
 
 .. rst-class:: classref-property-setget
 
@@ -1235,7 +1274,7 @@ Particle velocity and rotation will be set by sampling this texture at the same 
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **emission_point_count**
+:ref:`int<class_int>` **emission_point_count** :ref:`🔗<class_ParticleProcessMaterial_property_emission_point_count>`
 
 .. rst-class:: classref-property-setget
 
@@ -1252,7 +1291,7 @@ The number of emission points if :ref:`emission_shape<class_ParticleProcessMater
 
 .. rst-class:: classref-property
 
-:ref:`Texture2D<class_Texture2D>` **emission_point_texture**
+:ref:`Texture2D<class_Texture2D>` **emission_point_texture** :ref:`🔗<class_ParticleProcessMaterial_property_emission_point_texture>`
 
 .. rst-class:: classref-property-setget
 
@@ -1269,7 +1308,7 @@ Particles will be emitted at positions determined by sampling this texture at a 
 
 .. rst-class:: classref-property
 
-:ref:`Vector3<class_Vector3>` **emission_ring_axis**
+:ref:`Vector3<class_Vector3>` **emission_ring_axis** :ref:`🔗<class_ParticleProcessMaterial_property_emission_ring_axis>`
 
 .. rst-class:: classref-property-setget
 
@@ -1282,11 +1321,30 @@ The axis of the ring when using the emitter :ref:`EMISSION_SHAPE_RING<class_Part
 
 ----
 
+.. _class_ParticleProcessMaterial_property_emission_ring_cone_angle:
+
+.. rst-class:: classref-property
+
+:ref:`float<class_float>` **emission_ring_cone_angle** :ref:`🔗<class_ParticleProcessMaterial_property_emission_ring_cone_angle>`
+
+.. rst-class:: classref-property-setget
+
+- |void| **set_emission_ring_cone_angle**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_emission_ring_cone_angle**\ (\ )
+
+The angle of the cone when using the emitter :ref:`EMISSION_SHAPE_RING<class_ParticleProcessMaterial_constant_EMISSION_SHAPE_RING>`. The default angle of 90 degrees results in a ring, while an angle of 0 degrees results in a cone. Intermediate values will result in a ring where one end is larger than the other.
+
+\ **Note:** Depending on :ref:`emission_ring_height<class_ParticleProcessMaterial_property_emission_ring_height>`, the angle may be clamped if the ring's end is reached to form a perfect cone.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_ParticleProcessMaterial_property_emission_ring_height:
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **emission_ring_height**
+:ref:`float<class_float>` **emission_ring_height** :ref:`🔗<class_ParticleProcessMaterial_property_emission_ring_height>`
 
 .. rst-class:: classref-property-setget
 
@@ -1303,7 +1361,7 @@ The height of the ring when using the emitter :ref:`EMISSION_SHAPE_RING<class_Pa
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **emission_ring_inner_radius**
+:ref:`float<class_float>` **emission_ring_inner_radius** :ref:`🔗<class_ParticleProcessMaterial_property_emission_ring_inner_radius>`
 
 .. rst-class:: classref-property-setget
 
@@ -1320,7 +1378,7 @@ The inner radius of the ring when using the emitter :ref:`EMISSION_SHAPE_RING<cl
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **emission_ring_radius**
+:ref:`float<class_float>` **emission_ring_radius** :ref:`🔗<class_ParticleProcessMaterial_property_emission_ring_radius>`
 
 .. rst-class:: classref-property-setget
 
@@ -1337,14 +1395,14 @@ The radius of the ring when using the emitter :ref:`EMISSION_SHAPE_RING<class_Pa
 
 .. rst-class:: classref-property
 
-:ref:`EmissionShape<enum_ParticleProcessMaterial_EmissionShape>` **emission_shape** = ``0``
+:ref:`EmissionShape<enum_ParticleProcessMaterial_EmissionShape>` **emission_shape** = ``0`` :ref:`🔗<class_ParticleProcessMaterial_property_emission_shape>`
 
 .. rst-class:: classref-property-setget
 
 - |void| **set_emission_shape**\ (\ value\: :ref:`EmissionShape<enum_ParticleProcessMaterial_EmissionShape>`\ )
 - :ref:`EmissionShape<enum_ParticleProcessMaterial_EmissionShape>` **get_emission_shape**\ (\ )
 
-Particles will be emitted inside this region. Use :ref:`EmissionShape<enum_ParticleProcessMaterial_EmissionShape>` constants for values.
+Particles will be emitted inside this region.
 
 .. rst-class:: classref-item-separator
 
@@ -1354,7 +1412,7 @@ Particles will be emitted inside this region. Use :ref:`EmissionShape<enum_Parti
 
 .. rst-class:: classref-property
 
-:ref:`Vector3<class_Vector3>` **emission_shape_offset** = ``Vector3(0, 0, 0)``
+:ref:`Vector3<class_Vector3>` **emission_shape_offset** = ``Vector3(0, 0, 0)`` :ref:`🔗<class_ParticleProcessMaterial_property_emission_shape_offset>`
 
 .. rst-class:: classref-property-setget
 
@@ -1371,7 +1429,7 @@ The offset for the :ref:`emission_shape<class_ParticleProcessMaterial_property_e
 
 .. rst-class:: classref-property
 
-:ref:`Vector3<class_Vector3>` **emission_shape_scale** = ``Vector3(1, 1, 1)``
+:ref:`Vector3<class_Vector3>` **emission_shape_scale** = ``Vector3(1, 1, 1)`` :ref:`🔗<class_ParticleProcessMaterial_property_emission_shape_scale>`
 
 .. rst-class:: classref-property-setget
 
@@ -1388,7 +1446,7 @@ The scale of the :ref:`emission_shape<class_ParticleProcessMaterial_property_emi
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **emission_sphere_radius**
+:ref:`float<class_float>` **emission_sphere_radius** :ref:`🔗<class_ParticleProcessMaterial_property_emission_sphere_radius>`
 
 .. rst-class:: classref-property-setget
 
@@ -1405,7 +1463,7 @@ The sphere's radius if :ref:`emission_shape<class_ParticleProcessMaterial_proper
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **flatness** = ``0.0``
+:ref:`float<class_float>` **flatness** = ``0.0`` :ref:`🔗<class_ParticleProcessMaterial_property_flatness>`
 
 .. rst-class:: classref-property-setget
 
@@ -1422,7 +1480,7 @@ Amount of :ref:`spread<class_ParticleProcessMaterial_property_spread>` along the
 
 .. rst-class:: classref-property
 
-:ref:`Vector3<class_Vector3>` **gravity** = ``Vector3(0, -9.8, 0)``
+:ref:`Vector3<class_Vector3>` **gravity** = ``Vector3(0, -9.8, 0)`` :ref:`🔗<class_ParticleProcessMaterial_property_gravity>`
 
 .. rst-class:: classref-property-setget
 
@@ -1439,7 +1497,7 @@ Gravity applied to every particle.
 
 .. rst-class:: classref-property
 
-:ref:`Texture2D<class_Texture2D>` **hue_variation_curve**
+:ref:`Texture2D<class_Texture2D>` **hue_variation_curve** :ref:`🔗<class_ParticleProcessMaterial_property_hue_variation_curve>`
 
 .. rst-class:: classref-property-setget
 
@@ -1456,7 +1514,7 @@ Each particle's hue will vary along this :ref:`CurveTexture<class_CurveTexture>`
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **hue_variation_max** = ``0.0``
+:ref:`float<class_float>` **hue_variation_max** = ``0.0`` :ref:`🔗<class_ParticleProcessMaterial_property_hue_variation_max>`
 
 .. rst-class:: classref-property-setget
 
@@ -1473,7 +1531,7 @@ Maximum initial hue variation applied to each particle. It will shift the partic
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **hue_variation_min** = ``0.0``
+:ref:`float<class_float>` **hue_variation_min** = ``0.0`` :ref:`🔗<class_ParticleProcessMaterial_property_hue_variation_min>`
 
 .. rst-class:: classref-property-setget
 
@@ -1490,7 +1548,7 @@ Minimum equivalent of :ref:`hue_variation_max<class_ParticleProcessMaterial_prop
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **inherit_velocity_ratio** = ``0.0``
+:ref:`float<class_float>` **inherit_velocity_ratio** = ``0.0`` :ref:`🔗<class_ParticleProcessMaterial_property_inherit_velocity_ratio>`
 
 .. rst-class:: classref-property-setget
 
@@ -1507,7 +1565,7 @@ Percentage of the velocity of the respective :ref:`GPUParticles2D<class_GPUParti
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **initial_velocity_max** = ``0.0``
+:ref:`float<class_float>` **initial_velocity_max** = ``0.0`` :ref:`🔗<class_ParticleProcessMaterial_property_initial_velocity_max>`
 
 .. rst-class:: classref-property-setget
 
@@ -1524,7 +1582,7 @@ Maximum initial velocity magnitude for each particle. Direction comes from :ref:
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **initial_velocity_min** = ``0.0``
+:ref:`float<class_float>` **initial_velocity_min** = ``0.0`` :ref:`🔗<class_ParticleProcessMaterial_property_initial_velocity_min>`
 
 .. rst-class:: classref-property-setget
 
@@ -1541,7 +1599,7 @@ Minimum equivalent of :ref:`initial_velocity_max<class_ParticleProcessMaterial_p
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **lifetime_randomness** = ``0.0``
+:ref:`float<class_float>` **lifetime_randomness** = ``0.0`` :ref:`🔗<class_ParticleProcessMaterial_property_lifetime_randomness>`
 
 .. rst-class:: classref-property-setget
 
@@ -1558,7 +1616,7 @@ Particle lifetime randomness ratio. The equation for the lifetime of a particle 
 
 .. rst-class:: classref-property
 
-:ref:`Texture2D<class_Texture2D>` **linear_accel_curve**
+:ref:`Texture2D<class_Texture2D>` **linear_accel_curve** :ref:`🔗<class_ParticleProcessMaterial_property_linear_accel_curve>`
 
 .. rst-class:: classref-property-setget
 
@@ -1575,7 +1633,7 @@ Each particle's linear acceleration will vary along this :ref:`CurveTexture<clas
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **linear_accel_max** = ``0.0``
+:ref:`float<class_float>` **linear_accel_max** = ``0.0`` :ref:`🔗<class_ParticleProcessMaterial_property_linear_accel_max>`
 
 .. rst-class:: classref-property-setget
 
@@ -1592,7 +1650,7 @@ Maximum linear acceleration applied to each particle in the direction of motion.
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **linear_accel_min** = ``0.0``
+:ref:`float<class_float>` **linear_accel_min** = ``0.0`` :ref:`🔗<class_ParticleProcessMaterial_property_linear_accel_min>`
 
 .. rst-class:: classref-property-setget
 
@@ -1609,7 +1667,7 @@ Minimum equivalent of :ref:`linear_accel_max<class_ParticleProcessMaterial_prope
 
 .. rst-class:: classref-property
 
-:ref:`Texture2D<class_Texture2D>` **orbit_velocity_curve**
+:ref:`Texture2D<class_Texture2D>` **orbit_velocity_curve** :ref:`🔗<class_ParticleProcessMaterial_property_orbit_velocity_curve>`
 
 .. rst-class:: classref-property-setget
 
@@ -1630,7 +1688,7 @@ Each particle's orbital velocity will vary along this :ref:`CurveTexture<class_C
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **orbit_velocity_max** = ``0.0``
+:ref:`float<class_float>` **orbit_velocity_max** = ``0.0`` :ref:`🔗<class_ParticleProcessMaterial_property_orbit_velocity_max>`
 
 .. rst-class:: classref-property-setget
 
@@ -1649,7 +1707,7 @@ Maximum orbital velocity applied to each particle. Makes the particles circle ar
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **orbit_velocity_min** = ``0.0``
+:ref:`float<class_float>` **orbit_velocity_min** = ``0.0`` :ref:`🔗<class_ParticleProcessMaterial_property_orbit_velocity_min>`
 
 .. rst-class:: classref-property-setget
 
@@ -1668,7 +1726,7 @@ Minimum equivalent of :ref:`orbit_velocity_max<class_ParticleProcessMaterial_pro
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **particle_flag_align_y** = ``false``
+:ref:`bool<class_bool>` **particle_flag_align_y** = ``false`` :ref:`🔗<class_ParticleProcessMaterial_property_particle_flag_align_y>`
 
 .. rst-class:: classref-property-setget
 
@@ -1685,7 +1743,7 @@ Align Y axis of particle with the direction of its velocity.
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **particle_flag_damping_as_friction** = ``false``
+:ref:`bool<class_bool>` **particle_flag_damping_as_friction** = ``false`` :ref:`🔗<class_ParticleProcessMaterial_property_particle_flag_damping_as_friction>`
 
 .. rst-class:: classref-property-setget
 
@@ -1702,7 +1760,7 @@ Changes the behavior of the damping properties from a linear deceleration to a d
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **particle_flag_disable_z** = ``false``
+:ref:`bool<class_bool>` **particle_flag_disable_z** = ``false`` :ref:`🔗<class_ParticleProcessMaterial_property_particle_flag_disable_z>`
 
 .. rst-class:: classref-property-setget
 
@@ -1719,7 +1777,7 @@ If ``true``, particles will not move on the z axis.
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **particle_flag_rotate_y** = ``false``
+:ref:`bool<class_bool>` **particle_flag_rotate_y** = ``false`` :ref:`🔗<class_ParticleProcessMaterial_property_particle_flag_rotate_y>`
 
 .. rst-class:: classref-property-setget
 
@@ -1736,7 +1794,7 @@ If ``true``, particles rotate around Y axis by :ref:`angle_min<class_ParticlePro
 
 .. rst-class:: classref-property
 
-:ref:`Texture2D<class_Texture2D>` **radial_accel_curve**
+:ref:`Texture2D<class_Texture2D>` **radial_accel_curve** :ref:`🔗<class_ParticleProcessMaterial_property_radial_accel_curve>`
 
 .. rst-class:: classref-property-setget
 
@@ -1753,7 +1811,7 @@ Each particle's radial acceleration will vary along this :ref:`CurveTexture<clas
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **radial_accel_max** = ``0.0``
+:ref:`float<class_float>` **radial_accel_max** = ``0.0`` :ref:`🔗<class_ParticleProcessMaterial_property_radial_accel_max>`
 
 .. rst-class:: classref-property-setget
 
@@ -1770,7 +1828,7 @@ Maximum radial acceleration applied to each particle. Makes particle accelerate 
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **radial_accel_min** = ``0.0``
+:ref:`float<class_float>` **radial_accel_min** = ``0.0`` :ref:`🔗<class_ParticleProcessMaterial_property_radial_accel_min>`
 
 .. rst-class:: classref-property-setget
 
@@ -1787,7 +1845,7 @@ Minimum equivalent of :ref:`radial_accel_max<class_ParticleProcessMaterial_prope
 
 .. rst-class:: classref-property
 
-:ref:`Texture2D<class_Texture2D>` **radial_velocity_curve**
+:ref:`Texture2D<class_Texture2D>` **radial_velocity_curve** :ref:`🔗<class_ParticleProcessMaterial_property_radial_velocity_curve>`
 
 .. rst-class:: classref-property-setget
 
@@ -1806,7 +1864,7 @@ A :ref:`CurveTexture<class_CurveTexture>` that defines the velocity over the par
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **radial_velocity_max** = ``0.0``
+:ref:`float<class_float>` **radial_velocity_max** = ``0.0`` :ref:`🔗<class_ParticleProcessMaterial_property_radial_velocity_max>`
 
 .. rst-class:: classref-property-setget
 
@@ -1825,7 +1883,7 @@ Maximum radial velocity applied to each particle. Makes particles move away from
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **radial_velocity_min** = ``0.0``
+:ref:`float<class_float>` **radial_velocity_min** = ``0.0`` :ref:`🔗<class_ParticleProcessMaterial_property_radial_velocity_min>`
 
 .. rst-class:: classref-property-setget
 
@@ -1840,11 +1898,134 @@ Minimum radial velocity applied to each particle. Makes particles move away from
 
 ----
 
+.. _class_ParticleProcessMaterial_property_rotation_3d_max:
+
+.. rst-class:: classref-property
+
+:ref:`Vector3<class_Vector3>` **rotation_3d_max** :ref:`🔗<class_ParticleProcessMaterial_property_rotation_3d_max>`
+
+.. rst-class:: classref-property-setget
+
+- |void| **set_rotation_3d_max**\ (\ value\: :ref:`Vector3<class_Vector3>`\ )
+- :ref:`Vector3<class_Vector3>` **get_rotation_3d_max**\ (\ )
+
+The maximum 3D orientation, in degrees. Works only in 3D and if :ref:`use_rotation_3d<class_ParticleProcessMaterial_property_use_rotation_3d>` is enabled.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_ParticleProcessMaterial_property_rotation_3d_min:
+
+.. rst-class:: classref-property
+
+:ref:`Vector3<class_Vector3>` **rotation_3d_min** :ref:`🔗<class_ParticleProcessMaterial_property_rotation_3d_min>`
+
+.. rst-class:: classref-property-setget
+
+- |void| **set_rotation_3d_min**\ (\ value\: :ref:`Vector3<class_Vector3>`\ )
+- :ref:`Vector3<class_Vector3>` **get_rotation_3d_min**\ (\ )
+
+The minimum 3D orientation, in degrees. Works only in 3D and if :ref:`use_rotation_3d<class_ParticleProcessMaterial_property_use_rotation_3d>` is enabled.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_ParticleProcessMaterial_property_rotation_velocity_3d_curve:
+
+.. rst-class:: classref-property
+
+:ref:`Texture2D<class_Texture2D>` **rotation_velocity_3d_curve** :ref:`🔗<class_ParticleProcessMaterial_property_rotation_velocity_3d_curve>`
+
+.. rst-class:: classref-property-setget
+
+- |void| **set_rotation_velocity_3d_curve**\ (\ value\: :ref:`Texture2D<class_Texture2D>`\ )
+- :ref:`Texture2D<class_Texture2D>` **get_rotation_velocity_3d_curve**\ (\ )
+
+Rotation velocity curve over lifetime, per-axis. Enable :ref:`use_rotation_velocity_3d<class_ParticleProcessMaterial_property_use_rotation_velocity_3d>` to use this.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_ParticleProcessMaterial_property_rotation_velocity_3d_max:
+
+.. rst-class:: classref-property
+
+:ref:`Vector3<class_Vector3>` **rotation_velocity_3d_max** :ref:`🔗<class_ParticleProcessMaterial_property_rotation_velocity_3d_max>`
+
+.. rst-class:: classref-property-setget
+
+- |void| **set_rotation_velocity_3d_max**\ (\ value\: :ref:`Vector3<class_Vector3>`\ )
+- :ref:`Vector3<class_Vector3>` **get_rotation_velocity_3d_max**\ (\ )
+
+Maximum 3D rotation velocity on the particle's local axis. Enable :ref:`use_rotation_velocity_3d<class_ParticleProcessMaterial_property_use_rotation_velocity_3d>` to use this.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_ParticleProcessMaterial_property_rotation_velocity_3d_min:
+
+.. rst-class:: classref-property
+
+:ref:`Vector3<class_Vector3>` **rotation_velocity_3d_min** :ref:`🔗<class_ParticleProcessMaterial_property_rotation_velocity_3d_min>`
+
+.. rst-class:: classref-property-setget
+
+- |void| **set_rotation_velocity_3d_min**\ (\ value\: :ref:`Vector3<class_Vector3>`\ )
+- :ref:`Vector3<class_Vector3>` **get_rotation_velocity_3d_min**\ (\ )
+
+Minimum 3D rotation velocity on the particle's local axis. Enable :ref:`use_rotation_velocity_3d<class_ParticleProcessMaterial_property_use_rotation_velocity_3d>` to use this.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_ParticleProcessMaterial_property_scale_3d_max:
+
+.. rst-class:: classref-property
+
+:ref:`Vector3<class_Vector3>` **scale_3d_max** :ref:`🔗<class_ParticleProcessMaterial_property_scale_3d_max>`
+
+.. rst-class:: classref-property-setget
+
+- |void| **set_scale_3d_max**\ (\ value\: :ref:`Vector3<class_Vector3>`\ )
+- :ref:`Vector3<class_Vector3>` **get_scale_3d_max**\ (\ )
+
+The maximum value of the random scale vector for each particle.
+
+Works only if :ref:`use_scale_3d<class_ParticleProcessMaterial_property_use_scale_3d>` is enabled.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_ParticleProcessMaterial_property_scale_3d_min:
+
+.. rst-class:: classref-property
+
+:ref:`Vector3<class_Vector3>` **scale_3d_min** :ref:`🔗<class_ParticleProcessMaterial_property_scale_3d_min>`
+
+.. rst-class:: classref-property-setget
+
+- |void| **set_scale_3d_min**\ (\ value\: :ref:`Vector3<class_Vector3>`\ )
+- :ref:`Vector3<class_Vector3>` **get_scale_3d_min**\ (\ )
+
+The minimum value of the random scale vector for each particle.
+
+Works only if :ref:`use_scale_3d<class_ParticleProcessMaterial_property_use_scale_3d>` is enabled.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_ParticleProcessMaterial_property_scale_curve:
 
 .. rst-class:: classref-property
 
-:ref:`Texture2D<class_Texture2D>` **scale_curve**
+:ref:`Texture2D<class_Texture2D>` **scale_curve** :ref:`🔗<class_ParticleProcessMaterial_property_scale_curve>`
 
 .. rst-class:: classref-property-setget
 
@@ -1861,7 +2042,7 @@ Each particle's scale will vary along this :ref:`CurveTexture<class_CurveTexture
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **scale_max** = ``1.0``
+:ref:`float<class_float>` **scale_max** = ``1.0`` :ref:`🔗<class_ParticleProcessMaterial_property_scale_max>`
 
 .. rst-class:: classref-property-setget
 
@@ -1878,7 +2059,7 @@ Maximum initial scale applied to each particle.
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **scale_min** = ``1.0``
+:ref:`float<class_float>` **scale_min** = ``1.0`` :ref:`🔗<class_ParticleProcessMaterial_property_scale_min>`
 
 .. rst-class:: classref-property-setget
 
@@ -1895,7 +2076,7 @@ Minimum equivalent of :ref:`scale_max<class_ParticleProcessMaterial_property_sca
 
 .. rst-class:: classref-property
 
-:ref:`Texture2D<class_Texture2D>` **scale_over_velocity_curve**
+:ref:`Texture2D<class_Texture2D>` **scale_over_velocity_curve** :ref:`🔗<class_ParticleProcessMaterial_property_scale_over_velocity_curve>`
 
 .. rst-class:: classref-property-setget
 
@@ -1912,7 +2093,7 @@ Either a :ref:`CurveTexture<class_CurveTexture>` or a :ref:`CurveXYZTexture<clas
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **scale_over_velocity_max** = ``0.0``
+:ref:`float<class_float>` **scale_over_velocity_max** = ``0.0`` :ref:`🔗<class_ParticleProcessMaterial_property_scale_over_velocity_max>`
 
 .. rst-class:: classref-property-setget
 
@@ -1931,7 +2112,7 @@ Maximum velocity value reference for :ref:`scale_over_velocity_curve<class_Parti
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **scale_over_velocity_min** = ``0.0``
+:ref:`float<class_float>` **scale_over_velocity_min** = ``0.0`` :ref:`🔗<class_ParticleProcessMaterial_property_scale_over_velocity_min>`
 
 .. rst-class:: classref-property-setget
 
@@ -1950,7 +2131,7 @@ Minimum velocity value reference for :ref:`scale_over_velocity_curve<class_Parti
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **spread** = ``45.0``
+:ref:`float<class_float>` **spread** = ``45.0`` :ref:`🔗<class_ParticleProcessMaterial_property_spread>`
 
 .. rst-class:: classref-property-setget
 
@@ -1967,7 +2148,7 @@ Each particle's initial direction range from ``+spread`` to ``-spread`` degrees.
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **sub_emitter_amount_at_collision**
+:ref:`int<class_int>` **sub_emitter_amount_at_collision** :ref:`🔗<class_ParticleProcessMaterial_property_sub_emitter_amount_at_collision>`
 
 .. rst-class:: classref-property-setget
 
@@ -1986,7 +2167,7 @@ The amount of particles to spawn from the subemitter node when a collision occur
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **sub_emitter_amount_at_end**
+:ref:`int<class_int>` **sub_emitter_amount_at_end** :ref:`🔗<class_ParticleProcessMaterial_property_sub_emitter_amount_at_end>`
 
 .. rst-class:: classref-property-setget
 
@@ -2001,11 +2182,30 @@ The amount of particles to spawn from the subemitter node when the particle expi
 
 ----
 
+.. _class_ParticleProcessMaterial_property_sub_emitter_amount_at_start:
+
+.. rst-class:: classref-property
+
+:ref:`int<class_int>` **sub_emitter_amount_at_start** :ref:`🔗<class_ParticleProcessMaterial_property_sub_emitter_amount_at_start>`
+
+.. rst-class:: classref-property-setget
+
+- |void| **set_sub_emitter_amount_at_start**\ (\ value\: :ref:`int<class_int>`\ )
+- :ref:`int<class_int>` **get_sub_emitter_amount_at_start**\ (\ )
+
+The amount of particles to spawn from the subemitter node when the particle spawns.
+
+\ **Note:** This value shouldn't exceed :ref:`GPUParticles2D.amount<class_GPUParticles2D_property_amount>` or :ref:`GPUParticles3D.amount<class_GPUParticles3D_property_amount>` defined on the *subemitter node* (not the main node), relative to the subemitter's particle lifetime. If the number of particles is exceeded, no new particles will spawn from the subemitter until enough particles have expired.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_ParticleProcessMaterial_property_sub_emitter_frequency:
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **sub_emitter_frequency**
+:ref:`float<class_float>` **sub_emitter_frequency** :ref:`🔗<class_ParticleProcessMaterial_property_sub_emitter_frequency>`
 
 .. rst-class:: classref-property-setget
 
@@ -2024,7 +2224,7 @@ The frequency at which particles should be emitted from the subemitter node. One
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **sub_emitter_keep_velocity** = ``false``
+:ref:`bool<class_bool>` **sub_emitter_keep_velocity** = ``false`` :ref:`🔗<class_ParticleProcessMaterial_property_sub_emitter_keep_velocity>`
 
 .. rst-class:: classref-property-setget
 
@@ -2041,7 +2241,7 @@ If ``true``, the subemitter inherits the parent particle's velocity when it spaw
 
 .. rst-class:: classref-property
 
-:ref:`SubEmitterMode<enum_ParticleProcessMaterial_SubEmitterMode>` **sub_emitter_mode** = ``0``
+:ref:`SubEmitterMode<enum_ParticleProcessMaterial_SubEmitterMode>` **sub_emitter_mode** = ``0`` :ref:`🔗<class_ParticleProcessMaterial_property_sub_emitter_mode>`
 
 .. rst-class:: classref-property-setget
 
@@ -2058,7 +2258,7 @@ The particle subemitter mode (see :ref:`GPUParticles2D.sub_emitter<class_GPUPart
 
 .. rst-class:: classref-property
 
-:ref:`Texture2D<class_Texture2D>` **tangential_accel_curve**
+:ref:`Texture2D<class_Texture2D>` **tangential_accel_curve** :ref:`🔗<class_ParticleProcessMaterial_property_tangential_accel_curve>`
 
 .. rst-class:: classref-property-setget
 
@@ -2075,7 +2275,7 @@ Each particle's tangential acceleration will vary along this :ref:`CurveTexture<
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **tangential_accel_max** = ``0.0``
+:ref:`float<class_float>` **tangential_accel_max** = ``0.0`` :ref:`🔗<class_ParticleProcessMaterial_property_tangential_accel_max>`
 
 .. rst-class:: classref-property-setget
 
@@ -2092,7 +2292,7 @@ Maximum tangential acceleration applied to each particle. Tangential acceleratio
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **tangential_accel_min** = ``0.0``
+:ref:`float<class_float>` **tangential_accel_min** = ``0.0`` :ref:`🔗<class_ParticleProcessMaterial_property_tangential_accel_min>`
 
 .. rst-class:: classref-property-setget
 
@@ -2109,7 +2309,7 @@ Minimum equivalent of :ref:`tangential_accel_max<class_ParticleProcessMaterial_p
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **turbulence_enabled** = ``false``
+:ref:`bool<class_bool>` **turbulence_enabled** = ``false`` :ref:`🔗<class_ParticleProcessMaterial_property_turbulence_enabled>`
 
 .. rst-class:: classref-property-setget
 
@@ -2128,7 +2328,7 @@ If ``true``, enables turbulence for the particle system. Turbulence can be used 
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **turbulence_influence_max** = ``0.1``
+:ref:`float<class_float>` **turbulence_influence_max** = ``0.1`` :ref:`🔗<class_ParticleProcessMaterial_property_turbulence_influence_max>`
 
 .. rst-class:: classref-property-setget
 
@@ -2147,7 +2347,7 @@ The actual amount of turbulence influence on each particle is calculated as a ra
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **turbulence_influence_min** = ``0.1``
+:ref:`float<class_float>` **turbulence_influence_min** = ``0.1`` :ref:`🔗<class_ParticleProcessMaterial_property_turbulence_influence_min>`
 
 .. rst-class:: classref-property-setget
 
@@ -2166,7 +2366,7 @@ The actual amount of turbulence influence on each particle is calculated as a ra
 
 .. rst-class:: classref-property
 
-:ref:`Texture2D<class_Texture2D>` **turbulence_influence_over_life**
+:ref:`Texture2D<class_Texture2D>` **turbulence_influence_over_life** :ref:`🔗<class_ParticleProcessMaterial_property_turbulence_influence_over_life>`
 
 .. rst-class:: classref-property-setget
 
@@ -2183,7 +2383,7 @@ Each particle's amount of turbulence will be influenced along this :ref:`CurveTe
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **turbulence_initial_displacement_max** = ``0.0``
+:ref:`float<class_float>` **turbulence_initial_displacement_max** = ``0.0`` :ref:`🔗<class_ParticleProcessMaterial_property_turbulence_initial_displacement_max>`
 
 .. rst-class:: classref-property-setget
 
@@ -2202,7 +2402,7 @@ The actual amount of displacement will be a factor of the underlying turbulence 
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **turbulence_initial_displacement_min** = ``0.0``
+:ref:`float<class_float>` **turbulence_initial_displacement_min** = ``0.0`` :ref:`🔗<class_ParticleProcessMaterial_property_turbulence_initial_displacement_min>`
 
 .. rst-class:: classref-property-setget
 
@@ -2221,7 +2421,7 @@ The actual amount of displacement will be a factor of the underlying turbulence 
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **turbulence_noise_scale** = ``9.0``
+:ref:`float<class_float>` **turbulence_noise_scale** = ``9.0`` :ref:`🔗<class_ParticleProcessMaterial_property_turbulence_noise_scale>`
 
 .. rst-class:: classref-property-setget
 
@@ -2240,7 +2440,7 @@ A small scale will result in smaller features with more detail while a high scal
 
 .. rst-class:: classref-property
 
-:ref:`Vector3<class_Vector3>` **turbulence_noise_speed** = ``Vector3(0, 0, 0)``
+:ref:`Vector3<class_Vector3>` **turbulence_noise_speed** = ``Vector3(0, 0, 0)`` :ref:`🔗<class_ParticleProcessMaterial_property_turbulence_noise_speed>`
 
 .. rst-class:: classref-property-setget
 
@@ -2259,7 +2459,7 @@ The default value of ``Vector3(0, 0, 0)`` turns off the scrolling.
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **turbulence_noise_speed_random** = ``0.2``
+:ref:`float<class_float>` **turbulence_noise_speed_random** = ``0.2`` :ref:`🔗<class_ParticleProcessMaterial_property_turbulence_noise_speed_random>`
 
 .. rst-class:: classref-property-setget
 
@@ -2278,7 +2478,7 @@ A value of 0.0 will result in a fixed pattern.
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **turbulence_noise_strength** = ``1.0``
+:ref:`float<class_float>` **turbulence_noise_strength** = ``1.0`` :ref:`🔗<class_ParticleProcessMaterial_property_turbulence_noise_strength>`
 
 .. rst-class:: classref-property-setget
 
@@ -2291,11 +2491,62 @@ The turbulence noise strength. Increasing this will result in a stronger, more c
 
 ----
 
+.. _class_ParticleProcessMaterial_property_use_rotation_3d:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **use_rotation_3d** = ``false`` :ref:`🔗<class_ParticleProcessMaterial_property_use_rotation_3d>`
+
+.. rst-class:: classref-property-setget
+
+- |void| **set_use_rotation_3d**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_using_rotation_3d**\ (\ )
+
+Enable the usage of :ref:`rotation_3d_min<class_ParticleProcessMaterial_property_rotation_3d_min>` and :ref:`rotation_3d_max<class_ParticleProcessMaterial_property_rotation_3d_max>`.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_ParticleProcessMaterial_property_use_rotation_velocity_3d:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **use_rotation_velocity_3d** = ``false`` :ref:`🔗<class_ParticleProcessMaterial_property_use_rotation_velocity_3d>`
+
+.. rst-class:: classref-property-setget
+
+- |void| **set_using_rotation_velocity_3d**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_using_rotation_velocity_3d**\ (\ )
+
+Enable 3D rotation velocity.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_ParticleProcessMaterial_property_use_scale_3d:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **use_scale_3d** = ``false`` :ref:`🔗<class_ParticleProcessMaterial_property_use_scale_3d>`
+
+.. rst-class:: classref-property-setget
+
+- |void| **set_use_scale_3d**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_using_scale_3d**\ (\ )
+
+Enable the usage of :ref:`scale_3d_min<class_ParticleProcessMaterial_property_scale_3d_min>` and :ref:`scale_3d_max<class_ParticleProcessMaterial_property_scale_3d_max>`.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_ParticleProcessMaterial_property_velocity_limit_curve:
 
 .. rst-class:: classref-property
 
-:ref:`Texture2D<class_Texture2D>` **velocity_limit_curve**
+:ref:`Texture2D<class_Texture2D>` **velocity_limit_curve** :ref:`🔗<class_ParticleProcessMaterial_property_velocity_limit_curve>`
 
 .. rst-class:: classref-property-setget
 
@@ -2312,7 +2563,7 @@ A :ref:`CurveTexture<class_CurveTexture>` that defines the maximum velocity of a
 
 .. rst-class:: classref-property
 
-:ref:`Vector3<class_Vector3>` **velocity_pivot** = ``Vector3(0, 0, 0)``
+:ref:`Vector3<class_Vector3>` **velocity_pivot** = ``Vector3(0, 0, 0)`` :ref:`🔗<class_ParticleProcessMaterial_property_velocity_pivot>`
 
 .. rst-class:: classref-property-setget
 
@@ -2334,7 +2585,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`Vector2<class_Vector2>` **get_param**\ (\ param\: :ref:`Parameter<enum_ParticleProcessMaterial_Parameter>`\ ) |const|
+:ref:`Vector2<class_Vector2>` **get_param**\ (\ param\: :ref:`Parameter<enum_ParticleProcessMaterial_Parameter>`\ ) |const| :ref:`🔗<class_ParticleProcessMaterial_method_get_param>`
 
 Returns the minimum and maximum values of the given ``param`` as a vector.
 
@@ -2348,7 +2599,7 @@ The ``x`` component of the returned vector corresponds to minimum and the ``y`` 
 
 .. rst-class:: classref-method
 
-:ref:`float<class_float>` **get_param_max**\ (\ param\: :ref:`Parameter<enum_ParticleProcessMaterial_Parameter>`\ ) |const|
+:ref:`float<class_float>` **get_param_max**\ (\ param\: :ref:`Parameter<enum_ParticleProcessMaterial_Parameter>`\ ) |const| :ref:`🔗<class_ParticleProcessMaterial_method_get_param_max>`
 
 Returns the maximum value range for the given parameter.
 
@@ -2360,7 +2611,7 @@ Returns the maximum value range for the given parameter.
 
 .. rst-class:: classref-method
 
-:ref:`float<class_float>` **get_param_min**\ (\ param\: :ref:`Parameter<enum_ParticleProcessMaterial_Parameter>`\ ) |const|
+:ref:`float<class_float>` **get_param_min**\ (\ param\: :ref:`Parameter<enum_ParticleProcessMaterial_Parameter>`\ ) |const| :ref:`🔗<class_ParticleProcessMaterial_method_get_param_min>`
 
 Returns the minimum value range for the given parameter.
 
@@ -2372,7 +2623,7 @@ Returns the minimum value range for the given parameter.
 
 .. rst-class:: classref-method
 
-:ref:`Texture2D<class_Texture2D>` **get_param_texture**\ (\ param\: :ref:`Parameter<enum_ParticleProcessMaterial_Parameter>`\ ) |const|
+:ref:`Texture2D<class_Texture2D>` **get_param_texture**\ (\ param\: :ref:`Parameter<enum_ParticleProcessMaterial_Parameter>`\ ) |const| :ref:`🔗<class_ParticleProcessMaterial_method_get_param_texture>`
 
 Returns the :ref:`Texture2D<class_Texture2D>` used by the specified parameter.
 
@@ -2384,9 +2635,9 @@ Returns the :ref:`Texture2D<class_Texture2D>` used by the specified parameter.
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **get_particle_flag**\ (\ particle_flag\: :ref:`ParticleFlags<enum_ParticleProcessMaterial_ParticleFlags>`\ ) |const|
+:ref:`bool<class_bool>` **get_particle_flag**\ (\ particle_flag\: :ref:`ParticleFlags<enum_ParticleProcessMaterial_ParticleFlags>`\ ) |const| :ref:`🔗<class_ParticleProcessMaterial_method_get_particle_flag>`
 
-Returns ``true`` if the specified particle flag is enabled. See :ref:`ParticleFlags<enum_ParticleProcessMaterial_ParticleFlags>` for options.
+Returns ``true`` if the specified particle flag is enabled.
 
 .. rst-class:: classref-item-separator
 
@@ -2396,7 +2647,7 @@ Returns ``true`` if the specified particle flag is enabled. See :ref:`ParticleFl
 
 .. rst-class:: classref-method
 
-|void| **set_param**\ (\ param\: :ref:`Parameter<enum_ParticleProcessMaterial_Parameter>`, value\: :ref:`Vector2<class_Vector2>`\ )
+|void| **set_param**\ (\ param\: :ref:`Parameter<enum_ParticleProcessMaterial_Parameter>`, value\: :ref:`Vector2<class_Vector2>`\ ) :ref:`🔗<class_ParticleProcessMaterial_method_set_param>`
 
 Sets the minimum and maximum values of the given ``param``.
 
@@ -2410,7 +2661,7 @@ The ``x`` component of the argument vector corresponds to minimum and the ``y`` 
 
 .. rst-class:: classref-method
 
-|void| **set_param_max**\ (\ param\: :ref:`Parameter<enum_ParticleProcessMaterial_Parameter>`, value\: :ref:`float<class_float>`\ )
+|void| **set_param_max**\ (\ param\: :ref:`Parameter<enum_ParticleProcessMaterial_Parameter>`, value\: :ref:`float<class_float>`\ ) :ref:`🔗<class_ParticleProcessMaterial_method_set_param_max>`
 
 Sets the maximum value range for the given parameter.
 
@@ -2422,7 +2673,7 @@ Sets the maximum value range for the given parameter.
 
 .. rst-class:: classref-method
 
-|void| **set_param_min**\ (\ param\: :ref:`Parameter<enum_ParticleProcessMaterial_Parameter>`, value\: :ref:`float<class_float>`\ )
+|void| **set_param_min**\ (\ param\: :ref:`Parameter<enum_ParticleProcessMaterial_Parameter>`, value\: :ref:`float<class_float>`\ ) :ref:`🔗<class_ParticleProcessMaterial_method_set_param_min>`
 
 Sets the minimum value range for the given parameter.
 
@@ -2434,7 +2685,7 @@ Sets the minimum value range for the given parameter.
 
 .. rst-class:: classref-method
 
-|void| **set_param_texture**\ (\ param\: :ref:`Parameter<enum_ParticleProcessMaterial_Parameter>`, texture\: :ref:`Texture2D<class_Texture2D>`\ )
+|void| **set_param_texture**\ (\ param\: :ref:`Parameter<enum_ParticleProcessMaterial_Parameter>`, texture\: :ref:`Texture2D<class_Texture2D>`\ ) :ref:`🔗<class_ParticleProcessMaterial_method_set_param_texture>`
 
 Sets the :ref:`Texture2D<class_Texture2D>` for the specified :ref:`Parameter<enum_ParticleProcessMaterial_Parameter>`.
 
@@ -2446,11 +2697,12 @@ Sets the :ref:`Texture2D<class_Texture2D>` for the specified :ref:`Parameter<enu
 
 .. rst-class:: classref-method
 
-|void| **set_particle_flag**\ (\ particle_flag\: :ref:`ParticleFlags<enum_ParticleProcessMaterial_ParticleFlags>`, enable\: :ref:`bool<class_bool>`\ )
+|void| **set_particle_flag**\ (\ particle_flag\: :ref:`ParticleFlags<enum_ParticleProcessMaterial_ParticleFlags>`, enable\: :ref:`bool<class_bool>`\ ) :ref:`🔗<class_ParticleProcessMaterial_method_set_particle_flag>`
 
-If ``true``, enables the specified particle flag. See :ref:`ParticleFlags<enum_ParticleProcessMaterial_ParticleFlags>` for options.
+Sets the ``particle_flag`` to ``enable``.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

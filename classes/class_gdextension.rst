@@ -30,7 +30,7 @@ Tutorials
 
 - :doc:`GDExtension overview <../tutorials/scripting/gdextension/what_is_gdextension>`
 
-- :doc:`GDExtension example in C++ <../tutorials/scripting/gdextension/gdextension_cpp_example>`
+- :doc:`GDExtension example in C++ <../tutorials/scripting/cpp/gdextension_cpp_example>`
 
 .. rst-class:: classref-reftable-group
 
@@ -59,7 +59,7 @@ Enumerations
 
 .. rst-class:: classref-enumeration
 
-enum **InitializationLevel**:
+enum **InitializationLevel**: :ref:`🔗<enum_GDExtension_InitializationLevel>`
 
 .. _class_GDExtension_constant_INITIALIZATION_LEVEL_CORE:
 
@@ -106,7 +106,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`InitializationLevel<enum_GDExtension_InitializationLevel>` **get_minimum_library_initialization_level**\ (\ ) |const|
+:ref:`InitializationLevel<enum_GDExtension_InitializationLevel>` **get_minimum_library_initialization_level**\ (\ ) |const| :ref:`🔗<class_GDExtension_method_get_minimum_library_initialization_level>`
 
 Returns the lowest level required for this extension to be properly initialized (see the :ref:`InitializationLevel<enum_GDExtension_InitializationLevel>` enum).
 
@@ -118,11 +118,12 @@ Returns the lowest level required for this extension to be properly initialized 
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_library_open**\ (\ ) |const|
+:ref:`bool<class_bool>` **is_library_open**\ (\ ) |const| :ref:`🔗<class_GDExtension_method_is_library_open>`
 
 Returns ``true`` if this extension's library has been opened.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
