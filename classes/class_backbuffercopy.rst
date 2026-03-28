@@ -23,6 +23,13 @@ Node for back-buffering the currently-displayed screen. The region defined in th
 
 \ **Note:** Since this node inherits from :ref:`Node2D<class_Node2D>` (and not :ref:`Control<class_Control>`), anchors and margins won't apply to child :ref:`Control<class_Control>`-derived nodes. This can be problematic when resizing the window. To avoid this, add :ref:`Control<class_Control>`-derived nodes as *siblings* to the **BackBufferCopy** node instead of adding them as children.
 
+.. rst-class:: classref-introduction-group
+
+Tutorials
+---------
+
+- :doc:`Screen-reading shaders <../tutorials/shaders/screen-reading_shaders>`
+
 .. rst-class:: classref-reftable-group
 
 Properties
@@ -50,7 +57,7 @@ Enumerations
 
 .. rst-class:: classref-enumeration
 
-enum **CopyMode**:
+enum **CopyMode**: :ref:`🔗<enum_BackBufferCopy_CopyMode>`
 
 .. _class_BackBufferCopy_constant_COPY_MODE_DISABLED:
 
@@ -89,14 +96,14 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`CopyMode<enum_BackBufferCopy_CopyMode>` **copy_mode** = ``1``
+:ref:`CopyMode<enum_BackBufferCopy_CopyMode>` **copy_mode** = ``1`` :ref:`🔗<class_BackBufferCopy_property_copy_mode>`
 
 .. rst-class:: classref-property-setget
 
 - |void| **set_copy_mode**\ (\ value\: :ref:`CopyMode<enum_BackBufferCopy_CopyMode>`\ )
 - :ref:`CopyMode<enum_BackBufferCopy_CopyMode>` **get_copy_mode**\ (\ )
 
-Buffer mode. See :ref:`CopyMode<enum_BackBufferCopy_CopyMode>` constants.
+Buffer mode.
 
 .. rst-class:: classref-item-separator
 
@@ -106,7 +113,7 @@ Buffer mode. See :ref:`CopyMode<enum_BackBufferCopy_CopyMode>` constants.
 
 .. rst-class:: classref-property
 
-:ref:`Rect2<class_Rect2>` **rect** = ``Rect2(-100, -100, 200, 200)``
+:ref:`Rect2<class_Rect2>` **rect** = ``Rect2(-100, -100, 200, 200)`` :ref:`🔗<class_BackBufferCopy_property_rect>`
 
 .. rst-class:: classref-property-setget
 
@@ -116,6 +123,7 @@ Buffer mode. See :ref:`CopyMode<enum_BackBufferCopy_CopyMode>` constants.
 The area covered by the **BackBufferCopy**. Only used if :ref:`copy_mode<class_BackBufferCopy_property_copy_mode>` is :ref:`COPY_MODE_RECT<class_BackBufferCopy_constant_COPY_MODE_RECT>`.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
