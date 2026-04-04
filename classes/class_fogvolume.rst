@@ -61,7 +61,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`Material<class_Material>` **material**
+:ref:`Material<class_Material>` **material** :ref:`🔗<class_FogVolume_property_material>`
 
 .. rst-class:: classref-property-setget
 
@@ -78,7 +78,7 @@ The :ref:`Material<class_Material>` used by the **FogVolume**. Can be either a b
 
 .. rst-class:: classref-property
 
-:ref:`FogVolumeShape<enum_RenderingServer_FogVolumeShape>` **shape** = ``3``
+:ref:`FogVolumeShape<enum_RenderingServer_FogVolumeShape>` **shape** = ``3`` :ref:`🔗<class_FogVolume_property_shape>`
 
 .. rst-class:: classref-property-setget
 
@@ -95,7 +95,7 @@ The shape of the **FogVolume**. This can be set to either :ref:`RenderingServer.
 
 .. rst-class:: classref-property
 
-:ref:`Vector3<class_Vector3>` **size** = ``Vector3(2, 2, 2)``
+:ref:`Vector3<class_Vector3>` **size** = ``Vector3(2, 2, 2)`` :ref:`🔗<class_FogVolume_property_size>`
 
 .. rst-class:: classref-property-setget
 
@@ -109,6 +109,7 @@ The size of the **FogVolume** when :ref:`shape<class_FogVolume_property_shape>` 
 \ **Note:** If :ref:`shape<class_FogVolume_property_shape>` is :ref:`RenderingServer.FOG_VOLUME_SHAPE_CONE<class_RenderingServer_constant_FOG_VOLUME_SHAPE_CONE>` or :ref:`RenderingServer.FOG_VOLUME_SHAPE_CYLINDER<class_RenderingServer_constant_FOG_VOLUME_SHAPE_CYLINDER>`, the cone/cylinder will be adjusted to fit within the size. Non-uniform scaling of cone/cylinder shapes via the :ref:`size<class_FogVolume_property_size>` property is not supported, but you can scale the **FogVolume** node instead.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
