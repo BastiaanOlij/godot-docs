@@ -72,6 +72,8 @@ Methods
    +-------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`RID<class_RID>`                           | :ref:`get_rid<class_CollisionObject2D_method_get_rid>`\ (\ ) |const|                                                                                                                                                 |
    +-------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Vector2<class_Vector2>`                   | :ref:`get_shape_owner_one_way_collision_direction<class_CollisionObject2D_method_get_shape_owner_one_way_collision_direction>`\ (\ owner_id\: :ref:`int<class_int>`\ ) |const|                                       |
+   +-------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`float<class_float>`                       | :ref:`get_shape_owner_one_way_collision_margin<class_CollisionObject2D_method_get_shape_owner_one_way_collision_margin>`\ (\ owner_id\: :ref:`int<class_int>`\ ) |const|                                             |
    +-------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`PackedInt32Array<class_PackedInt32Array>` | :ref:`get_shape_owners<class_CollisionObject2D_method_get_shape_owners>`\ (\ )                                                                                                                                       |
@@ -108,6 +110,8 @@ Methods
    +-------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | |void|                                          | :ref:`shape_owner_set_one_way_collision<class_CollisionObject2D_method_shape_owner_set_one_way_collision>`\ (\ owner_id\: :ref:`int<class_int>`, enable\: :ref:`bool<class_bool>`\ )                                 |
    +-------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                                          | :ref:`shape_owner_set_one_way_collision_direction<class_CollisionObject2D_method_shape_owner_set_one_way_collision_direction>`\ (\ owner_id\: :ref:`int<class_int>`, direction\: :ref:`Vector2<class_Vector2>`\ )    |
+   +-------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | |void|                                          | :ref:`shape_owner_set_one_way_collision_margin<class_CollisionObject2D_method_shape_owner_set_one_way_collision_margin>`\ (\ owner_id\: :ref:`int<class_int>`, margin\: :ref:`float<class_float>`\ )                 |
    +-------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | |void|                                          | :ref:`shape_owner_set_transform<class_CollisionObject2D_method_shape_owner_set_transform>`\ (\ owner_id\: :ref:`int<class_int>`, transform\: :ref:`Transform2D<class_Transform2D>`\ )                                |
@@ -126,9 +130,9 @@ Signals
 
 .. rst-class:: classref-signal
 
-**input_event**\ (\ viewport\: :ref:`Node<class_Node>`, event\: :ref:`InputEvent<class_InputEvent>`, shape_idx\: :ref:`int<class_int>`\ )
+**input_event**\ (\ viewport\: :ref:`Node<class_Node>`, event\: :ref:`InputEvent<class_InputEvent>`, shape_idx\: :ref:`int<class_int>`\ ) :ref:`🔗<class_CollisionObject2D_signal_input_event>`
 
-Emitted when an input event occurs. Requires :ref:`input_pickable<class_CollisionObject2D_property_input_pickable>` to be ``true`` and at least one :ref:`collision_layer<class_CollisionObject2D_property_collision_layer>` bit to be set. See :ref:`_input_event<class_CollisionObject2D_private_method__input_event>` for details.
+Emitted when an input event occurs. Requires :ref:`input_pickable<class_CollisionObject2D_property_input_pickable>` to be ``true`` and at least one :ref:`collision_layer<class_CollisionObject2D_property_collision_layer>` bit to be set. See :ref:`_input_event()<class_CollisionObject2D_private_method__input_event>` for details.
 
 .. rst-class:: classref-item-separator
 
@@ -138,7 +142,7 @@ Emitted when an input event occurs. Requires :ref:`input_pickable<class_Collisio
 
 .. rst-class:: classref-signal
 
-**mouse_entered**\ (\ )
+**mouse_entered**\ (\ ) :ref:`🔗<class_CollisionObject2D_signal_mouse_entered>`
 
 Emitted when the mouse pointer enters any of this object's shapes. Requires :ref:`input_pickable<class_CollisionObject2D_property_input_pickable>` to be ``true`` and at least one :ref:`collision_layer<class_CollisionObject2D_property_collision_layer>` bit to be set. Note that moving between different shapes within a single **CollisionObject2D** won't cause this signal to be emitted.
 
@@ -152,7 +156,7 @@ Emitted when the mouse pointer enters any of this object's shapes. Requires :ref
 
 .. rst-class:: classref-signal
 
-**mouse_exited**\ (\ )
+**mouse_exited**\ (\ ) :ref:`🔗<class_CollisionObject2D_signal_mouse_exited>`
 
 Emitted when the mouse pointer exits all this object's shapes. Requires :ref:`input_pickable<class_CollisionObject2D_property_input_pickable>` to be ``true`` and at least one :ref:`collision_layer<class_CollisionObject2D_property_collision_layer>` bit to be set. Note that moving between different shapes within a single **CollisionObject2D** won't cause this signal to be emitted.
 
@@ -166,7 +170,7 @@ Emitted when the mouse pointer exits all this object's shapes. Requires :ref:`in
 
 .. rst-class:: classref-signal
 
-**mouse_shape_entered**\ (\ shape_idx\: :ref:`int<class_int>`\ )
+**mouse_shape_entered**\ (\ shape_idx\: :ref:`int<class_int>`\ ) :ref:`🔗<class_CollisionObject2D_signal_mouse_shape_entered>`
 
 Emitted when the mouse pointer enters any of this object's shapes or moves from one shape to another. ``shape_idx`` is the child index of the newly entered :ref:`Shape2D<class_Shape2D>`. Requires :ref:`input_pickable<class_CollisionObject2D_property_input_pickable>` to be ``true`` and at least one :ref:`collision_layer<class_CollisionObject2D_property_collision_layer>` bit to be set.
 
@@ -178,7 +182,7 @@ Emitted when the mouse pointer enters any of this object's shapes or moves from 
 
 .. rst-class:: classref-signal
 
-**mouse_shape_exited**\ (\ shape_idx\: :ref:`int<class_int>`\ )
+**mouse_shape_exited**\ (\ shape_idx\: :ref:`int<class_int>`\ ) :ref:`🔗<class_CollisionObject2D_signal_mouse_shape_exited>`
 
 Emitted when the mouse pointer exits any of this object's shapes. ``shape_idx`` is the child index of the exited :ref:`Shape2D<class_Shape2D>`. Requires :ref:`input_pickable<class_CollisionObject2D_property_input_pickable>` to be ``true`` and at least one :ref:`collision_layer<class_CollisionObject2D_property_collision_layer>` bit to be set.
 
@@ -195,7 +199,7 @@ Enumerations
 
 .. rst-class:: classref-enumeration
 
-enum **DisableMode**:
+enum **DisableMode**: :ref:`🔗<enum_CollisionObject2D_DisableMode>`
 
 .. _class_CollisionObject2D_constant_DISABLE_MODE_REMOVE:
 
@@ -238,7 +242,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **collision_layer** = ``1``
+:ref:`int<class_int>` **collision_layer** = ``1`` :ref:`🔗<class_CollisionObject2D_property_collision_layer>`
 
 .. rst-class:: classref-property-setget
 
@@ -257,7 +261,7 @@ The physics layers this CollisionObject2D is in. Collision objects can exist in 
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **collision_mask** = ``1``
+:ref:`int<class_int>` **collision_mask** = ``1`` :ref:`🔗<class_CollisionObject2D_property_collision_mask>`
 
 .. rst-class:: classref-property-setget
 
@@ -276,7 +280,7 @@ The physics layers this CollisionObject2D scans. Collision objects can scan one 
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **collision_priority** = ``1.0``
+:ref:`float<class_float>` **collision_priority** = ``1.0`` :ref:`🔗<class_CollisionObject2D_property_collision_priority>`
 
 .. rst-class:: classref-property-setget
 
@@ -293,14 +297,14 @@ The priority used to solve colliding when occurring penetration. The higher the 
 
 .. rst-class:: classref-property
 
-:ref:`DisableMode<enum_CollisionObject2D_DisableMode>` **disable_mode** = ``0``
+:ref:`DisableMode<enum_CollisionObject2D_DisableMode>` **disable_mode** = ``0`` :ref:`🔗<class_CollisionObject2D_property_disable_mode>`
 
 .. rst-class:: classref-property-setget
 
 - |void| **set_disable_mode**\ (\ value\: :ref:`DisableMode<enum_CollisionObject2D_DisableMode>`\ )
 - :ref:`DisableMode<enum_CollisionObject2D_DisableMode>` **get_disable_mode**\ (\ )
 
-Defines the behavior in physics when :ref:`Node.process_mode<class_Node_property_process_mode>` is set to :ref:`Node.PROCESS_MODE_DISABLED<class_Node_constant_PROCESS_MODE_DISABLED>`. See :ref:`DisableMode<enum_CollisionObject2D_DisableMode>` for more details about the different modes.
+Defines the behavior in physics when :ref:`Node.process_mode<class_Node_property_process_mode>` is set to :ref:`Node.PROCESS_MODE_DISABLED<class_Node_constant_PROCESS_MODE_DISABLED>`.
 
 .. rst-class:: classref-item-separator
 
@@ -310,7 +314,7 @@ Defines the behavior in physics when :ref:`Node.process_mode<class_Node_property
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **input_pickable** = ``true``
+:ref:`bool<class_bool>` **input_pickable** = ``true`` :ref:`🔗<class_CollisionObject2D_property_input_pickable>`
 
 .. rst-class:: classref-property-setget
 
@@ -332,11 +336,11 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-|void| **_input_event**\ (\ viewport\: :ref:`Viewport<class_Viewport>`, event\: :ref:`InputEvent<class_InputEvent>`, shape_idx\: :ref:`int<class_int>`\ ) |virtual|
+|void| **_input_event**\ (\ viewport\: :ref:`Viewport<class_Viewport>`, event\: :ref:`InputEvent<class_InputEvent>`, shape_idx\: :ref:`int<class_int>`\ ) |virtual| :ref:`🔗<class_CollisionObject2D_private_method__input_event>`
 
 Accepts unhandled :ref:`InputEvent<class_InputEvent>`\ s. ``shape_idx`` is the child index of the clicked :ref:`Shape2D<class_Shape2D>`. Connect to :ref:`input_event<class_CollisionObject2D_signal_input_event>` to easily pick up these events.
 
-\ **Note:** :ref:`_input_event<class_CollisionObject2D_private_method__input_event>` requires :ref:`input_pickable<class_CollisionObject2D_property_input_pickable>` to be ``true`` and at least one :ref:`collision_layer<class_CollisionObject2D_property_collision_layer>` bit to be set.
+\ **Note:** :ref:`_input_event()<class_CollisionObject2D_private_method__input_event>` requires :ref:`input_pickable<class_CollisionObject2D_property_input_pickable>` to be ``true`` and at least one :ref:`collision_layer<class_CollisionObject2D_property_collision_layer>` bit to be set.
 
 .. rst-class:: classref-item-separator
 
@@ -346,7 +350,7 @@ Accepts unhandled :ref:`InputEvent<class_InputEvent>`\ s. ``shape_idx`` is the c
 
 .. rst-class:: classref-method
 
-|void| **_mouse_enter**\ (\ ) |virtual|
+|void| **_mouse_enter**\ (\ ) |virtual| :ref:`🔗<class_CollisionObject2D_private_method__mouse_enter>`
 
 Called when the mouse pointer enters any of this object's shapes. Requires :ref:`input_pickable<class_CollisionObject2D_property_input_pickable>` to be ``true`` and at least one :ref:`collision_layer<class_CollisionObject2D_property_collision_layer>` bit to be set. Note that moving between different shapes within a single **CollisionObject2D** won't cause this function to be called.
 
@@ -358,7 +362,7 @@ Called when the mouse pointer enters any of this object's shapes. Requires :ref:
 
 .. rst-class:: classref-method
 
-|void| **_mouse_exit**\ (\ ) |virtual|
+|void| **_mouse_exit**\ (\ ) |virtual| :ref:`🔗<class_CollisionObject2D_private_method__mouse_exit>`
 
 Called when the mouse pointer exits all this object's shapes. Requires :ref:`input_pickable<class_CollisionObject2D_property_input_pickable>` to be ``true`` and at least one :ref:`collision_layer<class_CollisionObject2D_property_collision_layer>` bit to be set. Note that moving between different shapes within a single **CollisionObject2D** won't cause this function to be called.
 
@@ -370,7 +374,7 @@ Called when the mouse pointer exits all this object's shapes. Requires :ref:`inp
 
 .. rst-class:: classref-method
 
-|void| **_mouse_shape_enter**\ (\ shape_idx\: :ref:`int<class_int>`\ ) |virtual|
+|void| **_mouse_shape_enter**\ (\ shape_idx\: :ref:`int<class_int>`\ ) |virtual| :ref:`🔗<class_CollisionObject2D_private_method__mouse_shape_enter>`
 
 Called when the mouse pointer enters any of this object's shapes or moves from one shape to another. ``shape_idx`` is the child index of the newly entered :ref:`Shape2D<class_Shape2D>`. Requires :ref:`input_pickable<class_CollisionObject2D_property_input_pickable>` to be ``true`` and at least one :ref:`collision_layer<class_CollisionObject2D_property_collision_layer>` bit to be called.
 
@@ -382,7 +386,7 @@ Called when the mouse pointer enters any of this object's shapes or moves from o
 
 .. rst-class:: classref-method
 
-|void| **_mouse_shape_exit**\ (\ shape_idx\: :ref:`int<class_int>`\ ) |virtual|
+|void| **_mouse_shape_exit**\ (\ shape_idx\: :ref:`int<class_int>`\ ) |virtual| :ref:`🔗<class_CollisionObject2D_private_method__mouse_shape_exit>`
 
 Called when the mouse pointer exits any of this object's shapes. ``shape_idx`` is the child index of the exited :ref:`Shape2D<class_Shape2D>`. Requires :ref:`input_pickable<class_CollisionObject2D_property_input_pickable>` to be ``true`` and at least one :ref:`collision_layer<class_CollisionObject2D_property_collision_layer>` bit to be called.
 
@@ -394,7 +398,7 @@ Called when the mouse pointer exits any of this object's shapes. ``shape_idx`` i
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **create_shape_owner**\ (\ owner\: :ref:`Object<class_Object>`\ )
+:ref:`int<class_int>` **create_shape_owner**\ (\ owner\: :ref:`Object<class_Object>`\ ) :ref:`🔗<class_CollisionObject2D_method_create_shape_owner>`
 
 Creates a new shape owner for the given object. Returns ``owner_id`` of the new owner for future reference.
 
@@ -406,7 +410,7 @@ Creates a new shape owner for the given object. Returns ``owner_id`` of the new 
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **get_collision_layer_value**\ (\ layer_number\: :ref:`int<class_int>`\ ) |const|
+:ref:`bool<class_bool>` **get_collision_layer_value**\ (\ layer_number\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_CollisionObject2D_method_get_collision_layer_value>`
 
 Returns whether or not the specified layer of the :ref:`collision_layer<class_CollisionObject2D_property_collision_layer>` is enabled, given a ``layer_number`` between 1 and 32.
 
@@ -418,7 +422,7 @@ Returns whether or not the specified layer of the :ref:`collision_layer<class_Co
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **get_collision_mask_value**\ (\ layer_number\: :ref:`int<class_int>`\ ) |const|
+:ref:`bool<class_bool>` **get_collision_mask_value**\ (\ layer_number\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_CollisionObject2D_method_get_collision_mask_value>`
 
 Returns whether or not the specified layer of the :ref:`collision_mask<class_CollisionObject2D_property_collision_mask>` is enabled, given a ``layer_number`` between 1 and 32.
 
@@ -430,9 +434,21 @@ Returns whether or not the specified layer of the :ref:`collision_mask<class_Col
 
 .. rst-class:: classref-method
 
-:ref:`RID<class_RID>` **get_rid**\ (\ ) |const|
+:ref:`RID<class_RID>` **get_rid**\ (\ ) |const| :ref:`🔗<class_CollisionObject2D_method_get_rid>`
 
 Returns the object's :ref:`RID<class_RID>`.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_CollisionObject2D_method_get_shape_owner_one_way_collision_direction:
+
+.. rst-class:: classref-method
+
+:ref:`Vector2<class_Vector2>` **get_shape_owner_one_way_collision_direction**\ (\ owner_id\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_CollisionObject2D_method_get_shape_owner_one_way_collision_direction>`
+
+Returns the ``one_way_collision_direction`` of the shape owner identified by the given ``owner_id``.
 
 .. rst-class:: classref-item-separator
 
@@ -442,7 +458,7 @@ Returns the object's :ref:`RID<class_RID>`.
 
 .. rst-class:: classref-method
 
-:ref:`float<class_float>` **get_shape_owner_one_way_collision_margin**\ (\ owner_id\: :ref:`int<class_int>`\ ) |const|
+:ref:`float<class_float>` **get_shape_owner_one_way_collision_margin**\ (\ owner_id\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_CollisionObject2D_method_get_shape_owner_one_way_collision_margin>`
 
 Returns the ``one_way_collision_margin`` of the shape owner identified by given ``owner_id``.
 
@@ -454,7 +470,7 @@ Returns the ``one_way_collision_margin`` of the shape owner identified by given 
 
 .. rst-class:: classref-method
 
-:ref:`PackedInt32Array<class_PackedInt32Array>` **get_shape_owners**\ (\ )
+:ref:`PackedInt32Array<class_PackedInt32Array>` **get_shape_owners**\ (\ ) :ref:`🔗<class_CollisionObject2D_method_get_shape_owners>`
 
 Returns an :ref:`Array<class_Array>` of ``owner_id`` identifiers. You can use these ids in other methods that take ``owner_id`` as an argument.
 
@@ -466,7 +482,7 @@ Returns an :ref:`Array<class_Array>` of ``owner_id`` identifiers. You can use th
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_shape_owner_disabled**\ (\ owner_id\: :ref:`int<class_int>`\ ) |const|
+:ref:`bool<class_bool>` **is_shape_owner_disabled**\ (\ owner_id\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_CollisionObject2D_method_is_shape_owner_disabled>`
 
 If ``true``, the shape owner and its shapes are disabled.
 
@@ -478,7 +494,7 @@ If ``true``, the shape owner and its shapes are disabled.
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_shape_owner_one_way_collision_enabled**\ (\ owner_id\: :ref:`int<class_int>`\ ) |const|
+:ref:`bool<class_bool>` **is_shape_owner_one_way_collision_enabled**\ (\ owner_id\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_CollisionObject2D_method_is_shape_owner_one_way_collision_enabled>`
 
 Returns ``true`` if collisions for the shape owner originating from this **CollisionObject2D** will not be reported to collided with **CollisionObject2D**\ s.
 
@@ -490,7 +506,7 @@ Returns ``true`` if collisions for the shape owner originating from this **Colli
 
 .. rst-class:: classref-method
 
-|void| **remove_shape_owner**\ (\ owner_id\: :ref:`int<class_int>`\ )
+|void| **remove_shape_owner**\ (\ owner_id\: :ref:`int<class_int>`\ ) :ref:`🔗<class_CollisionObject2D_method_remove_shape_owner>`
 
 Removes the given shape owner.
 
@@ -502,7 +518,7 @@ Removes the given shape owner.
 
 .. rst-class:: classref-method
 
-|void| **set_collision_layer_value**\ (\ layer_number\: :ref:`int<class_int>`, value\: :ref:`bool<class_bool>`\ )
+|void| **set_collision_layer_value**\ (\ layer_number\: :ref:`int<class_int>`, value\: :ref:`bool<class_bool>`\ ) :ref:`🔗<class_CollisionObject2D_method_set_collision_layer_value>`
 
 Based on ``value``, enables or disables the specified layer in the :ref:`collision_layer<class_CollisionObject2D_property_collision_layer>`, given a ``layer_number`` between 1 and 32.
 
@@ -514,7 +530,7 @@ Based on ``value``, enables or disables the specified layer in the :ref:`collisi
 
 .. rst-class:: classref-method
 
-|void| **set_collision_mask_value**\ (\ layer_number\: :ref:`int<class_int>`, value\: :ref:`bool<class_bool>`\ )
+|void| **set_collision_mask_value**\ (\ layer_number\: :ref:`int<class_int>`, value\: :ref:`bool<class_bool>`\ ) :ref:`🔗<class_CollisionObject2D_method_set_collision_mask_value>`
 
 Based on ``value``, enables or disables the specified layer in the :ref:`collision_mask<class_CollisionObject2D_property_collision_mask>`, given a ``layer_number`` between 1 and 32.
 
@@ -526,7 +542,7 @@ Based on ``value``, enables or disables the specified layer in the :ref:`collisi
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **shape_find_owner**\ (\ shape_index\: :ref:`int<class_int>`\ ) |const|
+:ref:`int<class_int>` **shape_find_owner**\ (\ shape_index\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_CollisionObject2D_method_shape_find_owner>`
 
 Returns the ``owner_id`` of the given shape.
 
@@ -538,7 +554,7 @@ Returns the ``owner_id`` of the given shape.
 
 .. rst-class:: classref-method
 
-|void| **shape_owner_add_shape**\ (\ owner_id\: :ref:`int<class_int>`, shape\: :ref:`Shape2D<class_Shape2D>`\ )
+|void| **shape_owner_add_shape**\ (\ owner_id\: :ref:`int<class_int>`, shape\: :ref:`Shape2D<class_Shape2D>`\ ) :ref:`🔗<class_CollisionObject2D_method_shape_owner_add_shape>`
 
 Adds a :ref:`Shape2D<class_Shape2D>` to the shape owner.
 
@@ -550,7 +566,7 @@ Adds a :ref:`Shape2D<class_Shape2D>` to the shape owner.
 
 .. rst-class:: classref-method
 
-|void| **shape_owner_clear_shapes**\ (\ owner_id\: :ref:`int<class_int>`\ )
+|void| **shape_owner_clear_shapes**\ (\ owner_id\: :ref:`int<class_int>`\ ) :ref:`🔗<class_CollisionObject2D_method_shape_owner_clear_shapes>`
 
 Removes all shapes from the shape owner.
 
@@ -562,7 +578,7 @@ Removes all shapes from the shape owner.
 
 .. rst-class:: classref-method
 
-:ref:`Object<class_Object>` **shape_owner_get_owner**\ (\ owner_id\: :ref:`int<class_int>`\ ) |const|
+:ref:`Object<class_Object>` **shape_owner_get_owner**\ (\ owner_id\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_CollisionObject2D_method_shape_owner_get_owner>`
 
 Returns the parent object of the given shape owner.
 
@@ -574,7 +590,7 @@ Returns the parent object of the given shape owner.
 
 .. rst-class:: classref-method
 
-:ref:`Shape2D<class_Shape2D>` **shape_owner_get_shape**\ (\ owner_id\: :ref:`int<class_int>`, shape_id\: :ref:`int<class_int>`\ ) |const|
+:ref:`Shape2D<class_Shape2D>` **shape_owner_get_shape**\ (\ owner_id\: :ref:`int<class_int>`, shape_id\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_CollisionObject2D_method_shape_owner_get_shape>`
 
 Returns the :ref:`Shape2D<class_Shape2D>` with the given ID from the given shape owner.
 
@@ -586,7 +602,7 @@ Returns the :ref:`Shape2D<class_Shape2D>` with the given ID from the given shape
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **shape_owner_get_shape_count**\ (\ owner_id\: :ref:`int<class_int>`\ ) |const|
+:ref:`int<class_int>` **shape_owner_get_shape_count**\ (\ owner_id\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_CollisionObject2D_method_shape_owner_get_shape_count>`
 
 Returns the number of shapes the given shape owner contains.
 
@@ -598,7 +614,7 @@ Returns the number of shapes the given shape owner contains.
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **shape_owner_get_shape_index**\ (\ owner_id\: :ref:`int<class_int>`, shape_id\: :ref:`int<class_int>`\ ) |const|
+:ref:`int<class_int>` **shape_owner_get_shape_index**\ (\ owner_id\: :ref:`int<class_int>`, shape_id\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_CollisionObject2D_method_shape_owner_get_shape_index>`
 
 Returns the child index of the :ref:`Shape2D<class_Shape2D>` with the given ID from the given shape owner.
 
@@ -610,7 +626,7 @@ Returns the child index of the :ref:`Shape2D<class_Shape2D>` with the given ID f
 
 .. rst-class:: classref-method
 
-:ref:`Transform2D<class_Transform2D>` **shape_owner_get_transform**\ (\ owner_id\: :ref:`int<class_int>`\ ) |const|
+:ref:`Transform2D<class_Transform2D>` **shape_owner_get_transform**\ (\ owner_id\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_CollisionObject2D_method_shape_owner_get_transform>`
 
 Returns the shape owner's :ref:`Transform2D<class_Transform2D>`.
 
@@ -622,7 +638,7 @@ Returns the shape owner's :ref:`Transform2D<class_Transform2D>`.
 
 .. rst-class:: classref-method
 
-|void| **shape_owner_remove_shape**\ (\ owner_id\: :ref:`int<class_int>`, shape_id\: :ref:`int<class_int>`\ )
+|void| **shape_owner_remove_shape**\ (\ owner_id\: :ref:`int<class_int>`, shape_id\: :ref:`int<class_int>`\ ) :ref:`🔗<class_CollisionObject2D_method_shape_owner_remove_shape>`
 
 Removes a shape from the given shape owner.
 
@@ -634,7 +650,7 @@ Removes a shape from the given shape owner.
 
 .. rst-class:: classref-method
 
-|void| **shape_owner_set_disabled**\ (\ owner_id\: :ref:`int<class_int>`, disabled\: :ref:`bool<class_bool>`\ )
+|void| **shape_owner_set_disabled**\ (\ owner_id\: :ref:`int<class_int>`, disabled\: :ref:`bool<class_bool>`\ ) :ref:`🔗<class_CollisionObject2D_method_shape_owner_set_disabled>`
 
 If ``true``, disables the given shape owner.
 
@@ -646,9 +662,21 @@ If ``true``, disables the given shape owner.
 
 .. rst-class:: classref-method
 
-|void| **shape_owner_set_one_way_collision**\ (\ owner_id\: :ref:`int<class_int>`, enable\: :ref:`bool<class_bool>`\ )
+|void| **shape_owner_set_one_way_collision**\ (\ owner_id\: :ref:`int<class_int>`, enable\: :ref:`bool<class_bool>`\ ) :ref:`🔗<class_CollisionObject2D_method_shape_owner_set_one_way_collision>`
 
 If ``enable`` is ``true``, collisions for the shape owner originating from this **CollisionObject2D** will not be reported to collided with **CollisionObject2D**\ s.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_CollisionObject2D_method_shape_owner_set_one_way_collision_direction:
+
+.. rst-class:: classref-method
+
+|void| **shape_owner_set_one_way_collision_direction**\ (\ owner_id\: :ref:`int<class_int>`, direction\: :ref:`Vector2<class_Vector2>`\ ) :ref:`🔗<class_CollisionObject2D_method_shape_owner_set_one_way_collision_direction>`
+
+Sets the ``one_way_collision_direction`` of the shape owner identified by the given ``owner_id`` to ``direction``.
 
 .. rst-class:: classref-item-separator
 
@@ -658,7 +686,7 @@ If ``enable`` is ``true``, collisions for the shape owner originating from this 
 
 .. rst-class:: classref-method
 
-|void| **shape_owner_set_one_way_collision_margin**\ (\ owner_id\: :ref:`int<class_int>`, margin\: :ref:`float<class_float>`\ )
+|void| **shape_owner_set_one_way_collision_margin**\ (\ owner_id\: :ref:`int<class_int>`, margin\: :ref:`float<class_float>`\ ) :ref:`🔗<class_CollisionObject2D_method_shape_owner_set_one_way_collision_margin>`
 
 Sets the ``one_way_collision_margin`` of the shape owner identified by given ``owner_id`` to ``margin`` pixels.
 
@@ -670,11 +698,12 @@ Sets the ``one_way_collision_margin`` of the shape owner identified by given ``o
 
 .. rst-class:: classref-method
 
-|void| **shape_owner_set_transform**\ (\ owner_id\: :ref:`int<class_int>`, transform\: :ref:`Transform2D<class_Transform2D>`\ )
+|void| **shape_owner_set_transform**\ (\ owner_id\: :ref:`int<class_int>`, transform\: :ref:`Transform2D<class_Transform2D>`\ ) :ref:`🔗<class_CollisionObject2D_method_shape_owner_set_transform>`
 
 Sets the :ref:`Transform2D<class_Transform2D>` of the given shape owner.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
