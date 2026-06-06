@@ -14,7 +14,7 @@ ImporterMeshInstance3D
 
 .. container:: contribute
 
-	There is currently no description for this class. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+	There is currently no description for this class. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!
 
 .. rst-class:: classref-reftable-group
 
@@ -59,7 +59,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`ShadowCastingSetting<enum_GeometryInstance3D_ShadowCastingSetting>` **cast_shadow** = ``1``
+:ref:`ShadowCastingSetting<enum_GeometryInstance3D_ShadowCastingSetting>` **cast_shadow** = ``1`` :ref:`🔗<class_ImporterMeshInstance3D_property_cast_shadow>`
 
 .. rst-class:: classref-property-setget
 
@@ -68,7 +68,7 @@ Property Descriptions
 
 .. container:: contribute
 
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+	There is currently no description for this property. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!
 
 .. rst-class:: classref-item-separator
 
@@ -78,7 +78,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **layer_mask** = ``1``
+:ref:`int<class_int>` **layer_mask** = ``1`` :ref:`🔗<class_ImporterMeshInstance3D_property_layer_mask>`
 
 .. rst-class:: classref-property-setget
 
@@ -87,7 +87,7 @@ Property Descriptions
 
 .. container:: contribute
 
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+	There is currently no description for this property. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!
 
 .. rst-class:: classref-item-separator
 
@@ -97,7 +97,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`ImporterMesh<class_ImporterMesh>` **mesh**
+:ref:`ImporterMesh<class_ImporterMesh>` **mesh** :ref:`🔗<class_ImporterMeshInstance3D_property_mesh>`
 
 .. rst-class:: classref-property-setget
 
@@ -106,7 +106,7 @@ Property Descriptions
 
 .. container:: contribute
 
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+	There is currently no description for this property. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!
 
 .. rst-class:: classref-item-separator
 
@@ -116,7 +116,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`NodePath<class_NodePath>` **skeleton_path** = ``NodePath("")``
+:ref:`NodePath<class_NodePath>` **skeleton_path** = ``NodePath("")`` :ref:`🔗<class_ImporterMeshInstance3D_property_skeleton_path>`
 
 .. rst-class:: classref-property-setget
 
@@ -125,7 +125,7 @@ Property Descriptions
 
 .. container:: contribute
 
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+	There is currently no description for this property. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!
 
 .. rst-class:: classref-item-separator
 
@@ -135,7 +135,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`Skin<class_Skin>` **skin**
+:ref:`Skin<class_Skin>` **skin** :ref:`🔗<class_ImporterMeshInstance3D_property_skin>`
 
 .. rst-class:: classref-property-setget
 
@@ -144,7 +144,7 @@ Property Descriptions
 
 .. container:: contribute
 
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+	There is currently no description for this property. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!
 
 .. rst-class:: classref-item-separator
 
@@ -154,7 +154,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **visibility_range_begin** = ``0.0``
+:ref:`float<class_float>` **visibility_range_begin** = ``0.0`` :ref:`🔗<class_ImporterMeshInstance3D_property_visibility_range_begin>`
 
 .. rst-class:: classref-property-setget
 
@@ -163,7 +163,7 @@ Property Descriptions
 
 .. container:: contribute
 
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+	There is currently no description for this property. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!
 
 .. rst-class:: classref-item-separator
 
@@ -173,7 +173,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **visibility_range_begin_margin** = ``0.0``
+:ref:`float<class_float>` **visibility_range_begin_margin** = ``0.0`` :ref:`🔗<class_ImporterMeshInstance3D_property_visibility_range_begin_margin>`
 
 .. rst-class:: classref-property-setget
 
@@ -182,7 +182,7 @@ Property Descriptions
 
 .. container:: contribute
 
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+	There is currently no description for this property. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!
 
 .. rst-class:: classref-item-separator
 
@@ -192,7 +192,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **visibility_range_end** = ``0.0``
+:ref:`float<class_float>` **visibility_range_end** = ``0.0`` :ref:`🔗<class_ImporterMeshInstance3D_property_visibility_range_end>`
 
 .. rst-class:: classref-property-setget
 
@@ -201,7 +201,7 @@ Property Descriptions
 
 .. container:: contribute
 
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+	There is currently no description for this property. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!
 
 .. rst-class:: classref-item-separator
 
@@ -211,7 +211,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **visibility_range_end_margin** = ``0.0``
+:ref:`float<class_float>` **visibility_range_end_margin** = ``0.0`` :ref:`🔗<class_ImporterMeshInstance3D_property_visibility_range_end_margin>`
 
 .. rst-class:: classref-property-setget
 
@@ -220,7 +220,7 @@ Property Descriptions
 
 .. container:: contribute
 
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+	There is currently no description for this property. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!
 
 .. rst-class:: classref-item-separator
 
@@ -230,7 +230,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`VisibilityRangeFadeMode<enum_GeometryInstance3D_VisibilityRangeFadeMode>` **visibility_range_fade_mode** = ``0``
+:ref:`VisibilityRangeFadeMode<enum_GeometryInstance3D_VisibilityRangeFadeMode>` **visibility_range_fade_mode** = ``0`` :ref:`🔗<class_ImporterMeshInstance3D_property_visibility_range_fade_mode>`
 
 .. rst-class:: classref-property-setget
 
@@ -239,9 +239,10 @@ Property Descriptions
 
 .. container:: contribute
 
-	There is currently no description for this property. Please help us by :ref:`contributing one <doc_updating_the_class_reference>`!
+	There is currently no description for this property. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
