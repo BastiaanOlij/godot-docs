@@ -23,6 +23,10 @@ Controls camera-specific attributes such as auto-exposure, depth of field, and e
 
 When used in a :ref:`WorldEnvironment<class_WorldEnvironment>` it provides default settings for exposure, auto-exposure, and depth of field that will be used by all cameras without their own :ref:`CameraAttributes<class_CameraAttributes>`, including the editor camera. When used in a :ref:`Camera3D<class_Camera3D>` it will override any :ref:`CameraAttributes<class_CameraAttributes>` set in the :ref:`WorldEnvironment<class_WorldEnvironment>`. When used in :ref:`VoxelGI<class_VoxelGI>` or :ref:`LightmapGI<class_LightmapGI>`, only the exposure settings will be used.
 
+\ **Note:** Depth of field blur is only supported in the Forward+ and Mobile rendering methods, not Compatibility.
+
+\ **Note:** Auto-exposure is only supported in the Forward+ rendering method, not Mobile or Compatibility.
+
 .. rst-class:: classref-reftable-group
 
 Properties
@@ -64,7 +68,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **auto_exposure_max_sensitivity** = ``800.0``
+:ref:`float<class_float>` **auto_exposure_max_sensitivity** = ``800.0`` :ref:`🔗<class_CameraAttributesPractical_property_auto_exposure_max_sensitivity>`
 
 .. rst-class:: classref-property-setget
 
@@ -81,7 +85,7 @@ The maximum sensitivity (in ISO) used when calculating auto exposure. When calcu
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **auto_exposure_min_sensitivity** = ``0.0``
+:ref:`float<class_float>` **auto_exposure_min_sensitivity** = ``0.0`` :ref:`🔗<class_CameraAttributesPractical_property_auto_exposure_min_sensitivity>`
 
 .. rst-class:: classref-property-setget
 
@@ -98,7 +102,7 @@ The minimum sensitivity (in ISO) used when calculating auto exposure. When calcu
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **dof_blur_amount** = ``0.1``
+:ref:`float<class_float>` **dof_blur_amount** = ``0.1`` :ref:`🔗<class_CameraAttributesPractical_property_dof_blur_amount>`
 
 .. rst-class:: classref-property-setget
 
@@ -115,7 +119,7 @@ Sets the maximum amount of blur. When using physically-based blur amounts, will 
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **dof_blur_far_distance** = ``10.0``
+:ref:`float<class_float>` **dof_blur_far_distance** = ``10.0`` :ref:`🔗<class_CameraAttributesPractical_property_dof_blur_far_distance>`
 
 .. rst-class:: classref-property-setget
 
@@ -132,7 +136,7 @@ Objects further from the :ref:`Camera3D<class_Camera3D>` by this amount will be 
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **dof_blur_far_enabled** = ``false``
+:ref:`bool<class_bool>` **dof_blur_far_enabled** = ``false`` :ref:`🔗<class_CameraAttributesPractical_property_dof_blur_far_enabled>`
 
 .. rst-class:: classref-property-setget
 
@@ -143,6 +147,8 @@ Enables depth of field blur for objects further than :ref:`dof_blur_far_distance
 
 \ **Note:** Depth of field blur is only supported in the Forward+ and Mobile rendering methods, not Compatibility.
 
+\ **Note:** Depth of field blur is not supported on viewports that have a transparent background (where :ref:`Viewport.transparent_bg<class_Viewport_property_transparent_bg>` is ``true``).
+
 .. rst-class:: classref-item-separator
 
 ----
@@ -151,7 +157,7 @@ Enables depth of field blur for objects further than :ref:`dof_blur_far_distance
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **dof_blur_far_transition** = ``5.0``
+:ref:`float<class_float>` **dof_blur_far_transition** = ``5.0`` :ref:`🔗<class_CameraAttributesPractical_property_dof_blur_far_transition>`
 
 .. rst-class:: classref-property-setget
 
@@ -168,7 +174,7 @@ When positive, distance over which (starting from :ref:`dof_blur_far_distance<cl
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **dof_blur_near_distance** = ``2.0``
+:ref:`float<class_float>` **dof_blur_near_distance** = ``2.0`` :ref:`🔗<class_CameraAttributesPractical_property_dof_blur_near_distance>`
 
 .. rst-class:: classref-property-setget
 
@@ -185,7 +191,7 @@ Objects closer from the :ref:`Camera3D<class_Camera3D>` by this amount will be b
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **dof_blur_near_enabled** = ``false``
+:ref:`bool<class_bool>` **dof_blur_near_enabled** = ``false`` :ref:`🔗<class_CameraAttributesPractical_property_dof_blur_near_enabled>`
 
 .. rst-class:: classref-property-setget
 
@@ -196,6 +202,8 @@ Enables depth of field blur for objects closer than :ref:`dof_blur_near_distance
 
 \ **Note:** Depth of field blur is only supported in the Forward+ and Mobile rendering methods, not Compatibility.
 
+\ **Note:** Depth of field blur is not supported on viewports that have a transparent background (where :ref:`Viewport.transparent_bg<class_Viewport_property_transparent_bg>` is ``true``).
+
 .. rst-class:: classref-item-separator
 
 ----
@@ -204,7 +212,7 @@ Enables depth of field blur for objects closer than :ref:`dof_blur_near_distance
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **dof_blur_near_transition** = ``1.0``
+:ref:`float<class_float>` **dof_blur_near_transition** = ``1.0`` :ref:`🔗<class_CameraAttributesPractical_property_dof_blur_near_transition>`
 
 .. rst-class:: classref-property-setget
 
@@ -214,6 +222,7 @@ Enables depth of field blur for objects closer than :ref:`dof_blur_near_distance
 When positive, distance over which blur effect will scale from 0 to :ref:`dof_blur_amount<class_CameraAttributesPractical_property_dof_blur_amount>`, ending at :ref:`dof_blur_near_distance<class_CameraAttributesPractical_property_dof_blur_near_distance>`. When negative, uses physically-based scaling so depth of field effect will scale from 0 at :ref:`dof_blur_near_distance<class_CameraAttributesPractical_property_dof_blur_near_distance>` and will increase in a physically accurate way as objects get closer to the :ref:`Camera3D<class_Camera3D>`.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
