@@ -26,11 +26,9 @@ Description
 Tutorials
 ---------
 
-- `2D Role Playing Game Demo <https://godotengine.org/asset-library/asset/520>`__
+- `2D Role Playing Game (RPG) Demo <https://godotengine.org/asset-library/asset/2729>`__
 
-- `2D Finite State Machine Demo <https://godotengine.org/asset-library/asset/516>`__
-
-- `3D Inverse Kinematics Demo <https://godotengine.org/asset-library/asset/523>`__
+- `Hierarchical Finite State Machine Demo <https://godotengine.org/asset-library/asset/2714>`__
 
 .. rst-class:: classref-reftable-group
 
@@ -57,11 +55,12 @@ Theme Property Descriptions
 
 .. rst-class:: classref-themeproperty
 
-:ref:`StyleBox<class_StyleBox>` **panel**
+:ref:`StyleBox<class_StyleBox>` **panel** :ref:`🔗<class_Panel_theme_style_panel>`
 
 The :ref:`StyleBox<class_StyleBox>` of this control.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

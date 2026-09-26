@@ -21,7 +21,7 @@ Description
 
 A resource referenced in a :ref:`Sky<class_Sky>` that is used to draw a background. **PanoramaSkyMaterial** functions similar to skyboxes in other engines, except it uses an equirectangular sky map instead of a :ref:`Cubemap<class_Cubemap>`.
 
-Using an HDR panorama is strongly recommended for accurate, high-quality reflections. Godot supports the Radiance HDR (``.hdr``) and OpenEXR (``.exr``) image formats for this purpose.
+Using an HDR panorama is strongly recommended for accurate, high-quality reflections. Godot supports the Radiance HDR (\ ``.hdr``) and OpenEXR (\ ``.exr``) image formats for this purpose.
 
 You can use `this tool <https://danilw.github.io/GLSL-howto/cubemap_to_panorama_js/cubemap_to_panorama.html>`__ to convert a cubemap to an equirectangular sky map.
 
@@ -54,7 +54,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **energy_multiplier** = ``1.0``
+:ref:`float<class_float>` **energy_multiplier** = ``1.0`` :ref:`🔗<class_PanoramaSkyMaterial_property_energy_multiplier>`
 
 .. rst-class:: classref-property-setget
 
@@ -71,7 +71,7 @@ The sky's overall brightness multiplier. Higher values result in a brighter sky.
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **filter** = ``true``
+:ref:`bool<class_bool>` **filter** = ``true`` :ref:`🔗<class_PanoramaSkyMaterial_property_filter>`
 
 .. rst-class:: classref-property-setget
 
@@ -88,7 +88,7 @@ A boolean value to determine if the background texture should be filtered or not
 
 .. rst-class:: classref-property
 
-:ref:`Texture2D<class_Texture2D>` **panorama**
+:ref:`Texture2D<class_Texture2D>` **panorama** :ref:`🔗<class_PanoramaSkyMaterial_property_panorama>`
 
 .. rst-class:: classref-property-setget
 
@@ -98,6 +98,7 @@ A boolean value to determine if the background texture should be filtered or not
 :ref:`Texture2D<class_Texture2D>` to be applied to the **PanoramaSkyMaterial**.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
