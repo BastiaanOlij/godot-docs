@@ -10,7 +10,7 @@
 XRHandModifier3D
 ================
 
-**Inherits:** :ref:`Node3D<class_Node3D>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
+**Inherits:** :ref:`SkeletonModifier3D<class_SkeletonModifier3D>` **<** :ref:`Node3D<class_Node3D>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
 A node for driving hand meshes from :ref:`XRHandTracker<class_XRHandTracker>` data.
 
@@ -19,9 +19,9 @@ A node for driving hand meshes from :ref:`XRHandTracker<class_XRHandTracker>` da
 Description
 -----------
 
-This node uses hand tracking data from a :ref:`XRHandTracker<class_XRHandTracker>` to animate the skeleton of a hand mesh.
+This node uses hand tracking data from an :ref:`XRHandTracker<class_XRHandTracker>` to pose the skeleton of a hand mesh.
 
-This node positions itself at the :ref:`XRHandTracker.HAND_JOINT_PALM<class_XRHandTracker_constant_HAND_JOINT_PALM>` position and scales itself to :ref:`XRServer.world_scale<class_XRServer_property_world_scale>`. Adding the hand model as a child of this node will result in the model being positioned and scaled correctly for XR experiences.
+Positioning of hands is performed by creating an :ref:`XRNode3D<class_XRNode3D>` ancestor of the hand mesh driven by the same :ref:`XRHandTracker<class_XRHandTracker>`.
 
 The hand tracking position-data is scaled by :ref:`Skeleton3D.motion_scale<class_Skeleton3D_property_motion_scale>` when applied to the skeleton, which can be used to adjust the tracked hand to match the scale of the hand model.
 
@@ -40,13 +40,11 @@ Properties
 .. table::
    :widths: auto
 
-   +-----------------------------------------------------+-------------------------------------------------------------------+-------------------+
-   | :ref:`BoneUpdate<enum_XRHandModifier3D_BoneUpdate>` | :ref:`bone_update<class_XRHandModifier3D_property_bone_update>`   | ``0``             |
-   +-----------------------------------------------------+-------------------------------------------------------------------+-------------------+
-   | :ref:`StringName<class_StringName>`                 | :ref:`hand_tracker<class_XRHandModifier3D_property_hand_tracker>` | ``&"/user/left"`` |
-   +-----------------------------------------------------+-------------------------------------------------------------------+-------------------+
-   | :ref:`NodePath<class_NodePath>`                     | :ref:`target<class_XRHandModifier3D_property_target>`             | ``NodePath("")``  |
-   +-----------------------------------------------------+-------------------------------------------------------------------+-------------------+
+   +-----------------------------------------------------+-------------------------------------------------------------------+--------------------------------+
+   | :ref:`BoneUpdate<enum_XRHandModifier3D_BoneUpdate>` | :ref:`bone_update<class_XRHandModifier3D_property_bone_update>`   | ``0``                          |
+   +-----------------------------------------------------+-------------------------------------------------------------------+--------------------------------+
+   | :ref:`StringName<class_StringName>`                 | :ref:`hand_tracker<class_XRHandModifier3D_property_hand_tracker>` | ``&"/user/hand_tracker/left"`` |
+   +-----------------------------------------------------+-------------------------------------------------------------------+--------------------------------+
 
 .. rst-class:: classref-section-separator
 
@@ -61,7 +59,7 @@ Enumerations
 
 .. rst-class:: classref-enumeration
 
-enum **BoneUpdate**:
+enum **BoneUpdate**: :ref:`🔗<enum_XRHandModifier3D_BoneUpdate>`
 
 .. _class_XRHandModifier3D_constant_BONE_UPDATE_FULL:
 
@@ -100,7 +98,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`BoneUpdate<enum_XRHandModifier3D_BoneUpdate>` **bone_update** = ``0``
+:ref:`BoneUpdate<enum_XRHandModifier3D_BoneUpdate>` **bone_update** = ``0`` :ref:`🔗<class_XRHandModifier3D_property_bone_update>`
 
 .. rst-class:: classref-property-setget
 
@@ -117,7 +115,7 @@ Specifies the type of updates to perform on the bones.
 
 .. rst-class:: classref-property
 
-:ref:`StringName<class_StringName>` **hand_tracker** = ``&"/user/left"``
+:ref:`StringName<class_StringName>` **hand_tracker** = ``&"/user/hand_tracker/left"`` :ref:`🔗<class_XRHandModifier3D_property_hand_tracker>`
 
 .. rst-class:: classref-property-setget
 
@@ -126,24 +124,8 @@ Specifies the type of updates to perform on the bones.
 
 The name of the :ref:`XRHandTracker<class_XRHandTracker>` registered with :ref:`XRServer<class_XRServer>` to obtain the hand tracking data from.
 
-.. rst-class:: classref-item-separator
-
-----
-
-.. _class_XRHandModifier3D_property_target:
-
-.. rst-class:: classref-property
-
-:ref:`NodePath<class_NodePath>` **target** = ``NodePath("")``
-
-.. rst-class:: classref-property-setget
-
-- |void| **set_target**\ (\ value\: :ref:`NodePath<class_NodePath>`\ )
-- :ref:`NodePath<class_NodePath>` **get_target**\ (\ )
-
-A :ref:`NodePath<class_NodePath>` to a :ref:`Skeleton3D<class_Skeleton3D>` to animate.
-
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

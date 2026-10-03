@@ -62,7 +62,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`PackedInt64Array<class_PackedInt64Array>` **granule_positions** = ``PackedInt64Array()``
+:ref:`PackedInt64Array<class_PackedInt64Array>` **granule_positions** = ``PackedInt64Array()`` :ref:`🔗<class_OggPacketSequence_property_granule_positions>`
 
 .. rst-class:: classref-property-setget
 
@@ -70,6 +70,12 @@ Property Descriptions
 - :ref:`PackedInt64Array<class_PackedInt64Array>` **get_packet_granule_positions**\ (\ )
 
 Contains the granule positions for each page in this packet sequence.
+
+
+
+.. classref_note::
+
+    The returned array is *copied* and any changes to it will not update the original property value. See :ref:`PackedInt64Array<class_PackedInt64Array>` for more details.
 
 .. rst-class:: classref-item-separator
 
@@ -79,7 +85,7 @@ Contains the granule positions for each page in this packet sequence.
 
 .. rst-class:: classref-property
 
-:ref:`Array<class_Array>`\[:ref:`Array<class_Array>`\] **packet_data** = ``[]``
+:ref:`Array<class_Array>`\[:ref:`Array<class_Array>`\] **packet_data** = ``[]`` :ref:`🔗<class_OggPacketSequence_property_packet_data>`
 
 .. rst-class:: classref-property-setget
 
@@ -96,7 +102,7 @@ Contains the raw packets that make up this OggPacketSequence.
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **sampling_rate** = ``0.0``
+:ref:`float<class_float>` **sampling_rate** = ``0.0`` :ref:`🔗<class_OggPacketSequence_property_sampling_rate>`
 
 .. rst-class:: classref-property-setget
 
@@ -118,11 +124,12 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`float<class_float>` **get_length**\ (\ ) |const|
+:ref:`float<class_float>` **get_length**\ (\ ) |const| :ref:`🔗<class_OggPacketSequence_method_get_length>`
 
 The length of this stream, in seconds.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
