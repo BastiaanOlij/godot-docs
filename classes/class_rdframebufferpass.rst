@@ -58,7 +58,7 @@ Constants
 
 .. rst-class:: classref-constant
 
-**ATTACHMENT_UNUSED** = ``-1``
+**ATTACHMENT_UNUSED** = ``-1`` :ref:`🔗<class_RDFramebufferPass_constant_ATTACHMENT_UNUSED>`
 
 Attachment is unused.
 
@@ -75,7 +75,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`PackedInt32Array<class_PackedInt32Array>` **color_attachments** = ``PackedInt32Array()``
+:ref:`PackedInt32Array<class_PackedInt32Array>` **color_attachments** = ``PackedInt32Array()`` :ref:`🔗<class_RDFramebufferPass_property_color_attachments>`
 
 .. rst-class:: classref-property-setget
 
@@ -83,6 +83,12 @@ Property Descriptions
 - :ref:`PackedInt32Array<class_PackedInt32Array>` **get_color_attachments**\ (\ )
 
 Color attachments in order starting from 0. If this attachment is not used by the shader, pass ATTACHMENT_UNUSED to skip.
+
+
+
+.. classref_note::
+
+    The returned array is *copied* and any changes to it will not update the original property value. See :ref:`PackedInt32Array<class_PackedInt32Array>` for more details.
 
 .. rst-class:: classref-item-separator
 
@@ -92,7 +98,7 @@ Color attachments in order starting from 0. If this attachment is not used by th
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **depth_attachment** = ``-1``
+:ref:`int<class_int>` **depth_attachment** = ``-1`` :ref:`🔗<class_RDFramebufferPass_property_depth_attachment>`
 
 .. rst-class:: classref-property-setget
 
@@ -109,7 +115,7 @@ Depth attachment. ATTACHMENT_UNUSED should be used if no depth buffer is require
 
 .. rst-class:: classref-property
 
-:ref:`PackedInt32Array<class_PackedInt32Array>` **input_attachments** = ``PackedInt32Array()``
+:ref:`PackedInt32Array<class_PackedInt32Array>` **input_attachments** = ``PackedInt32Array()`` :ref:`🔗<class_RDFramebufferPass_property_input_attachments>`
 
 .. rst-class:: classref-property-setget
 
@@ -117,6 +123,12 @@ Depth attachment. ATTACHMENT_UNUSED should be used if no depth buffer is require
 - :ref:`PackedInt32Array<class_PackedInt32Array>` **get_input_attachments**\ (\ )
 
 Used for multipass framebuffers (more than one render pass). Converts an attachment to an input. Make sure to also supply it properly in the :ref:`RDUniform<class_RDUniform>` for the uniform set.
+
+
+
+.. classref_note::
+
+    The returned array is *copied* and any changes to it will not update the original property value. See :ref:`PackedInt32Array<class_PackedInt32Array>` for more details.
 
 .. rst-class:: classref-item-separator
 
@@ -126,7 +138,7 @@ Used for multipass framebuffers (more than one render pass). Converts an attachm
 
 .. rst-class:: classref-property
 
-:ref:`PackedInt32Array<class_PackedInt32Array>` **preserve_attachments** = ``PackedInt32Array()``
+:ref:`PackedInt32Array<class_PackedInt32Array>` **preserve_attachments** = ``PackedInt32Array()`` :ref:`🔗<class_RDFramebufferPass_property_preserve_attachments>`
 
 .. rst-class:: classref-property-setget
 
@@ -134,6 +146,12 @@ Used for multipass framebuffers (more than one render pass). Converts an attachm
 - :ref:`PackedInt32Array<class_PackedInt32Array>` **get_preserve_attachments**\ (\ )
 
 Attachments to preserve in this pass (otherwise they are erased).
+
+
+
+.. classref_note::
+
+    The returned array is *copied* and any changes to it will not update the original property value. See :ref:`PackedInt32Array<class_PackedInt32Array>` for more details.
 
 .. rst-class:: classref-item-separator
 
@@ -143,7 +161,7 @@ Attachments to preserve in this pass (otherwise they are erased).
 
 .. rst-class:: classref-property
 
-:ref:`PackedInt32Array<class_PackedInt32Array>` **resolve_attachments** = ``PackedInt32Array()``
+:ref:`PackedInt32Array<class_PackedInt32Array>` **resolve_attachments** = ``PackedInt32Array()`` :ref:`🔗<class_RDFramebufferPass_property_resolve_attachments>`
 
 .. rst-class:: classref-property-setget
 
@@ -152,7 +170,14 @@ Attachments to preserve in this pass (otherwise they are erased).
 
 If the color attachments are multisampled, non-multisampled resolve attachments can be provided.
 
+
+
+.. classref_note::
+
+    The returned array is *copied* and any changes to it will not update the original property value. See :ref:`PackedInt32Array<class_PackedInt32Array>` for more details.
+
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
