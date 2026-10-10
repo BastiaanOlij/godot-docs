@@ -54,7 +54,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **height** = ``1.0``
+:ref:`float<class_float>` **height** = ``1.0`` :ref:`🔗<class_SphereMesh_property_height>`
 
 .. rst-class:: classref-property-setget
 
@@ -71,7 +71,7 @@ Full height of the sphere.
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **is_hemisphere** = ``false``
+:ref:`bool<class_bool>` **is_hemisphere** = ``false`` :ref:`🔗<class_SphereMesh_property_is_hemisphere>`
 
 .. rst-class:: classref-property-setget
 
@@ -90,7 +90,7 @@ If ``true``, a hemisphere is created rather than a full sphere.
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **radial_segments** = ``64``
+:ref:`int<class_int>` **radial_segments** = ``64`` :ref:`🔗<class_SphereMesh_property_radial_segments>`
 
 .. rst-class:: classref-property-setget
 
@@ -107,7 +107,7 @@ Number of radial segments on the sphere.
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **radius** = ``0.5``
+:ref:`float<class_float>` **radius** = ``0.5`` :ref:`🔗<class_SphereMesh_property_radius>`
 
 .. rst-class:: classref-property-setget
 
@@ -124,7 +124,7 @@ Radius of sphere.
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **rings** = ``32``
+:ref:`int<class_int>` **rings** = ``32`` :ref:`🔗<class_SphereMesh_property_rings>`
 
 .. rst-class:: classref-property-setget
 
@@ -134,6 +134,7 @@ Radius of sphere.
 Number of segments along the height of the sphere.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

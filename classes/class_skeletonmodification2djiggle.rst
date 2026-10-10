@@ -80,6 +80,8 @@ Methods
    +---------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`         | :ref:`get_use_colliders<class_SkeletonModification2DJiggle_method_get_use_colliders>`\ (\ ) |const|                                                                                                 |
    +---------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | |void|                          | :ref:`reset<class_SkeletonModification2DJiggle_method_reset>`\ (\ )                                                                                                                                 |
+   +---------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | |void|                          | :ref:`set_collision_mask<class_SkeletonModification2DJiggle_method_set_collision_mask>`\ (\ collision_mask\: :ref:`int<class_int>`\ )                                                               |
    +---------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | |void|                          | :ref:`set_jiggle_joint_bone2d_node<class_SkeletonModification2DJiggle_method_set_jiggle_joint_bone2d_node>`\ (\ joint_idx\: :ref:`int<class_int>`, bone2d_node\: :ref:`NodePath<class_NodePath>`\ ) |
@@ -114,7 +116,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **damping** = ``0.75``
+:ref:`float<class_float>` **damping** = ``0.75`` :ref:`🔗<class_SkeletonModification2DJiggle_property_damping>`
 
 .. rst-class:: classref-property-setget
 
@@ -131,7 +133,7 @@ The default amount of damping applied to the Jiggle joints, if they are not over
 
 .. rst-class:: classref-property
 
-:ref:`Vector2<class_Vector2>` **gravity** = ``Vector2(0, 6)``
+:ref:`Vector2<class_Vector2>` **gravity** = ``Vector2(0, 6)`` :ref:`🔗<class_SkeletonModification2DJiggle_property_gravity>`
 
 .. rst-class:: classref-property-setget
 
@@ -148,7 +150,7 @@ The default amount of gravity applied to the Jiggle joints, if they are not over
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **jiggle_data_chain_length** = ``0``
+:ref:`int<class_int>` **jiggle_data_chain_length** = ``0`` :ref:`🔗<class_SkeletonModification2DJiggle_property_jiggle_data_chain_length>`
 
 .. rst-class:: classref-property-setget
 
@@ -165,7 +167,7 @@ The amount of Jiggle joints in the Jiggle modification.
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **mass** = ``0.75``
+:ref:`float<class_float>` **mass** = ``0.75`` :ref:`🔗<class_SkeletonModification2DJiggle_property_mass>`
 
 .. rst-class:: classref-property-setget
 
@@ -182,7 +184,7 @@ The default amount of mass assigned to the Jiggle joints, if they are not overri
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **stiffness** = ``3.0``
+:ref:`float<class_float>` **stiffness** = ``3.0`` :ref:`🔗<class_SkeletonModification2DJiggle_property_stiffness>`
 
 .. rst-class:: classref-property-setget
 
@@ -199,7 +201,7 @@ The default amount of stiffness assigned to the Jiggle joints, if they are not o
 
 .. rst-class:: classref-property
 
-:ref:`NodePath<class_NodePath>` **target_nodepath** = ``NodePath("")``
+:ref:`NodePath<class_NodePath>` **target_nodepath** = ``NodePath("")`` :ref:`🔗<class_SkeletonModification2DJiggle_property_target_nodepath>`
 
 .. rst-class:: classref-property-setget
 
@@ -216,7 +218,7 @@ The NodePath to the node that is the target for the Jiggle modification. This no
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **use_gravity** = ``false``
+:ref:`bool<class_bool>` **use_gravity** = ``false`` :ref:`🔗<class_SkeletonModification2DJiggle_property_use_gravity>`
 
 .. rst-class:: classref-property-setget
 
@@ -238,7 +240,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **get_collision_mask**\ (\ ) |const|
+:ref:`int<class_int>` **get_collision_mask**\ (\ ) |const| :ref:`🔗<class_SkeletonModification2DJiggle_method_get_collision_mask>`
 
 Returns the collision mask used by the Jiggle modifier when collisions are enabled.
 
@@ -250,7 +252,7 @@ Returns the collision mask used by the Jiggle modifier when collisions are enabl
 
 .. rst-class:: classref-method
 
-:ref:`NodePath<class_NodePath>` **get_jiggle_joint_bone2d_node**\ (\ joint_idx\: :ref:`int<class_int>`\ ) |const|
+:ref:`NodePath<class_NodePath>` **get_jiggle_joint_bone2d_node**\ (\ joint_idx\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_SkeletonModification2DJiggle_method_get_jiggle_joint_bone2d_node>`
 
 Returns the :ref:`Bone2D<class_Bone2D>` node assigned to the Jiggle joint at ``joint_idx``.
 
@@ -262,7 +264,7 @@ Returns the :ref:`Bone2D<class_Bone2D>` node assigned to the Jiggle joint at ``j
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **get_jiggle_joint_bone_index**\ (\ joint_idx\: :ref:`int<class_int>`\ ) |const|
+:ref:`int<class_int>` **get_jiggle_joint_bone_index**\ (\ joint_idx\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_SkeletonModification2DJiggle_method_get_jiggle_joint_bone_index>`
 
 Returns the index of the :ref:`Bone2D<class_Bone2D>` node assigned to the Jiggle joint at ``joint_idx``.
 
@@ -274,7 +276,7 @@ Returns the index of the :ref:`Bone2D<class_Bone2D>` node assigned to the Jiggle
 
 .. rst-class:: classref-method
 
-:ref:`float<class_float>` **get_jiggle_joint_damping**\ (\ joint_idx\: :ref:`int<class_int>`\ ) |const|
+:ref:`float<class_float>` **get_jiggle_joint_damping**\ (\ joint_idx\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_SkeletonModification2DJiggle_method_get_jiggle_joint_damping>`
 
 Returns the amount of damping of the Jiggle joint at ``joint_idx``.
 
@@ -286,7 +288,7 @@ Returns the amount of damping of the Jiggle joint at ``joint_idx``.
 
 .. rst-class:: classref-method
 
-:ref:`Vector2<class_Vector2>` **get_jiggle_joint_gravity**\ (\ joint_idx\: :ref:`int<class_int>`\ ) |const|
+:ref:`Vector2<class_Vector2>` **get_jiggle_joint_gravity**\ (\ joint_idx\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_SkeletonModification2DJiggle_method_get_jiggle_joint_gravity>`
 
 Returns a :ref:`Vector2<class_Vector2>` representing the amount of gravity the Jiggle joint at ``joint_idx`` is influenced by.
 
@@ -298,7 +300,7 @@ Returns a :ref:`Vector2<class_Vector2>` representing the amount of gravity the J
 
 .. rst-class:: classref-method
 
-:ref:`float<class_float>` **get_jiggle_joint_mass**\ (\ joint_idx\: :ref:`int<class_int>`\ ) |const|
+:ref:`float<class_float>` **get_jiggle_joint_mass**\ (\ joint_idx\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_SkeletonModification2DJiggle_method_get_jiggle_joint_mass>`
 
 Returns the amount of mass of the jiggle joint at ``joint_idx``.
 
@@ -310,7 +312,7 @@ Returns the amount of mass of the jiggle joint at ``joint_idx``.
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **get_jiggle_joint_override**\ (\ joint_idx\: :ref:`int<class_int>`\ ) |const|
+:ref:`bool<class_bool>` **get_jiggle_joint_override**\ (\ joint_idx\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_SkeletonModification2DJiggle_method_get_jiggle_joint_override>`
 
 Returns a boolean that indicates whether the joint at ``joint_idx`` is overriding the default Jiggle joint data defined in the modification.
 
@@ -322,7 +324,7 @@ Returns a boolean that indicates whether the joint at ``joint_idx`` is overridin
 
 .. rst-class:: classref-method
 
-:ref:`float<class_float>` **get_jiggle_joint_stiffness**\ (\ joint_idx\: :ref:`int<class_int>`\ ) |const|
+:ref:`float<class_float>` **get_jiggle_joint_stiffness**\ (\ joint_idx\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_SkeletonModification2DJiggle_method_get_jiggle_joint_stiffness>`
 
 Returns the stiffness of the Jiggle joint at ``joint_idx``.
 
@@ -334,7 +336,7 @@ Returns the stiffness of the Jiggle joint at ``joint_idx``.
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **get_jiggle_joint_use_gravity**\ (\ joint_idx\: :ref:`int<class_int>`\ ) |const|
+:ref:`bool<class_bool>` **get_jiggle_joint_use_gravity**\ (\ joint_idx\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_SkeletonModification2DJiggle_method_get_jiggle_joint_use_gravity>`
 
 Returns a boolean that indicates whether the joint at ``joint_idx`` is using gravity or not.
 
@@ -346,9 +348,21 @@ Returns a boolean that indicates whether the joint at ``joint_idx`` is using gra
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **get_use_colliders**\ (\ ) |const|
+:ref:`bool<class_bool>` **get_use_colliders**\ (\ ) |const| :ref:`🔗<class_SkeletonModification2DJiggle_method_get_use_colliders>`
 
 Returns whether the jiggle modifier is taking physics colliders into account when solving.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_SkeletonModification2DJiggle_method_reset:
+
+.. rst-class:: classref-method
+
+|void| **reset**\ (\ ) :ref:`🔗<class_SkeletonModification2DJiggle_method_reset>`
+
+Resets the internal jiggle simulation state to the current bone positions, clearing velocity, acceleration, and accumulated forces.
 
 .. rst-class:: classref-item-separator
 
@@ -358,7 +372,7 @@ Returns whether the jiggle modifier is taking physics colliders into account whe
 
 .. rst-class:: classref-method
 
-|void| **set_collision_mask**\ (\ collision_mask\: :ref:`int<class_int>`\ )
+|void| **set_collision_mask**\ (\ collision_mask\: :ref:`int<class_int>`\ ) :ref:`🔗<class_SkeletonModification2DJiggle_method_set_collision_mask>`
 
 Sets the collision mask that the Jiggle modifier will use when reacting to colliders, if the Jiggle modifier is set to take colliders into account.
 
@@ -370,7 +384,7 @@ Sets the collision mask that the Jiggle modifier will use when reacting to colli
 
 .. rst-class:: classref-method
 
-|void| **set_jiggle_joint_bone2d_node**\ (\ joint_idx\: :ref:`int<class_int>`, bone2d_node\: :ref:`NodePath<class_NodePath>`\ )
+|void| **set_jiggle_joint_bone2d_node**\ (\ joint_idx\: :ref:`int<class_int>`, bone2d_node\: :ref:`NodePath<class_NodePath>`\ ) :ref:`🔗<class_SkeletonModification2DJiggle_method_set_jiggle_joint_bone2d_node>`
 
 Sets the :ref:`Bone2D<class_Bone2D>` node assigned to the Jiggle joint at ``joint_idx``.
 
@@ -382,7 +396,7 @@ Sets the :ref:`Bone2D<class_Bone2D>` node assigned to the Jiggle joint at ``join
 
 .. rst-class:: classref-method
 
-|void| **set_jiggle_joint_bone_index**\ (\ joint_idx\: :ref:`int<class_int>`, bone_idx\: :ref:`int<class_int>`\ )
+|void| **set_jiggle_joint_bone_index**\ (\ joint_idx\: :ref:`int<class_int>`, bone_idx\: :ref:`int<class_int>`\ ) :ref:`🔗<class_SkeletonModification2DJiggle_method_set_jiggle_joint_bone_index>`
 
 Sets the bone index, ``bone_idx``, of the Jiggle joint at ``joint_idx``. When possible, this will also update the ``bone2d_node`` of the Jiggle joint based on data provided by the linked skeleton.
 
@@ -394,7 +408,7 @@ Sets the bone index, ``bone_idx``, of the Jiggle joint at ``joint_idx``. When po
 
 .. rst-class:: classref-method
 
-|void| **set_jiggle_joint_damping**\ (\ joint_idx\: :ref:`int<class_int>`, damping\: :ref:`float<class_float>`\ )
+|void| **set_jiggle_joint_damping**\ (\ joint_idx\: :ref:`int<class_int>`, damping\: :ref:`float<class_float>`\ ) :ref:`🔗<class_SkeletonModification2DJiggle_method_set_jiggle_joint_damping>`
 
 Sets the amount of damping of the Jiggle joint at ``joint_idx``.
 
@@ -406,7 +420,7 @@ Sets the amount of damping of the Jiggle joint at ``joint_idx``.
 
 .. rst-class:: classref-method
 
-|void| **set_jiggle_joint_gravity**\ (\ joint_idx\: :ref:`int<class_int>`, gravity\: :ref:`Vector2<class_Vector2>`\ )
+|void| **set_jiggle_joint_gravity**\ (\ joint_idx\: :ref:`int<class_int>`, gravity\: :ref:`Vector2<class_Vector2>`\ ) :ref:`🔗<class_SkeletonModification2DJiggle_method_set_jiggle_joint_gravity>`
 
 Sets the gravity vector of the Jiggle joint at ``joint_idx``.
 
@@ -418,7 +432,7 @@ Sets the gravity vector of the Jiggle joint at ``joint_idx``.
 
 .. rst-class:: classref-method
 
-|void| **set_jiggle_joint_mass**\ (\ joint_idx\: :ref:`int<class_int>`, mass\: :ref:`float<class_float>`\ )
+|void| **set_jiggle_joint_mass**\ (\ joint_idx\: :ref:`int<class_int>`, mass\: :ref:`float<class_float>`\ ) :ref:`🔗<class_SkeletonModification2DJiggle_method_set_jiggle_joint_mass>`
 
 Sets the of mass of the Jiggle joint at ``joint_idx``.
 
@@ -430,7 +444,7 @@ Sets the of mass of the Jiggle joint at ``joint_idx``.
 
 .. rst-class:: classref-method
 
-|void| **set_jiggle_joint_override**\ (\ joint_idx\: :ref:`int<class_int>`, override\: :ref:`bool<class_bool>`\ )
+|void| **set_jiggle_joint_override**\ (\ joint_idx\: :ref:`int<class_int>`, override\: :ref:`bool<class_bool>`\ ) :ref:`🔗<class_SkeletonModification2DJiggle_method_set_jiggle_joint_override>`
 
 Sets whether the Jiggle joint at ``joint_idx`` should override the default Jiggle joint settings. Setting this to ``true`` will make the joint use its own settings rather than the default ones attached to the modification.
 
@@ -442,7 +456,7 @@ Sets whether the Jiggle joint at ``joint_idx`` should override the default Jiggl
 
 .. rst-class:: classref-method
 
-|void| **set_jiggle_joint_stiffness**\ (\ joint_idx\: :ref:`int<class_int>`, stiffness\: :ref:`float<class_float>`\ )
+|void| **set_jiggle_joint_stiffness**\ (\ joint_idx\: :ref:`int<class_int>`, stiffness\: :ref:`float<class_float>`\ ) :ref:`🔗<class_SkeletonModification2DJiggle_method_set_jiggle_joint_stiffness>`
 
 Sets the of stiffness of the Jiggle joint at ``joint_idx``.
 
@@ -454,7 +468,7 @@ Sets the of stiffness of the Jiggle joint at ``joint_idx``.
 
 .. rst-class:: classref-method
 
-|void| **set_jiggle_joint_use_gravity**\ (\ joint_idx\: :ref:`int<class_int>`, use_gravity\: :ref:`bool<class_bool>`\ )
+|void| **set_jiggle_joint_use_gravity**\ (\ joint_idx\: :ref:`int<class_int>`, use_gravity\: :ref:`bool<class_bool>`\ ) :ref:`🔗<class_SkeletonModification2DJiggle_method_set_jiggle_joint_use_gravity>`
 
 Sets whether the Jiggle joint at ``joint_idx`` should use gravity.
 
@@ -466,11 +480,12 @@ Sets whether the Jiggle joint at ``joint_idx`` should use gravity.
 
 .. rst-class:: classref-method
 
-|void| **set_use_colliders**\ (\ use_colliders\: :ref:`bool<class_bool>`\ )
+|void| **set_use_colliders**\ (\ use_colliders\: :ref:`bool<class_bool>`\ ) :ref:`🔗<class_SkeletonModification2DJiggle_method_set_use_colliders>`
 
 If ``true``, the Jiggle modifier will take colliders into account, keeping them from entering into these collision objects.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
