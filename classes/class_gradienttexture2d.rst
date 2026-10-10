@@ -19,7 +19,9 @@ A 2D texture that creates a pattern with colors obtained from a :ref:`Gradient<c
 Description
 -----------
 
-A 2D texture that obtains colors from a :ref:`Gradient<class_Gradient>` to fill the texture data. This texture is able to transform a color transition into different patterns such as a linear or a radial gradient. The gradient is sampled individually for each pixel so it does not necessarily represent an exact copy of the gradient(see :ref:`width<class_GradientTexture2D_property_width>` and :ref:`height<class_GradientTexture2D_property_height>`). See also :ref:`GradientTexture1D<class_GradientTexture1D>`, :ref:`CurveTexture<class_CurveTexture>` and :ref:`CurveXYZTexture<class_CurveXYZTexture>`.
+A 2D texture that obtains colors from a :ref:`Gradient<class_Gradient>` to fill the texture data. This texture is able to transform a color transition into different patterns such as a linear or a radial gradient. The texture is filled by interpolating colors starting from :ref:`fill_from<class_GradientTexture2D_property_fill_from>` to :ref:`fill_to<class_GradientTexture2D_property_fill_to>` offsets by default, but the gradient fill can be repeated to cover the entire texture.
+
+The gradient is sampled individually for each pixel so it does not necessarily represent an exact copy of the gradient (see :ref:`width<class_GradientTexture2D_property_width>` and :ref:`height<class_GradientTexture2D_property_height>`). See also :ref:`GradientTexture1D<class_GradientTexture1D>`, :ref:`CurveTexture<class_CurveTexture>` and :ref:`CurveXYZTexture<class_CurveXYZTexture>`.
 
 .. rst-class:: classref-reftable-group
 
@@ -62,7 +64,7 @@ Enumerations
 
 .. rst-class:: classref-enumeration
 
-enum **Fill**:
+enum **Fill**: :ref:`🔗<enum_GradientTexture2D_Fill>`
 
 .. _class_GradientTexture2D_constant_FILL_LINEAR:
 
@@ -88,6 +90,14 @@ The colors are linearly interpolated in a circular pattern.
 
 The colors are linearly interpolated in a square pattern.
 
+.. _class_GradientTexture2D_constant_FILL_CONIC:
+
+.. rst-class:: classref-enumeration-constant
+
+:ref:`Fill<enum_GradientTexture2D_Fill>` **FILL_CONIC** = ``3``
+
+The colors are linearly interpolated in a cone pattern.
+
 .. rst-class:: classref-item-separator
 
 ----
@@ -96,7 +106,7 @@ The colors are linearly interpolated in a square pattern.
 
 .. rst-class:: classref-enumeration
 
-enum **Repeat**:
+enum **Repeat**: :ref:`🔗<enum_GradientTexture2D_Repeat>`
 
 .. _class_GradientTexture2D_constant_REPEAT_NONE:
 
@@ -135,14 +145,14 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`Fill<enum_GradientTexture2D_Fill>` **fill** = ``0``
+:ref:`Fill<enum_GradientTexture2D_Fill>` **fill** = ``0`` :ref:`🔗<class_GradientTexture2D_property_fill>`
 
 .. rst-class:: classref-property-setget
 
 - |void| **set_fill**\ (\ value\: :ref:`Fill<enum_GradientTexture2D_Fill>`\ )
 - :ref:`Fill<enum_GradientTexture2D_Fill>` **get_fill**\ (\ )
 
-The gradient fill type, one of the :ref:`Fill<enum_GradientTexture2D_Fill>` values. The texture is filled by interpolating colors starting from :ref:`fill_from<class_GradientTexture2D_property_fill_from>` to :ref:`fill_to<class_GradientTexture2D_property_fill_to>` offsets.
+The gradient's fill type.
 
 .. rst-class:: classref-item-separator
 
@@ -152,7 +162,7 @@ The gradient fill type, one of the :ref:`Fill<enum_GradientTexture2D_Fill>` valu
 
 .. rst-class:: classref-property
 
-:ref:`Vector2<class_Vector2>` **fill_from** = ``Vector2(0, 0)``
+:ref:`Vector2<class_Vector2>` **fill_from** = ``Vector2(0, 0)`` :ref:`🔗<class_GradientTexture2D_property_fill_from>`
 
 .. rst-class:: classref-property-setget
 
@@ -169,7 +179,7 @@ The initial offset used to fill the texture specified in UV coordinates.
 
 .. rst-class:: classref-property
 
-:ref:`Vector2<class_Vector2>` **fill_to** = ``Vector2(1, 0)``
+:ref:`Vector2<class_Vector2>` **fill_to** = ``Vector2(1, 0)`` :ref:`🔗<class_GradientTexture2D_property_fill_to>`
 
 .. rst-class:: classref-property-setget
 
@@ -186,7 +196,7 @@ The final offset used to fill the texture specified in UV coordinates.
 
 .. rst-class:: classref-property
 
-:ref:`Gradient<class_Gradient>` **gradient**
+:ref:`Gradient<class_Gradient>` **gradient** :ref:`🔗<class_GradientTexture2D_property_gradient>`
 
 .. rst-class:: classref-property-setget
 
@@ -203,7 +213,7 @@ The :ref:`Gradient<class_Gradient>` used to fill the texture.
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **height** = ``64``
+:ref:`int<class_int>` **height** = ``64`` :ref:`🔗<class_GradientTexture2D_property_height>`
 
 .. rst-class:: classref-property-setget
 
@@ -220,14 +230,14 @@ The number of vertical color samples that will be obtained from the :ref:`Gradie
 
 .. rst-class:: classref-property
 
-:ref:`Repeat<enum_GradientTexture2D_Repeat>` **repeat** = ``0``
+:ref:`Repeat<enum_GradientTexture2D_Repeat>` **repeat** = ``0`` :ref:`🔗<class_GradientTexture2D_property_repeat>`
 
 .. rst-class:: classref-property-setget
 
 - |void| **set_repeat**\ (\ value\: :ref:`Repeat<enum_GradientTexture2D_Repeat>`\ )
 - :ref:`Repeat<enum_GradientTexture2D_Repeat>` **get_repeat**\ (\ )
 
-The gradient repeat type, one of the :ref:`Repeat<enum_GradientTexture2D_Repeat>` values. The texture is filled starting from :ref:`fill_from<class_GradientTexture2D_property_fill_from>` to :ref:`fill_to<class_GradientTexture2D_property_fill_to>` offsets by default, but the gradient fill can be repeated to cover the entire texture.
+The gradient's repeat type.
 
 .. rst-class:: classref-item-separator
 
@@ -237,7 +247,7 @@ The gradient repeat type, one of the :ref:`Repeat<enum_GradientTexture2D_Repeat>
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **use_hdr** = ``false``
+:ref:`bool<class_bool>` **use_hdr** = ``false`` :ref:`🔗<class_GradientTexture2D_property_use_hdr>`
 
 .. rst-class:: classref-property-setget
 
@@ -254,7 +264,7 @@ If ``true``, the generated texture will support high dynamic range (:ref:`Image.
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **width** = ``64``
+:ref:`int<class_int>` **width** = ``64`` :ref:`🔗<class_GradientTexture2D_property_width>`
 
 .. rst-class:: classref-property-setget
 
@@ -264,6 +274,7 @@ If ``true``, the generated texture will support high dynamic range (:ref:`Image.
 The number of horizontal color samples that will be obtained from the :ref:`Gradient<class_Gradient>`, which also represents the texture's width.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

@@ -54,7 +54,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`Vector3<class_Vector3>` **size** = ``Vector3(2, 2, 2)``
+:ref:`Vector3<class_Vector3>` **size** = ``Vector3(2, 2, 2)`` :ref:`🔗<class_GPUParticlesAttractorVectorField3D_property_size>`
 
 .. rst-class:: classref-property-setget
 
@@ -71,7 +71,7 @@ The size of the vector field box in 3D units.
 
 .. rst-class:: classref-property
 
-:ref:`Texture3D<class_Texture3D>` **texture**
+:ref:`Texture3D<class_Texture3D>` **texture** :ref:`🔗<class_GPUParticlesAttractorVectorField3D_property_texture>`
 
 .. rst-class:: classref-property-setget
 
@@ -83,6 +83,7 @@ The 3D texture to be used. Values are linearly interpolated between the texture'
 \ **Note:** To get better performance, the 3D texture's resolution should reflect the :ref:`size<class_GPUParticlesAttractorVectorField3D_property_size>` of the attractor. Since particle attraction is usually low-frequency data, the texture can be kept at a low resolution such as 64×64×64.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

@@ -21,11 +21,13 @@ Description
 
 **CameraAttributesPhysical** is used to set rendering settings based on a physically-based camera's settings. It is responsible for exposure, auto-exposure, and depth of field.
 
-When used in a :ref:`WorldEnvironment<class_WorldEnvironment>` it provides default settings for exposure, auto-exposure, and depth of field that will be used by all cameras without their own :ref:`CameraAttributes<class_CameraAttributes>`, including the editor camera. When used in a :ref:`Camera3D<class_Camera3D>` it will override any :ref:`CameraAttributes<class_CameraAttributes>` set in the :ref:`WorldEnvironment<class_WorldEnvironment>` and will override the :ref:`Camera3D<class_Camera3D>`\ s :ref:`Camera3D.far<class_Camera3D_property_far>`, :ref:`Camera3D.near<class_Camera3D_property_near>`, :ref:`Camera3D.fov<class_Camera3D_property_fov>`, and :ref:`Camera3D.keep_aspect<class_Camera3D_property_keep_aspect>` properties. When used in :ref:`VoxelGI<class_VoxelGI>` or :ref:`LightmapGI<class_LightmapGI>`, only the exposure settings will be used.
+When used in a :ref:`WorldEnvironment<class_WorldEnvironment>`, it provides default settings for exposure, auto-exposure, and depth of field that will be used by all cameras without their own :ref:`CameraAttributes<class_CameraAttributes>`, including the editor camera. When used in a :ref:`Camera3D<class_Camera3D>`, it will override any :ref:`CameraAttributes<class_CameraAttributes>` set in the :ref:`WorldEnvironment<class_WorldEnvironment>` and will override the :ref:`Camera3D<class_Camera3D>`'s :ref:`Camera3D.far<class_Camera3D_property_far>`, :ref:`Camera3D.near<class_Camera3D_property_near>`, :ref:`Camera3D.fov<class_Camera3D_property_fov>`, and :ref:`Camera3D.keep_aspect<class_Camera3D_property_keep_aspect>` properties. When used in :ref:`VoxelGI<class_VoxelGI>` or :ref:`LightmapGI<class_LightmapGI>`, only the exposure settings will be used.
 
-The default settings are intended for use in an outdoor environment, tips for settings for use in an indoor environment can be found in each setting's documentation.
+The default values are intended for use in an outdoor environment; tips for values to use in an indoor environment can be found in each setting's documentation.
 
 \ **Note:** Depth of field blur is only supported in the Forward+ and Mobile rendering methods, not Compatibility.
+
+\ **Note:** Auto-exposure is only supported in the Forward+ rendering method, not Mobile or Compatibility.
 
 .. rst-class:: classref-introduction-group
 
@@ -85,7 +87,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **auto_exposure_max_exposure_value** = ``10.0``
+:ref:`float<class_float>` **auto_exposure_max_exposure_value** = ``10.0`` :ref:`🔗<class_CameraAttributesPhysical_property_auto_exposure_max_exposure_value>`
 
 .. rst-class:: classref-property-setget
 
@@ -102,14 +104,14 @@ The maximum luminance (in EV100) used when calculating auto exposure. When calcu
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **auto_exposure_min_exposure_value** = ``-8.0``
+:ref:`float<class_float>` **auto_exposure_min_exposure_value** = ``-8.0`` :ref:`🔗<class_CameraAttributesPhysical_property_auto_exposure_min_exposure_value>`
 
 .. rst-class:: classref-property-setget
 
 - |void| **set_auto_exposure_min_exposure_value**\ (\ value\: :ref:`float<class_float>`\ )
 - :ref:`float<class_float>` **get_auto_exposure_min_exposure_value**\ (\ )
 
-The minimum luminance luminance (in EV100) used when calculating auto exposure. When calculating scene average luminance, color values will be clamped to at least this value. This limits the auto-exposure from exposing above a certain brightness, resulting in a cut off point where the scene will remain dark.
+The minimum luminance (in EV100) used when calculating auto exposure. When calculating scene average luminance, color values will be clamped to at least this value. This limits the auto-exposure from exposing above a certain brightness, resulting in a cut off point where the scene will remain dark.
 
 .. rst-class:: classref-item-separator
 
@@ -119,7 +121,7 @@ The minimum luminance luminance (in EV100) used when calculating auto exposure. 
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **exposure_aperture** = ``16.0``
+:ref:`float<class_float>` **exposure_aperture** = ``16.0`` :ref:`🔗<class_CameraAttributesPhysical_property_exposure_aperture>`
 
 .. rst-class:: classref-property-setget
 
@@ -138,7 +140,7 @@ Only available when :ref:`ProjectSettings.rendering/lights_and_shadows/use_physi
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **exposure_shutter_speed** = ``100.0``
+:ref:`float<class_float>` **exposure_shutter_speed** = ``100.0`` :ref:`🔗<class_CameraAttributesPhysical_property_exposure_shutter_speed>`
 
 .. rst-class:: classref-property-setget
 
@@ -157,7 +159,7 @@ Only available when :ref:`ProjectSettings.rendering/lights_and_shadows/use_physi
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **frustum_far** = ``4000.0``
+:ref:`float<class_float>` **frustum_far** = ``4000.0`` :ref:`🔗<class_CameraAttributesPhysical_property_frustum_far>`
 
 .. rst-class:: classref-property-setget
 
@@ -174,7 +176,7 @@ Override value for :ref:`Camera3D.far<class_Camera3D_property_far>`. Used intern
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **frustum_focal_length** = ``35.0``
+:ref:`float<class_float>` **frustum_focal_length** = ``35.0`` :ref:`🔗<class_CameraAttributesPhysical_property_frustum_focal_length>`
 
 .. rst-class:: classref-property-setget
 
@@ -191,7 +193,7 @@ Distance between camera lens and camera aperture, measured in millimeters. Contr
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **frustum_focus_distance** = ``10.0``
+:ref:`float<class_float>` **frustum_focus_distance** = ``10.0`` :ref:`🔗<class_CameraAttributesPhysical_property_frustum_focus_distance>`
 
 .. rst-class:: classref-property-setget
 
@@ -208,7 +210,7 @@ Distance from camera of object that will be in focus, measured in meters. Intern
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **frustum_near** = ``0.05``
+:ref:`float<class_float>` **frustum_near** = ``0.05`` :ref:`🔗<class_CameraAttributesPhysical_property_frustum_near>`
 
 .. rst-class:: classref-property-setget
 
@@ -230,11 +232,12 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`float<class_float>` **get_fov**\ (\ ) |const|
+:ref:`float<class_float>` **get_fov**\ (\ ) |const| :ref:`🔗<class_CameraAttributesPhysical_method_get_fov>`
 
 Returns the vertical field of view that corresponds to the :ref:`frustum_focal_length<class_CameraAttributesPhysical_property_frustum_focal_length>`. This value is calculated internally whenever :ref:`frustum_focal_length<class_CameraAttributesPhysical_property_frustum_focal_length>` is changed.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
