@@ -31,11 +31,17 @@ Properties
 .. table::
    :widths: auto
 
-   +---------------------------+------------------------------------------------------------+---------+
-   | :ref:`float<class_float>` | :ref:`bake_interval<class_Curve2D_property_bake_interval>` | ``5.0`` |
-   +---------------------------+------------------------------------------------------------+---------+
-   | :ref:`int<class_int>`     | :ref:`point_count<class_Curve2D_property_point_count>`     | ``0``   |
-   +---------------------------+------------------------------------------------------------+---------+
+   +-------------------------------+------------------------------------------------------------------------------+-------------------+
+   | :ref:`float<class_float>`     | :ref:`bake_interval<class_Curve2D_property_bake_interval>`                   | ``5.0``           |
+   +-------------------------------+------------------------------------------------------------------------------+-------------------+
+   | :ref:`int<class_int>`         | :ref:`point_count<class_Curve2D_property_point_count>`                       | ``0``             |
+   +-------------------------------+------------------------------------------------------------------------------+-------------------+
+   | :ref:`Vector2<class_Vector2>` | :ref:`point_{index}/in<class_Curve2D_property_point_{index}/in>`             | ``Vector2(0, 0)`` |
+   +-------------------------------+------------------------------------------------------------------------------+-------------------+
+   | :ref:`Vector2<class_Vector2>` | :ref:`point_{index}/out<class_Curve2D_property_point_{index}/out>`           | ``Vector2(0, 0)`` |
+   +-------------------------------+------------------------------------------------------------------------------+-------------------+
+   | :ref:`Vector2<class_Vector2>` | :ref:`point_{index}/position<class_Curve2D_property_point_{index}/position>` | ``Vector2(0, 0)`` |
+   +-------------------------------+------------------------------------------------------------------------------+-------------------+
 
 .. rst-class:: classref-reftable-group
 
@@ -98,14 +104,14 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **bake_interval** = ``5.0``
+:ref:`float<class_float>` **bake_interval** = ``5.0`` :ref:`🔗<class_Curve2D_property_bake_interval>`
 
 .. rst-class:: classref-property-setget
 
 - |void| **set_bake_interval**\ (\ value\: :ref:`float<class_float>`\ )
 - :ref:`float<class_float>` **get_bake_interval**\ (\ )
 
-The distance in pixels between two adjacent cached points. Changing it forces the cache to be recomputed the next time the :ref:`get_baked_points<class_Curve2D_method_get_baked_points>` or :ref:`get_baked_length<class_Curve2D_method_get_baked_length>` function is called. The smaller the distance, the more points in the cache and the more memory it will consume, so use with care.
+The distance in pixels between two adjacent cached points. Changing it forces the cache to be recomputed the next time the :ref:`get_baked_points()<class_Curve2D_method_get_baked_points>` or :ref:`get_baked_length()<class_Curve2D_method_get_baked_length>` function is called. The smaller the distance, the more points in the cache and the more memory it will consume, so use with care.
 
 .. rst-class:: classref-item-separator
 
@@ -115,7 +121,7 @@ The distance in pixels between two adjacent cached points. Changing it forces th
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **point_count** = ``0``
+:ref:`int<class_int>` **point_count** = ``0`` :ref:`🔗<class_Curve2D_property_point_count>`
 
 .. rst-class:: classref-property-setget
 
@@ -123,6 +129,48 @@ The distance in pixels between two adjacent cached points. Changing it forces th
 - :ref:`int<class_int>` **get_point_count**\ (\ )
 
 The number of points describing the curve.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_Curve2D_property_point_{index}/in:
+
+.. rst-class:: classref-property
+
+:ref:`Vector2<class_Vector2>` **point_{index}/in** = ``Vector2(0, 0)`` :ref:`🔗<class_Curve2D_property_point_{index}/in>`
+
+The position of the control point leading to the vertex at ``index``.
+
+\ **Note:** ``index`` is a value in the ``0 .. point_count - 1`` range.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_Curve2D_property_point_{index}/out:
+
+.. rst-class:: classref-property
+
+:ref:`Vector2<class_Vector2>` **point_{index}/out** = ``Vector2(0, 0)`` :ref:`🔗<class_Curve2D_property_point_{index}/out>`
+
+The position of the control point leading out of the vertex at ``index``.
+
+\ **Note:** ``index`` is a value in the ``0 .. point_count - 1`` range.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_Curve2D_property_point_{index}/position:
+
+.. rst-class:: classref-property
+
+:ref:`Vector2<class_Vector2>` **point_{index}/position** = ``Vector2(0, 0)`` :ref:`🔗<class_Curve2D_property_point_{index}/position>`
+
+The position of for the vertex at ``index``.
+
+\ **Note:** ``index`` is a value in the ``0 .. point_count - 1`` range.
 
 .. rst-class:: classref-section-separator
 
@@ -137,7 +185,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-|void| **add_point**\ (\ position\: :ref:`Vector2<class_Vector2>`, in\: :ref:`Vector2<class_Vector2>` = Vector2(0, 0), out\: :ref:`Vector2<class_Vector2>` = Vector2(0, 0), index\: :ref:`int<class_int>` = -1\ )
+|void| **add_point**\ (\ position\: :ref:`Vector2<class_Vector2>`, in\: :ref:`Vector2<class_Vector2>` = Vector2(0, 0), out\: :ref:`Vector2<class_Vector2>` = Vector2(0, 0), index\: :ref:`int<class_int>` = -1\ ) :ref:`🔗<class_Curve2D_method_add_point>`
 
 Adds a point with the specified ``position`` relative to the curve's own position, with control points ``in`` and ``out``. Appends the new point at the end of the point list.
 
@@ -151,7 +199,7 @@ If ``index`` is given, the new point is inserted before the existing point ident
 
 .. rst-class:: classref-method
 
-|void| **clear_points**\ (\ )
+|void| **clear_points**\ (\ ) :ref:`🔗<class_Curve2D_method_clear_points>`
 
 Removes all points from the curve.
 
@@ -163,7 +211,7 @@ Removes all points from the curve.
 
 .. rst-class:: classref-method
 
-:ref:`float<class_float>` **get_baked_length**\ (\ ) |const|
+:ref:`float<class_float>` **get_baked_length**\ (\ ) |const| :ref:`🔗<class_Curve2D_method_get_baked_length>`
 
 Returns the total length of the curve, based on the cached points. Given enough density (see :ref:`bake_interval<class_Curve2D_property_bake_interval>`), it should be approximate enough.
 
@@ -175,7 +223,7 @@ Returns the total length of the curve, based on the cached points. Given enough 
 
 .. rst-class:: classref-method
 
-:ref:`PackedVector2Array<class_PackedVector2Array>` **get_baked_points**\ (\ ) |const|
+:ref:`PackedVector2Array<class_PackedVector2Array>` **get_baked_points**\ (\ ) |const| :ref:`🔗<class_Curve2D_method_get_baked_points>`
 
 Returns the cache of points as a :ref:`PackedVector2Array<class_PackedVector2Array>`.
 
@@ -187,9 +235,9 @@ Returns the cache of points as a :ref:`PackedVector2Array<class_PackedVector2Arr
 
 .. rst-class:: classref-method
 
-:ref:`float<class_float>` **get_closest_offset**\ (\ to_point\: :ref:`Vector2<class_Vector2>`\ ) |const|
+:ref:`float<class_float>` **get_closest_offset**\ (\ to_point\: :ref:`Vector2<class_Vector2>`\ ) |const| :ref:`🔗<class_Curve2D_method_get_closest_offset>`
 
-Returns the closest offset to ``to_point``. This offset is meant to be used in :ref:`sample_baked<class_Curve2D_method_sample_baked>`.
+Returns the closest offset to ``to_point``. This offset is meant to be used in :ref:`sample_baked()<class_Curve2D_method_sample_baked>`.
 
 \ ``to_point`` must be in this curve's local space.
 
@@ -201,7 +249,7 @@ Returns the closest offset to ``to_point``. This offset is meant to be used in :
 
 .. rst-class:: classref-method
 
-:ref:`Vector2<class_Vector2>` **get_closest_point**\ (\ to_point\: :ref:`Vector2<class_Vector2>`\ ) |const|
+:ref:`Vector2<class_Vector2>` **get_closest_point**\ (\ to_point\: :ref:`Vector2<class_Vector2>`\ ) |const| :ref:`🔗<class_Curve2D_method_get_closest_point>`
 
 Returns the closest point on baked segments (in curve's local space) to ``to_point``.
 
@@ -215,7 +263,7 @@ Returns the closest point on baked segments (in curve's local space) to ``to_poi
 
 .. rst-class:: classref-method
 
-:ref:`Vector2<class_Vector2>` **get_point_in**\ (\ idx\: :ref:`int<class_int>`\ ) |const|
+:ref:`Vector2<class_Vector2>` **get_point_in**\ (\ idx\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_Curve2D_method_get_point_in>`
 
 Returns the position of the control point leading to the vertex ``idx``. The returned position is relative to the vertex ``idx``. If the index is out of bounds, the function sends an error to the console, and returns ``(0, 0)``.
 
@@ -227,7 +275,7 @@ Returns the position of the control point leading to the vertex ``idx``. The ret
 
 .. rst-class:: classref-method
 
-:ref:`Vector2<class_Vector2>` **get_point_out**\ (\ idx\: :ref:`int<class_int>`\ ) |const|
+:ref:`Vector2<class_Vector2>` **get_point_out**\ (\ idx\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_Curve2D_method_get_point_out>`
 
 Returns the position of the control point leading out of the vertex ``idx``. The returned position is relative to the vertex ``idx``. If the index is out of bounds, the function sends an error to the console, and returns ``(0, 0)``.
 
@@ -239,7 +287,7 @@ Returns the position of the control point leading out of the vertex ``idx``. The
 
 .. rst-class:: classref-method
 
-:ref:`Vector2<class_Vector2>` **get_point_position**\ (\ idx\: :ref:`int<class_int>`\ ) |const|
+:ref:`Vector2<class_Vector2>` **get_point_position**\ (\ idx\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_Curve2D_method_get_point_position>`
 
 Returns the position of the vertex ``idx``. If the index is out of bounds, the function sends an error to the console, and returns ``(0, 0)``.
 
@@ -251,7 +299,7 @@ Returns the position of the vertex ``idx``. If the index is out of bounds, the f
 
 .. rst-class:: classref-method
 
-|void| **remove_point**\ (\ idx\: :ref:`int<class_int>`\ )
+|void| **remove_point**\ (\ idx\: :ref:`int<class_int>`\ ) :ref:`🔗<class_Curve2D_method_remove_point>`
 
 Deletes the point ``idx`` from the curve. Sends an error to the console if ``idx`` is out of bounds.
 
@@ -263,9 +311,9 @@ Deletes the point ``idx`` from the curve. Sends an error to the console if ``idx
 
 .. rst-class:: classref-method
 
-:ref:`Vector2<class_Vector2>` **sample**\ (\ idx\: :ref:`int<class_int>`, t\: :ref:`float<class_float>`\ ) |const|
+:ref:`Vector2<class_Vector2>` **sample**\ (\ idx\: :ref:`int<class_int>`, t\: :ref:`float<class_float>`\ ) |const| :ref:`🔗<class_Curve2D_method_sample>`
 
-Returns the position between the vertex ``idx`` and the vertex ``idx + 1``, where ``t`` controls if the point is the first vertex (``t = 0.0``), the last vertex (``t = 1.0``), or in between. Values of ``t`` outside the range (``0.0 >= t <=1``) give strange, but predictable results.
+Returns the position between the vertex ``idx`` and the vertex ``idx + 1``, where ``t`` controls if the point is the first vertex (\ ``t = 0.0``), the last vertex (\ ``t = 1.0``), or in between. Values of ``t`` outside the range (\ ``0.0 <= t <= 1.0``) give strange, but predictable results.
 
 If ``idx`` is out of bounds it is truncated to the first or last vertex, and ``t`` is ignored. If the curve has no points, the function sends an error to the console, and returns ``(0, 0)``.
 
@@ -277,7 +325,7 @@ If ``idx`` is out of bounds it is truncated to the first or last vertex, and ``t
 
 .. rst-class:: classref-method
 
-:ref:`Vector2<class_Vector2>` **sample_baked**\ (\ offset\: :ref:`float<class_float>` = 0.0, cubic\: :ref:`bool<class_bool>` = false\ ) |const|
+:ref:`Vector2<class_Vector2>` **sample_baked**\ (\ offset\: :ref:`float<class_float>` = 0.0, cubic\: :ref:`bool<class_bool>` = false\ ) |const| :ref:`🔗<class_Curve2D_method_sample_baked>`
 
 Returns a point within the curve at position ``offset``, where ``offset`` is measured as a pixel distance along the curve.
 
@@ -293,9 +341,9 @@ Cubic interpolation tends to follow the curves better, but linear is faster (and
 
 .. rst-class:: classref-method
 
-:ref:`Transform2D<class_Transform2D>` **sample_baked_with_rotation**\ (\ offset\: :ref:`float<class_float>` = 0.0, cubic\: :ref:`bool<class_bool>` = false\ ) |const|
+:ref:`Transform2D<class_Transform2D>` **sample_baked_with_rotation**\ (\ offset\: :ref:`float<class_float>` = 0.0, cubic\: :ref:`bool<class_bool>` = false\ ) |const| :ref:`🔗<class_Curve2D_method_sample_baked_with_rotation>`
 
-Similar to :ref:`sample_baked<class_Curve2D_method_sample_baked>`, but returns :ref:`Transform2D<class_Transform2D>` that includes a rotation along the curve, with :ref:`Transform2D.origin<class_Transform2D_property_origin>` as the point position and the :ref:`Transform2D.x<class_Transform2D_property_x>` vector pointing in the direction of the path at that point. Returns an empty transform if the length of the curve is ``0``.
+Similar to :ref:`sample_baked()<class_Curve2D_method_sample_baked>`, but returns :ref:`Transform2D<class_Transform2D>` that includes a rotation along the curve, with :ref:`Transform2D.origin<class_Transform2D_property_origin>` as the point position and the :ref:`Transform2D.x<class_Transform2D_property_x>` vector pointing in the direction of the path at that point. Returns an empty transform if the length of the curve is ``0``.
 
 ::
 
@@ -314,9 +362,9 @@ Similar to :ref:`sample_baked<class_Curve2D_method_sample_baked>`, but returns :
 
 .. rst-class:: classref-method
 
-:ref:`Vector2<class_Vector2>` **samplef**\ (\ fofs\: :ref:`float<class_float>`\ ) |const|
+:ref:`Vector2<class_Vector2>` **samplef**\ (\ fofs\: :ref:`float<class_float>`\ ) |const| :ref:`🔗<class_Curve2D_method_samplef>`
 
-Returns the position at the vertex ``fofs``. It calls :ref:`sample<class_Curve2D_method_sample>` using the integer part of ``fofs`` as ``idx``, and its fractional part as ``t``.
+Returns the position at the vertex ``fofs``. It calls :ref:`sample()<class_Curve2D_method_sample>` using the integer part of ``fofs`` as ``idx``, and its fractional part as ``t``.
 
 .. rst-class:: classref-item-separator
 
@@ -326,7 +374,7 @@ Returns the position at the vertex ``fofs``. It calls :ref:`sample<class_Curve2D
 
 .. rst-class:: classref-method
 
-|void| **set_point_in**\ (\ idx\: :ref:`int<class_int>`, position\: :ref:`Vector2<class_Vector2>`\ )
+|void| **set_point_in**\ (\ idx\: :ref:`int<class_int>`, position\: :ref:`Vector2<class_Vector2>`\ ) :ref:`🔗<class_Curve2D_method_set_point_in>`
 
 Sets the position of the control point leading to the vertex ``idx``. If the index is out of bounds, the function sends an error to the console. The position is relative to the vertex.
 
@@ -338,7 +386,7 @@ Sets the position of the control point leading to the vertex ``idx``. If the ind
 
 .. rst-class:: classref-method
 
-|void| **set_point_out**\ (\ idx\: :ref:`int<class_int>`, position\: :ref:`Vector2<class_Vector2>`\ )
+|void| **set_point_out**\ (\ idx\: :ref:`int<class_int>`, position\: :ref:`Vector2<class_Vector2>`\ ) :ref:`🔗<class_Curve2D_method_set_point_out>`
 
 Sets the position of the control point leading out of the vertex ``idx``. If the index is out of bounds, the function sends an error to the console. The position is relative to the vertex.
 
@@ -350,7 +398,7 @@ Sets the position of the control point leading out of the vertex ``idx``. If the
 
 .. rst-class:: classref-method
 
-|void| **set_point_position**\ (\ idx\: :ref:`int<class_int>`, position\: :ref:`Vector2<class_Vector2>`\ )
+|void| **set_point_position**\ (\ idx\: :ref:`int<class_int>`, position\: :ref:`Vector2<class_Vector2>`\ ) :ref:`🔗<class_Curve2D_method_set_point_position>`
 
 Sets the position for the vertex ``idx``. If the index is out of bounds, the function sends an error to the console.
 
@@ -362,7 +410,7 @@ Sets the position for the vertex ``idx``. If the index is out of bounds, the fun
 
 .. rst-class:: classref-method
 
-:ref:`PackedVector2Array<class_PackedVector2Array>` **tessellate**\ (\ max_stages\: :ref:`int<class_int>` = 5, tolerance_degrees\: :ref:`float<class_float>` = 4\ ) |const|
+:ref:`PackedVector2Array<class_PackedVector2Array>` **tessellate**\ (\ max_stages\: :ref:`int<class_int>` = 5, tolerance_degrees\: :ref:`float<class_float>` = 4\ ) |const| :ref:`🔗<class_Curve2D_method_tessellate>`
 
 Returns a list of points along the curve, with a curvature controlled point density. That is, the curvier parts will have more points than the straighter parts.
 
@@ -380,13 +428,14 @@ This approximation makes straight segments between each point, then subdivides t
 
 .. rst-class:: classref-method
 
-:ref:`PackedVector2Array<class_PackedVector2Array>` **tessellate_even_length**\ (\ max_stages\: :ref:`int<class_int>` = 5, tolerance_length\: :ref:`float<class_float>` = 20.0\ ) |const|
+:ref:`PackedVector2Array<class_PackedVector2Array>` **tessellate_even_length**\ (\ max_stages\: :ref:`int<class_int>` = 5, tolerance_length\: :ref:`float<class_float>` = 20.0\ ) |const| :ref:`🔗<class_Curve2D_method_tessellate_even_length>`
 
 Returns a list of points along the curve, with almost uniform density. ``max_stages`` controls how many subdivisions a curve segment may face before it is considered approximate enough. Each subdivision splits the segment in half, so the default 5 stages may mean up to 32 subdivisions per curve segment. Increase with care!
 
 \ ``tolerance_length`` controls the maximal distance between two neighboring points, before the segment has to be subdivided.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

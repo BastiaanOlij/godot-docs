@@ -58,14 +58,14 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`JoyAxis<enum_@GlobalScope_JoyAxis>` **axis** = ``0``
+:ref:`JoyAxis<enum_@GlobalScope_JoyAxis>` **axis** = ``0`` :ref:`🔗<class_InputEventJoypadMotion_property_axis>`
 
 .. rst-class:: classref-property-setget
 
 - |void| **set_axis**\ (\ value\: :ref:`JoyAxis<enum_@GlobalScope_JoyAxis>`\ )
 - :ref:`JoyAxis<enum_@GlobalScope_JoyAxis>` **get_axis**\ (\ )
 
-Axis identifier. Use one of the :ref:`JoyAxis<enum_@GlobalScope_JoyAxis>` axis constants.
+Axis identifier.
 
 .. rst-class:: classref-item-separator
 
@@ -75,7 +75,7 @@ Axis identifier. Use one of the :ref:`JoyAxis<enum_@GlobalScope_JoyAxis>` axis c
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **axis_value** = ``0.0``
+:ref:`float<class_float>` **axis_value** = ``0.0`` :ref:`🔗<class_InputEventJoypadMotion_property_axis_value>`
 
 .. rst-class:: classref-property-setget
 
@@ -85,6 +85,7 @@ Axis identifier. Use one of the :ref:`JoyAxis<enum_@GlobalScope_JoyAxis>` axis c
 Current position of the joystick on the given axis. The value ranges from ``-1.0`` to ``1.0``. A value of ``0`` means the axis is in its resting position.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

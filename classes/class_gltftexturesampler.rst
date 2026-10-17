@@ -12,14 +12,14 @@ GLTFTextureSampler
 
 **Inherits:** :ref:`Resource<class_Resource>` **<** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
-Represents a GLTF texture sampler
+Represents a glTF texture sampler
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-Represents a texture sampler as defined by the base GLTF spec. Texture samplers in GLTF specify how to sample data from the texture's base image, when rendering the texture on an object.
+Represents a texture sampler as defined by the base glTF spec. Texture samplers in glTF specify how to sample data from the texture's base image, when rendering the texture on an object.
 
 .. rst-class:: classref-introduction-group
 
@@ -59,7 +59,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **mag_filter** = ``9729``
+:ref:`int<class_int>` **mag_filter** = ``9729`` :ref:`🔗<class_GLTFTextureSampler_property_mag_filter>`
 
 .. rst-class:: classref-property-setget
 
@@ -76,7 +76,7 @@ Texture's magnification filter, used when texture appears larger on screen than 
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **min_filter** = ``9987``
+:ref:`int<class_int>` **min_filter** = ``9987`` :ref:`🔗<class_GLTFTextureSampler_property_min_filter>`
 
 .. rst-class:: classref-property-setget
 
@@ -93,7 +93,7 @@ Texture's minification filter, used when the texture appears smaller on screen t
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **wrap_s** = ``10497``
+:ref:`int<class_int>` **wrap_s** = ``10497`` :ref:`🔗<class_GLTFTextureSampler_property_wrap_s>`
 
 .. rst-class:: classref-property-setget
 
@@ -110,7 +110,7 @@ Wrapping mode to use for S-axis (horizontal) texture coordinates.
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **wrap_t** = ``10497``
+:ref:`int<class_int>` **wrap_t** = ``10497`` :ref:`🔗<class_GLTFTextureSampler_property_wrap_t>`
 
 .. rst-class:: classref-property-setget
 
@@ -120,6 +120,7 @@ Wrapping mode to use for S-axis (horizontal) texture coordinates.
 Wrapping mode to use for T-axis (vertical) texture coordinates.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
