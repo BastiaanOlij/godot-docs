@@ -25,7 +25,7 @@ This :ref:`SkeletonModification2D<class_SkeletonModification2D>` uses an algorit
 
 FABRIK works by knowing the positions and lengths of a series of bones, typically called a "bone chain". It first starts by running a forward pass, which places the final bone at the target's position. Then all other bones are moved towards the tip bone, so they stay at the defined bone length away. Then a backwards pass is performed, where the root/first bone in the FABRIK chain is placed back at the origin. Then all other bones are moved so they stay at the defined bone length away. This positions the bone chain so that it reaches the target when possible, but all of the bones stay the correct length away from each other.
 
-Because of how FABRIK works, it often gives more natural results than those seen in :ref:`SkeletonModification2DCCDIK<class_SkeletonModification2DCCDIK>`. FABRIK also supports angle constraints, which are fully taken into account when solving.
+Because of how FABRIK works, it often gives more natural results than those seen in :ref:`SkeletonModification2DCCDIK<class_SkeletonModification2DCCDIK>`.
 
 \ **Note:** The FABRIK modifier has ``fabrik_joints``, which are the data objects that hold the data for each joint in the FABRIK chain. This is different from :ref:`Bone2D<class_Bone2D>` nodes! FABRIK joints hold the data needed for each :ref:`Bone2D<class_Bone2D>` in the bone chain used by FABRIK.
 
@@ -84,7 +84,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **fabrik_data_chain_length** = ``0``
+:ref:`int<class_int>` **fabrik_data_chain_length** = ``0`` :ref:`🔗<class_SkeletonModification2DFABRIK_property_fabrik_data_chain_length>`
 
 .. rst-class:: classref-property-setget
 
@@ -101,7 +101,7 @@ The number of FABRIK joints in the FABRIK modification.
 
 .. rst-class:: classref-property
 
-:ref:`NodePath<class_NodePath>` **target_nodepath** = ``NodePath("")``
+:ref:`NodePath<class_NodePath>` **target_nodepath** = ``NodePath("")`` :ref:`🔗<class_SkeletonModification2DFABRIK_property_target_nodepath>`
 
 .. rst-class:: classref-property-setget
 
@@ -123,7 +123,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`NodePath<class_NodePath>` **get_fabrik_joint_bone2d_node**\ (\ joint_idx\: :ref:`int<class_int>`\ ) |const|
+:ref:`NodePath<class_NodePath>` **get_fabrik_joint_bone2d_node**\ (\ joint_idx\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_SkeletonModification2DFABRIK_method_get_fabrik_joint_bone2d_node>`
 
 Returns the :ref:`Bone2D<class_Bone2D>` node assigned to the FABRIK joint at ``joint_idx``.
 
@@ -135,7 +135,7 @@ Returns the :ref:`Bone2D<class_Bone2D>` node assigned to the FABRIK joint at ``j
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **get_fabrik_joint_bone_index**\ (\ joint_idx\: :ref:`int<class_int>`\ ) |const|
+:ref:`int<class_int>` **get_fabrik_joint_bone_index**\ (\ joint_idx\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_SkeletonModification2DFABRIK_method_get_fabrik_joint_bone_index>`
 
 Returns the index of the :ref:`Bone2D<class_Bone2D>` node assigned to the FABRIK joint at ``joint_idx``.
 
@@ -147,7 +147,7 @@ Returns the index of the :ref:`Bone2D<class_Bone2D>` node assigned to the FABRIK
 
 .. rst-class:: classref-method
 
-:ref:`Vector2<class_Vector2>` **get_fabrik_joint_magnet_position**\ (\ joint_idx\: :ref:`int<class_int>`\ ) |const|
+:ref:`Vector2<class_Vector2>` **get_fabrik_joint_magnet_position**\ (\ joint_idx\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_SkeletonModification2DFABRIK_method_get_fabrik_joint_magnet_position>`
 
 Returns the magnet position vector for the joint at ``joint_idx``.
 
@@ -159,7 +159,7 @@ Returns the magnet position vector for the joint at ``joint_idx``.
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **get_fabrik_joint_use_target_rotation**\ (\ joint_idx\: :ref:`int<class_int>`\ ) |const|
+:ref:`bool<class_bool>` **get_fabrik_joint_use_target_rotation**\ (\ joint_idx\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_SkeletonModification2DFABRIK_method_get_fabrik_joint_use_target_rotation>`
 
 Returns whether the joint is using the target's rotation rather than allowing FABRIK to rotate the joint. This option only applies to the tip/final joint in the chain.
 
@@ -171,7 +171,7 @@ Returns whether the joint is using the target's rotation rather than allowing FA
 
 .. rst-class:: classref-method
 
-|void| **set_fabrik_joint_bone2d_node**\ (\ joint_idx\: :ref:`int<class_int>`, bone2d_nodepath\: :ref:`NodePath<class_NodePath>`\ )
+|void| **set_fabrik_joint_bone2d_node**\ (\ joint_idx\: :ref:`int<class_int>`, bone2d_nodepath\: :ref:`NodePath<class_NodePath>`\ ) :ref:`🔗<class_SkeletonModification2DFABRIK_method_set_fabrik_joint_bone2d_node>`
 
 Sets the :ref:`Bone2D<class_Bone2D>` node assigned to the FABRIK joint at ``joint_idx``.
 
@@ -183,7 +183,7 @@ Sets the :ref:`Bone2D<class_Bone2D>` node assigned to the FABRIK joint at ``join
 
 .. rst-class:: classref-method
 
-|void| **set_fabrik_joint_bone_index**\ (\ joint_idx\: :ref:`int<class_int>`, bone_idx\: :ref:`int<class_int>`\ )
+|void| **set_fabrik_joint_bone_index**\ (\ joint_idx\: :ref:`int<class_int>`, bone_idx\: :ref:`int<class_int>`\ ) :ref:`🔗<class_SkeletonModification2DFABRIK_method_set_fabrik_joint_bone_index>`
 
 Sets the bone index, ``bone_idx``, of the FABRIK joint at ``joint_idx``. When possible, this will also update the ``bone2d_node`` of the FABRIK joint based on data provided by the linked skeleton.
 
@@ -195,7 +195,7 @@ Sets the bone index, ``bone_idx``, of the FABRIK joint at ``joint_idx``. When po
 
 .. rst-class:: classref-method
 
-|void| **set_fabrik_joint_magnet_position**\ (\ joint_idx\: :ref:`int<class_int>`, magnet_position\: :ref:`Vector2<class_Vector2>`\ )
+|void| **set_fabrik_joint_magnet_position**\ (\ joint_idx\: :ref:`int<class_int>`, magnet_position\: :ref:`Vector2<class_Vector2>`\ ) :ref:`🔗<class_SkeletonModification2DFABRIK_method_set_fabrik_joint_magnet_position>`
 
 Sets the magnet position vector for the joint at ``joint_idx``.
 
@@ -207,13 +207,14 @@ Sets the magnet position vector for the joint at ``joint_idx``.
 
 .. rst-class:: classref-method
 
-|void| **set_fabrik_joint_use_target_rotation**\ (\ joint_idx\: :ref:`int<class_int>`, use_target_rotation\: :ref:`bool<class_bool>`\ )
+|void| **set_fabrik_joint_use_target_rotation**\ (\ joint_idx\: :ref:`int<class_int>`, use_target_rotation\: :ref:`bool<class_bool>`\ ) :ref:`🔗<class_SkeletonModification2DFABRIK_method_set_fabrik_joint_use_target_rotation>`
 
 Sets whether the joint at ``joint_idx`` will use the target node's rotation rather than letting FABRIK rotate the node.
 
 \ **Note:** This option only works for the tip/final joint in the chain. For all other nodes, this option will be ignored.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

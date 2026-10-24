@@ -28,7 +28,7 @@ A 3D sphere shape, intended for use in physics. Usually used to provide a shape 
 Tutorials
 ---------
 
-- `3D Physics Tests Demo <https://godotengine.org/asset-library/asset/675>`__
+- `3D Physics Tests Demo <https://godotengine.org/asset-library/asset/2747>`__
 
 .. rst-class:: classref-reftable-group
 
@@ -55,7 +55,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **radius** = ``0.5``
+:ref:`float<class_float>` **radius** = ``0.5`` :ref:`🔗<class_SphereShape3D_property_radius>`
 
 .. rst-class:: classref-property-setget
 
@@ -65,6 +65,7 @@ Property Descriptions
 The sphere's radius. The shape's diameter is double the radius.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
