@@ -72,8 +72,30 @@ Methods
    +-------------------------------------------+----------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                   | :ref:`is_hovered<class_BaseButton_method_is_hovered>`\ (\ ) |const|                                                  |
    +-------------------------------------------+----------------------------------------------------------------------------------------------------------------------+
+   | |void|                                    | :ref:`press<class_BaseButton_method_press>`\ (\ )                                                                    |
+   +-------------------------------------------+----------------------------------------------------------------------------------------------------------------------+
    | |void|                                    | :ref:`set_pressed_no_signal<class_BaseButton_method_set_pressed_no_signal>`\ (\ pressed\: :ref:`bool<class_bool>`\ ) |
    +-------------------------------------------+----------------------------------------------------------------------------------------------------------------------+
+
+.. rst-class:: classref-reftable-group
+
+Theme Properties
+----------------
+
+.. table::
+   :widths: auto
+
+   +---------------------------------------+------------------------------------------------------------------------------------+-------+
+   | :ref:`int<class_int>`                 | :ref:`click_margin<class_BaseButton_theme_constant_click_margin>`                  | ``0`` |
+   +---------------------------------------+------------------------------------------------------------------------------------+-------+
+   | :ref:`AudioStream<class_AudioStream>` | :ref:`focus_sound<class_BaseButton_theme_sound_focus_sound>`                       |       |
+   +---------------------------------------+------------------------------------------------------------------------------------+-------+
+   | :ref:`AudioStream<class_AudioStream>` | :ref:`hover_sound<class_BaseButton_theme_sound_hover_sound>`                       |       |
+   +---------------------------------------+------------------------------------------------------------------------------------+-------+
+   | :ref:`AudioStream<class_AudioStream>` | :ref:`pressed_disabled_sound<class_BaseButton_theme_sound_pressed_disabled_sound>` |       |
+   +---------------------------------------+------------------------------------------------------------------------------------+-------+
+   | :ref:`AudioStream<class_AudioStream>` | :ref:`pressed_sound<class_BaseButton_theme_sound_pressed_sound>`                   |       |
+   +---------------------------------------+------------------------------------------------------------------------------------+-------+
 
 .. rst-class:: classref-section-separator
 
@@ -88,7 +110,7 @@ Signals
 
 .. rst-class:: classref-signal
 
-**button_down**\ (\ )
+**button_down**\ (\ ) :ref:`🔗<class_BaseButton_signal_button_down>`
 
 Emitted when the button starts being held down.
 
@@ -100,7 +122,7 @@ Emitted when the button starts being held down.
 
 .. rst-class:: classref-signal
 
-**button_up**\ (\ )
+**button_up**\ (\ ) :ref:`🔗<class_BaseButton_signal_button_up>`
 
 Emitted when the button stops being held down.
 
@@ -112,7 +134,7 @@ Emitted when the button stops being held down.
 
 .. rst-class:: classref-signal
 
-**pressed**\ (\ )
+**pressed**\ (\ ) :ref:`🔗<class_BaseButton_signal_pressed>`
 
 Emitted when the button is toggled or pressed. This is on :ref:`button_down<class_BaseButton_signal_button_down>` if :ref:`action_mode<class_BaseButton_property_action_mode>` is :ref:`ACTION_MODE_BUTTON_PRESS<class_BaseButton_constant_ACTION_MODE_BUTTON_PRESS>` and on :ref:`button_up<class_BaseButton_signal_button_up>` otherwise.
 
@@ -126,7 +148,7 @@ If you need to know the button's pressed state (and :ref:`toggle_mode<class_Base
 
 .. rst-class:: classref-signal
 
-**toggled**\ (\ toggled_on\: :ref:`bool<class_bool>`\ )
+**toggled**\ (\ toggled_on\: :ref:`bool<class_bool>`\ ) :ref:`🔗<class_BaseButton_signal_toggled>`
 
 Emitted when the button was just toggled between pressed and normal states (only if :ref:`toggle_mode<class_BaseButton_property_toggle_mode>` is active). The new state is contained in the ``toggled_on`` argument.
 
@@ -143,7 +165,7 @@ Enumerations
 
 .. rst-class:: classref-enumeration
 
-enum **DrawMode**:
+enum **DrawMode**: :ref:`🔗<enum_BaseButton_DrawMode>`
 
 .. _class_BaseButton_constant_DRAW_NORMAL:
 
@@ -193,7 +215,7 @@ The state of buttons are both hovered and pressed.
 
 .. rst-class:: classref-enumeration
 
-enum **ActionMode**:
+enum **ActionMode**: :ref:`🔗<enum_BaseButton_ActionMode>`
 
 .. _class_BaseButton_constant_ACTION_MODE_BUTTON_PRESS:
 
@@ -224,14 +246,14 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`ActionMode<enum_BaseButton_ActionMode>` **action_mode** = ``1``
+:ref:`ActionMode<enum_BaseButton_ActionMode>` **action_mode** = ``1`` :ref:`🔗<class_BaseButton_property_action_mode>`
 
 .. rst-class:: classref-property-setget
 
 - |void| **set_action_mode**\ (\ value\: :ref:`ActionMode<enum_BaseButton_ActionMode>`\ )
 - :ref:`ActionMode<enum_BaseButton_ActionMode>` **get_action_mode**\ (\ )
 
-Determines when the button is considered clicked, one of the :ref:`ActionMode<enum_BaseButton_ActionMode>` constants.
+Determines when the button is considered clicked.
 
 .. rst-class:: classref-item-separator
 
@@ -241,7 +263,7 @@ Determines when the button is considered clicked, one of the :ref:`ActionMode<en
 
 .. rst-class:: classref-property
 
-:ref:`ButtonGroup<class_ButtonGroup>` **button_group**
+:ref:`ButtonGroup<class_ButtonGroup>` **button_group** :ref:`🔗<class_BaseButton_property_button_group>`
 
 .. rst-class:: classref-property-setget
 
@@ -260,7 +282,7 @@ The :ref:`ButtonGroup<class_ButtonGroup>` associated with the button. Not to be 
 
 .. rst-class:: classref-property
 
-|bitfield|\[:ref:`MouseButtonMask<enum_@GlobalScope_MouseButtonMask>`\] **button_mask** = ``1``
+|bitfield|\[:ref:`MouseButtonMask<enum_@GlobalScope_MouseButtonMask>`\] **button_mask** = ``1`` :ref:`🔗<class_BaseButton_property_button_mask>`
 
 .. rst-class:: classref-property-setget
 
@@ -279,7 +301,7 @@ To allow both left-click and right-click, use ``MOUSE_BUTTON_MASK_LEFT | MOUSE_B
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **button_pressed** = ``false``
+:ref:`bool<class_bool>` **button_pressed** = ``false`` :ref:`🔗<class_BaseButton_property_button_pressed>`
 
 .. rst-class:: classref-property-setget
 
@@ -288,7 +310,7 @@ To allow both left-click and right-click, use ``MOUSE_BUTTON_MASK_LEFT | MOUSE_B
 
 If ``true``, the button's state is pressed. Means the button is pressed down or toggled (if :ref:`toggle_mode<class_BaseButton_property_toggle_mode>` is active). Only works if :ref:`toggle_mode<class_BaseButton_property_toggle_mode>` is ``true``.
 
-\ **Note:** Setting :ref:`button_pressed<class_BaseButton_property_button_pressed>` will result in :ref:`toggled<class_BaseButton_signal_toggled>` to be emitted. If you want to change the pressed state without emitting that signal, use :ref:`set_pressed_no_signal<class_BaseButton_method_set_pressed_no_signal>`.
+\ **Note:** Changing the value of :ref:`button_pressed<class_BaseButton_property_button_pressed>` will result in :ref:`toggled<class_BaseButton_signal_toggled>` to be emitted. If you want to change the pressed state without emitting that signal, use :ref:`set_pressed_no_signal()<class_BaseButton_method_set_pressed_no_signal>`.
 
 .. rst-class:: classref-item-separator
 
@@ -298,7 +320,7 @@ If ``true``, the button's state is pressed. Means the button is pressed down or 
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **disabled** = ``false``
+:ref:`bool<class_bool>` **disabled** = ``false`` :ref:`🔗<class_BaseButton_property_disabled>`
 
 .. rst-class:: classref-property-setget
 
@@ -306,6 +328,8 @@ If ``true``, the button's state is pressed. Means the button is pressed down or 
 - :ref:`bool<class_bool>` **is_disabled**\ (\ )
 
 If ``true``, the button is in disabled state and can't be clicked or toggled.
+
+\ **Note:** If the button is disabled while held down, :ref:`button_up<class_BaseButton_signal_button_up>` will be emitted.
 
 .. rst-class:: classref-item-separator
 
@@ -315,7 +339,7 @@ If ``true``, the button is in disabled state and can't be clicked or toggled.
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **keep_pressed_outside** = ``false``
+:ref:`bool<class_bool>` **keep_pressed_outside** = ``false`` :ref:`🔗<class_BaseButton_property_keep_pressed_outside>`
 
 .. rst-class:: classref-property-setget
 
@@ -334,7 +358,7 @@ If ``true``, the button stays pressed when moving the cursor outside the button 
 
 .. rst-class:: classref-property
 
-:ref:`Shortcut<class_Shortcut>` **shortcut**
+:ref:`Shortcut<class_Shortcut>` **shortcut** :ref:`🔗<class_BaseButton_property_shortcut>`
 
 .. rst-class:: classref-property-setget
 
@@ -351,7 +375,7 @@ If ``true``, the button stays pressed when moving the cursor outside the button 
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **shortcut_feedback** = ``true``
+:ref:`bool<class_bool>` **shortcut_feedback** = ``true`` :ref:`🔗<class_BaseButton_property_shortcut_feedback>`
 
 .. rst-class:: classref-property-setget
 
@@ -368,14 +392,16 @@ If ``true``, the button will highlight for a short amount of time when its short
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **shortcut_in_tooltip** = ``true``
+:ref:`bool<class_bool>` **shortcut_in_tooltip** = ``true`` :ref:`🔗<class_BaseButton_property_shortcut_in_tooltip>`
 
 .. rst-class:: classref-property-setget
 
 - |void| **set_shortcut_in_tooltip**\ (\ value\: :ref:`bool<class_bool>`\ )
 - :ref:`bool<class_bool>` **is_shortcut_in_tooltip_enabled**\ (\ )
 
-If ``true``, the button will add information about its shortcut in the tooltip.
+If ``true``, the button will add information about its shortcut in the tooltip. This includes the shortcut's events and its :ref:`Resource.resource_name<class_Resource_property_resource_name>`. If both events and name are empty, the shortcut will not be included.
+
+\ **Note:** This property does nothing when the tooltip control is customized using :ref:`Control._make_custom_tooltip()<class_Control_private_method__make_custom_tooltip>`.
 
 .. rst-class:: classref-item-separator
 
@@ -385,7 +411,7 @@ If ``true``, the button will add information about its shortcut in the tooltip.
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **toggle_mode** = ``false``
+:ref:`bool<class_bool>` **toggle_mode** = ``false`` :ref:`🔗<class_BaseButton_property_toggle_mode>`
 
 .. rst-class:: classref-property-setget
 
@@ -407,9 +433,9 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-|void| **_pressed**\ (\ ) |virtual|
+|void| **_pressed**\ (\ ) |virtual| :ref:`🔗<class_BaseButton_private_method__pressed>`
 
-Called when the button is pressed. If you need to know the button's pressed state (and :ref:`toggle_mode<class_BaseButton_property_toggle_mode>` is active), use :ref:`_toggled<class_BaseButton_private_method__toggled>` instead.
+Called when the button is pressed. If you need to know the button's pressed state (and :ref:`toggle_mode<class_BaseButton_property_toggle_mode>` is active), use :ref:`_toggled()<class_BaseButton_private_method__toggled>` instead.
 
 .. rst-class:: classref-item-separator
 
@@ -419,7 +445,7 @@ Called when the button is pressed. If you need to know the button's pressed stat
 
 .. rst-class:: classref-method
 
-|void| **_toggled**\ (\ toggled_on\: :ref:`bool<class_bool>`\ ) |virtual|
+|void| **_toggled**\ (\ toggled_on\: :ref:`bool<class_bool>`\ ) |virtual| :ref:`🔗<class_BaseButton_private_method__toggled>`
 
 Called when the button is toggled (only if :ref:`toggle_mode<class_BaseButton_property_toggle_mode>` is active).
 
@@ -431,7 +457,7 @@ Called when the button is toggled (only if :ref:`toggle_mode<class_BaseButton_pr
 
 .. rst-class:: classref-method
 
-:ref:`DrawMode<enum_BaseButton_DrawMode>` **get_draw_mode**\ (\ ) |const|
+:ref:`DrawMode<enum_BaseButton_DrawMode>` **get_draw_mode**\ (\ ) |const| :ref:`🔗<class_BaseButton_method_get_draw_mode>`
 
 Returns the visual state used to draw the button. This is useful mainly when implementing your own draw code by either overriding _draw() or connecting to "draw" signal. The visual state of the button is defined by the :ref:`DrawMode<enum_BaseButton_DrawMode>` enum.
 
@@ -443,9 +469,23 @@ Returns the visual state used to draw the button. This is useful mainly when imp
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_hovered**\ (\ ) |const|
+:ref:`bool<class_bool>` **is_hovered**\ (\ ) |const| :ref:`🔗<class_BaseButton_method_is_hovered>`
 
 Returns ``true`` if the mouse has entered the button and has not left it yet.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_BaseButton_method_press:
+
+.. rst-class:: classref-method
+
+|void| **press**\ (\ ) :ref:`🔗<class_BaseButton_method_press>`
+
+Presses the button. This causes the corresponding virtual method to be called and the corresponding signal to be emitted, depending on :ref:`toggle_mode<class_BaseButton_property_toggle_mode>`. If :ref:`disabled<class_BaseButton_property_disabled>` is ``true``, nothing happens.
+
+\ **Note:** This method does not change the visual state of the button and does not grab focus to the button.
 
 .. rst-class:: classref-item-separator
 
@@ -455,13 +495,79 @@ Returns ``true`` if the mouse has entered the button and has not left it yet.
 
 .. rst-class:: classref-method
 
-|void| **set_pressed_no_signal**\ (\ pressed\: :ref:`bool<class_bool>`\ )
+|void| **set_pressed_no_signal**\ (\ pressed\: :ref:`bool<class_bool>`\ ) :ref:`🔗<class_BaseButton_method_set_pressed_no_signal>`
 
 Changes the :ref:`button_pressed<class_BaseButton_property_button_pressed>` state of the button, without emitting :ref:`toggled<class_BaseButton_signal_toggled>`. Use when you just want to change the state of the button without sending the pressed event (e.g. when initializing scene). Only works if :ref:`toggle_mode<class_BaseButton_property_toggle_mode>` is ``true``.
 
 \ **Note:** This method doesn't unpress other buttons in :ref:`button_group<class_BaseButton_property_button_group>`.
 
+.. rst-class:: classref-section-separator
+
+----
+
+.. rst-class:: classref-descriptions-group
+
+Theme Property Descriptions
+---------------------------
+
+.. _class_BaseButton_theme_constant_click_margin:
+
+.. rst-class:: classref-themeproperty
+
+:ref:`int<class_int>` **click_margin** = ``0`` :ref:`🔗<class_BaseButton_theme_constant_click_margin>`
+
+Defines the margin around the button's area that still counts as a valid click. This is useful to make it easier to click small buttons.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_BaseButton_theme_sound_focus_sound:
+
+.. rst-class:: classref-themeproperty
+
+:ref:`AudioStream<class_AudioStream>` **focus_sound** :ref:`🔗<class_BaseButton_theme_sound_focus_sound>`
+
+Played when this **BaseButton** receives keyboard or gamepad-induced focus. Mouse or touch-induced focus does not play a focus sound.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_BaseButton_theme_sound_hover_sound:
+
+.. rst-class:: classref-themeproperty
+
+:ref:`AudioStream<class_AudioStream>` **hover_sound** :ref:`🔗<class_BaseButton_theme_sound_hover_sound>`
+
+Played when the button is hovered with the mouse.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_BaseButton_theme_sound_pressed_disabled_sound:
+
+.. rst-class:: classref-themeproperty
+
+:ref:`AudioStream<class_AudioStream>` **pressed_disabled_sound** :ref:`🔗<class_BaseButton_theme_sound_pressed_disabled_sound>`
+
+Played when the button is pressed with any input method, but has :ref:`disabled<class_BaseButton_property_disabled>` set to ``true``.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_BaseButton_theme_sound_pressed_sound:
+
+.. rst-class:: classref-themeproperty
+
+:ref:`AudioStream<class_AudioStream>` **pressed_sound** :ref:`🔗<class_BaseButton_theme_sound_pressed_sound>`
+
+Played when the button is pressed with any input method.
+
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
