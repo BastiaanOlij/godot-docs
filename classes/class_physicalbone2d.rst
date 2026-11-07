@@ -75,7 +75,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **auto_configure_joint** = ``true``
+:ref:`bool<class_bool>` **auto_configure_joint** = ``true`` :ref:`🔗<class_PhysicalBone2D_property_auto_configure_joint>`
 
 .. rst-class:: classref-property-setget
 
@@ -92,7 +92,7 @@ If ``true``, the **PhysicalBone2D** will automatically configure the first :ref:
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **bone2d_index** = ``-1``
+:ref:`int<class_int>` **bone2d_index** = ``-1`` :ref:`🔗<class_PhysicalBone2D_property_bone2d_index>`
 
 .. rst-class:: classref-property-setget
 
@@ -109,7 +109,7 @@ The index of the :ref:`Bone2D<class_Bone2D>` that this **PhysicalBone2D** should
 
 .. rst-class:: classref-property
 
-:ref:`NodePath<class_NodePath>` **bone2d_nodepath** = ``NodePath("")``
+:ref:`NodePath<class_NodePath>` **bone2d_nodepath** = ``NodePath("")`` :ref:`🔗<class_PhysicalBone2D_property_bone2d_nodepath>`
 
 .. rst-class:: classref-property-setget
 
@@ -126,7 +126,7 @@ The :ref:`NodePath<class_NodePath>` to the :ref:`Bone2D<class_Bone2D>` that this
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **follow_bone_when_simulating** = ``false``
+:ref:`bool<class_bool>` **follow_bone_when_simulating** = ``false`` :ref:`🔗<class_PhysicalBone2D_property_follow_bone_when_simulating>`
 
 .. rst-class:: classref-property-setget
 
@@ -143,7 +143,7 @@ If ``true``, the **PhysicalBone2D** will keep the transform of the bone it is bo
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **simulate_physics** = ``false``
+:ref:`bool<class_bool>` **simulate_physics** = ``false`` :ref:`🔗<class_PhysicalBone2D_property_simulate_physics>`
 
 .. rst-class:: classref-property-setget
 
@@ -167,7 +167,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`Joint2D<class_Joint2D>` **get_joint**\ (\ ) |const|
+:ref:`Joint2D<class_Joint2D>` **get_joint**\ (\ ) |const| :ref:`🔗<class_PhysicalBone2D_method_get_joint>`
 
 Returns the first :ref:`Joint2D<class_Joint2D>` child node, if one exists. This is mainly a helper function to make it easier to get the :ref:`Joint2D<class_Joint2D>` that the **PhysicalBone2D** is autoconfiguring.
 
@@ -179,11 +179,12 @@ Returns the first :ref:`Joint2D<class_Joint2D>` child node, if one exists. This 
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_simulating_physics**\ (\ ) |const|
+:ref:`bool<class_bool>` **is_simulating_physics**\ (\ ) |const| :ref:`🔗<class_PhysicalBone2D_method_is_simulating_physics>`
 
 Returns a boolean that indicates whether the **PhysicalBone2D** is running and simulating using the Godot 2D physics engine. When ``true``, the PhysicalBone2D node is using physics.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

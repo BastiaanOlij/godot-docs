@@ -30,7 +30,7 @@ Tutorials
 
 - :doc:`Using AnimationTree <../tutorials/animation/animation_tree>`
 
-- `Third Person Shooter Demo <https://godotengine.org/asset-library/asset/678>`__
+- `Third Person Shooter (TPS) Demo <https://godotengine.org/asset-library/asset/2710>`__
 
 .. rst-class:: classref-reftable-group
 
@@ -79,7 +79,7 @@ Signals
 
 .. rst-class:: classref-signal
 
-**animation_player_changed**\ (\ )
+**animation_player_changed**\ (\ ) :ref:`🔗<class_AnimationTree_signal_animation_player_changed>`
 
 Emitted when the :ref:`anim_player<class_AnimationTree_property_anim_player>` is changed.
 
@@ -96,7 +96,7 @@ Enumerations
 
 .. rst-class:: classref-enumeration
 
-enum **AnimationProcessCallback**:
+enum **AnimationProcessCallback**: :ref:`🔗<enum_AnimationTree_AnimationProcessCallback>`
 
 .. _class_AnimationTree_constant_ANIMATION_PROCESS_PHYSICS:
 
@@ -141,7 +141,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`NodePath<class_NodePath>` **advance_expression_base_node** = ``NodePath(".")``
+:ref:`NodePath<class_NodePath>` **advance_expression_base_node** = ``NodePath(".")`` :ref:`🔗<class_AnimationTree_property_advance_expression_base_node>`
 
 .. rst-class:: classref-property-setget
 
@@ -158,7 +158,7 @@ The path to the :ref:`Node<class_Node>` used to evaluate the :ref:`AnimationNode
 
 .. rst-class:: classref-property
 
-:ref:`NodePath<class_NodePath>` **anim_player** = ``NodePath("")``
+:ref:`NodePath<class_NodePath>` **anim_player** = ``NodePath("")`` :ref:`🔗<class_AnimationTree_property_anim_player>`
 
 .. rst-class:: classref-property-setget
 
@@ -175,7 +175,7 @@ The path to the :ref:`AnimationPlayer<class_AnimationPlayer>` used for animating
 
 .. rst-class:: classref-property
 
-:ref:`AnimationRootNode<class_AnimationRootNode>` **tree_root**
+:ref:`AnimationRootNode<class_AnimationRootNode>` **tree_root** :ref:`🔗<class_AnimationTree_property_tree_root>`
 
 .. rst-class:: classref-property-setget
 
@@ -197,7 +197,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`AnimationProcessCallback<enum_AnimationTree_AnimationProcessCallback>` **get_process_callback**\ (\ ) |const|
+:ref:`AnimationProcessCallback<enum_AnimationTree_AnimationProcessCallback>` **get_process_callback**\ (\ ) |const| :ref:`🔗<class_AnimationTree_method_get_process_callback>`
 
 **Deprecated:** Use :ref:`AnimationMixer.callback_mode_process<class_AnimationMixer_property_callback_mode_process>` instead.
 
@@ -211,13 +211,14 @@ Returns the process notification in which to update animations.
 
 .. rst-class:: classref-method
 
-|void| **set_process_callback**\ (\ mode\: :ref:`AnimationProcessCallback<enum_AnimationTree_AnimationProcessCallback>`\ )
+|void| **set_process_callback**\ (\ mode\: :ref:`AnimationProcessCallback<enum_AnimationTree_AnimationProcessCallback>`\ ) :ref:`🔗<class_AnimationTree_method_set_process_callback>`
 
 **Deprecated:** Use :ref:`AnimationMixer.callback_mode_process<class_AnimationMixer_property_callback_mode_process>` instead.
 
 Sets the process notification in which to update animations.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

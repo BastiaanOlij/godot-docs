@@ -48,7 +48,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`Vector2<class_Vector2>` **a** = ``Vector2(0, 0)``
+:ref:`Vector2<class_Vector2>` **a** = ``Vector2(0, 0)`` :ref:`🔗<class_SegmentShape2D_property_a>`
 
 .. rst-class:: classref-property-setget
 
@@ -65,7 +65,7 @@ The segment's first point position.
 
 .. rst-class:: classref-property
 
-:ref:`Vector2<class_Vector2>` **b** = ``Vector2(0, 10)``
+:ref:`Vector2<class_Vector2>` **b** = ``Vector2(0, 10)`` :ref:`🔗<class_SegmentShape2D_property_b>`
 
 .. rst-class:: classref-property-setget
 
@@ -75,6 +75,7 @@ The segment's first point position.
 The segment's second point position.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

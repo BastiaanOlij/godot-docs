@@ -54,7 +54,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **left_to_right** = ``0.5``
+:ref:`float<class_float>` **left_to_right** = ``0.5`` :ref:`🔗<class_PrismMesh_property_left_to_right>`
 
 .. rst-class:: classref-property-setget
 
@@ -71,7 +71,7 @@ Displacement of the upper edge along the X axis. 0.0 positions edge straight abo
 
 .. rst-class:: classref-property
 
-:ref:`Vector3<class_Vector3>` **size** = ``Vector3(1, 1, 1)``
+:ref:`Vector3<class_Vector3>` **size** = ``Vector3(1, 1, 1)`` :ref:`🔗<class_PrismMesh_property_size>`
 
 .. rst-class:: classref-property-setget
 
@@ -88,7 +88,7 @@ Size of the prism.
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **subdivide_depth** = ``0``
+:ref:`int<class_int>` **subdivide_depth** = ``0`` :ref:`🔗<class_PrismMesh_property_subdivide_depth>`
 
 .. rst-class:: classref-property-setget
 
@@ -105,7 +105,7 @@ Number of added edge loops along the Z axis.
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **subdivide_height** = ``0``
+:ref:`int<class_int>` **subdivide_height** = ``0`` :ref:`🔗<class_PrismMesh_property_subdivide_height>`
 
 .. rst-class:: classref-property-setget
 
@@ -122,7 +122,7 @@ Number of added edge loops along the Y axis.
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **subdivide_width** = ``0``
+:ref:`int<class_int>` **subdivide_width** = ``0`` :ref:`🔗<class_PrismMesh_property_subdivide_width>`
 
 .. rst-class:: classref-property-setget
 
@@ -132,6 +132,7 @@ Number of added edge loops along the Y axis.
 Number of added edge loops along the X axis.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
