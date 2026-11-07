@@ -21,8 +21,6 @@ Description
 
 Contains multiple :ref:`AnimationRootNode<class_AnimationRootNode>`\ s representing animation states, connected in a graph. State transitions can be configured to happen automatically or via code, using a shortest-path algorithm. Retrieve the :ref:`AnimationNodeStateMachinePlayback<class_AnimationNodeStateMachinePlayback>` object from the :ref:`AnimationTree<class_AnimationTree>` node to control it programmatically.
 
-\ **Example:**\ 
-
 
 .. tabs::
 
@@ -78,6 +76,8 @@ Methods
    +---------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`AnimationNode<class_AnimationNode>`                                             | :ref:`get_node<class_AnimationNodeStateMachine_method_get_node>`\ (\ name\: :ref:`StringName<class_StringName>`\ ) |const|                                                                                                                                                   |
    +---------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Array<class_Array>`\[:ref:`StringName<class_StringName>`\]                      | :ref:`get_node_list<class_AnimationNodeStateMachine_method_get_node_list>`\ (\ ) |const|                                                                                                                                                                                     |
+   +---------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`StringName<class_StringName>`                                                   | :ref:`get_node_name<class_AnimationNodeStateMachine_method_get_node_name>`\ (\ node\: :ref:`AnimationNode<class_AnimationNode>`\ ) |const|                                                                                                                                   |
    +---------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Vector2<class_Vector2>`                                                         | :ref:`get_node_position<class_AnimationNodeStateMachine_method_get_node_position>`\ (\ name\: :ref:`StringName<class_StringName>`\ ) |const|                                                                                                                                 |
@@ -122,7 +122,7 @@ Enumerations
 
 .. rst-class:: classref-enumeration
 
-enum **StateMachineType**:
+enum **StateMachineType**: :ref:`🔗<enum_AnimationNodeStateMachine_StateMachineType>`
 
 .. _class_AnimationNodeStateMachine_constant_STATE_MACHINE_TYPE_ROOT:
 
@@ -161,14 +161,14 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **allow_transition_to_self** = ``false``
+:ref:`bool<class_bool>` **allow_transition_to_self** = ``false`` :ref:`🔗<class_AnimationNodeStateMachine_property_allow_transition_to_self>`
 
 .. rst-class:: classref-property-setget
 
 - |void| **set_allow_transition_to_self**\ (\ value\: :ref:`bool<class_bool>`\ )
 - :ref:`bool<class_bool>` **is_allow_transition_to_self**\ (\ )
 
-If ``true``, allows teleport to the self state with :ref:`AnimationNodeStateMachinePlayback.travel<class_AnimationNodeStateMachinePlayback_method_travel>`. When the reset option is enabled in :ref:`AnimationNodeStateMachinePlayback.travel<class_AnimationNodeStateMachinePlayback_method_travel>`, the animation is restarted. If ``false``, nothing happens on the teleportation to the self state.
+If ``true``, allows teleport to the self state with :ref:`AnimationNodeStateMachinePlayback.travel()<class_AnimationNodeStateMachinePlayback_method_travel>`. When the reset option is enabled in :ref:`AnimationNodeStateMachinePlayback.travel()<class_AnimationNodeStateMachinePlayback_method_travel>`, the animation is restarted. If ``false``, nothing happens on the teleportation to the self state.
 
 .. rst-class:: classref-item-separator
 
@@ -178,7 +178,7 @@ If ``true``, allows teleport to the self state with :ref:`AnimationNodeStateMach
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **reset_ends** = ``false``
+:ref:`bool<class_bool>` **reset_ends** = ``false`` :ref:`🔗<class_AnimationNodeStateMachine_property_reset_ends>`
 
 .. rst-class:: classref-property-setget
 
@@ -197,7 +197,7 @@ In most cases, when additional cross-fades are performed in the parent :ref:`Ani
 
 .. rst-class:: classref-property
 
-:ref:`StateMachineType<enum_AnimationNodeStateMachine_StateMachineType>` **state_machine_type** = ``0``
+:ref:`StateMachineType<enum_AnimationNodeStateMachine_StateMachineType>` **state_machine_type** = ``0`` :ref:`🔗<class_AnimationNodeStateMachine_property_state_machine_type>`
 
 .. rst-class:: classref-property-setget
 
@@ -219,7 +219,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-|void| **add_node**\ (\ name\: :ref:`StringName<class_StringName>`, node\: :ref:`AnimationNode<class_AnimationNode>`, position\: :ref:`Vector2<class_Vector2>` = Vector2(0, 0)\ )
+|void| **add_node**\ (\ name\: :ref:`StringName<class_StringName>`, node\: :ref:`AnimationNode<class_AnimationNode>`, position\: :ref:`Vector2<class_Vector2>` = Vector2(0, 0)\ ) :ref:`🔗<class_AnimationNodeStateMachine_method_add_node>`
 
 Adds a new animation node to the graph. The ``position`` is used for display in the editor.
 
@@ -231,7 +231,7 @@ Adds a new animation node to the graph. The ``position`` is used for display in 
 
 .. rst-class:: classref-method
 
-|void| **add_transition**\ (\ from\: :ref:`StringName<class_StringName>`, to\: :ref:`StringName<class_StringName>`, transition\: :ref:`AnimationNodeStateMachineTransition<class_AnimationNodeStateMachineTransition>`\ )
+|void| **add_transition**\ (\ from\: :ref:`StringName<class_StringName>`, to\: :ref:`StringName<class_StringName>`, transition\: :ref:`AnimationNodeStateMachineTransition<class_AnimationNodeStateMachineTransition>`\ ) :ref:`🔗<class_AnimationNodeStateMachine_method_add_transition>`
 
 Adds a transition between the given animation nodes.
 
@@ -243,7 +243,7 @@ Adds a transition between the given animation nodes.
 
 .. rst-class:: classref-method
 
-:ref:`Vector2<class_Vector2>` **get_graph_offset**\ (\ ) |const|
+:ref:`Vector2<class_Vector2>` **get_graph_offset**\ (\ ) |const| :ref:`🔗<class_AnimationNodeStateMachine_method_get_graph_offset>`
 
 Returns the draw offset of the graph. Used for display in the editor.
 
@@ -255,9 +255,21 @@ Returns the draw offset of the graph. Used for display in the editor.
 
 .. rst-class:: classref-method
 
-:ref:`AnimationNode<class_AnimationNode>` **get_node**\ (\ name\: :ref:`StringName<class_StringName>`\ ) |const|
+:ref:`AnimationNode<class_AnimationNode>` **get_node**\ (\ name\: :ref:`StringName<class_StringName>`\ ) |const| :ref:`🔗<class_AnimationNodeStateMachine_method_get_node>`
 
 Returns the animation node with the given name.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_AnimationNodeStateMachine_method_get_node_list:
+
+.. rst-class:: classref-method
+
+:ref:`Array<class_Array>`\[:ref:`StringName<class_StringName>`\] **get_node_list**\ (\ ) |const| :ref:`🔗<class_AnimationNodeStateMachine_method_get_node_list>`
+
+Returns a list containing the names of all animation nodes in this state machine.
 
 .. rst-class:: classref-item-separator
 
@@ -267,7 +279,7 @@ Returns the animation node with the given name.
 
 .. rst-class:: classref-method
 
-:ref:`StringName<class_StringName>` **get_node_name**\ (\ node\: :ref:`AnimationNode<class_AnimationNode>`\ ) |const|
+:ref:`StringName<class_StringName>` **get_node_name**\ (\ node\: :ref:`AnimationNode<class_AnimationNode>`\ ) |const| :ref:`🔗<class_AnimationNodeStateMachine_method_get_node_name>`
 
 Returns the given animation node's name.
 
@@ -279,7 +291,7 @@ Returns the given animation node's name.
 
 .. rst-class:: classref-method
 
-:ref:`Vector2<class_Vector2>` **get_node_position**\ (\ name\: :ref:`StringName<class_StringName>`\ ) |const|
+:ref:`Vector2<class_Vector2>` **get_node_position**\ (\ name\: :ref:`StringName<class_StringName>`\ ) |const| :ref:`🔗<class_AnimationNodeStateMachine_method_get_node_position>`
 
 Returns the given animation node's coordinates. Used for display in the editor.
 
@@ -291,7 +303,7 @@ Returns the given animation node's coordinates. Used for display in the editor.
 
 .. rst-class:: classref-method
 
-:ref:`AnimationNodeStateMachineTransition<class_AnimationNodeStateMachineTransition>` **get_transition**\ (\ idx\: :ref:`int<class_int>`\ ) |const|
+:ref:`AnimationNodeStateMachineTransition<class_AnimationNodeStateMachineTransition>` **get_transition**\ (\ idx\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_AnimationNodeStateMachine_method_get_transition>`
 
 Returns the given transition.
 
@@ -303,7 +315,7 @@ Returns the given transition.
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **get_transition_count**\ (\ ) |const|
+:ref:`int<class_int>` **get_transition_count**\ (\ ) |const| :ref:`🔗<class_AnimationNodeStateMachine_method_get_transition_count>`
 
 Returns the number of connections in the graph.
 
@@ -315,7 +327,7 @@ Returns the number of connections in the graph.
 
 .. rst-class:: classref-method
 
-:ref:`StringName<class_StringName>` **get_transition_from**\ (\ idx\: :ref:`int<class_int>`\ ) |const|
+:ref:`StringName<class_StringName>` **get_transition_from**\ (\ idx\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_AnimationNodeStateMachine_method_get_transition_from>`
 
 Returns the given transition's start node.
 
@@ -327,7 +339,7 @@ Returns the given transition's start node.
 
 .. rst-class:: classref-method
 
-:ref:`StringName<class_StringName>` **get_transition_to**\ (\ idx\: :ref:`int<class_int>`\ ) |const|
+:ref:`StringName<class_StringName>` **get_transition_to**\ (\ idx\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_AnimationNodeStateMachine_method_get_transition_to>`
 
 Returns the given transition's end node.
 
@@ -339,7 +351,7 @@ Returns the given transition's end node.
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **has_node**\ (\ name\: :ref:`StringName<class_StringName>`\ ) |const|
+:ref:`bool<class_bool>` **has_node**\ (\ name\: :ref:`StringName<class_StringName>`\ ) |const| :ref:`🔗<class_AnimationNodeStateMachine_method_has_node>`
 
 Returns ``true`` if the graph contains the given animation node.
 
@@ -351,7 +363,7 @@ Returns ``true`` if the graph contains the given animation node.
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **has_transition**\ (\ from\: :ref:`StringName<class_StringName>`, to\: :ref:`StringName<class_StringName>`\ ) |const|
+:ref:`bool<class_bool>` **has_transition**\ (\ from\: :ref:`StringName<class_StringName>`, to\: :ref:`StringName<class_StringName>`\ ) |const| :ref:`🔗<class_AnimationNodeStateMachine_method_has_transition>`
 
 Returns ``true`` if there is a transition between the given animation nodes.
 
@@ -363,7 +375,7 @@ Returns ``true`` if there is a transition between the given animation nodes.
 
 .. rst-class:: classref-method
 
-|void| **remove_node**\ (\ name\: :ref:`StringName<class_StringName>`\ )
+|void| **remove_node**\ (\ name\: :ref:`StringName<class_StringName>`\ ) :ref:`🔗<class_AnimationNodeStateMachine_method_remove_node>`
 
 Deletes the given animation node from the graph.
 
@@ -375,7 +387,7 @@ Deletes the given animation node from the graph.
 
 .. rst-class:: classref-method
 
-|void| **remove_transition**\ (\ from\: :ref:`StringName<class_StringName>`, to\: :ref:`StringName<class_StringName>`\ )
+|void| **remove_transition**\ (\ from\: :ref:`StringName<class_StringName>`, to\: :ref:`StringName<class_StringName>`\ ) :ref:`🔗<class_AnimationNodeStateMachine_method_remove_transition>`
 
 Deletes the transition between the two specified animation nodes.
 
@@ -387,7 +399,7 @@ Deletes the transition between the two specified animation nodes.
 
 .. rst-class:: classref-method
 
-|void| **remove_transition_by_index**\ (\ idx\: :ref:`int<class_int>`\ )
+|void| **remove_transition_by_index**\ (\ idx\: :ref:`int<class_int>`\ ) :ref:`🔗<class_AnimationNodeStateMachine_method_remove_transition_by_index>`
 
 Deletes the given transition by index.
 
@@ -399,7 +411,7 @@ Deletes the given transition by index.
 
 .. rst-class:: classref-method
 
-|void| **rename_node**\ (\ name\: :ref:`StringName<class_StringName>`, new_name\: :ref:`StringName<class_StringName>`\ )
+|void| **rename_node**\ (\ name\: :ref:`StringName<class_StringName>`, new_name\: :ref:`StringName<class_StringName>`\ ) :ref:`🔗<class_AnimationNodeStateMachine_method_rename_node>`
 
 Renames the given animation node.
 
@@ -411,7 +423,7 @@ Renames the given animation node.
 
 .. rst-class:: classref-method
 
-|void| **replace_node**\ (\ name\: :ref:`StringName<class_StringName>`, node\: :ref:`AnimationNode<class_AnimationNode>`\ )
+|void| **replace_node**\ (\ name\: :ref:`StringName<class_StringName>`, node\: :ref:`AnimationNode<class_AnimationNode>`\ ) :ref:`🔗<class_AnimationNodeStateMachine_method_replace_node>`
 
 Replaces the given animation node with a new animation node.
 
@@ -423,7 +435,7 @@ Replaces the given animation node with a new animation node.
 
 .. rst-class:: classref-method
 
-|void| **set_graph_offset**\ (\ offset\: :ref:`Vector2<class_Vector2>`\ )
+|void| **set_graph_offset**\ (\ offset\: :ref:`Vector2<class_Vector2>`\ ) :ref:`🔗<class_AnimationNodeStateMachine_method_set_graph_offset>`
 
 Sets the draw offset of the graph. Used for display in the editor.
 
@@ -435,11 +447,12 @@ Sets the draw offset of the graph. Used for display in the editor.
 
 .. rst-class:: classref-method
 
-|void| **set_node_position**\ (\ name\: :ref:`StringName<class_StringName>`, position\: :ref:`Vector2<class_Vector2>`\ )
+|void| **set_node_position**\ (\ name\: :ref:`StringName<class_StringName>`, position\: :ref:`Vector2<class_Vector2>`\ ) :ref:`🔗<class_AnimationNodeStateMachine_method_set_node_position>`
 
 Sets the animation node's coordinates. Used for display in the editor.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

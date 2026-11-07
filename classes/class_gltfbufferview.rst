@@ -12,14 +12,14 @@ GLTFBufferView
 
 **Inherits:** :ref:`Resource<class_Resource>` **<** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
-Represents a GLTF buffer view.
+Represents a glTF buffer view.
 
 .. rst-class:: classref-introduction-group
 
 Description
 -----------
 
-GLTFBufferView is a data structure representing GLTF a ``bufferView`` that would be found in the ``"bufferViews"`` array. A buffer is a blob of binary data. A buffer view is a slice of a buffer that can be used to identify and extract data from the buffer.
+GLTFBufferView is a data structure representing a glTF ``bufferView`` that would be found in the ``"bufferViews"`` array. A buffer is a blob of binary data. A buffer view is a slice of a buffer that can be used to identify and extract data from the buffer.
 
 Most custom uses of buffers only need to use the :ref:`buffer<class_GLTFBufferView_property_buffer>`, :ref:`byte_length<class_GLTFBufferView_property_byte_length>`, and :ref:`byte_offset<class_GLTFBufferView_property_byte_offset>`. The :ref:`byte_stride<class_GLTFBufferView_property_byte_stride>` and :ref:`indices<class_GLTFBufferView_property_indices>` properties are for more advanced use cases such as interleaved mesh data encoded for the GPU.
 
@@ -40,17 +40,19 @@ Properties
 .. table::
    :widths: auto
 
-   +-------------------------+---------------------------------------------------------------+-----------+
-   | :ref:`int<class_int>`   | :ref:`buffer<class_GLTFBufferView_property_buffer>`           | ``-1``    |
-   +-------------------------+---------------------------------------------------------------+-----------+
-   | :ref:`int<class_int>`   | :ref:`byte_length<class_GLTFBufferView_property_byte_length>` | ``0``     |
-   +-------------------------+---------------------------------------------------------------+-----------+
-   | :ref:`int<class_int>`   | :ref:`byte_offset<class_GLTFBufferView_property_byte_offset>` | ``0``     |
-   +-------------------------+---------------------------------------------------------------+-----------+
-   | :ref:`int<class_int>`   | :ref:`byte_stride<class_GLTFBufferView_property_byte_stride>` | ``-1``    |
-   +-------------------------+---------------------------------------------------------------+-----------+
-   | :ref:`bool<class_bool>` | :ref:`indices<class_GLTFBufferView_property_indices>`         | ``false`` |
-   +-------------------------+---------------------------------------------------------------+-----------+
+   +-------------------------+---------------------------------------------------------------------------+-----------+
+   | :ref:`int<class_int>`   | :ref:`buffer<class_GLTFBufferView_property_buffer>`                       | ``-1``    |
+   +-------------------------+---------------------------------------------------------------------------+-----------+
+   | :ref:`int<class_int>`   | :ref:`byte_length<class_GLTFBufferView_property_byte_length>`             | ``0``     |
+   +-------------------------+---------------------------------------------------------------------------+-----------+
+   | :ref:`int<class_int>`   | :ref:`byte_offset<class_GLTFBufferView_property_byte_offset>`             | ``0``     |
+   +-------------------------+---------------------------------------------------------------------------+-----------+
+   | :ref:`int<class_int>`   | :ref:`byte_stride<class_GLTFBufferView_property_byte_stride>`             | ``-1``    |
+   +-------------------------+---------------------------------------------------------------------------+-----------+
+   | :ref:`bool<class_bool>` | :ref:`indices<class_GLTFBufferView_property_indices>`                     | ``false`` |
+   +-------------------------+---------------------------------------------------------------------------+-----------+
+   | :ref:`bool<class_bool>` | :ref:`vertex_attributes<class_GLTFBufferView_property_vertex_attributes>` | ``false`` |
+   +-------------------------+---------------------------------------------------------------------------+-----------+
 
 .. rst-class:: classref-reftable-group
 
@@ -61,7 +63,11 @@ Methods
    :widths: auto
 
    +-----------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`GLTFBufferView<class_GLTFBufferView>`   | :ref:`from_dictionary<class_GLTFBufferView_method_from_dictionary>`\ (\ dictionary\: :ref:`Dictionary<class_Dictionary>`\ ) |static|     |
+   +-----------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`PackedByteArray<class_PackedByteArray>` | :ref:`load_buffer_view_data<class_GLTFBufferView_method_load_buffer_view_data>`\ (\ state\: :ref:`GLTFState<class_GLTFState>`\ ) |const| |
+   +-----------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Dictionary<class_Dictionary>`           | :ref:`to_dictionary<class_GLTFBufferView_method_to_dictionary>`\ (\ ) |const|                                                            |
    +-----------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-section-separator
@@ -77,7 +83,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **buffer** = ``-1``
+:ref:`int<class_int>` **buffer** = ``-1`` :ref:`🔗<class_GLTFBufferView_property_buffer>`
 
 .. rst-class:: classref-property-setget
 
@@ -94,7 +100,7 @@ The index of the buffer this buffer view is referencing. If ``-1``, this buffer 
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **byte_length** = ``0``
+:ref:`int<class_int>` **byte_length** = ``0`` :ref:`🔗<class_GLTFBufferView_property_byte_length>`
 
 .. rst-class:: classref-property-setget
 
@@ -111,7 +117,7 @@ The length, in bytes, of this buffer view. If ``0``, this buffer view is empty.
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **byte_offset** = ``0``
+:ref:`int<class_int>` **byte_offset** = ``0`` :ref:`🔗<class_GLTFBufferView_property_byte_offset>`
 
 .. rst-class:: classref-property-setget
 
@@ -128,7 +134,7 @@ The offset, in bytes, from the start of the buffer to the start of this buffer v
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **byte_stride** = ``-1``
+:ref:`int<class_int>` **byte_stride** = ``-1`` :ref:`🔗<class_GLTFBufferView_property_byte_stride>`
 
 .. rst-class:: classref-property-setget
 
@@ -145,14 +151,31 @@ The stride, in bytes, between interleaved data. If ``-1``, this buffer view is n
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **indices** = ``false``
+:ref:`bool<class_bool>` **indices** = ``false`` :ref:`🔗<class_GLTFBufferView_property_indices>`
 
 .. rst-class:: classref-property-setget
 
 - |void| **set_indices**\ (\ value\: :ref:`bool<class_bool>`\ )
 - :ref:`bool<class_bool>` **get_indices**\ (\ )
 
-True if the GLTFBufferView's OpenGL GPU buffer type is an ``ELEMENT_ARRAY_BUFFER`` used for vertex indices (integer constant ``34963``). False if the buffer type is ``ARRAY_BUFFER`` used for vertex attributes (integer constant ``34962``) or when any other value. See `Buffers, BufferViews, and Accessors <https://github.com/KhronosGroup/glTF-Tutorials/blob/master/gltfTutorial/gltfTutorial_005_BuffersBufferViewsAccessors.md>`__ for possible values. This property is set but never used, setting this property will do nothing.
+``true`` if the GLTFBufferView's OpenGL GPU buffer type is an ``ELEMENT_ARRAY_BUFFER`` used for vertex indices (integer constant ``34963``). ``false`` if the buffer type is any other value. See `Buffers, BufferViews, and Accessors <https://github.com/KhronosGroup/glTF-Tutorials/blob/master/gltfTutorial/gltfTutorial_005_BuffersBufferViewsAccessors.md>`__ for possible values. This property is set on import and used on export.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_GLTFBufferView_property_vertex_attributes:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **vertex_attributes** = ``false`` :ref:`🔗<class_GLTFBufferView_property_vertex_attributes>`
+
+.. rst-class:: classref-property-setget
+
+- |void| **set_vertex_attributes**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **get_vertex_attributes**\ (\ )
+
+``true`` if the GLTFBufferView's OpenGL GPU buffer type is an ``ARRAY_BUFFER`` used for vertex attributes (integer constant ``34962``). ``false`` if the buffer type is any other value. See `Buffers, BufferViews, and Accessors <https://github.com/KhronosGroup/glTF-Tutorials/blob/master/gltfTutorial/gltfTutorial_005_BuffersBufferViewsAccessors.md>`__ for possible values. This property is set on import and used on export.
 
 .. rst-class:: classref-section-separator
 
@@ -163,15 +186,40 @@ True if the GLTFBufferView's OpenGL GPU buffer type is an ``ELEMENT_ARRAY_BUFFER
 Method Descriptions
 -------------------
 
+.. _class_GLTFBufferView_method_from_dictionary:
+
+.. rst-class:: classref-method
+
+:ref:`GLTFBufferView<class_GLTFBufferView>` **from_dictionary**\ (\ dictionary\: :ref:`Dictionary<class_Dictionary>`\ ) |static| :ref:`🔗<class_GLTFBufferView_method_from_dictionary>`
+
+Creates a new GLTFBufferView instance by parsing the given :ref:`Dictionary<class_Dictionary>`.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_GLTFBufferView_method_load_buffer_view_data:
 
 .. rst-class:: classref-method
 
-:ref:`PackedByteArray<class_PackedByteArray>` **load_buffer_view_data**\ (\ state\: :ref:`GLTFState<class_GLTFState>`\ ) |const|
+:ref:`PackedByteArray<class_PackedByteArray>` **load_buffer_view_data**\ (\ state\: :ref:`GLTFState<class_GLTFState>`\ ) |const| :ref:`🔗<class_GLTFBufferView_method_load_buffer_view_data>`
 
 Loads the buffer view data from the buffer referenced by this buffer view in the given :ref:`GLTFState<class_GLTFState>`. Interleaved data with a byte stride is not yet supported by this method. The data is returned as a :ref:`PackedByteArray<class_PackedByteArray>`.
 
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_GLTFBufferView_method_to_dictionary:
+
+.. rst-class:: classref-method
+
+:ref:`Dictionary<class_Dictionary>` **to_dictionary**\ (\ ) |const| :ref:`🔗<class_GLTFBufferView_method_to_dictionary>`
+
+Serializes this GLTFBufferView instance into a :ref:`Dictionary<class_Dictionary>`.
+
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

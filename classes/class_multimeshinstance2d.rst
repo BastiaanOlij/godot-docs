@@ -22,7 +22,7 @@ Node that instances a :ref:`MultiMesh<class_MultiMesh>` in 2D.
 Description
 -----------
 
-**MultiMeshInstance2D** is a specialized node to instance a :ref:`MultiMesh<class_MultiMesh>` resource in 2D.
+**MultiMeshInstance2D** is a specialized node to instance a :ref:`MultiMesh<class_MultiMesh>` resource in 2D. This can be faster to render compared to displaying many :ref:`Sprite2D<class_Sprite2D>` nodes with large transparent areas, especially if the nodes take up a lot of space on screen at high viewport resolutions. This is because using a mesh designed to fit the sprites' opaque areas will reduce GPU fill rate utilization (at the cost of increased vertex processing utilization).
 
 Usage is the same as :ref:`MultiMeshInstance3D<class_MultiMeshInstance3D>`.
 
@@ -53,7 +53,7 @@ Signals
 
 .. rst-class:: classref-signal
 
-**texture_changed**\ (\ )
+**texture_changed**\ (\ ) :ref:`🔗<class_MultiMeshInstance2D_signal_texture_changed>`
 
 Emitted when the :ref:`texture<class_MultiMeshInstance2D_property_texture>` is changed.
 
@@ -70,7 +70,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`MultiMesh<class_MultiMesh>` **multimesh**
+:ref:`MultiMesh<class_MultiMesh>` **multimesh** :ref:`🔗<class_MultiMeshInstance2D_property_multimesh>`
 
 .. rst-class:: classref-property-setget
 
@@ -87,7 +87,7 @@ The :ref:`MultiMesh<class_MultiMesh>` that will be drawn by the **MultiMeshInsta
 
 .. rst-class:: classref-property
 
-:ref:`Texture2D<class_Texture2D>` **texture**
+:ref:`Texture2D<class_Texture2D>` **texture** :ref:`🔗<class_MultiMeshInstance2D_property_texture>`
 
 .. rst-class:: classref-property-setget
 
@@ -97,6 +97,7 @@ The :ref:`MultiMesh<class_MultiMesh>` that will be drawn by the **MultiMeshInsta
 The :ref:`Texture2D<class_Texture2D>` that will be used if using the default :ref:`CanvasItemMaterial<class_CanvasItemMaterial>`. Can be accessed as ``TEXTURE`` in CanvasItem shader.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

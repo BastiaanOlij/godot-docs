@@ -57,7 +57,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`OccluderPolygon2D<class_OccluderPolygon2D>` **occluder**
+:ref:`OccluderPolygon2D<class_OccluderPolygon2D>` **occluder** :ref:`🔗<class_LightOccluder2D_property_occluder>`
 
 .. rst-class:: classref-property-setget
 
@@ -74,7 +74,7 @@ The :ref:`OccluderPolygon2D<class_OccluderPolygon2D>` used to compute the shadow
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **occluder_light_mask** = ``1``
+:ref:`int<class_int>` **occluder_light_mask** = ``1`` :ref:`🔗<class_LightOccluder2D_property_occluder_light_mask>`
 
 .. rst-class:: classref-property-setget
 
@@ -91,7 +91,7 @@ The LightOccluder2D's occluder light mask. The LightOccluder2D will cast shadows
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **sdf_collision** = ``true``
+:ref:`bool<class_bool>` **sdf_collision** = ``true`` :ref:`🔗<class_LightOccluder2D_property_sdf_collision>`
 
 .. rst-class:: classref-property-setget
 
@@ -101,6 +101,7 @@ The LightOccluder2D's occluder light mask. The LightOccluder2D will cast shadows
 If enabled, the occluder will be part of a real-time generated signed distance field that can be used in custom shaders.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
