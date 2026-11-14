@@ -52,7 +52,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **inner_radius** = ``0.5``
+:ref:`float<class_float>` **inner_radius** = ``0.5`` :ref:`🔗<class_TorusMesh_property_inner_radius>`
 
 .. rst-class:: classref-property-setget
 
@@ -69,7 +69,7 @@ The inner radius of the torus.
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **outer_radius** = ``1.0``
+:ref:`float<class_float>` **outer_radius** = ``1.0`` :ref:`🔗<class_TorusMesh_property_outer_radius>`
 
 .. rst-class:: classref-property-setget
 
@@ -86,7 +86,7 @@ The outer radius of the torus.
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **ring_segments** = ``32``
+:ref:`int<class_int>` **ring_segments** = ``32`` :ref:`🔗<class_TorusMesh_property_ring_segments>`
 
 .. rst-class:: classref-property-setget
 
@@ -103,7 +103,7 @@ The number of edges each ring of the torus is constructed of.
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **rings** = ``64``
+:ref:`int<class_int>` **rings** = ``64`` :ref:`🔗<class_TorusMesh_property_rings>`
 
 .. rst-class:: classref-property-setget
 
@@ -113,6 +113,7 @@ The number of edges each ring of the torus is constructed of.
 The number of slices the torus is constructed of.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

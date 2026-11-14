@@ -48,7 +48,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **initial_offset** = ``25.0``
+:ref:`float<class_float>` **initial_offset** = ``25.0`` :ref:`🔗<class_GrooveJoint2D_property_initial_offset>`
 
 .. rst-class:: classref-property-setget
 
@@ -65,7 +65,7 @@ The body B's initial anchor position defined by the joint's origin and a local o
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **length** = ``50.0``
+:ref:`float<class_float>` **length** = ``50.0`` :ref:`🔗<class_GrooveJoint2D_property_length>`
 
 .. rst-class:: classref-property-setget
 
@@ -75,6 +75,7 @@ The body B's initial anchor position defined by the joint's origin and a local o
 The groove's length. The groove is from the joint's origin towards :ref:`length<class_GrooveJoint2D_property_length>` along the joint's local Y axis.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

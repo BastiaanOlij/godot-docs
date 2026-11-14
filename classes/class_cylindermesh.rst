@@ -58,7 +58,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **bottom_radius** = ``0.5``
+:ref:`float<class_float>` **bottom_radius** = ``0.5`` :ref:`🔗<class_CylinderMesh_property_bottom_radius>`
 
 .. rst-class:: classref-property-setget
 
@@ -75,7 +75,7 @@ Bottom radius of the cylinder. If set to ``0.0``, the bottom faces will not be g
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **cap_bottom** = ``true``
+:ref:`bool<class_bool>` **cap_bottom** = ``true`` :ref:`🔗<class_CylinderMesh_property_cap_bottom>`
 
 .. rst-class:: classref-property-setget
 
@@ -94,7 +94,7 @@ If ``true``, generates a cap at the bottom of the cylinder. This can be set to `
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **cap_top** = ``true``
+:ref:`bool<class_bool>` **cap_top** = ``true`` :ref:`🔗<class_CylinderMesh_property_cap_top>`
 
 .. rst-class:: classref-property-setget
 
@@ -113,7 +113,7 @@ If ``true``, generates a cap at the top of the cylinder. This can be set to ``fa
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **height** = ``2.0``
+:ref:`float<class_float>` **height** = ``2.0`` :ref:`🔗<class_CylinderMesh_property_height>`
 
 .. rst-class:: classref-property-setget
 
@@ -130,7 +130,7 @@ Full height of the cylinder.
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **radial_segments** = ``64``
+:ref:`int<class_int>` **radial_segments** = ``64`` :ref:`🔗<class_CylinderMesh_property_radial_segments>`
 
 .. rst-class:: classref-property-setget
 
@@ -147,7 +147,7 @@ Number of radial segments on the cylinder. Higher values result in a more detail
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **rings** = ``4``
+:ref:`int<class_int>` **rings** = ``4`` :ref:`🔗<class_CylinderMesh_property_rings>`
 
 .. rst-class:: classref-property-setget
 
@@ -164,7 +164,7 @@ Number of edge rings along the height of the cylinder. Changing :ref:`rings<clas
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **top_radius** = ``0.5``
+:ref:`float<class_float>` **top_radius** = ``0.5`` :ref:`🔗<class_CylinderMesh_property_top_radius>`
 
 .. rst-class:: classref-property-setget
 
@@ -174,6 +174,7 @@ Number of edge rings along the height of the cylinder. Changing :ref:`rings<clas
 Top radius of the cylinder. If set to ``0.0``, the top faces will not be generated, resulting in a conic shape. See also :ref:`cap_top<class_CylinderMesh_property_cap_top>`.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

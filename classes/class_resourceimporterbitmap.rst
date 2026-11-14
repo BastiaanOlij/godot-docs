@@ -55,7 +55,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **create_from** = ``0``
+:ref:`int<class_int>` **create_from** = ``0`` :ref:`🔗<class_ResourceImporterBitMap_property_create_from>`
 
 The data source to use for generating the bitmap.
 
@@ -71,11 +71,12 @@ The data source to use for generating the bitmap.
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **threshold** = ``0.5``
+:ref:`float<class_float>` **threshold** = ``0.5`` :ref:`🔗<class_ResourceImporterBitMap_property_threshold>`
 
 The threshold to use to determine which bits should be considered enabled or disabled. See also :ref:`create_from<class_ResourceImporterBitMap_property_create_from>`.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

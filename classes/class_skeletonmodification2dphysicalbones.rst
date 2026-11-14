@@ -68,7 +68,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **physical_bone_chain_length** = ``0``
+:ref:`int<class_int>` **physical_bone_chain_length** = ``0`` :ref:`🔗<class_SkeletonModification2DPhysicalBones_property_physical_bone_chain_length>`
 
 .. rst-class:: classref-property-setget
 
@@ -90,7 +90,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-|void| **fetch_physical_bones**\ (\ )
+|void| **fetch_physical_bones**\ (\ ) :ref:`🔗<class_SkeletonModification2DPhysicalBones_method_fetch_physical_bones>`
 
 Empties the list of :ref:`PhysicalBone2D<class_PhysicalBone2D>` nodes and populates it with all :ref:`PhysicalBone2D<class_PhysicalBone2D>` nodes that are children of the :ref:`Skeleton2D<class_Skeleton2D>`.
 
@@ -102,7 +102,7 @@ Empties the list of :ref:`PhysicalBone2D<class_PhysicalBone2D>` nodes and popula
 
 .. rst-class:: classref-method
 
-:ref:`NodePath<class_NodePath>` **get_physical_bone_node**\ (\ joint_idx\: :ref:`int<class_int>`\ ) |const|
+:ref:`NodePath<class_NodePath>` **get_physical_bone_node**\ (\ joint_idx\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_SkeletonModification2DPhysicalBones_method_get_physical_bone_node>`
 
 Returns the :ref:`PhysicalBone2D<class_PhysicalBone2D>` node at ``joint_idx``.
 
@@ -114,7 +114,7 @@ Returns the :ref:`PhysicalBone2D<class_PhysicalBone2D>` node at ``joint_idx``.
 
 .. rst-class:: classref-method
 
-|void| **set_physical_bone_node**\ (\ joint_idx\: :ref:`int<class_int>`, physicalbone2d_node\: :ref:`NodePath<class_NodePath>`\ )
+|void| **set_physical_bone_node**\ (\ joint_idx\: :ref:`int<class_int>`, physicalbone2d_node\: :ref:`NodePath<class_NodePath>`\ ) :ref:`🔗<class_SkeletonModification2DPhysicalBones_method_set_physical_bone_node>`
 
 Sets the :ref:`PhysicalBone2D<class_PhysicalBone2D>` node at ``joint_idx``.
 
@@ -128,7 +128,7 @@ Sets the :ref:`PhysicalBone2D<class_PhysicalBone2D>` node at ``joint_idx``.
 
 .. rst-class:: classref-method
 
-|void| **start_simulation**\ (\ bones\: :ref:`Array<class_Array>`\[:ref:`StringName<class_StringName>`\] = []\ )
+|void| **start_simulation**\ (\ bones\: :ref:`Array<class_Array>`\[:ref:`StringName<class_StringName>`\] = []\ ) :ref:`🔗<class_SkeletonModification2DPhysicalBones_method_start_simulation>`
 
 Tell the :ref:`PhysicalBone2D<class_PhysicalBone2D>` nodes to start simulating and interacting with the physics world.
 
@@ -142,13 +142,14 @@ Optionally, an array of bone names can be passed to this function, and that will
 
 .. rst-class:: classref-method
 
-|void| **stop_simulation**\ (\ bones\: :ref:`Array<class_Array>`\[:ref:`StringName<class_StringName>`\] = []\ )
+|void| **stop_simulation**\ (\ bones\: :ref:`Array<class_Array>`\[:ref:`StringName<class_StringName>`\] = []\ ) :ref:`🔗<class_SkeletonModification2DPhysicalBones_method_stop_simulation>`
 
 Tell the :ref:`PhysicalBone2D<class_PhysicalBone2D>` nodes to stop simulating and interacting with the physics world.
 
 Optionally, an array of bone names can be passed to this function, and that will cause only :ref:`PhysicalBone2D<class_PhysicalBone2D>` nodes with those names to stop simulating.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
