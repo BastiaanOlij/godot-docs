@@ -48,7 +48,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **length** = ``1.0``
+:ref:`float<class_float>` **length** = ``1.0`` :ref:`🔗<class_SeparationRayShape3D_property_length>`
 
 .. rst-class:: classref-property-setget
 
@@ -65,7 +65,7 @@ The ray's length.
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **slide_on_slope** = ``false``
+:ref:`bool<class_bool>` **slide_on_slope** = ``false`` :ref:`🔗<class_SeparationRayShape3D_property_slide_on_slope>`
 
 .. rst-class:: classref-property-setget
 
@@ -77,6 +77,7 @@ If ``false`` (default), the shape always separates and returns a normal along it
 If ``true``, the shape can return the correct normal and separate in any direction, allowing sliding motion on slopes.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

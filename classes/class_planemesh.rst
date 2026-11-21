@@ -58,7 +58,7 @@ Enumerations
 
 .. rst-class:: classref-enumeration
 
-enum **Orientation**:
+enum **Orientation**: :ref:`🔗<enum_PlaneMesh_Orientation>`
 
 .. _class_PlaneMesh_constant_FACE_X:
 
@@ -97,7 +97,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`Vector3<class_Vector3>` **center_offset** = ``Vector3(0, 0, 0)``
+:ref:`Vector3<class_Vector3>` **center_offset** = ``Vector3(0, 0, 0)`` :ref:`🔗<class_PlaneMesh_property_center_offset>`
 
 .. rst-class:: classref-property-setget
 
@@ -114,14 +114,14 @@ Offset of the generated plane. Useful for particles.
 
 .. rst-class:: classref-property
 
-:ref:`Orientation<enum_PlaneMesh_Orientation>` **orientation** = ``1``
+:ref:`Orientation<enum_PlaneMesh_Orientation>` **orientation** = ``1`` :ref:`🔗<class_PlaneMesh_property_orientation>`
 
 .. rst-class:: classref-property-setget
 
 - |void| **set_orientation**\ (\ value\: :ref:`Orientation<enum_PlaneMesh_Orientation>`\ )
 - :ref:`Orientation<enum_PlaneMesh_Orientation>` **get_orientation**\ (\ )
 
-Direction that the **PlaneMesh** is facing. See :ref:`Orientation<enum_PlaneMesh_Orientation>` for options.
+Direction that the **PlaneMesh** is facing.
 
 .. rst-class:: classref-item-separator
 
@@ -131,7 +131,7 @@ Direction that the **PlaneMesh** is facing. See :ref:`Orientation<enum_PlaneMesh
 
 .. rst-class:: classref-property
 
-:ref:`Vector2<class_Vector2>` **size** = ``Vector2(2, 2)``
+:ref:`Vector2<class_Vector2>` **size** = ``Vector2(2, 2)`` :ref:`🔗<class_PlaneMesh_property_size>`
 
 .. rst-class:: classref-property-setget
 
@@ -148,7 +148,7 @@ Size of the generated plane.
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **subdivide_depth** = ``0``
+:ref:`int<class_int>` **subdivide_depth** = ``0`` :ref:`🔗<class_PlaneMesh_property_subdivide_depth>`
 
 .. rst-class:: classref-property-setget
 
@@ -165,7 +165,7 @@ Number of subdivision along the Z axis.
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **subdivide_width** = ``0``
+:ref:`int<class_int>` **subdivide_width** = ``0`` :ref:`🔗<class_PlaneMesh_property_subdivide_width>`
 
 .. rst-class:: classref-property-setget
 
@@ -175,6 +175,7 @@ Number of subdivision along the Z axis.
 Number of subdivision along the X axis.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

@@ -12,7 +12,7 @@ XRBodyTracker
 
 **Experimental:** This class may be changed or removed in future versions.
 
-**Inherits:** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
+**Inherits:** :ref:`XRPositionalTracker<class_XRPositionalTracker>` **<** :ref:`XRTracker<class_XRTracker>` **<** :ref:`RefCounted<class_RefCounted>` **<** :ref:`Object<class_Object>`
 
 A tracked body in XR.
 
@@ -40,11 +40,13 @@ Properties
 .. table::
    :widths: auto
 
-   +--------------------------------------------------------------+--------------------------------------------------------------------------+-----------+
-   | |bitfield|\[:ref:`BodyFlags<enum_XRBodyTracker_BodyFlags>`\] | :ref:`body_flags<class_XRBodyTracker_property_body_flags>`               | ``0``     |
-   +--------------------------------------------------------------+--------------------------------------------------------------------------+-----------+
-   | :ref:`bool<class_bool>`                                      | :ref:`has_tracking_data<class_XRBodyTracker_property_has_tracking_data>` | ``false`` |
-   +--------------------------------------------------------------+--------------------------------------------------------------------------+-----------+
+   +--------------------------------------------------------------+--------------------------------------------------------------------------+--------------------------------------------------------------------+
+   | |bitfield|\[:ref:`BodyFlags<enum_XRBodyTracker_BodyFlags>`\] | :ref:`body_flags<class_XRBodyTracker_property_body_flags>`               | ``0``                                                              |
+   +--------------------------------------------------------------+--------------------------------------------------------------------------+--------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                      | :ref:`has_tracking_data<class_XRBodyTracker_property_has_tracking_data>` | ``false``                                                          |
+   +--------------------------------------------------------------+--------------------------------------------------------------------------+--------------------------------------------------------------------+
+   | :ref:`TrackerType<enum_XRServer_TrackerType>`                | type                                                                     | ``32`` (overrides :ref:`XRTracker<class_XRTracker_property_type>`) |
+   +--------------------------------------------------------------+--------------------------------------------------------------------------+--------------------------------------------------------------------+
 
 .. rst-class:: classref-reftable-group
 
@@ -77,7 +79,7 @@ Enumerations
 
 .. rst-class:: classref-enumeration
 
-flags **BodyFlags**:
+flags **BodyFlags**: :ref:`🔗<enum_XRBodyTracker_BodyFlags>`
 
 .. _class_XRBodyTracker_constant_BODY_FLAG_UPPER_BODY_SUPPORTED:
 
@@ -111,7 +113,7 @@ Hand tracking supported.
 
 .. rst-class:: classref-enumeration
 
-enum **Joint**:
+enum **Joint**: :ref:`🔗<enum_XRBodyTracker_Joint>`
 
 .. _class_XRBodyTracker_constant_JOINT_ROOT:
 
@@ -721,11 +723,99 @@ Right pinky finger phalanx distal joint.
 
 Right pinky finger tip joint.
 
+.. _class_XRBodyTracker_constant_JOINT_LOWER_CHEST:
+
+.. rst-class:: classref-enumeration-constant
+
+:ref:`Joint<enum_XRBodyTracker_Joint>` **JOINT_LOWER_CHEST** = ``76``
+
+Lower chest joint.
+
+.. _class_XRBodyTracker_constant_JOINT_LEFT_SCAPULA:
+
+.. rst-class:: classref-enumeration-constant
+
+:ref:`Joint<enum_XRBodyTracker_Joint>` **JOINT_LEFT_SCAPULA** = ``77``
+
+Left scapula joint.
+
+.. _class_XRBodyTracker_constant_JOINT_LEFT_WRIST_TWIST:
+
+.. rst-class:: classref-enumeration-constant
+
+:ref:`Joint<enum_XRBodyTracker_Joint>` **JOINT_LEFT_WRIST_TWIST** = ``78``
+
+Left wrist twist joint.
+
+.. _class_XRBodyTracker_constant_JOINT_RIGHT_SCAPULA:
+
+.. rst-class:: classref-enumeration-constant
+
+:ref:`Joint<enum_XRBodyTracker_Joint>` **JOINT_RIGHT_SCAPULA** = ``79``
+
+Right scapula joint.
+
+.. _class_XRBodyTracker_constant_JOINT_RIGHT_WRIST_TWIST:
+
+.. rst-class:: classref-enumeration-constant
+
+:ref:`Joint<enum_XRBodyTracker_Joint>` **JOINT_RIGHT_WRIST_TWIST** = ``80``
+
+Right wrist twist joint.
+
+.. _class_XRBodyTracker_constant_JOINT_LEFT_FOOT_TWIST:
+
+.. rst-class:: classref-enumeration-constant
+
+:ref:`Joint<enum_XRBodyTracker_Joint>` **JOINT_LEFT_FOOT_TWIST** = ``81``
+
+Left foot twist joint.
+
+.. _class_XRBodyTracker_constant_JOINT_LEFT_HEEL:
+
+.. rst-class:: classref-enumeration-constant
+
+:ref:`Joint<enum_XRBodyTracker_Joint>` **JOINT_LEFT_HEEL** = ``82``
+
+Left heel joint.
+
+.. _class_XRBodyTracker_constant_JOINT_LEFT_MIDDLE_FOOT:
+
+.. rst-class:: classref-enumeration-constant
+
+:ref:`Joint<enum_XRBodyTracker_Joint>` **JOINT_LEFT_MIDDLE_FOOT** = ``83``
+
+Left middle foot joint.
+
+.. _class_XRBodyTracker_constant_JOINT_RIGHT_FOOT_TWIST:
+
+.. rst-class:: classref-enumeration-constant
+
+:ref:`Joint<enum_XRBodyTracker_Joint>` **JOINT_RIGHT_FOOT_TWIST** = ``84``
+
+Right foot twist joint.
+
+.. _class_XRBodyTracker_constant_JOINT_RIGHT_HEEL:
+
+.. rst-class:: classref-enumeration-constant
+
+:ref:`Joint<enum_XRBodyTracker_Joint>` **JOINT_RIGHT_HEEL** = ``85``
+
+Right heel joint.
+
+.. _class_XRBodyTracker_constant_JOINT_RIGHT_MIDDLE_FOOT:
+
+.. rst-class:: classref-enumeration-constant
+
+:ref:`Joint<enum_XRBodyTracker_Joint>` **JOINT_RIGHT_MIDDLE_FOOT** = ``86``
+
+Right middle foot joint.
+
 .. _class_XRBodyTracker_constant_JOINT_MAX:
 
 .. rst-class:: classref-enumeration-constant
 
-:ref:`Joint<enum_XRBodyTracker_Joint>` **JOINT_MAX** = ``76``
+:ref:`Joint<enum_XRBodyTracker_Joint>` **JOINT_MAX** = ``87``
 
 Represents the size of the :ref:`Joint<enum_XRBodyTracker_Joint>` enum.
 
@@ -737,7 +827,7 @@ Represents the size of the :ref:`Joint<enum_XRBodyTracker_Joint>` enum.
 
 .. rst-class:: classref-enumeration
 
-flags **JointFlags**:
+flags **JointFlags**: :ref:`🔗<enum_XRBodyTracker_JointFlags>`
 
 .. _class_XRBodyTracker_constant_JOINT_FLAG_ORIENTATION_VALID:
 
@@ -784,7 +874,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-|bitfield|\[:ref:`BodyFlags<enum_XRBodyTracker_BodyFlags>`\] **body_flags** = ``0``
+|bitfield|\[:ref:`BodyFlags<enum_XRBodyTracker_BodyFlags>`\] **body_flags** = ``0`` :ref:`🔗<class_XRBodyTracker_property_body_flags>`
 
 .. rst-class:: classref-property-setget
 
@@ -801,7 +891,7 @@ The type of body tracking data captured.
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **has_tracking_data** = ``false``
+:ref:`bool<class_bool>` **has_tracking_data** = ``false`` :ref:`🔗<class_XRBodyTracker_property_has_tracking_data>`
 
 .. rst-class:: classref-property-setget
 
@@ -823,9 +913,9 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-|bitfield|\[:ref:`JointFlags<enum_XRBodyTracker_JointFlags>`\] **get_joint_flags**\ (\ joint\: :ref:`Joint<enum_XRBodyTracker_Joint>`\ ) |const|
+|bitfield|\[:ref:`JointFlags<enum_XRBodyTracker_JointFlags>`\] **get_joint_flags**\ (\ joint\: :ref:`Joint<enum_XRBodyTracker_Joint>`\ ) |const| :ref:`🔗<class_XRBodyTracker_method_get_joint_flags>`
 
-Returns flags about the validity of the tracking data for the given body joint (see :ref:`JointFlags<enum_XRBodyTracker_JointFlags>`).
+Returns flags about the validity of the tracking data for the given body joint.
 
 .. rst-class:: classref-item-separator
 
@@ -835,7 +925,7 @@ Returns flags about the validity of the tracking data for the given body joint (
 
 .. rst-class:: classref-method
 
-:ref:`Transform3D<class_Transform3D>` **get_joint_transform**\ (\ joint\: :ref:`Joint<enum_XRBodyTracker_Joint>`\ ) |const|
+:ref:`Transform3D<class_Transform3D>` **get_joint_transform**\ (\ joint\: :ref:`Joint<enum_XRBodyTracker_Joint>`\ ) |const| :ref:`🔗<class_XRBodyTracker_method_get_joint_transform>`
 
 Returns the transform for the given body joint.
 
@@ -847,7 +937,7 @@ Returns the transform for the given body joint.
 
 .. rst-class:: classref-method
 
-|void| **set_joint_flags**\ (\ joint\: :ref:`Joint<enum_XRBodyTracker_Joint>`, flags\: |bitfield|\[:ref:`JointFlags<enum_XRBodyTracker_JointFlags>`\]\ )
+|void| **set_joint_flags**\ (\ joint\: :ref:`Joint<enum_XRBodyTracker_Joint>`, flags\: |bitfield|\[:ref:`JointFlags<enum_XRBodyTracker_JointFlags>`\]\ ) :ref:`🔗<class_XRBodyTracker_method_set_joint_flags>`
 
 Sets flags about the validity of the tracking data for the given body joint.
 
@@ -859,11 +949,12 @@ Sets flags about the validity of the tracking data for the given body joint.
 
 .. rst-class:: classref-method
 
-|void| **set_joint_transform**\ (\ joint\: :ref:`Joint<enum_XRBodyTracker_Joint>`, transform\: :ref:`Transform3D<class_Transform3D>`\ )
+|void| **set_joint_transform**\ (\ joint\: :ref:`Joint<enum_XRBodyTracker_Joint>`, transform\: :ref:`Transform3D<class_Transform3D>`\ ) :ref:`🔗<class_XRBodyTracker_method_set_joint_transform>`
 
 Sets the transform for the given body joint.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
