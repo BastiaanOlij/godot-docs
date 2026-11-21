@@ -21,9 +21,9 @@ Abstract render data object, holds frame data related to rendering a single fram
 Description
 -----------
 
-Abstract render data object, exists for the duration of rendering a single viewport.
+Abstract render data object, exists for the duration of rendering a single viewport. See also :ref:`RenderDataRD<class_RenderDataRD>`, :ref:`RenderSceneData<class_RenderSceneData>`, and :ref:`RenderSceneDataRD<class_RenderSceneDataRD>`.
 
-\ **Note:** This is an internal rendering server object, do not instantiate this from script.
+\ **Note:** This is an internal rendering server object. Do not instantiate this class from a script.
 
 .. rst-class:: classref-reftable-group
 
@@ -56,7 +56,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`RID<class_RID>` **get_camera_attributes**\ (\ ) |const|
+:ref:`RID<class_RID>` **get_camera_attributes**\ (\ ) |const| :ref:`🔗<class_RenderData_method_get_camera_attributes>`
 
 Returns the :ref:`RID<class_RID>` of the camera attributes object in the :ref:`RenderingServer<class_RenderingServer>` being used to render this viewport.
 
@@ -68,9 +68,9 @@ Returns the :ref:`RID<class_RID>` of the camera attributes object in the :ref:`R
 
 .. rst-class:: classref-method
 
-:ref:`RID<class_RID>` **get_environment**\ (\ ) |const|
+:ref:`RID<class_RID>` **get_environment**\ (\ ) |const| :ref:`🔗<class_RenderData_method_get_environment>`
 
-Returns the :ref:`RID<class_RID>` of the environments object in the :ref:`RenderingServer<class_RenderingServer>` being used to render this viewport.
+Returns the :ref:`RID<class_RID>` of the environment object in the :ref:`RenderingServer<class_RenderingServer>` being used to render this viewport.
 
 .. rst-class:: classref-item-separator
 
@@ -80,7 +80,7 @@ Returns the :ref:`RID<class_RID>` of the environments object in the :ref:`Render
 
 .. rst-class:: classref-method
 
-:ref:`RenderSceneBuffers<class_RenderSceneBuffers>` **get_render_scene_buffers**\ (\ ) |const|
+:ref:`RenderSceneBuffers<class_RenderSceneBuffers>` **get_render_scene_buffers**\ (\ ) |const| :ref:`🔗<class_RenderData_method_get_render_scene_buffers>`
 
 Returns the :ref:`RenderSceneBuffers<class_RenderSceneBuffers>` object managing the scene buffers for rendering this viewport.
 
@@ -92,11 +92,12 @@ Returns the :ref:`RenderSceneBuffers<class_RenderSceneBuffers>` object managing 
 
 .. rst-class:: classref-method
 
-:ref:`RenderSceneData<class_RenderSceneData>` **get_render_scene_data**\ (\ ) |const|
+:ref:`RenderSceneData<class_RenderSceneData>` **get_render_scene_data**\ (\ ) |const| :ref:`🔗<class_RenderData_method_get_render_scene_data>`
 
 Returns the :ref:`RenderSceneData<class_RenderSceneData>` object managing this frames scene data.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

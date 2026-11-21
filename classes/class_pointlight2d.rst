@@ -62,7 +62,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **height** = ``0.0``
+:ref:`float<class_float>` **height** = ``0.0`` :ref:`🔗<class_PointLight2D_property_height>`
 
 .. rst-class:: classref-property-setget
 
@@ -79,7 +79,7 @@ The height of the light. Used with 2D normal mapping. The units are in pixels, e
 
 .. rst-class:: classref-property
 
-:ref:`Vector2<class_Vector2>` **offset** = ``Vector2(0, 0)``
+:ref:`Vector2<class_Vector2>` **offset** = ``Vector2(0, 0)`` :ref:`🔗<class_PointLight2D_property_offset>`
 
 .. rst-class:: classref-property-setget
 
@@ -96,7 +96,7 @@ The offset of the light's :ref:`texture<class_PointLight2D_property_texture>`.
 
 .. rst-class:: classref-property
 
-:ref:`Texture2D<class_Texture2D>` **texture**
+:ref:`Texture2D<class_Texture2D>` **texture** :ref:`🔗<class_PointLight2D_property_texture>`
 
 .. rst-class:: classref-property-setget
 
@@ -113,7 +113,7 @@ The offset of the light's :ref:`texture<class_PointLight2D_property_texture>`.
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **texture_scale** = ``1.0``
+:ref:`float<class_float>` **texture_scale** = ``1.0`` :ref:`🔗<class_PointLight2D_property_texture_scale>`
 
 .. rst-class:: classref-property-setget
 
@@ -123,6 +123,7 @@ The offset of the light's :ref:`texture<class_PointLight2D_property_texture>`.
 The :ref:`texture<class_PointLight2D_property_texture>`'s scale factor.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

@@ -52,7 +52,7 @@ Enumerations
 
 .. rst-class:: classref-enumeration
 
-enum **EnableMode**:
+enum **EnableMode**: :ref:`🔗<enum_VisibleOnScreenEnabler2D_EnableMode>`
 
 .. _class_VisibleOnScreenEnabler2D_constant_ENABLE_MODE_INHERIT:
 
@@ -91,7 +91,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`EnableMode<enum_VisibleOnScreenEnabler2D_EnableMode>` **enable_mode** = ``0``
+:ref:`EnableMode<enum_VisibleOnScreenEnabler2D_EnableMode>` **enable_mode** = ``0`` :ref:`🔗<class_VisibleOnScreenEnabler2D_property_enable_mode>`
 
 .. rst-class:: classref-property-setget
 
@@ -108,7 +108,7 @@ Determines how the target node is enabled. Corresponds to :ref:`ProcessMode<enum
 
 .. rst-class:: classref-property
 
-:ref:`NodePath<class_NodePath>` **enable_node_path** = ``NodePath("..")``
+:ref:`NodePath<class_NodePath>` **enable_node_path** = ``NodePath("..")`` :ref:`🔗<class_VisibleOnScreenEnabler2D_property_enable_node_path>`
 
 .. rst-class:: classref-property-setget
 
@@ -118,6 +118,7 @@ Determines how the target node is enabled. Corresponds to :ref:`ProcessMode<enum
 The path to the target node, relative to the **VisibleOnScreenEnabler2D**. The target node is cached; it's only assigned when setting this property (if the **VisibleOnScreenEnabler2D** is inside the scene tree) and every time the **VisibleOnScreenEnabler2D** enters the scene tree. If the path is empty, no node will be affected. If the path is invalid, an error is also generated.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

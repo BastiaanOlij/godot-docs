@@ -59,7 +59,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`RID<class_RID>` **canvas**
+:ref:`RID<class_RID>` **canvas** :ref:`🔗<class_World2D_property_canvas>`
 
 .. rst-class:: classref-property-setget
 
@@ -75,13 +75,13 @@ The :ref:`RID<class_RID>` of this world's canvas resource. Used by the :ref:`Ren
 
 .. rst-class:: classref-property
 
-:ref:`PhysicsDirectSpaceState2D<class_PhysicsDirectSpaceState2D>` **direct_space_state**
+:ref:`PhysicsDirectSpaceState2D<class_PhysicsDirectSpaceState2D>` **direct_space_state** :ref:`🔗<class_World2D_property_direct_space_state>`
 
 .. rst-class:: classref-property-setget
 
 - :ref:`PhysicsDirectSpaceState2D<class_PhysicsDirectSpaceState2D>` **get_direct_space_state**\ (\ )
 
-Direct access to the world's physics 2D space state. Used for querying current and potential collisions. When using multi-threaded physics, access is limited to :ref:`Node._physics_process<class_Node_private_method__physics_process>` in the main thread.
+Direct access to the world's physics 2D space state. Used for querying current and potential collisions. When using multi-threaded physics, access is limited to :ref:`Node._physics_process()<class_Node_private_method__physics_process>` in the main thread.
 
 .. rst-class:: classref-item-separator
 
@@ -91,7 +91,7 @@ Direct access to the world's physics 2D space state. Used for querying current a
 
 .. rst-class:: classref-property
 
-:ref:`RID<class_RID>` **navigation_map**
+:ref:`RID<class_RID>` **navigation_map** :ref:`🔗<class_World2D_property_navigation_map>`
 
 .. rst-class:: classref-property-setget
 
@@ -107,7 +107,7 @@ The :ref:`RID<class_RID>` of this world's navigation map. Used by the :ref:`Navi
 
 .. rst-class:: classref-property
 
-:ref:`RID<class_RID>` **space**
+:ref:`RID<class_RID>` **space** :ref:`🔗<class_World2D_property_space>`
 
 .. rst-class:: classref-property-setget
 
@@ -116,6 +116,7 @@ The :ref:`RID<class_RID>` of this world's navigation map. Used by the :ref:`Navi
 The :ref:`RID<class_RID>` of this world's physics space resource. Used by the :ref:`PhysicsServer2D<class_PhysicsServer2D>` for 2D physics, treating it as both a space and an area.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

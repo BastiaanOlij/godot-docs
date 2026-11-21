@@ -21,9 +21,9 @@ Abstract render data object, holds scene data related to rendering a single fram
 Description
 -----------
 
-Abstract scene data object, exists for the duration of rendering a single viewport.
+Abstract scene data object, exists for the duration of rendering a single viewport. See also :ref:`RenderSceneDataRD<class_RenderSceneDataRD>`, :ref:`RenderData<class_RenderData>`, and :ref:`RenderDataRD<class_RenderDataRD>`.
 
-\ **Note:** This is an internal rendering server object, do not instantiate this from script.
+\ **Note:** This is an internal rendering server object. Do not instantiate this class from a script.
 
 .. rst-class:: classref-reftable-group
 
@@ -60,7 +60,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`Projection<class_Projection>` **get_cam_projection**\ (\ ) |const|
+:ref:`Projection<class_Projection>` **get_cam_projection**\ (\ ) |const| :ref:`🔗<class_RenderSceneData_method_get_cam_projection>`
 
 Returns the camera projection used to render this frame.
 
@@ -74,7 +74,7 @@ Returns the camera projection used to render this frame.
 
 .. rst-class:: classref-method
 
-:ref:`Transform3D<class_Transform3D>` **get_cam_transform**\ (\ ) |const|
+:ref:`Transform3D<class_Transform3D>` **get_cam_transform**\ (\ ) |const| :ref:`🔗<class_RenderSceneData_method_get_cam_transform>`
 
 Returns the camera transform used to render this frame.
 
@@ -88,7 +88,7 @@ Returns the camera transform used to render this frame.
 
 .. rst-class:: classref-method
 
-:ref:`RID<class_RID>` **get_uniform_buffer**\ (\ ) |const|
+:ref:`RID<class_RID>` **get_uniform_buffer**\ (\ ) |const| :ref:`🔗<class_RenderSceneData_method_get_uniform_buffer>`
 
 Return the :ref:`RID<class_RID>` of the uniform buffer containing the scene data as a UBO.
 
@@ -100,7 +100,7 @@ Return the :ref:`RID<class_RID>` of the uniform buffer containing the scene data
 
 .. rst-class:: classref-method
 
-:ref:`int<class_int>` **get_view_count**\ (\ ) |const|
+:ref:`int<class_int>` **get_view_count**\ (\ ) |const| :ref:`🔗<class_RenderSceneData_method_get_view_count>`
 
 Returns the number of views being rendered.
 
@@ -112,7 +112,7 @@ Returns the number of views being rendered.
 
 .. rst-class:: classref-method
 
-:ref:`Vector3<class_Vector3>` **get_view_eye_offset**\ (\ view\: :ref:`int<class_int>`\ ) |const|
+:ref:`Vector3<class_Vector3>` **get_view_eye_offset**\ (\ view\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_RenderSceneData_method_get_view_eye_offset>`
 
 Returns the eye offset per view used to render this frame. This is the offset between our camera transform and the eye transform.
 
@@ -124,13 +124,14 @@ Returns the eye offset per view used to render this frame. This is the offset be
 
 .. rst-class:: classref-method
 
-:ref:`Projection<class_Projection>` **get_view_projection**\ (\ view\: :ref:`int<class_int>`\ ) |const|
+:ref:`Projection<class_Projection>` **get_view_projection**\ (\ view\: :ref:`int<class_int>`\ ) |const| :ref:`🔗<class_RenderSceneData_method_get_view_projection>`
 
 Returns the view projection per view used to render this frame.
 
 \ **Note:** If a single view is rendered, this returns the camera projection. If more than one view is rendered, this will return a projection for the given view including the eye offset.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
