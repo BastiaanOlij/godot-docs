@@ -21,8 +21,6 @@ Description
 
 Allows control of :ref:`AnimationTree<class_AnimationTree>` state machines created with :ref:`AnimationNodeStateMachine<class_AnimationNodeStateMachine>`. Retrieve with ``$AnimationTree.get("parameters/playback")``.
 
-\ **Example:**\ 
-
 
 .. tabs::
 
@@ -72,7 +70,15 @@ Methods
    +------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`float<class_float>`                                        | :ref:`get_current_play_position<class_AnimationNodeStateMachinePlayback_method_get_current_play_position>`\ (\ ) |const|                                                      |
    +------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`float<class_float>`                                        | :ref:`get_fading_from_length<class_AnimationNodeStateMachinePlayback_method_get_fading_from_length>`\ (\ ) |const|                                                            |
+   +------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`StringName<class_StringName>`                              | :ref:`get_fading_from_node<class_AnimationNodeStateMachinePlayback_method_get_fading_from_node>`\ (\ ) |const|                                                                |
+   +------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`float<class_float>`                                        | :ref:`get_fading_from_play_position<class_AnimationNodeStateMachinePlayback_method_get_fading_from_play_position>`\ (\ ) |const|                                              |
+   +------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`float<class_float>`                                        | :ref:`get_fading_length<class_AnimationNodeStateMachinePlayback_method_get_fading_length>`\ (\ ) |const|                                                                      |
+   +------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`float<class_float>`                                        | :ref:`get_fading_position<class_AnimationNodeStateMachinePlayback_method_get_fading_position>`\ (\ ) |const|                                                                  |
    +------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Array<class_Array>`\[:ref:`StringName<class_StringName>`\] | :ref:`get_travel_path<class_AnimationNodeStateMachinePlayback_method_get_travel_path>`\ (\ ) |const|                                                                          |
    +------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -93,6 +99,37 @@ Methods
 
 .. rst-class:: classref-descriptions-group
 
+Signals
+-------
+
+.. _class_AnimationNodeStateMachinePlayback_signal_state_finished:
+
+.. rst-class:: classref-signal
+
+**state_finished**\ (\ state\: :ref:`StringName<class_StringName>`\ ) :ref:`🔗<class_AnimationNodeStateMachinePlayback_signal_state_finished>`
+
+Emitted when the ``state`` finishes playback. If ``state`` is a state machine set to grouped mode, its signals are passed through with its name prefixed.
+
+If there is a crossfade, this will be fired when the influence of the :ref:`get_fading_from_node()<class_AnimationNodeStateMachinePlayback_method_get_fading_from_node>` animation is no longer present.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_AnimationNodeStateMachinePlayback_signal_state_started:
+
+.. rst-class:: classref-signal
+
+**state_started**\ (\ state\: :ref:`StringName<class_StringName>`\ ) :ref:`🔗<class_AnimationNodeStateMachinePlayback_signal_state_started>`
+
+Emitted when the ``state`` starts playback. If ``state`` is a state machine set to grouped mode, its signals are passed through with its name prefixed.
+
+.. rst-class:: classref-section-separator
+
+----
+
+.. rst-class:: classref-descriptions-group
+
 Method Descriptions
 -------------------
 
@@ -100,7 +137,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`float<class_float>` **get_current_length**\ (\ ) |const|
+:ref:`float<class_float>` **get_current_length**\ (\ ) |const| :ref:`🔗<class_AnimationNodeStateMachinePlayback_method_get_current_length>`
 
 Returns the current state length.
 
@@ -114,7 +151,7 @@ Returns the current state length.
 
 .. rst-class:: classref-method
 
-:ref:`StringName<class_StringName>` **get_current_node**\ (\ ) |const|
+:ref:`StringName<class_StringName>` **get_current_node**\ (\ ) |const| :ref:`🔗<class_AnimationNodeStateMachinePlayback_method_get_current_node>`
 
 Returns the currently playing animation state.
 
@@ -128,9 +165,21 @@ Returns the currently playing animation state.
 
 .. rst-class:: classref-method
 
-:ref:`float<class_float>` **get_current_play_position**\ (\ ) |const|
+:ref:`float<class_float>` **get_current_play_position**\ (\ ) |const| :ref:`🔗<class_AnimationNodeStateMachinePlayback_method_get_current_play_position>`
 
 Returns the playback position within the current animation state.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_AnimationNodeStateMachinePlayback_method_get_fading_from_length:
+
+.. rst-class:: classref-method
+
+:ref:`float<class_float>` **get_fading_from_length**\ (\ ) |const| :ref:`🔗<class_AnimationNodeStateMachinePlayback_method_get_fading_from_length>`
+
+Returns the playback state length of the node from :ref:`get_fading_from_node()<class_AnimationNodeStateMachinePlayback_method_get_fading_from_node>`. Returns ``0`` if no animation fade is occurring.
 
 .. rst-class:: classref-item-separator
 
@@ -140,9 +189,45 @@ Returns the playback position within the current animation state.
 
 .. rst-class:: classref-method
 
-:ref:`StringName<class_StringName>` **get_fading_from_node**\ (\ ) |const|
+:ref:`StringName<class_StringName>` **get_fading_from_node**\ (\ ) |const| :ref:`🔗<class_AnimationNodeStateMachinePlayback_method_get_fading_from_node>`
 
 Returns the starting state of currently fading animation.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_AnimationNodeStateMachinePlayback_method_get_fading_from_play_position:
+
+.. rst-class:: classref-method
+
+:ref:`float<class_float>` **get_fading_from_play_position**\ (\ ) |const| :ref:`🔗<class_AnimationNodeStateMachinePlayback_method_get_fading_from_play_position>`
+
+Returns the playback position of the node from :ref:`get_fading_from_node()<class_AnimationNodeStateMachinePlayback_method_get_fading_from_node>`. Returns ``0`` if no animation fade is occurring.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_AnimationNodeStateMachinePlayback_method_get_fading_length:
+
+.. rst-class:: classref-method
+
+:ref:`float<class_float>` **get_fading_length**\ (\ ) |const| :ref:`🔗<class_AnimationNodeStateMachinePlayback_method_get_fading_length>`
+
+Returns the length of the current fade animation. Returns ``0`` if no animation fade is occurring.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_AnimationNodeStateMachinePlayback_method_get_fading_position:
+
+.. rst-class:: classref-method
+
+:ref:`float<class_float>` **get_fading_position**\ (\ ) |const| :ref:`🔗<class_AnimationNodeStateMachinePlayback_method_get_fading_position>`
+
+Returns the playback position of the current fade animation. Returns ``0`` if no animation fade is occurring.
 
 .. rst-class:: classref-item-separator
 
@@ -152,7 +237,7 @@ Returns the starting state of currently fading animation.
 
 .. rst-class:: classref-method
 
-:ref:`Array<class_Array>`\[:ref:`StringName<class_StringName>`\] **get_travel_path**\ (\ ) |const|
+:ref:`Array<class_Array>`\[:ref:`StringName<class_StringName>`\] **get_travel_path**\ (\ ) |const| :ref:`🔗<class_AnimationNodeStateMachinePlayback_method_get_travel_path>`
 
 Returns the current travel path as computed internally by the A\* algorithm.
 
@@ -164,7 +249,7 @@ Returns the current travel path as computed internally by the A\* algorithm.
 
 .. rst-class:: classref-method
 
-:ref:`bool<class_bool>` **is_playing**\ (\ ) |const|
+:ref:`bool<class_bool>` **is_playing**\ (\ ) |const| :ref:`🔗<class_AnimationNodeStateMachinePlayback_method_is_playing>`
 
 Returns ``true`` if an animation is playing.
 
@@ -176,7 +261,7 @@ Returns ``true`` if an animation is playing.
 
 .. rst-class:: classref-method
 
-|void| **next**\ (\ )
+|void| **next**\ (\ ) :ref:`🔗<class_AnimationNodeStateMachinePlayback_method_next>`
 
 If there is a next path by travel or auto advance, immediately transitions from the current state to the next state.
 
@@ -188,7 +273,7 @@ If there is a next path by travel or auto advance, immediately transitions from 
 
 .. rst-class:: classref-method
 
-|void| **start**\ (\ node\: :ref:`StringName<class_StringName>`, reset\: :ref:`bool<class_bool>` = true\ )
+|void| **start**\ (\ node\: :ref:`StringName<class_StringName>`, reset\: :ref:`bool<class_bool>` = true\ ) :ref:`🔗<class_AnimationNodeStateMachinePlayback_method_start>`
 
 Starts playing the given animation.
 
@@ -202,7 +287,7 @@ If ``reset`` is ``true``, the animation is played from the beginning.
 
 .. rst-class:: classref-method
 
-|void| **stop**\ (\ )
+|void| **stop**\ (\ ) :ref:`🔗<class_AnimationNodeStateMachinePlayback_method_stop>`
 
 Stops the currently playing animation.
 
@@ -214,7 +299,7 @@ Stops the currently playing animation.
 
 .. rst-class:: classref-method
 
-|void| **travel**\ (\ to_node\: :ref:`StringName<class_StringName>`, reset_on_teleport\: :ref:`bool<class_bool>` = true\ )
+|void| **travel**\ (\ to_node\: :ref:`StringName<class_StringName>`, reset_on_teleport\: :ref:`bool<class_bool>` = true\ ) :ref:`🔗<class_AnimationNodeStateMachinePlayback_method_travel>`
 
 Transitions from the current state to another one, following the shortest path.
 
@@ -223,6 +308,7 @@ If the path does not connect from the current state, the animation will play aft
 If ``reset_on_teleport`` is ``true``, the animation is played from the beginning when the travel cause a teleportation.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

@@ -60,7 +60,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`JoyButton<enum_@GlobalScope_JoyButton>` **button_index** = ``0``
+:ref:`JoyButton<enum_@GlobalScope_JoyButton>` **button_index** = ``0`` :ref:`🔗<class_InputEventJoypadButton_property_button_index>`
 
 .. rst-class:: classref-property-setget
 
@@ -77,7 +77,7 @@ Button identifier. One of the :ref:`JoyButton<enum_@GlobalScope_JoyButton>` butt
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **pressed** = ``false``
+:ref:`bool<class_bool>` **pressed** = ``false`` :ref:`🔗<class_InputEventJoypadButton_property_pressed>`
 
 .. rst-class:: classref-property-setget
 
@@ -94,7 +94,7 @@ If ``true``, the button's state is pressed. If ``false``, the button's state is 
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **pressure** = ``0.0``
+:ref:`float<class_float>` **pressure** = ``0.0`` :ref:`🔗<class_InputEventJoypadButton_property_pressure>`
 
 .. rst-class:: classref-property-setget
 
@@ -104,6 +104,7 @@ If ``true``, the button's state is pressed. If ``false``, the button's state is 
 **Deprecated:** This property is never set by the engine and is always ``0``.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
