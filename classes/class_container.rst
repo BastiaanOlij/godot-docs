@@ -12,7 +12,7 @@ Container
 
 **Inherits:** :ref:`Control<class_Control>` **<** :ref:`CanvasItem<class_CanvasItem>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-**Inherited By:** :ref:`AspectRatioContainer<class_AspectRatioContainer>`, :ref:`BoxContainer<class_BoxContainer>`, :ref:`CenterContainer<class_CenterContainer>`, :ref:`EditorProperty<class_EditorProperty>`, :ref:`FlowContainer<class_FlowContainer>`, :ref:`GraphElement<class_GraphElement>`, :ref:`GridContainer<class_GridContainer>`, :ref:`MarginContainer<class_MarginContainer>`, :ref:`PanelContainer<class_PanelContainer>`, :ref:`ScrollContainer<class_ScrollContainer>`, :ref:`SplitContainer<class_SplitContainer>`, :ref:`SubViewportContainer<class_SubViewportContainer>`, :ref:`TabContainer<class_TabContainer>`
+**Inherited By:** :ref:`AspectRatioContainer<class_AspectRatioContainer>`, :ref:`BoxContainer<class_BoxContainer>`, :ref:`CenterContainer<class_CenterContainer>`, :ref:`EditorProperty<class_EditorProperty>`, :ref:`FlowContainer<class_FlowContainer>`, :ref:`FoldableContainer<class_FoldableContainer>`, :ref:`GraphElement<class_GraphElement>`, :ref:`GridContainer<class_GridContainer>`, :ref:`MarginContainer<class_MarginContainer>`, :ref:`PanelContainer<class_PanelContainer>`, :ref:`ScrollContainer<class_ScrollContainer>`, :ref:`SplitContainer<class_SplitContainer>`, :ref:`SubViewportContainer<class_SubViewportContainer>`, :ref:`TabContainer<class_TabContainer>`
 
 Base class for all GUI containers.
 
@@ -38,9 +38,13 @@ Properties
 .. table::
    :widths: auto
 
-   +----------------------------------------------+--------------+-----------------------------------------------------------------------+
-   | :ref:`MouseFilter<enum_Control_MouseFilter>` | mouse_filter | ``1`` (overrides :ref:`Control<class_Control_property_mouse_filter>`) |
-   +----------------------------------------------+--------------+-----------------------------------------------------------------------+
+   +----------------------------------------------+----------------------------------------------------------------------------+------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                      | :ref:`accessibility_region<class_Container_property_accessibility_region>` | ``false``                                                                          |
+   +----------------------------------------------+----------------------------------------------------------------------------+------------------------------------------------------------------------------------+
+   | :ref:`MouseFilter<enum_Control_MouseFilter>` | mouse_filter                                                               | ``1`` (overrides :ref:`Control<class_Control_property_mouse_filter>`)              |
+   +----------------------------------------------+----------------------------------------------------------------------------+------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                      | propagate_maximum_size                                                     | ``true`` (overrides :ref:`Control<class_Control_property_propagate_maximum_size>`) |
+   +----------------------------------------------+----------------------------------------------------------------------------+------------------------------------------------------------------------------------+
 
 .. rst-class:: classref-reftable-group
 
@@ -73,7 +77,7 @@ Signals
 
 .. rst-class:: classref-signal
 
-**pre_sort_children**\ (\ )
+**pre_sort_children**\ (\ ) :ref:`🔗<class_Container_signal_pre_sort_children>`
 
 Emitted when children are going to be sorted.
 
@@ -85,7 +89,7 @@ Emitted when children are going to be sorted.
 
 .. rst-class:: classref-signal
 
-**sort_children**\ (\ )
+**sort_children**\ (\ ) :ref:`🔗<class_Container_signal_sort_children>`
 
 Emitted when sorting the children is needed.
 
@@ -102,7 +106,7 @@ Constants
 
 .. rst-class:: classref-constant
 
-**NOTIFICATION_PRE_SORT_CHILDREN** = ``50``
+**NOTIFICATION_PRE_SORT_CHILDREN** = ``50`` :ref:`🔗<class_Container_constant_NOTIFICATION_PRE_SORT_CHILDREN>`
 
 Notification just before children are going to be sorted, in case there's something to process beforehand.
 
@@ -110,9 +114,31 @@ Notification just before children are going to be sorted, in case there's someth
 
 .. rst-class:: classref-constant
 
-**NOTIFICATION_SORT_CHILDREN** = ``51``
+**NOTIFICATION_SORT_CHILDREN** = ``51`` :ref:`🔗<class_Container_constant_NOTIFICATION_SORT_CHILDREN>`
 
 Notification for when sorting the children, it must be obeyed immediately.
+
+.. rst-class:: classref-section-separator
+
+----
+
+.. rst-class:: classref-descriptions-group
+
+Property Descriptions
+---------------------
+
+.. _class_Container_property_accessibility_region:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **accessibility_region** = ``false`` :ref:`🔗<class_Container_property_accessibility_region>`
+
+.. rst-class:: classref-property-setget
+
+- |void| **set_accessibility_region**\ (\ value\: :ref:`bool<class_bool>`\ )
+- :ref:`bool<class_bool>` **is_accessibility_region**\ (\ )
+
+If ``true``, this container is marked as a region for accessibility. Use :ref:`Control.accessibility_name<class_Control_property_accessibility_name>` to give the region a descriptive name. Screen readers can navigate between regions using landmark navigation.
 
 .. rst-class:: classref-section-separator
 
@@ -127,7 +153,7 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`PackedInt32Array<class_PackedInt32Array>` **_get_allowed_size_flags_horizontal**\ (\ ) |virtual| |const|
+:ref:`PackedInt32Array<class_PackedInt32Array>` **_get_allowed_size_flags_horizontal**\ (\ ) |virtual| |const| :ref:`🔗<class_Container_private_method__get_allowed_size_flags_horizontal>`
 
 Implement to return a list of allowed horizontal :ref:`SizeFlags<enum_Control_SizeFlags>` for child nodes. This doesn't technically prevent the usages of any other size flags, if your implementation requires that. This only limits the options available to the user in the Inspector dock.
 
@@ -141,7 +167,7 @@ Implement to return a list of allowed horizontal :ref:`SizeFlags<enum_Control_Si
 
 .. rst-class:: classref-method
 
-:ref:`PackedInt32Array<class_PackedInt32Array>` **_get_allowed_size_flags_vertical**\ (\ ) |virtual| |const|
+:ref:`PackedInt32Array<class_PackedInt32Array>` **_get_allowed_size_flags_vertical**\ (\ ) |virtual| |const| :ref:`🔗<class_Container_private_method__get_allowed_size_flags_vertical>`
 
 Implement to return a list of allowed vertical :ref:`SizeFlags<enum_Control_SizeFlags>` for child nodes. This doesn't technically prevent the usages of any other size flags, if your implementation requires that. This only limits the options available to the user in the Inspector dock.
 
@@ -155,7 +181,7 @@ Implement to return a list of allowed vertical :ref:`SizeFlags<enum_Control_Size
 
 .. rst-class:: classref-method
 
-|void| **fit_child_in_rect**\ (\ child\: :ref:`Control<class_Control>`, rect\: :ref:`Rect2<class_Rect2>`\ )
+|void| **fit_child_in_rect**\ (\ child\: :ref:`Control<class_Control>`, rect\: :ref:`Rect2<class_Rect2>`\ ) :ref:`🔗<class_Container_method_fit_child_in_rect>`
 
 Fit a child control in a given rect. This is mainly a helper for creating custom container classes.
 
@@ -167,11 +193,12 @@ Fit a child control in a given rect. This is mainly a helper for creating custom
 
 .. rst-class:: classref-method
 
-|void| **queue_sort**\ (\ )
+|void| **queue_sort**\ (\ ) :ref:`🔗<class_Container_method_queue_sort>`
 
 Queue resort of the contained children. This is called automatically anyway, but can be called upon request.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

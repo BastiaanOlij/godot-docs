@@ -14,7 +14,7 @@ AnimationNodeSync
 
 **Inherited By:** :ref:`AnimationNodeAdd2<class_AnimationNodeAdd2>`, :ref:`AnimationNodeAdd3<class_AnimationNodeAdd3>`, :ref:`AnimationNodeBlend2<class_AnimationNodeBlend2>`, :ref:`AnimationNodeBlend3<class_AnimationNodeBlend3>`, :ref:`AnimationNodeOneShot<class_AnimationNodeOneShot>`, :ref:`AnimationNodeSub2<class_AnimationNodeSub2>`, :ref:`AnimationNodeTransition<class_AnimationNodeTransition>`
 
-Base class for :ref:`AnimationNode<class_AnimationNode>`\ s with more than two input ports that must be synchronized.
+Base class for :ref:`AnimationNode<class_AnimationNode>`\ s with multiple input ports that must be synchronized.
 
 .. rst-class:: classref-introduction-group
 
@@ -55,7 +55,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **sync** = ``false``
+:ref:`bool<class_bool>` **sync** = ``false`` :ref:`🔗<class_AnimationNodeSync_property_sync>`
 
 .. rst-class:: classref-property-setget
 
@@ -67,6 +67,7 @@ If ``false``, the blended animations' frame are stopped when the blend value is 
 If ``true``, forcing the blended animations to advance frame.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

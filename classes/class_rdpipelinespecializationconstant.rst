@@ -50,7 +50,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`int<class_int>` **constant_id** = ``0``
+:ref:`int<class_int>` **constant_id** = ``0`` :ref:`🔗<class_RDPipelineSpecializationConstant_property_constant_id>`
 
 .. rst-class:: classref-property-setget
 
@@ -67,7 +67,7 @@ The identifier of the specialization constant. This is a value starting from ``0
 
 .. rst-class:: classref-property
 
-:ref:`Variant<class_Variant>` **value**
+:ref:`Variant<class_Variant>` **value** :ref:`🔗<class_RDPipelineSpecializationConstant_property_value>`
 
 .. rst-class:: classref-property-setget
 
@@ -77,6 +77,7 @@ The identifier of the specialization constant. This is a value starting from ``0
 The specialization constant's value. Only :ref:`bool<class_bool>`, :ref:`int<class_int>` and :ref:`float<class_float>` types are valid for specialization constants.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`

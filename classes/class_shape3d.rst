@@ -71,7 +71,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **custom_solver_bias** = ``0.0``
+:ref:`float<class_float>` **custom_solver_bias** = ``0.0`` :ref:`🔗<class_Shape3D_property_custom_solver_bias>`
 
 .. rst-class:: classref-property-setget
 
@@ -82,6 +82,8 @@ The shape's custom solver bias. Defines how much bodies react to enforce contact
 
 When set to ``0``, the default value from :ref:`ProjectSettings.physics/3d/solver/default_contact_bias<class_ProjectSettings_property_physics/3d/solver/default_contact_bias>` is used.
 
+\ **Note:** :ref:`custom_solver_bias<class_Shape3D_property_custom_solver_bias>` is only effective when using GodotPhysics3D. It has no effect when using Jolt Physics.
+
 .. rst-class:: classref-item-separator
 
 ----
@@ -90,7 +92,7 @@ When set to ``0``, the default value from :ref:`ProjectSettings.physics/3d/solve
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **margin** = ``0.04``
+:ref:`float<class_float>` **margin** = ``0.04`` :ref:`🔗<class_Shape3D_property_margin>`
 
 .. rst-class:: classref-property-setget
 
@@ -114,11 +116,12 @@ Method Descriptions
 
 .. rst-class:: classref-method
 
-:ref:`ArrayMesh<class_ArrayMesh>` **get_debug_mesh**\ (\ )
+:ref:`ArrayMesh<class_ArrayMesh>` **get_debug_mesh**\ (\ ) :ref:`🔗<class_Shape3D_method_get_debug_mesh>`
 
 Returns the :ref:`ArrayMesh<class_ArrayMesh>` used to draw the debug collision for this **Shape3D**.
 
 .. |virtual| replace:: :abbr:`virtual (This method should typically be overridden by the user to have any effect.)`
+.. |required| replace:: :abbr:`required (This method is required to be overridden when extending its base class.)`
 .. |const| replace:: :abbr:`const (This method has no side effects. It doesn't modify any of the instance's member variables.)`
 .. |vararg| replace:: :abbr:`vararg (This method accepts any number of arguments after the ones described here.)`
 .. |constructor| replace:: :abbr:`constructor (This method is used to construct a type.)`
